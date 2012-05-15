@@ -16,8 +16,8 @@ Authors of this addon hereby grant you the following rights:
 		portions of the Software.
 
 Earlier versions were released under terms that did not require permission,
-but due to the actions of certain unscrupulous distributors, I have chosen
-to license all versions over v9 under stricter terms.
+but due to the actions of certain unscrupulous distributors, We have chosen
+to license all versions over v5 under stricter terms.
 
 All rights not explicitly addressed in this license are reserved by
 the copyright holders.
