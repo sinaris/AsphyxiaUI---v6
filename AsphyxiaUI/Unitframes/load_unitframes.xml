@@ -1,4 +1,9 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/">
+	<Script file="Plugins\CastbarTicks.lua" />
+	<Script file="Plugins\ClassIcons.lua" />
+
+	<Script file="Functions\Functions.lua" />
+
 	<Script file="Units\Player.lua" />
 	<Script file="Units\Target.lua" />
 </Ui>

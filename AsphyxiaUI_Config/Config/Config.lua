@@ -11,6 +11,19 @@ C["general"] = {
 	["bordercolor"] = { 0.125, 0.125, 0.125 },
 }
 
+C["asphyxia"] = {
+	["unitframes"] = {
+		["classicons"] = true,
+	},
+	["castbar"] = {
+		["classcolor"] = false,
+		["castbarcolor"] = { 0.150, 0.150, 0.150, 1 },
+		["nointerruptcolor"] = { 1, 0, 0, 1 },
+		["ticks"] = true,
+		["tickscolor"] = { 1, 0, 0, 1 },
+	},
+}
+
 C["media"] = {
 	["asphyxia"] = [[Interface\AddOns\AsphyxiaUI\Media\Fonts\Asphyxia.ttf]],
 	["pixel_normal"] = [[Interface\AddOns\AsphyxiaUI\Media\Fonts\PixelNormal.ttf]],

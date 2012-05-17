@@ -90,7 +90,17 @@ elseif( C["global"]["unitframelayout"] == "jasje" ) then
 	-- classicons
 	------------------------------
 	do
+		if( C["asphyxia"]["unitframes"]["classicons"] == true ) then
+			local classicon = CreateFrame( "Frame", G.UnitFrames.Player:GetName() .. "_ClassIconBorder", G.UnitFrames.Player )
+			classicon:CreatePanel( "Default", 33, 33, "TOPRIGHT", G.UnitFrames.Player.Health, "TOPLEFT", -5, 2 )
 
+			local class = classicon:CreateTexture( G.UnitFrames.Player:GetName() .. "_ClassIcon", "ARTWORK" )
+			class:Point( "TOPLEFT", 2, -2 )
+			class:Point( "BOTTOMRIGHT", -2, 2 )
+			G.UnitFrames.Player.ClassIcon = class
+
+			G.UnitFrames.Player:EnableElement( "ClassIcon" )
+		end
 	end
 
 	------------------------------
@@ -125,7 +135,7 @@ elseif( C["global"]["unitframelayout"] == "jasje" ) then
 	-- combat feedback
 	------------------------------
 	do
-
+		G.UnitFrames.Player.CombatFeedbackText:Kill()
 	end
 
 	------------------------------
@@ -192,6 +202,9 @@ elseif( C["global"]["unitframelayout"] == "jasje" ) then
 			else
 				G.UnitFrames.Player.Castbar:Width( G.ActionBars.Bar1:GetWidth() -4 )
 			end
+
+			G.UnitFrames.Player.Castbar.PostCastStart = S.PostCastStart
+			G.UnitFrames.Player.Castbar.PostChannelStart = S.PostCastStart
 
 			G.UnitFrames.Player.Castbar.Time = S.SetFontString( G.UnitFrames.Player.Castbar, C["media"]["pixel_normal"], 12, "OUTLINEMONOCHROME" )
 			G.UnitFrames.Player.Castbar.Time:Point("RIGHT", G.UnitFrames.Player.Castbar, "RIGHT", -4, 0)
