@@ -3,3 +3,5 @@
 ---------------------------------------------------------------------------------------------
 
 local S, C, L, G = unpack( Tukui )
+
+S.version = GetAddOnMetadata( "AsphyxiaUI", "Version" )

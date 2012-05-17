@@ -3,6 +3,6 @@
 ## Notes:
 ## Version: 6.0.0
 ## Author: Sinaris, Merith
-## RequiredDeps: AsphyxiaUI, Tukui
+## RequiredDeps: AsphyxiaUI
 
-AsphyxiaUI_Config.xml
+Config\Config.lua

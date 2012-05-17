@@ -35,4 +35,9 @@ AsphyxiaUIOnLogon:SetScript( "OnEvent", function( self, event )
 			["actionbarsLocked"] = false,
 		}
 	end
+
+	if( C["global"]["welcomemessage"] == true ) then
+		print( "L.welcomemessage_1" )
+		print( "L.welcomemessage_2" )
+	end
 end )

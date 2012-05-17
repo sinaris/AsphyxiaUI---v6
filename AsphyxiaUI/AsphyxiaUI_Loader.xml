@@ -3,4 +3,5 @@
 
 	<Include file="Core\load_core.xml" />
 	<Include file="Modules\load_modules.xml" />
+	<Include file="Unitframes\load_unitframes.xml" />
 </Ui>

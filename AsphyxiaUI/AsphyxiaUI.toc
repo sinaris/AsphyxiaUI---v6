@@ -3,6 +3,7 @@
 ## Notes:
 ## Version: 6.0.0
 ## Author: Sinaris, Merith
+## SavedVariablesPerCharacter: TukuiSaved
 ## RequiredDeps: AsphyxiaUI_Config, Tukui
 ## X-oUF: oUFTukui
 
