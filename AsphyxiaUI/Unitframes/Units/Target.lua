@@ -108,7 +108,9 @@ elseif( C["global"]["unitframelayout"] == "jasje" ) then
 	-- combat feedback
 	------------------------------
 	do
-		G.UnitFrames.Target.CombatFeedbackText:SetFont( C["media"]["pixel_normal"], 12, "OUTLINEMONOCHROME" )
+		if( C["unitframes"]["combatfeedback"] == true ) then
+			G.UnitFrames.Target.CombatFeedbackText:SetFont( C["media"]["pixel_normal"], 12, "OUTLINEMONOCHROME" )
+		end
 	end
 
 	------------------------------

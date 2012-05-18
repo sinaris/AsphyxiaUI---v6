@@ -24,6 +24,10 @@ C["asphyxia"] = {
 	},
 }
 
+C["unitframes"] = {
+	["unicolor"] = true,
+}
+
 C["media"] = {
 	["asphyxia"] = [[Interface\AddOns\AsphyxiaUI\Media\Fonts\Asphyxia.ttf]],
 	["pixel_normal"] = [[Interface\AddOns\AsphyxiaUI\Media\Fonts\PixelNormal.ttf]],
@@ -31,6 +35,7 @@ C["media"] = {
 
 	["glamour"] =  [[Interface\AddOns\AsphyxiaUI\Media\Textures\Glamour.tga]],
 	["logo"] = [[Interface\AddOns\AsphyxiaUI\Medias\Textures\Logo]],
+	["normal"] =  [[Interface\AddOns\AsphyxiaUI\Media\Textures\Normal.tga]],
 
 	["bordercolor"] = C["general"].bordercolor,
 	["backdropcolor"] = C["general"].backdropcolor,
