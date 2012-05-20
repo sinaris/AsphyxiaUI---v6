@@ -81,7 +81,7 @@ if( C["global"]["unitframelayout"] == "asphyxia" ) then
 	-- classicons
 	------------------------------
 	do
-		if( C["asphyxia"]["unitframes"]["classicons"] == true ) then
+		if( C["unitframes"]["classicons"] == true ) then
 			local classicon = CreateFrame( "Frame", G.UnitFrames.Player:GetName() .. "_ClassIconBorder", G.UnitFrames.Player )
 			classicon:CreatePanel( "Default", 30, 30, "TOPRIGHT", G.UnitFrames.Player.Health, "TOPLEFT", -5, 2 )
 
@@ -98,8 +98,10 @@ if( C["global"]["unitframelayout"] == "asphyxia" ) then
 	-- combat icon
 	------------------------------
 	do
+		G.UnitFrames.Player.Combat:Size( 19 )
 		G.UnitFrames.Player.Combat:ClearAllPoints()
-		G.UnitFrames.Player.Combat:SetPoint( "CENTER", 0, 3 )
+		G.UnitFrames.Player.Combat:SetPoint( "CENTER", 0, 0 )
+		G.UnitFrames.Player.Combat:SetVertexColor( 0.69, 0.31, 0.31 )
 	end
 
 	------------------------------
@@ -236,7 +238,7 @@ elseif( C["global"]["unitframelayout"] == "jasje" ) then
 	-- classicons
 	------------------------------
 	do
-		if( C["asphyxia"]["unitframes"]["classicons"] == true ) then
+		if( C["unitframes"]["classicons"] == true ) then
 			local classicon = CreateFrame( "Frame", G.UnitFrames.Player:GetName() .. "_ClassIconBorder", G.UnitFrames.Player )
 			classicon:CreatePanel( "Default", 33, 33, "TOPRIGHT", G.UnitFrames.Player.Health, "TOPLEFT", -5, 2 )
 
@@ -253,10 +255,7 @@ elseif( C["global"]["unitframelayout"] == "jasje" ) then
 	-- combat icon
 	------------------------------
 	do
-		G.UnitFrames.Player.Combat:Size( 19 )
-		G.UnitFrames.Player.Combat:ClearAllPoints()
-		G.UnitFrames.Player.Combat:SetPoint( "CENTER", 0, 0 )
-		G.UnitFrames.Player.Combat:SetVertexColor( 0.69, 0.31, 0.31 )
+
 	end
 
 	------------------------------

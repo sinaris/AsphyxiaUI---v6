@@ -1,3 +1,6 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/">
 	<Include file="Panels\load_panels.xml" />
+	<Include file="Actionbars\load_actionbars.xml" />
+
+	<Include file="Extras\load_extras.xml" />
 </Ui>

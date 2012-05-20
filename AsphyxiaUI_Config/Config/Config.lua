@@ -11,21 +11,33 @@ C["general"] = {
 	["bordercolor"] = { 0.125, 0.125, 0.125 },
 }
 
-C["asphyxia"] = {
-	["unitframes"] = {
-		["classicons"] = true,
-	},
-	["castbar"] = {
-		["classcolor"] = false,
-		["castbarcolor"] = { 0.150, 0.150, 0.150, 1 },
-		["nointerruptcolor"] = { 1, 0, 0, 1 },
-		["ticks"] = true,
-		["tickscolor"] = { 1, 0, 0, 1 },
-	},
+C["actionbar"] = {
+	["stancebuttonsize"] = 27,
+	["vertical_rightbars"] = false,
+	["vertical_shapeshift"] = false,
+	["mouseover_shapeshift"] = false,
+	["mainswap"] = false,
+	["macrotext"] = false,
+}
+
+C["castbar"] = {
+	["classcolor"] = false,
+	["castbarcolor"] = { 0.150, 0.150, 0.150, 1 },
+	["nointerruptcolor"] = { 1, 0, 0, 1 },
+	["ticks"] = true,
+	["tickscolor"] = { 1, 0, 0, 1 },
 }
 
 C["unitframes"] = {
+	["classicons"] = true,
 	["unicolor"] = true,
+}
+
+C["chat"] = {
+	["background"] = true,
+	["width"] = 378,
+	["height"] = 175,
+	["justifyRight"] = true,
 }
 
 C["media"] = {

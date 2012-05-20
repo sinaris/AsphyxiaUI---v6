@@ -91,7 +91,7 @@ elseif( C["global"]["unitframelayout"] == "jasje" ) then
 	-- classicons
 	------------------------------
 	do
-		if( C["asphyxia"]["unitframes"]["classicons"] == true ) then
+		if( C["unitframes"]["classicons"] == true ) then
 			local classicon = CreateFrame( "Frame", G.UnitFrames.Target:GetName() .. "_ClassIconBorder", G.UnitFrames.Target )
 			classicon:CreatePanel( "Default", 33, 33, "TOPLEFT", G.UnitFrames.Target.Health, "TOPRIGHT", 5, 2 )
 
@@ -164,22 +164,22 @@ elseif( C["global"]["unitframelayout"] == "jasje" ) then
 			G.UnitFrames.Target.Buffs.spacing = 2
 
 			G.UnitFrames.Target.Buffs:ClearAllPoints()
-			G.UnitFrames.Target.Buffs:Point( "BOTTOMLEFT", G.UnitFrames.Target, "TOPLEFT", 0, 4 )
+			G.UnitFrames.Target.Buffs:Point( "BOTTOMLEFT", UIParent, "TOPLEFT", 0, 4 )
 
 			G.UnitFrames.Target.Debuffs:ClearAllPoints()
 			G.UnitFrames.Target.Debuffs:Point( "BOTTOMLEFT", G.UnitFrames.Target.Buffs, "TOPLEFT", -30, 2 )
 
-			if( G.UnitFrames.Target.Buffs or G.UnitFrames.Target.Debuffs ) then
-				for _, f in pairs( { G.UnitFrames.Target.Buffs, G.UnitFrames.Target.Debuffs } ) do
-					if( not f ) then return end
+			--if( G.UnitFrames.Target.Buffs or G.UnitFrames.Target.Debuffs ) then
+			--	for _, f in pairs( { G.UnitFrames.Target.Buffs, G.UnitFrames.Target.Debuffs } ) do
+			--		if( not f ) then return end
 
-					f:Size( 252, 26 )
-					f.size = 26
-					f.num = 8
+			--		f:Size( 252, 26 )
+			--		f.size = 26
+			--		f.num = 8
 
-					hooksecurefunc( f, "PostCreateIcon", S.SkinAura )
-				end
-			end
+			--		hooksecurefunc( f, "PostCreateIcon", S.SkinAura )
+			--	end
+			--end
 		end
 	end
 
