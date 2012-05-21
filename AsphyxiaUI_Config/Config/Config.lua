@@ -46,7 +46,7 @@ C["media"] = {
 	["pixel_ru"] = [[Interface\AddOns\AsphyxiaUI\Media\Fonts\PixelRu.ttf]], 
 
 	["glamour"] =  [[Interface\AddOns\AsphyxiaUI\Media\Textures\Glamour.tga]],
-	["logo"] = [[Interface\AddOns\AsphyxiaUI\Medias\Textures\Logo]],
+	["logo"] = [[Interface\AddOns\AsphyxiaUI\Medias\Textures\Logo.tga]],
 	["normal"] =  [[Interface\AddOns\AsphyxiaUI\Media\Textures\Normal.tga]],
 
 	["bordercolor"] = C["general"].bordercolor,
