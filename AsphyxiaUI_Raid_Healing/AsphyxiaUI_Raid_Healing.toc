@@ -1,0 +1,8 @@
+## Interface: 50001
+## Title: AsphyxiaUI - Raid Healing Layout
+## Notes:
+## Version: 6.0.0
+## Author: Sinaris, Merith
+## RequiredDeps: AsphyxiaUI, Tukui
+
+AsphyxiaUI_Raid_Healing.xml

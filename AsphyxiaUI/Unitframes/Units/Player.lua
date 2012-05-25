@@ -33,7 +33,7 @@ if( C["global"]["unitframelayout"] == "asphyxia" ) then
 			G.UnitFrames.Player.Health.colorTapping = false
 			G.UnitFrames.Player.Health.colorDisconnected = false
 			G.UnitFrames.Player.Health.colorClass = false
-			G.UnitFrames.Player.Health:SetStatusBarColor( .125, .125, .125, 1 )
+			G.UnitFrames.Player.Health:SetStatusBarColor( 0.125, 0.125, 0.125, 1 )
 			G.UnitFrames.Player.Health.bg:SetVertexColor( 0, 0, 0, 1 )
 		else
 			G.UnitFrames.Player.Health.colorDisconnected = true
@@ -363,7 +363,7 @@ elseif( C["global"]["unitframelayout"] == "jasje" ) then
 	end
 
 	------------------------------
-	-- position, size
+	-- size
 	------------------------------
 	do
 		G.UnitFrames.Player:Size( 220, 50 )
@@ -377,14 +377,17 @@ elseif( C["global"]["unitframelayout"] == "sinaris" ) then
 	print("uf layout: sinaris")
 end
 
-local f = CreateFrame( "Frame" )
-f:RegisterEvent( "PLAYER_ENTERING_WORLD" )
-f:SetScript( "OnEvent", function( self, event, addon )
+------------------------------
+-- position
+------------------------------
+local PlayerPosition = CreateFrame( "Frame" )
+PlayerPosition:RegisterEvent( "PLAYER_ENTERING_WORLD" )
+PlayerPosition:SetScript( "OnEvent", function( self, event, addon )
 	G.UnitFrames.Player:ClearAllPoints()
 
-	if( IsAddOnLoaded( "AsphyxiaUI_Raid" ) or IsAddOnLoaded( "Tukui_Raid" ) ) then
+	if( IsAddOnLoaded( "AsphyxiaUI_Raid" ) ) then
 		G.UnitFrames.Player:SetPoint( "TOP", UIParent, "BOTTOM", -170 , 260 )
-	elseif( IsAddOnLoaded( "AsphyxiaUI_Raid_Healing" ) or IsAddOnLoaded( "Tukui_Raid_Healing" ) ) then
+	elseif( IsAddOnLoaded( "AsphyxiaUI_Raid_Healing" ) ) then
 		G.UnitFrames.Player:SetPoint( "TOP", UIParent, "BOTTOM", -309 , 350 )
 	else
 		G.UnitFrames.Player:SetPoint( "TOP", UIParent, "BOTTOM", -309 , 350 )

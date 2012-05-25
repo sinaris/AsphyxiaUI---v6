@@ -39,6 +39,10 @@ AsphyxiaUIOnLogon:SetScript( "OnEvent", function( self, event )
 		}
 	end
 
+	if( IsAddOnLoaded( "AsphyxiaUI_Raid" ) and IsAddOnLoaded( "AsphyxiaUI_Raid_Healing" ) ) then
+		StaticPopup_Show( "ASPHYXIAUI_CHANGE_RAID_LAYOUT" )
+	end
+
 	if( C["global"]["welcomemessage"] == true ) then
 		print( "L.welcomemessage_1" )
 		print( "L.welcomemessage_2" )

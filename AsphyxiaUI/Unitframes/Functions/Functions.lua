@@ -23,7 +23,7 @@ function S.SetCastTicks( frame, numTicks )
 				ticks[i] = frame:CreateTexture( nil, "OVERLAY" )
 				ticks[i]:SetTexture( C["media"]["normTex"] )
 
-				if( C["asphyxia"]["castbar"]["classcolor"] == true ) then
+				if( C["castbar"]["classcolor"] == true ) then
 					ticks[i]:SetVertexColor( 0, 0, 0 )
 				else
 					ticks[i]:SetVertexColor( 0.84, 0.75, 0.65 )
@@ -47,21 +47,21 @@ S.PostCastStart = function( self, unit, name, rank, castid )
 
 	if( self.interrupt and unit ~= "player" ) then
 		if( UnitCanAttack( "player", unit ) ) then
-			self:SetStatusBarColor( unpack( C["asphyxia"]["castbar"]["nointerruptcolor"] ) )
+			self:SetStatusBarColor( unpack( C["castbar"]["nointerruptcolor"] ) )
 		else
-			self:SetStatusBarColor( unpack( C["asphyxia"]["castbar"]["nointerruptcolor"] ) )
+			self:SetStatusBarColor( unpack( C["castbar"]["nointerruptcolor"] ) )
 		end
 	else
-		if( C["asphyxia"]["castbar"]["classcolor"] == true and ( unit == "player" or unit == "target" ) ) then
+		if( C["castbar"]["classcolor"] == true and ( unit == "player" or unit == "target" ) ) then
 			self:SetStatusBarColor( unpack( oUFTukui.colors.class[select( 2, UnitClass( unit ) ) ] ) )
 		else
-			self:SetStatusBarColor( unpack( C["asphyxia"]["castbar"]["castbarcolor"] ) )
+			self:SetStatusBarColor( unpack( C["castbar"]["castbarcolor"] ) )
 		end
 
 		local color
 		self.unit = unit
 
-		if( C["asphyxia"]["castbar"]["ticks"] == true and unit == "player" ) then
+		if( C["castbar"]["ticks"] == true and unit == "player" ) then
 			local baseTicks = S.ChannelTicks[name]
 			if( baseTicks and S.HastedChannelTicks[name] ) then
 				local tickIncRate = 1 / baseTicks
@@ -98,11 +98,11 @@ end
 S.SkinAura = function( self, button )
 	button.count:ClearAllPoints()
 	button.count:Point( "TOPLEFT", button, 1, 5 )
-	button.count:SetFont( C["media"]["pixel_normal"], 12, "OUTLINEMONOCHROME" )
+	button.count:SetFont( S.CreateFontString() )
 
 	button.remaining:ClearAllPoints()
 	button.remaining:Point( "CENTER", button,2, -2 )
-	button.remaining:SetFont( C["media"]["pixel_normal"], 12, "OUTLINEMONOCHROME" )
+	button.remaining:SetFont( S.CreateFontString() )
 
 	button.Glow:Kill()
 end
