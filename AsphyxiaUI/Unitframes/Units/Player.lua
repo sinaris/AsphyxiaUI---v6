@@ -117,7 +117,18 @@ if( C["global"]["unitframelayout"] == "asphyxia" ) then
 	-- experience
 	------------------------------
 	do
+		G.UnitFrames.Player.Experience:ClearAllPoints()
+		G.UnitFrames.Player.Experience:SetStatusBarColor( 0, 0.4, 1, 0.8 )
 
+		if( C["global"]["panellayout"] == "asphyxia" ) then
+			G.UnitFrames.Player.Experience:SetStatusBarTexture( C["media"]["normal"] )
+		elseif( C["global"]["panellayout"] == "duffed" ) then
+			G.UnitFrames.Player.Experience:SetStatusBarTexture( C["media"]["normal"] )
+		elseif( C["global"]["panellayout"] == "jasje" ) then
+			G.UnitFrames.Player.Experience:SetStatusBarTexture( C["media"]["glamour"] )
+		elseif( C["global"]["panellayout"] == "sinaris" ) then
+			G.UnitFrames.Player.Experience:SetStatusBarTexture( C["media"]["normal"] )
+		end
 	end
 
 	------------------------------

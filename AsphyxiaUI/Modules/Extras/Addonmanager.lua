@@ -20,7 +20,7 @@ addonHeader.Text:SetText( ADDONS .. ": " .. S.myname )
 local scrollFrame = CreateFrame( "ScrollFrame", "scrollFrame", addonBG, "UIPanelScrollFrameTemplate" )
 scrollFrame:SetPoint( "TOPLEFT", addonBG, "TOPLEFT", 10, -10 )
 scrollFrame:SetPoint( "BOTTOMRIGHT", addonBG, "BOTTOMRIGHT", -30, 40 )
---S.SkinScrollBar( scrollFrameScrollBar )
+scrollFrameScrollBar:SkinScrollBar()
 
 local buttonsBG = CreateFrame( "Frame", "buttonsBG", scrollFrame )
 buttonsBG:SetPoint( "TOPLEFT" )

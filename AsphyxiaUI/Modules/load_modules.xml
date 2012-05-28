@@ -1,4 +1,5 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/">
+	<Include file="Maps\load_maps.xml" />
 	<Include file="Panels\load_panels.xml" />
 	<Include file="Actionbars\load_actionbars.xml" />
 
