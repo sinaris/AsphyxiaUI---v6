@@ -54,9 +54,9 @@ end
 ------------------------------
 -- bottompanel
 ------------------------------
-local JasjaBottomPanel = CreateFrame( "Frame", "JasjaBottomPanel", UIParent )
-JasjaBottomPanel:CreatePanel( "Default", S.screenwidth + 6, 20, "BOTTOM", UIParent, "BOTTOM", 0, -2 )
-JasjaBottomPanel:SetFrameStrata( "BACKGROUND" )
-JasjaBottomPanel:SetFrameLevel( 0 )
-JasjaBottomPanel:SetAlpha( 0.9 )
-JasjaBottomPanel:CreateShadow( "Default" )
+local JasjeBottomPanel = CreateFrame( "Frame", "JasjeBottomPanel", UIParent )
+JasjeBottomPanel:CreatePanel( "Default", S.screenwidth + 6, 20, "BOTTOM", UIParent, "BOTTOM", 0, -2 )
+JasjeBottomPanel:SetFrameStrata( "BACKGROUND" )
+JasjeBottomPanel:SetFrameLevel( 0 )
+JasjeBottomPanel:SetAlpha( 0.9 )
+JasjeBottomPanel:CreateShadow( "Default" )
