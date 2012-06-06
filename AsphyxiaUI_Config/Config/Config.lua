@@ -31,6 +31,7 @@ C["castbar"] = {
 C["unitframes"] = {
 	["classicons"] = true,
 	["unicolor"] = true,
+	["fader"] = false,
 }
 
 C["chat"] = {

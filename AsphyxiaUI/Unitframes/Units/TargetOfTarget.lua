@@ -56,23 +56,9 @@ elseif( C["global"]["unitframelayout"] == "jasje" ) then
 		G.UnitFrames.TargetTarget.Health.bg:SetTexture( 0.6, 0.6, 0.6 )
 		G.UnitFrames.TargetTarget.Health.bg:SetVertexColor( 0, 0, 0 )
 
+		G.UnitFrames.TargetTarget.Name:ClearAllPoints()
+		G.UnitFrames.TargetTarget.Name:Point( "CENTER", G.UnitFrames.TargetTarget.panel, "CENTER", 0, 1 )
 		G.UnitFrames.TargetTarget.Name:SetFont( S.CreateFontString() )
-	end
-
-	------------------------------
-	-- power
-	------------------------------
-	do
-
-	end
-
-	------------------------------
-	-- castbar
-	------------------------------
-	do
-		if( C["unitframes"]["unitcastbar"] == true ) then
-
-		end
 	end
 
 	------------------------------

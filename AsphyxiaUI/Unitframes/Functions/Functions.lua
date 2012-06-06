@@ -106,3 +106,24 @@ S.SkinAura = function( self, button )
 
 	button.Glow:Kill()
 end
+
+------------------------------
+-- 
+------------------------------
+hooksecurefunc( S, "PostNamePosition", function( self )
+	self.Name:ClearAllPoints()
+	
+	if( self.Power.value:GetText() and UnitIsEnemy( "player", "target" ) and C["unitframes"]["targetpowerpvponly"] == true ) or ( self.Power.value:GetText() and C["unitframes"]["targetpowerpvponly"] == false ) then
+		if( C["global"]["unitframelayout"] == "jasje" ) then
+			self.Name:SetPoint( "LEFT", self.panel, "LEFT", 3, 1 )
+		else
+			self.Name:SetPoint( "CENTER", self.Health, "CENTER", 0, 1 )
+		end
+	else
+		if( C["global"]["unitframelayout"] == "jasje" ) then
+			self.Name:SetPoint( "LEFT", self.panel, "LEFT", 3, 1 )
+		else
+			self.Name:SetPoint( "CENTER", self.Health, "CENTER", 0, 1 )
+		end
+	end
+end )

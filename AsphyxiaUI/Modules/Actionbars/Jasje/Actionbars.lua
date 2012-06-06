@@ -34,7 +34,7 @@ G.ActionBars.Shift:ClearAllPoints()
 if( S.myclass == "PALADIN" ) then
 	G.ActionBars.Shift:SetPoint( "TOP", G.UnitFrames.Player, "BOTTOMRIGHT", -28, -45 )
 else
-	G.ActionBars.Shift:SetPoint( "TOP", G.UnitFrames.Player, "BOTTOMRIGHT", 38, -45 )
+	G.ActionBars.Shift:SetPoint( "TOP", G.UnitFrames.Player, "BOTTOMRIGHT", -28, -45 )
 end
 
 ------------------------------

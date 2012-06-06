@@ -108,6 +108,9 @@ elseif( C["global"]["unitframelayout"] == "jasje" ) then
 		G.UnitFrames.Target.Health.bg:SetVertexColor( 0, 0, 0 )
 
 		G.UnitFrames.Target.Name:SetFont( S.CreateFontString() )
+
+		G.UnitFrames.Target.Health.value:ClearAllPoints()
+		G.UnitFrames.Target.Health.value:Point( "RIGHT", G.UnitFrames.Target.panel, "RIGHT", 0, 1 )
 		G.UnitFrames.Target.Health.value:SetFont( S.CreateFontString() )
 	end
 

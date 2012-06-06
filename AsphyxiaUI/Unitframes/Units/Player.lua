@@ -213,6 +213,8 @@ elseif( C["global"]["unitframelayout"] == "jasje" ) then
 		G.UnitFrames.Player.Health.bg:SetTexture( 0.6, 0.6, 0.6 )
 		G.UnitFrames.Player.Health.bg:SetVertexColor( 0, 0, 0 )
 
+		G.UnitFrames.Player.Health.value:ClearAllPoints()
+		G.UnitFrames.Player.Health.value:Point( "RIGHT", G.UnitFrames.Player.panel, "RIGHT", 0, 1 )
 		G.UnitFrames.Player.Health.value:SetFont( S.CreateFontString() )
 	end
 
@@ -226,7 +228,9 @@ elseif( C["global"]["unitframelayout"] == "jasje" ) then
 		G.UnitFrames.Player.Power:SetFrameLevel( 3 )
 		G.UnitFrames.Player.Power:CreateBorder()
 
-		G.UnitFrames.Player.Power.value:SetFont( C["media"]["pixel_normal"], 12, "OUTLINEMONOCHROME" )
+		G.UnitFrames.Player.Power.value:ClearAllPoints()
+		G.UnitFrames.Player.Power.value:Point( "LEFT", G.UnitFrames.Player.panel, "LEFT", 3, 1 )
+		G.UnitFrames.Player.Power.value:SetFont( S.CreateFontString() )
 	end
 
 	------------------------------
@@ -370,8 +374,30 @@ elseif( C["global"]["unitframelayout"] == "jasje" ) then
 			------------------------------
 			-- warlock, paladin
 			------------------------------
-			if( S.myclass == "WARLOCK" or S.myclass == "PALADIN" ) then
+			if( S.myclass == "WARLOCK" ) then
+				G.UnitFrames.Player.WarlockSpecBars:Size( 220, 3 )
+				G.UnitFrames.Player.WarlockSpecBars:CreateBorder()
+				G.UnitFrames.Player.WarlockSpecBars:ClearAllPoints()
+				G.UnitFrames.Player.WarlockSpecBars:Point( "BOTTOM", G.UnitFrames.Player, "TOP", 0, 7 )
+			end
 
+			------------------------------
+			-- warlock, paladin
+			------------------------------
+			if( S.myclass == "PALADIN" ) then
+				G.UnitFrames.Player.HolyPower:Size( 220, 3 )
+				G.UnitFrames.Player.HolyPower:CreateBorder()
+				G.UnitFrames.Player.HolyPower:ClearAllPoints()
+				G.UnitFrames.Player.HolyPower:Point( "BOTTOM", G.UnitFrames.Player, "TOP", 0, 7 )
+
+				TukuiPlayer_Shard1:SetHeight(3)
+				TukuiPlayer_Shard1:SetWidth(218 / 3)
+
+				TukuiPlayer_Shard2:SetHeight(3)
+				TukuiPlayer_Shard2:SetWidth(218 / 3)
+
+				TukuiPlayer_Shard3:SetHeight(3)
+				TukuiPlayer_Shard3:SetWidth(218 / 3)
 			end
 
 			------------------------------
@@ -416,11 +442,31 @@ elseif( C["global"]["unitframelayout"] == "jasje" ) then
 			G.UnitFrames.Player.Castbar.PostCastStart = S.PostCastStart
 			G.UnitFrames.Player.Castbar.PostChannelStart = S.PostCastStart
 
-			G.UnitFrames.Player.Castbar.Time = S.SetFontString( G.UnitFrames.Player.Castbar, C["media"]["pixel_normal"], 12, "OUTLINEMONOCHROME" )
-			G.UnitFrames.Player.Castbar.Time:Point("RIGHT", G.UnitFrames.Player.Castbar, "RIGHT", -4, 0)
+			G.UnitFrames.Player.Castbar.Time = S.SetFontString( G.UnitFrames.Player.Castbar, S.CreateFontString() )
+			G.UnitFrames.Player.Castbar.Time:Point( "RIGHT", G.UnitFrames.Player.Castbar, "RIGHT", -4, 0 )
 
-			G.UnitFrames.Player.Castbar.Text = S.SetFontString( G.UnitFrames.Player.Castbar, C["media"]["pixel_normal"], 12, "OUTLINEMONOCHROME" )
+			G.UnitFrames.Player.Castbar.Text = S.SetFontString( G.UnitFrames.Player.Castbar, S.CreateFontString() )
 			G.UnitFrames.Player.Castbar.Text:Point( "LEFT", G.UnitFrames.Player.Castbar, "LEFT", 4, 0 )
+		end
+	end
+
+	------------------------------
+	-- fader
+	------------------------------
+	do
+		if( C["unitframes"]["fader"] == true ) then
+			G.UnitFrames.Player.FadeCasting = true
+			G.UnitFrames.Player.FadeCombat = true
+			G.UnitFrames.Player.FadeTarget = true
+			G.UnitFrames.Player.FadeHealth = true
+			G.UnitFrames.Player.FadePower = true
+			G.UnitFrames.Player.FadeHover = true
+
+			G.UnitFrames.Player.FadeSmooth = 0.5
+			G.UnitFrames.Player.FadeMinAlpha = 0.3
+			G.UnitFrames.Player.FadeMaxAlpha = 1
+
+			G.UnitFrames.Player:EnableElement( "Fader" )
 		end
 	end
 

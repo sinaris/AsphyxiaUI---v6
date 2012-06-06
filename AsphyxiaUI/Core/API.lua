@@ -10,7 +10,7 @@ local function CreateBorder( self, shadow )
 	local border = CreateFrame( "Frame", nil, self )
 	border:SetPoint( "TOPLEFT", self, "TOPLEFT", S.Scale( -2 ), S.Scale( 2 ) )
 	border:SetPoint( "BOTTOMRIGHT", self, "BOTTOMRIGHT", S.Scale( 2 ), S.Scale( -2 ) )
-	border:SetTemplate( "Transparent" )
+	border:SetTemplate( "Default" )
 	
 	if( shadow == true ) then
 		border:CreateShadow( "Default" )
