@@ -280,14 +280,65 @@ elseif( C["global"]["unitframelayout"] == "jasje" ) then
 	-- experience
 	------------------------------
 	do
+		if( S.level ~= MAX_PLAYER_LEVEL ) then
+			G.UnitFrames.Player.Experience:ClearAllPoints()
+			G.UnitFrames.Player.Experience:SetStatusBarColor( 0, 0.4, 1, 0.8 )
 
+			if( C["global"]["panellayout"] == "asphyxia" ) then
+				G.UnitFrames.Player.Experience:SetStatusBarTexture( C["media"]["normal"] )
+			elseif( C["global"]["panellayout"] == "duffed" ) then
+				G.UnitFrames.Player.Experience:SetStatusBarTexture( C["media"]["normal"] )
+			elseif( C["global"]["panellayout"] == "jasje" ) then
+				G.UnitFrames.Player.Experience:SetStatusBarTexture( C["media"]["glamour"] )
+
+				G.UnitFrames.Player.Experience:Height( 1 )
+				G.UnitFrames.Player.Experience:Width( S.InfoLeftRightWidth - 4 )
+				G.UnitFrames.Player.Experience:Point( "BOTTOM", TukuiInfoRight, "BOTTOM", 0, -4 )
+				G.UnitFrames.Player.Experience:SetFrameLevel( 12 )
+				G.UnitFrames.Player.Experience:SetAlpha( 1 )
+				G.UnitFrames.Player.Experience:CreateBorder()
+
+				G.UnitFrames.Player.Experience:HookScript( "OnLeave", function( self ) self:SetAlpha( 1 ) end )
+
+				G.UnitFrames.Player.Resting:Kill()
+
+			elseif( C["global"]["panellayout"] == "sinaris" ) then
+				G.UnitFrames.Player.Experience:SetStatusBarTexture( C["media"]["normal"] )
+			elseif( C["global"]["panellayout"] == "smelly" ) then
+
+			end
+		end
 	end
 
 	------------------------------
 	-- reputation
 	------------------------------
 	do
+		if( S.level == MAX_PLAYER_LEVEL ) then
+			G.UnitFrames.Player.Reputation:ClearAllPoints()
 
+			if( C["global"]["panellayout"] == "asphyxia" ) then
+				G.UnitFrames.Player.Reputation:SetStatusBarTexture( C["media"]["normal"] )
+			elseif( C["global"]["panellayout"] == "duffed" ) then
+				G.UnitFrames.Player.Reputation:SetStatusBarTexture( C["media"]["normal"] )
+			elseif( C["global"]["panellayout"] == "jasje" ) then
+				G.UnitFrames.Player.Reputation:SetStatusBarTexture( C["media"]["glamour"] )
+
+				G.UnitFrames.Player.Reputation:Height( 1 )
+				G.UnitFrames.Player.Reputation:Width( S.InfoLeftRightWidth - 4 )
+				G.UnitFrames.Player.Reputation:Point( "BOTTOM", TukuiInfoRight, "BOTTOM", 0, -4 )
+				G.UnitFrames.Player.Reputation:SetFrameLevel( 12 )
+				G.UnitFrames.Player.Reputation:SetAlpha( 1 )
+				G.UnitFrames.Player.Reputation:CreateBorder()
+
+				G.UnitFrames.Player.Reputation:HookScript( "OnLeave", function( self ) self:SetAlpha( 1 ) end )
+
+			elseif( C["global"]["panellayout"] == "sinaris" ) then
+				G.UnitFrames.Player.Experience:SetStatusBarTexture( C["media"]["normal"] )
+			elseif( C["global"]["panellayout"] == "smelly" ) then
+
+			end
+		end
 	end
 
 	------------------------------
@@ -386,6 +437,8 @@ elseif( C["global"]["unitframelayout"] == "merith2" ) then
 	print("uf layout: merith2")
 elseif( C["global"]["unitframelayout"] == "sinaris" ) then
 	print("uf layout: sinaris")
+elseif( C["global"]["unitframelayout"] == "smelly" ) then
+	print("uf layout: smelly")
 end
 
 ------------------------------

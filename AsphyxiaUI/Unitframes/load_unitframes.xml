@@ -6,4 +6,11 @@
 
 	<Script file="Units\Player.lua" />
 	<Script file="Units\Target.lua" />
+	<Script file="Units\TargetOfTarget.lua" />
+	<Script file="Units\Pet.lua" />
+	<Script file="Units\PatTarget.lua" />
+	<Script file="Units\Focus.lua" />
+	<Script file="Units\FocusTarget.lua" />
+	<Script file="Units\BossArena.lua" />
+	<Script file="Units\MTMA.lua" />
 </Ui>

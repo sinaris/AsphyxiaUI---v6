@@ -14,4 +14,6 @@ elseif( C["global"]["panellayout"] == "jasje" ) then
 	S.InfoLeftRightWidth = 370
 elseif( C["global"]["panellayout"] == "sinaris" ) then
 	S.InfoLeftRightWidth = 370
+elseif( C["global"]["panellayout"] == "smelly" ) then
+	S.InfoLeftRightWidth = 370
 end

@@ -71,6 +71,12 @@ S.CreateFontString = function()
 		else
 			return C["media"]["pixel_normal"], 10, "MONOCHROMEOUTLINE"
 		end
+	elseif( C["global"]["unitframelayout"] == "smelly" ) then
+		if( S.client == "ruRU" ) then
+			return C["media"]["pixel_ru"], 10, "MONOCHROMEOUTLINE"
+		else
+			return C["media"]["pixel_normal"], 10, "MONOCHROMEOUTLINE"
+		end
 	else
 		return C["media"]["asphyxia"], 10, "MONOCHROMEOUTLINE"
 	end
