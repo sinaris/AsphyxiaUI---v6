@@ -5,4 +5,5 @@
 ## Author: Sinaris, Merith
 ## RequiredDeps: AsphyxiaUI, Tukui
 
+Locales\load_locales.xml
 AsphyxiaUI_Changelog.xml
