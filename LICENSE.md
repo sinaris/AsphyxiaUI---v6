@@ -22,4 +22,4 @@ to license all versions over v5 under stricter terms.
 All rights not explicitly addressed in this license are reserved by
 the copyright holders.
 
-You can write us at info@maydia.org for reporting abuse.
+You can write us at _L.EMAIL_ for reporting abuse.
