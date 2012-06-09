@@ -14,8 +14,8 @@ StaticPopupDialogs["ASPHYXIAUI_CHANGE_RAID_LAYOUT"] = {
 		ReloadUI()
 	end,
 	OnCancel = function()
-		EnableAddOn( "Tukui_Raid_Healing" )
-		DisableAddOn( "Tukui_Raid" )
+		EnableAddOn( "AsphyxiaUI_Raid_Healing" )
+		DisableAddOn( "AsphyxiaUI_Raid" )
 		ReloadUI()
 	end,
 	timeout = 0,

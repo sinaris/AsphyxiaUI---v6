@@ -6,6 +6,8 @@ local S, C, L, G = unpack( Tukui )
 
 local oUF = oUFTukui
 
+if( not oUF ) then return end
+
 local function Update( self )
 	local unit = self.unit
 

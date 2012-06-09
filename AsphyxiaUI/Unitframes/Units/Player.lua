@@ -277,7 +277,9 @@ elseif( C["global"]["unitframelayout"] == "jasje" ) then
 	-- mana flash
 	------------------------------
 	do
-
+		G.UnitFrames.Player.FlashInfo.ManaLevel:ClearAllPoints()
+		G.UnitFrames.Player.FlashInfo.ManaLevel:SetPoint( "CENTER", G.UnitFrames.Player.panel, "CENTER", 0, 1 )
+		G.UnitFrames.Player.FlashInfo.ManaLevel:SetFont( S.CreateFontString() )
 	end
 
 	------------------------------
