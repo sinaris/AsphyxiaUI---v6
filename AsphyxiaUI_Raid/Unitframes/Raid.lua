@@ -12,6 +12,17 @@ if( C["global"]["unitframelayout"] == "asphyxia" or C["global"]["unitframelayout
 elseif( C["global"]["unitframelayout"] == "duffed" or C["global"]["unitframelayout"] == "duffed2" or C["global"]["unitframelayout"] == "merith" or C["global"]["unitframelayout"] == "merith2" ) then
 	print("raid layout: duffed")
 
+	width = 68
+	height = 32
+	showParty = true
+	showRaid = true
+	showPlayer = true
+	xOffset = 7
+	yOffset = -5
+	point = "LEFT"
+	columnSpacing = 5
+	columnAnchorPoint = "TOP"
+
 elseif( C["global"]["unitframelayout"] == "jasje" ) then
 	print("raid layout: jasje")
 
