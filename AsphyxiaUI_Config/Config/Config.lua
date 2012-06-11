@@ -18,8 +18,11 @@ C["actionbar"] = {
 	["mouseover_shapeshift"] = false,
 	["mainswap"] = false,
 	["macrotext"] = false,
-	["duffedablayout"] = 2,
+	["duffedablayout"] = 1,
+	["duffedswapbar1and3"] = false,
+	["duffedrightbarsmouseover"] = false,
 	["horizontal_petbar"] = false,
+	["petbaralwaysvisible"] = true,
 }
 
 C["castbar"] = {

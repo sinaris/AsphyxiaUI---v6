@@ -9,10 +9,11 @@
 	<Script file="BarPet.lua" />
 	<Script file="BarShift.lua" />
 	<Script file="BarTotem.lua" />
-	<Script file="buttons.lua" />
+	<Script file="Buttons.lua" />
 	<Script file="Style.lua" />
 	<Script file="Range.lua" />
 	<Script file="Others.lua" />
 	<Script file="Cooldowns.lua" />
 	<Script file="Extra.lua" />
+	<Script file="Mouseover.lua" />
 </Ui>

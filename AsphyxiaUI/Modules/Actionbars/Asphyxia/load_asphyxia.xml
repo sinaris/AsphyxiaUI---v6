@@ -9,7 +9,7 @@
 	<Script file="BarPet.lua" />
 	<Script file="BarShift.lua" />
 	<Script file="BarTotem.lua" />
-	<Script file="buttons.lua" />
+	<Script file="Buttons.lua" />
 	<Script file="Style.lua" />
 	<Script file="Range.lua" />
 	<Script file="Others.lua" />

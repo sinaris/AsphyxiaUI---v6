@@ -1,5 +1,5 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/">
 	<Include file="Asphyxia\load_asphyxia.xml" />
-	<Include file="Asphyxia\load_duffed.xml" />
+	<Include file="Duffed\load_duffed.xml" />
 	<Include file="Jasje\load_jasje.xml" />
 </Ui>

@@ -72,6 +72,15 @@ else
 	G.ActionBars.Pet:Size( S.petbuttonsize + ( S.petbuttonspacing * 2 ), ( S.petbuttonsize * 10 ) + ( S.petbuttonspacing * 11 ) )
 	G.ActionBars.Pet:SetPoint( "RIGHT", G.ActionBars.Bar3, "LEFT", -6, 0 )
 end
+G.ActionBars.Pet:CreateShadow( "Default" )
+
+local TukuiDuffedABSwapHolderBar = CreateFrame("Frame", "TukuiDuffedABSwapHolderBar", UIParent, "SecureHandlerStateTemplate")
+TukuiDuffedABSwapHolderBar:CreatePanel("Default", 1, 1, "CENTER", UIParent, "CENTER", 0, 0)
+TukuiDuffedABSwapHolderBar:ClearAllPoints()
+TukuiDuffedABSwapHolderBar:SetAllPoints( G.ActionBars.Bar2 )
+TukuiDuffedABSwapHolderBar:SetFrameStrata("BACKGROUND")
+TukuiDuffedABSwapHolderBar:SetFrameLevel(1)
+TukuiDuffedABSwapHolderBar:Hide()
 
 ------------------------------
 -- datatext panels
