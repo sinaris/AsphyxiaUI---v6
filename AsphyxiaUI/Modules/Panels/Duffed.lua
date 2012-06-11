@@ -86,6 +86,7 @@ TukuiDuffedABSwapHolderBar:Hide()
 -- datatext panels
 ------------------------------
 G.Panels.DataTextLeft:ClearAllPoints()
+G.Panels.DataTextLeft:CreateShadow( "Default" )
 if( C["actionbar"]["duffedablayout"] == 2 ) then
 	G.Panels.DataTextLeft:Size( S.InfoLeftRightWidth - 9, 19 )
 	G.Panels.DataTextLeft:SetPoint( "BOTTOMLEFT", UIParent, "BOTTOMLEFT", 5, 3 )
@@ -95,6 +96,7 @@ else
 end
 
 G.Panels.DataTextRight:ClearAllPoints()
+G.Panels.DataTextRight:CreateShadow( "Default" )
 if( C["actionbar"]["duffedablayout"] == 2 ) then
 	G.Panels.DataTextRight:Size( S.InfoLeftRightWidth + 12, 19 )
 	G.Panels.DataTextRight:SetPoint( "BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", -5, 3 )

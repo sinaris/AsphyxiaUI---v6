@@ -16,8 +16,8 @@ rbmoh:SetSize( 24, ( S.buttonsize * 12 ) + ( S.buttonspacing * 13 ) )
 
 function TukuiRightBarsMouseover( alpha )
 	TukuiBar3:SetAlpha( alpha )
-	TukuiBar3Button2:SetAlpha( alpha )
-	TukuiBar3Button:SetAlpha( alpha )
+	DuffedBar3Button2:SetAlpha( alpha )
+	DuffedBar3Button:SetAlpha( alpha )
 	MultiBarRight:SetAlpha( alpha )
 	MultiBarLeft:SetAlpha( alpha )
 

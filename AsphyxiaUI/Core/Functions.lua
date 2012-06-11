@@ -97,26 +97,98 @@ function S.SetOriginalBackdrop( self )
 	end
 end
 
-function S.update_alpha( self )
-	if( self.parent:GetAlpha() == 0 ) then
-		self.parent:Hide()
-		self:Hide()
+S.CastbarResize = function()
+	if( C["global"]["panellayout"] ~= "duffed" ) then return end
+
+	if( C["unitframes"]["enable"] ~= true or C["unitframes"]["unitcastbar"] ~= true ) then return end
+
+	local x = 4
+	if( C["castbar"]["cbicons"] == true ) then
+		x = 32
+	end
+
+	if( C["actionbar"]["duffedablayout"] == 1 ) then
+		if( C["actionbar"]["horizontal_petbar"] == true ) then
+			if( TukuiPetBar:IsShown() ) then
+				TukuiPlayerCastBar:Width( TukuiPetBar:GetWidth() - x )
+			else
+				TukuiPlayerCastBar:Width( ( TukuiBar2:GetWidth() + 1 ) - x )
+			end
+		else
+			TukuiPlayerCastBar:Width( ( TukuiBar2:GetWidth() + 1 ) - x )
+		end
+	else
+		if( C["actionbar"]["horizontal_petbar"] == true ) then
+			if( TukuiPetBar:IsShown() ) then
+				TukuiPlayerCastBar:Width( TukuiPetBar:GetWidth() - x )
+			else
+				TukuiPlayerCastBar:Width( ( TukuiBar1:GetWidth() + 1 ) - x )
+			end
+		else
+			TukuiPlayerCastBar:Width( ( TukuiBar1:GetWidth() + 1 ) - x )
+		end
 	end
 end
 
-function S.fadeOut( self )
-	UIFrameFadeOut( self, .4, 1, 0 )
-	self.frame:Show()
+S.CastbarPosition = function()
+	if( C["global"]["panellayout"] ~= "duffed" ) then return end
+
+	if( C["unitframes"]["enable"] ~= true or C["unitframes"]["unitcastbar"] ~= true ) then return end
+
+	S.CastbarResize()
+
+	local x = 0
+	local y = 5
+	if( C["castbar"]["cbicons"] == true ) then
+		x = 14
+	end
+
+	if( TukuiDataPerChar.hidebar2 == true ) then
+		TukuiPlayerCastBar:ClearAllPoints()
+		if( C["actionbar"]["horizontal_petbar"] == true ) then
+			if( TukuiPetBar:IsShown() ) then
+				TukuiPlayerCastBar:Point( "BOTTOMRIGHT", TukuiPetBar, "TOPRIGHT", -2, y )
+			else
+				TukuiPlayerCastBar:Point( "BOTTOM", TukuiBar1, "TOP", x, y )
+			end
+		else
+			TukuiPlayerCastBar:Point( "BOTTOM", TukuiBar1, "TOP", x, y )
+		end
+	else
+		TukuiPlayerCastBar:ClearAllPoints()
+		if( C["actionbar"]["duffedablayout"] == 1 ) then
+			if( C["actionbar"]["horizontal_petbar"] == true ) then
+				if( TukuiPetBar:IsShown() ) then
+					TukuiPlayerCastBar:Point( "BOTTOMRIGHT", TukuiPetBar, "TOPRIGHT", -2, y )
+				else
+					TukuiPlayerCastBar:Point( "BOTTOMRIGHT", TukuiBar2, "TOPRIGHT", -2, y )
+				end
+			else
+				TukuiPlayerCastBar:Point( "BOTTOMRIGHT", TukuiBar2, "TOPRIGHT", -2, y )
+			end
+		else
+			if( C["actionbar"]["horizontal_petbar"] == true ) then
+				if( TukuiPetBar:IsShown() ) then
+					TukuiPlayerCastBar:Point( "BOTTOMRIGHT", TukuiPetBar, "TOPRIGHT", -2, y )
+				else
+					TukuiPlayerCastBar:Point( "BOTTOMRIGHT", TukuiBar1, "TOPRIGHT", -2, y )
+				end
+			else
+				TukuiPlayerCastBar:Point( "BOTTOMRIGHT", TukuiBar1, "TOPRIGHT", -2, y )
+			end
+		end
+	end
 end
 
-function S.fadeIn( p )
-	p.frame = CreateFrame( "Frame", nil, p )
-	p.frame:Hide()
-	p.frame.parent = p
-	p.frame:SetScript( "OnUpdate", S.update_alpha )
-	p:SetScript( "OnShow", function()
-		p.frame:Hide()
-		UIFrameFadeIn( p, .4, 0, 1 )
-	end )
-	p.fadeOut = S.fadeOut
+S.PetbarPosition = function()
+	if( C["global"]["panellayout"] ~= "duffed" ) then return end
+
+	if( C["actionbar"]["horizontal_petbar"] ~= true or InCombatLockdown() ) then return end
+
+	TukuiPetBar:ClearAllPoints()
+	if( TukuiDataPerChar.hidebar2 == true ) then
+		TukuiPetBar:Point( "BOTTOM", TukuiBar1, "TOP", 0, 4 )
+	else
+		TukuiPetBar:Point( "BOTTOM", TukuiBar2, "TOP", 0, 4 )
+	end
 end
