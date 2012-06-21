@@ -10,6 +10,8 @@ S.petbuttonsize = S.Scale( C["actionbar"].petbuttonsize )
 S.petbuttonspacing = S.Scale( C["actionbar"].buttonspacing )
 S.stancebuttonsize = S.Scale( C["actionbar"].stancebuttonsize )
 
+S.panelcolor = S.RGBToHex( unpack( C["media"]["datatextcolor1"] ) )
+
 S.CreateFontString = function()
 	if( C["global"]["unitframelayout"] == "asphyxia" ) then
 		if( S.client == "ruRU" ) then
@@ -39,7 +41,7 @@ S.CreateFontString = function()
 		if( S.client == "ruRU" ) then
 			return C["media"]["pixel_ru"], 10, "MONOCHROMEOUTLINE"
 		else
-			return C["media"]["pixel_normal"], 10, "MONOCHROMEOUTLINE"
+			return C["media"]["pixel_normal"], 12, "MONOCHROMEOUTLINE"
 		end
 	elseif( C["global"]["unitframelayout"] == "duffed2" ) then
 		if( S.client == "ruRU" ) then
@@ -95,6 +97,30 @@ function S.SetOriginalBackdrop( self )
 	else
 		self:SetTemplate( "Default" )
 	end
+end
+
+function S.update_alpha( self )
+	if( self.parent:GetAlpha() == 0 ) then
+		self.parent:Hide()
+		self:Hide()
+	end
+end
+
+function S.fadeOut( self )
+	UIFrameFadeOut( self, 0.4, 1, 0 )
+	self.frame:Show()
+end
+
+function S.fadeIn( p )
+	p.frame = CreateFrame( "Frame", nil, p )
+	p.frame:Hide()
+	p.frame.parent = p
+	p.frame:SetScript( "OnUpdate", S.update_alpha )
+	p:SetScript( "OnShow", function()
+		p.frame:Hide()
+		UIFrameFadeIn( p, 0.4, 0, 1 )
+	end )
+	p.fadeOut = S.fadeOut
 end
 
 S.CastbarResize = function()

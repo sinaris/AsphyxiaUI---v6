@@ -9,6 +9,49 @@ TukuiAurasPlayerDebuffs:ClearAllPoints()
 
 if( C["global"]["panellayout"] == "asphyxia" ) then
 
+	TukuiAurasPlayerBuffs:SetPoint( "TOPRIGHT", UIParent, -204, -10 )
+	TukuiAurasPlayerBuffs:SetAttribute( "wrapAfter", 15 )
+	TukuiAurasPlayerBuffs:SetAttribute( "xOffset", -33 )
+	TukuiAurasPlayerBuffs:SetAttribute( "wrapYOffset", -67.5 )
+
+	TukuiAurasPlayerDebuffs:SetPoint( "TOPRIGHT", UIParent, -204, -148 )
+	TukuiAurasPlayerDebuffs:SetAttribute( "wrapAfter", 15 )
+	TukuiAurasPlayerDebuffs:SetAttribute( "xOffset", -35 )
+
+	local hooks = {
+		TukuiAurasPlayerBuffs,
+		TukuiAurasPlayerDebuffs,
+		TukuiAurasPlayerConsolidate,
+	}
+
+	local OnAttributeChanged = function( self )
+		for i = 1, self:GetNumChildren() do
+			local child = select( i, self:GetChildren() )
+
+			if( child ) then
+				child:CreateShadow( "Default" )
+			end
+
+			if( child.Duration ) then
+				child.Duration:SetFont( S.CreateFontString() )
+				child.Duration:ClearAllPoints()
+				child.Duration:SetPoint( "BOTTOM", 0, -1 )
+			end
+
+			if( child.Count ) then
+				child.Count:SetFont( S.CreateFontString() )
+				child.Count:ClearAllPoints()
+				child.Count:SetPoint( "TOP", 0, -4 )
+			end
+		end
+	end
+
+	for _, frame in pairs( hooks ) do
+		frame:RegisterEvent( "PLAYER_ENTERING_WORLD" )
+		frame:HookScript( "OnAttributeChanged", OnAttributeChanged )
+		frame:HookScript( "OnEvent", OnAttributeChanged )
+	end
+
 elseif( C["global"]["panellayout"] == "duffed" ) then
 
 	TukuiAurasPlayerBuffs:SetPoint( "TOPRIGHT", G.Maps.Minimap, "TOPLEFT", -8, 0 )

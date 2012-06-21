@@ -26,7 +26,7 @@ if( C["global"]["unitframelayout"] == "asphyxia" ) then
 		G.UnitFrames.Player.Health:Size( 230, 26 )
 		G.UnitFrames.Player.Health:SetStatusBarTexture( C["media"]["normal"] )
 		G.UnitFrames.Player.Health:SetFrameLevel( 5 )
-		G.UnitFrames.Player.Health:CreateBorder()
+		G.UnitFrames.Player.Health:CreateBorder( true )
 		G.UnitFrames.Player.Health.bg:SetTexture( 0.6, 0.6, 0.6 )
 
 		if( C["unitframes"]["unicolor"] == true ) then
@@ -55,7 +55,7 @@ if( C["global"]["unitframelayout"] == "asphyxia" ) then
 		G.UnitFrames.Player.Power:ClearAllPoints()
 		G.UnitFrames.Player.Power:Point( "TOPRIGHT", G.UnitFrames.Player.Health, "BOTTOMRIGHT", 0, -7 )
 		G.UnitFrames.Player.Power:SetFrameLevel( G.UnitFrames.Player.Health:GetFrameLevel() + 2 )
-		G.UnitFrames.Player.Power:CreateBorder()
+		G.UnitFrames.Player.Power:CreateBorder( true )
 
 		G.UnitFrames.Player.Power.value = S.SetFontString( G.UnitFrames.Player.Health, S.CreateFontString() )
 		G.UnitFrames.Player.Power.value:Point( "LEFT", G.UnitFrames.Player.Health, "LEFT", 4, 1 )
@@ -84,6 +84,7 @@ if( C["global"]["unitframelayout"] == "asphyxia" ) then
 		if( C["unitframes"]["classicons"] == true ) then
 			local classicon = CreateFrame( "Frame", G.UnitFrames.Player:GetName() .. "_ClassIconBorder", G.UnitFrames.Player )
 			classicon:CreatePanel( "Default", 30, 30, "TOPRIGHT", G.UnitFrames.Player.Health, "TOPLEFT", -5, 2 )
+			classicon:CreateShadow( "Default" )
 
 			local class = classicon:CreateTexture( G.UnitFrames.Player:GetName() .. "_ClassIcon", "ARTWORK" )
 			class:Point( "TOPLEFT", 2, -2 )
@@ -109,8 +110,13 @@ if( C["global"]["unitframelayout"] == "asphyxia" ) then
 	------------------------------
 	do
 		G.UnitFrames.Player.FlashInfo:ClearAllPoints()
-		G.UnitFrames.Player.FlashInfo.ManaLevel = S.SetFontString( FlashInfo, S.CreateFontString() )
-		G.UnitFrames.Player.FlashInfo.ManaLevel:SetPoint( "CENTER", G.UnitFrames.Player.Health, "CENTER", 0, 1 )
+		G.UnitFrames.Player.FlashInfo:SetAllPoints( G.UnitFrames.Player.Health )
+		G.UnitFrames.Player.FlashInfo:SetFrameLevel( G.UnitFrames.Player.Health:GetFrameLevel() + 2 )
+
+		G.UnitFrames.Player.FlashInfo.ManaLevel:ClearAllPoints()
+		G.UnitFrames.Player.FlashInfo.ManaLevel:SetPoint( "CENTER", 0, 1 )
+		G.UnitFrames.Player.FlashInfo.ManaLevel:SetFont( S.CreateFontString() )
+		
 	end
 
 	------------------------------
@@ -122,6 +128,26 @@ if( C["global"]["unitframelayout"] == "asphyxia" ) then
 
 		if( C["global"]["panellayout"] == "asphyxia" ) then
 			G.UnitFrames.Player.Experience:SetStatusBarTexture( C["media"]["normal"] )
+
+			G.UnitFrames.Player.Experience:Size( TukuiChatBackgroundLeft:GetWidth() - 4, 2 )
+			G.UnitFrames.Player.Experience:Point( "BOTTOM", TukuiChatBackgroundLeft, "TOP", 0, 5 )
+			G.UnitFrames.Player.Experience:SetFrameLevel( 12 )
+			G.UnitFrames.Player.Experience:SetAlpha( 1 )
+			G.UnitFrames.Player.Experience:CreateBorder( true )
+
+			G.UnitFrames.Player.Experience:HookScript( "OnLeave", function( self ) self:SetAlpha( 1 ) end )
+
+			G.UnitFrames.Player.Experience.Text = G.UnitFrames.Player.Experience:CreateFontString( nil, "OVERLAY" )
+			G.UnitFrames.Player.Experience.Text:SetFont( S.CreateFontString() )
+			G.UnitFrames.Player.Experience.Text:SetPoint( "CENTER", 0, 1 )
+			G.UnitFrames.Player.Experience.Text:SetShadowOffset( S.mult, -S.mult )
+			G.UnitFrames.Player.Experience.Text = G.UnitFrames.Player.Experience.Text
+			G.UnitFrames.Player.Experience.PostUpdate = S.ExperienceText
+
+
+			G.UnitFrames.Player.Resting:ClearAllPoints()
+			G.UnitFrames.Player.Resting:SetPoint( "BOTTOMRIGHT", G.UnitFrames.Player, "TOPLEFT", 6, 7 )
+
 		elseif( C["global"]["panellayout"] == "duffed" ) then
 			G.UnitFrames.Player.Experience:SetStatusBarTexture( C["media"]["normal"] )
 		elseif( C["global"]["panellayout"] == "jasje" ) then
@@ -147,9 +173,162 @@ if( C["global"]["unitframelayout"] == "asphyxia" ) then
 		end
 	end
 
+	------------------------------
+	-- druidmana
+	------------------------------
+	do
+		if( S.myclass == "DRUID" ) then
+			G.UnitFrames.Player.DruidManaText:SetFont( S.CreateFontString() )
+		end
+	end
 
+	------------------------------
+	-- classbar
+	------------------------------
+	do
+		if( C["unitframes"]["classbar"] == true ) then
+			------------------------------
+			-- druid
+			------------------------------
+			if( S.myclass == "DRUID" ) then
+				G.UnitFrames.Player.DruidManaBackground:ClearAllPoints()
+				G.UnitFrames.Player.DruidManaBackground:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
+				G.UnitFrames.Player.DruidManaBackground:Size( 230, 2 )
+				G.UnitFrames.Player.DruidManaBackground:CreateBorder( true )
 
+				G.UnitFrames.Player.DruidMana:SetSize( G.UnitFrames.Player.DruidManaBackground:GetWidth(), G.UnitFrames.Player.DruidManaBackground:GetHeight() )
 
+				G.UnitFrames.Player.EclipseBar:ClearAllPoints()
+				G.UnitFrames.Player.EclipseBar:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
+				G.UnitFrames.Player.EclipseBar:Size( 230, 2 )
+				G.UnitFrames.Player.EclipseBar:CreateBorder( true )
+
+				G.UnitFrames.Player.EclipseBar.LunarBar:SetSize( G.UnitFrames.Player.EclipseBar:GetWidth(), G.UnitFrames.Player.EclipseBar:GetHeight() )
+				G.UnitFrames.Player.EclipseBar.SolarBar:SetSize( G.UnitFrames.Player.EclipseBar:GetWidth(), G.UnitFrames.Player.EclipseBar:GetHeight() )
+
+				G.UnitFrames.Player.EclipseBar.Text:ClearAllPoints()
+				G.UnitFrames.Player.EclipseBar.Text:SetPoint( "TOP", G.UnitFrames.Player.EclipseBar, 0, 25 )
+				G.UnitFrames.Player.EclipseBar.Text:SetFont( S.CreateFontString() )
+				G.UnitFrames.Player.EclipseBar.Text:SetShadowOffset( S.mult, -S.mult )
+			end
+
+			------------------------------
+			-- warlock, paladin
+			------------------------------
+			if( S.myclass == "WARLOCK" ) then
+
+			end
+
+			------------------------------
+			-- warlock, paladin
+			------------------------------
+			if( S.myclass == "PALADIN" ) then
+				G.UnitFrames.Player.HolyPower:ClearAllPoints()
+				G.UnitFrames.Player.HolyPower:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
+				G.UnitFrames.Player.HolyPower:Size( 230, 2 )
+				G.UnitFrames.Player.HolyPower:CreateBorder( true )
+
+				for i = 1, 3 do
+					G.UnitFrames.Player.HolyPower[i]:SetStatusBarColor( 228 / 255, 225 / 255, 16 / 255 )
+
+					if( i == 1 ) then
+						G.UnitFrames.Player.HolyPower[i]:SetPoint( "LEFT", G.UnitFrames.Player.HolyPower )
+						G.UnitFrames.Player.HolyPower[i]:Size( S.Scale( 229 / 3 ), 2 )
+					else
+						G.UnitFrames.Player.HolyPower[i]:Point( "LEFT", G.UnitFrames.Player.HolyPower[i - 1], "RIGHT", 1, 0 )
+						G.UnitFrames.Player.HolyPower[i]:Size( S.Scale( 229 / 3 ), 2 )
+					end
+				end
+			end
+
+			------------------------------
+			-- deathknight
+			------------------------------
+			if( S.myclass == "DEATHKNIGHT" ) then
+				G.UnitFrames.Player.Runes:ClearAllPoints()
+				G.UnitFrames.Player.Runes:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
+				G.UnitFrames.Player.Runes:Size( 230, 2 )
+				G.UnitFrames.Player.Runes:CreateBorder( true )
+
+				for i = 1, 6 do
+					if( i == 1 ) then
+						G.UnitFrames.Player.Runes[i]:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
+						G.UnitFrames.Player.Runes[i]:Size( S.Scale( 38 ), 2 )
+					elseif( i == 2 or i == 3 ) then
+						G.UnitFrames.Player.Runes[i]:Size( S.Scale( 38 ), 2 )
+					else
+						G.UnitFrames.Player.Runes[i]:Point( "LEFT", G.UnitFrames.Player.Runes[i - 1], "RIGHT", 1, 0 )
+						G.UnitFrames.Player.Runes[i]:Size( S.Scale( 37 ), 2 )
+					end
+				end
+			end
+
+			------------------------------
+			-- shaman
+			------------------------------
+			if( S.myclass == "SHAMAN" ) then
+
+			end
+		end
+	end
+
+	------------------------------
+	-- castbar
+	------------------------------
+	do
+		if( C["unitframes"]["unitcastbar"] == true ) then
+			G.UnitFrames.Player.Castbar:ClearAllPoints()
+			G.UnitFrames.Player.Castbar:SetHeight( S.Scale( 20 ) )
+			G.UnitFrames.Player.Castbar:Point( "BOTTOMRIGHT", G.ActionBars.Bar1, "TOPRIGHT", -2, 5 )
+			G.UnitFrames.Player.Castbar:SetStatusBarTexture( C["media"]["normal"] )
+			G.UnitFrames.Player.Castbar:CreateBorder( true )
+			G.UnitFrames.Player.Castbar.bg:SetVertexColor( 0.05, 0.05, 0.05 )
+
+			if( C["unitframes"]["cbicons"] == true ) then
+				G.UnitFrames.Player.Castbar:Width( 347 )
+
+				G.UnitFrames.Player.Castbar.button:ClearAllPoints()
+				G.UnitFrames.Player.Castbar.button:SetPoint( "RIGHT", G.UnitFrames.Player.Castbar, "LEFT", -5, 0 )
+				G.UnitFrames.Player.Castbar.button:Size( 24 )
+			else
+				G.UnitFrames.Player.Castbar:Width( G.ActionBars.Bar1:GetWidth() -4 )
+			end
+
+			G.UnitFrames.Player.Castbar.PostCastStart = S.PostCastStart
+			G.UnitFrames.Player.Castbar.PostChannelStart = S.PostCastStart
+
+			G.UnitFrames.Player.Castbar.Time = S.SetFontString( G.UnitFrames.Player.Castbar, S.CreateFontString() )
+			G.UnitFrames.Player.Castbar.Time:Point( "RIGHT", G.UnitFrames.Player.Castbar, "RIGHT", -4, 0 )
+
+			G.UnitFrames.Player.Castbar.Text = S.SetFontString( G.UnitFrames.Player.Castbar, S.CreateFontString() )
+			G.UnitFrames.Player.Castbar.Text:Point( "LEFT", G.UnitFrames.Player.Castbar, "LEFT", 4, 0 )
+
+			if( C["unitframes"].cblatency == true ) then
+				G.UnitFrames.Player.Castbar.SafeZone:SetTexture( C["media"]["normal"] )
+				G.UnitFrames.Player.Castbar.SafeZone:SetVertexColor( 0.8, 0.2, 0.2, 0.75 )
+			end
+		end
+	end
+
+	------------------------------
+	-- fader
+	------------------------------
+	do
+		if( C["unitframes"]["fader"] == true ) then
+			G.UnitFrames.Player.FadeCasting = true
+			G.UnitFrames.Player.FadeCombat = true
+			G.UnitFrames.Player.FadeTarget = true
+			G.UnitFrames.Player.FadeHealth = true
+			G.UnitFrames.Player.FadePower = true
+			G.UnitFrames.Player.FadeHover = true
+
+			G.UnitFrames.Player.FadeSmooth = 0.5
+			G.UnitFrames.Player.FadeMinAlpha = 0.3
+			G.UnitFrames.Player.FadeMaxAlpha = 1
+
+			G.UnitFrames.Player:EnableElement( "Fader" )
+		end
+	end
 
 
 
@@ -173,6 +352,261 @@ elseif( C["global"]["unitframelayout"] == "asphyxia4" ) then
 	print("uf layout: asphyxia4")
 elseif( C["global"]["unitframelayout"] == "duffed" ) then
 	print("uf layout: duffed")
+
+	------------------------------
+	-- not needed
+	------------------------------
+	do
+		G.UnitFrames.Player:SetBackdrop( nil )
+		G.UnitFrames.Player:SetBackdropColor( 0, 0, 0 )
+		G.UnitFrames.Player.shadow:Kill()
+	end
+
+	------------------------------
+	-- panel
+	------------------------------
+	do
+		G.UnitFrames.Player.panel:ClearAllPoints()
+		G.UnitFrames.Player.panel:SetHeight( 17 )
+	end
+
+	------------------------------
+	-- health
+	------------------------------
+	do
+		G.UnitFrames.Player.Health:Height( 23 )
+		G.UnitFrames.Player.Health:SetStatusBarTexture( C["media"]["normal"] )
+		G.UnitFrames.Player.Health:SetFrameLevel( 5 )
+		G.UnitFrames.Player.Health:CreateBorder()
+		G.UnitFrames.Player.Health.bg:SetTexture( 0.6, 0.6, 0.6 )
+
+		if( C["unitframes"]["unicolor"] == true ) then
+			G.UnitFrames.Player.Health.colorTapping = false
+			G.UnitFrames.Player.Health.colorDisconnected = false
+			G.UnitFrames.Player.Health.colorClass = false
+			G.UnitFrames.Player.Health:SetStatusBarColor( unpack( C["unitframes"]["healthbarcolor"] ) )
+			G.UnitFrames.Player.Health.bg:SetVertexColor( unpack( C["unitframes"]["deficitcolor"] ) )
+			G.UnitFrames.Player.Health.bg:SetTexture( 0.6, 0.6, 0.6 )
+			if( C["unitframes"]["ColorGradient"] == true ) then
+				G.UnitFrames.Player.Health.colorSmooth = true
+				G.UnitFrames.Player.Health.bg:SetTexture( 0.2, 0.2, 0.2 )
+			end
+		else
+			G.UnitFrames.Player.Health.colorDisconnected = true
+			G.UnitFrames.Player.Health.colorTapping = true	
+			G.UnitFrames.Player.Health.colorClass = true
+			G.UnitFrames.Player.Health.colorReaction = true
+			G.UnitFrames.Player.Health.bg:SetTexture( 0.1, 0.1, 0.1 )
+		end
+
+		G.UnitFrames.Player.Health.value = S.SetFontString( G.UnitFrames.Player.Health, S.CreateFontString() )
+		G.UnitFrames.Player.Health.value:Point( "RIGHT", G.UnitFrames.Player.Health, "RIGHT", -4, 0 )
+
+		if( C["unitframes"]["percenthp"] == true ) then
+			local percHP
+			percHP = S.SetFontString( G.UnitFrames.Player.Health, S.CreateFontString())
+			percHP:SetTextColor( unpack( C["media"]["datatextcolor1"] ) )
+			percHP:SetPoint( "LEFT", G.UnitFrames.Player.Health, "RIGHT", 5, 0 )
+
+			G.UnitFrames.Player:Tag(percHP, "[Tukui:perchp]")
+			G.UnitFrames.Player.percHP = percHP
+		end
+
+	end
+
+	------------------------------
+	-- panel
+	------------------------------
+	do
+		G.UnitFrames.Player.panel:Point( "BOTTOMLEFT", G.UnitFrames.Player.Health, "TOPLEFT", -2, 2 )
+		G.UnitFrames.Player.panel:Point( "BOTTOMRIGHT", G.UnitFrames.Player.Health, "TOPRIGHT", 2, 2 )
+	end
+
+
+	------------------------------
+	-- power
+	------------------------------
+	do
+		G.UnitFrames.Player.Power:Height( 2 )
+		G.UnitFrames.Player.Power:ClearAllPoints()
+		G.UnitFrames.Player.Power:Point( "TOPLEFT", G.UnitFrames.Player.Health, "BOTTOMLEFT", 0, -5 )
+		G.UnitFrames.Player.Power:Point( "TOPRIGHT", G.UnitFrames.Player.Health, "BOTTOMRIGHT", 0, -5 )
+		G.UnitFrames.Player.Power:SetFrameLevel( G.UnitFrames.Player.Health:GetFrameLevel() + 2 )
+		G.UnitFrames.Player.Power:CreateBorder()
+
+		G.UnitFrames.Player.Power.value:ClearAllPoints()
+		G.UnitFrames.Player.Power.value:Point( "LEFT", G.UnitFrames.Player.panel, "LEFT", 4, 0 )
+		G.UnitFrames.Player.Power.value:SetFont( S.CreateFontString() )
+	end
+
+	------------------------------
+	-- portraits
+	------------------------------
+	do
+		if( C["unitframes"]["charportrait"] == true ) then
+			G.UnitFrames.Player.Portrait:ClearAllPoints()
+			G.UnitFrames.Player.Portrait:SetAllPoints( G.UnitFrames.Player.Health )
+			G.UnitFrames.Player.Portrait:SetAlpha( 0.2 )
+			G.UnitFrames.Player.Portrait.SetAlpha = S.dummy
+			G.UnitFrames.Player.Health:ClearAllPoints()
+			G.UnitFrames.Player.Health:SetPoint( "TOPLEFT", 0, 0 )
+			G.UnitFrames.Player.Health:SetPoint( "TOPRIGHT" )
+			G.UnitFrames.Player.Portrait:SetFrameLevel( G.UnitFrames.Player.Health:GetFrameLevel() )
+		end
+	end
+
+	------------------------------
+	-- classicons
+	------------------------------
+	do
+		if( C["unitframes"]["classicons"] == true ) then
+
+		end
+	end
+
+	------------------------------
+	-- combat icon
+	------------------------------
+	do
+
+	end
+
+	------------------------------
+	-- raid icon
+	------------------------------
+	do
+		G.UnitFrames.Player.RaidIcon:Size( 18 )
+		G.UnitFrames.Player.RaidIcon:ClearAllPoints()
+		G.UnitFrames.Player.RaidIcon:SetPoint( "TOP", G.UnitFrames.Player.Health, "TOP", 0, 12 )
+	end
+
+	------------------------------
+	-- mana flash
+	------------------------------
+	do
+
+	end
+
+	------------------------------
+	-- experience
+	------------------------------
+	do
+		if( S.level ~= MAX_PLAYER_LEVEL ) then
+
+		end
+	end
+
+	------------------------------
+	-- reputation
+	------------------------------
+	do
+		if( S.level == MAX_PLAYER_LEVEL ) then
+
+		end
+	end
+
+	------------------------------
+	-- combat feedback
+	------------------------------
+	do
+
+	end
+
+	------------------------------
+	-- druidmana
+	------------------------------
+	do
+
+	end
+
+	------------------------------
+	-- classbar
+	------------------------------
+	do
+		if( C["unitframes"]["classbar"] == true ) then
+			------------------------------
+			-- druid
+			------------------------------
+			if( S.myclass == "DRUID" ) then
+
+			end
+
+			------------------------------
+			-- warlock, paladin
+			------------------------------
+			if( S.myclass == "WARLOCK" ) then
+
+			end
+
+			------------------------------
+			-- warlock, paladin
+			------------------------------
+			if( S.myclass == "PALADIN" ) then
+
+			end
+
+			------------------------------
+			-- deathknight
+			------------------------------
+			if( S.myclass == "DEATHKNIGHT" ) then
+
+			end
+
+			------------------------------
+			-- shaman
+			------------------------------
+			if( S.myclass == "SHAMAN" ) then
+
+			end
+		end
+	end
+
+	------------------------------
+	-- castbar
+	------------------------------
+	do
+		if( C["unitframes"]["unitcastbar"] == true ) then
+
+		end
+	end
+
+	------------------------------
+	-- fader
+	------------------------------
+	do
+		if( C["unitframes"]["fader"] == true ) then
+			G.UnitFrames.Player.FadeCasting = true
+			G.UnitFrames.Player.FadeCombat = true
+			G.UnitFrames.Player.FadeTarget = true
+			G.UnitFrames.Player.FadeHealth = true
+			G.UnitFrames.Player.FadePower = true
+			G.UnitFrames.Player.FadeHover = true
+
+			G.UnitFrames.Player.FadeSmooth = 0.5
+			G.UnitFrames.Player.FadeMinAlpha = 0.3
+			G.UnitFrames.Player.FadeMaxAlpha = 1
+
+			G.UnitFrames.Player:EnableElement( "Fader" )
+		end
+	end
+
+	------------------------------
+	-- size
+	------------------------------
+	do
+
+	end
+
+
+
+
+
+
+
+
+
+
+
 elseif( C["global"]["unitframelayout"] == "duffed2" ) then
 	print("uf layout: duffed2")
 elseif( C["global"]["unitframelayout"] == "jasje" ) then
