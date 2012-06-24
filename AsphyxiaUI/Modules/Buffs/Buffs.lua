@@ -9,14 +9,14 @@ TukuiAurasPlayerDebuffs:ClearAllPoints()
 
 if( C["global"]["panellayout"] == "asphyxia" ) then
 
-	TukuiAurasPlayerBuffs:SetPoint( "TOPRIGHT", UIParent, -204, -10 )
-	TukuiAurasPlayerBuffs:SetAttribute( "wrapAfter", 15 )
+	TukuiAurasPlayerBuffs:SetPoint( "TOPRIGHT", UIParent, -159, -2 )
+	TukuiAurasPlayerBuffs:SetAttribute( "wrapAfter", 17 )
 	TukuiAurasPlayerBuffs:SetAttribute( "xOffset", -33 )
 	TukuiAurasPlayerBuffs:SetAttribute( "wrapYOffset", -67.5 )
 
-	TukuiAurasPlayerDebuffs:SetPoint( "TOPRIGHT", UIParent, -204, -148 )
-	TukuiAurasPlayerDebuffs:SetAttribute( "wrapAfter", 15 )
-	TukuiAurasPlayerDebuffs:SetAttribute( "xOffset", -35 )
+	TukuiAurasPlayerDebuffs:SetPoint( "TOPRIGHT", UIParent, -159, -137 )
+	TukuiAurasPlayerDebuffs:SetAttribute( "wrapAfter", 17 )
+	TukuiAurasPlayerDebuffs:SetAttribute( "xOffset", -33 )
 
 	local hooks = {
 		TukuiAurasPlayerBuffs,

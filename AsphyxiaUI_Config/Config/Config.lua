@@ -27,7 +27,7 @@ C["actionbar"] = {
 }
 
 C["castbar"] = {
-	["classcolor"] = false,
+	["classcolor"] = true,
 	["castbarcolor"] = { 0.150, 0.150, 0.150, 1 },
 	["nointerruptcolor"] = { 1, 0, 0, 1 },
 	["ticks"] = true,
@@ -55,6 +55,33 @@ C["chat"] = {
 	["width"] = 378,
 	["height"] = 175,
 	["justifyRight"] = true,
+}
+
+C["intmodules"] = {
+	["locationpanel"] = true,
+}
+
+C["databars"] = {
+	["settings"] = {
+		["vertical"] = false,
+		["height"] = 18,
+		["width"] = 100,
+		["spacing"] = 3,
+		["padding"] = 3,
+	},
+	["framerate"] = 1,
+	["latency"] = 2,
+	["memory"] = 3,
+	["durability"] = 4,
+	["currency"] = true,
+	["reputation"] = true,
+	["reps"] = {
+		"Hellscream's Reach",
+		"Therazane",
+		"Dragonmaw Clan",
+		"Guardians of Hyjal",
+		"Systematic Chaos",
+	},
 }
 
 C["media"] = {

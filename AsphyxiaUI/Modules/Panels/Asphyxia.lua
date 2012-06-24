@@ -11,7 +11,7 @@ print( "panel: asphyxia" )
 ------------------------------
 -- not needed
 ------------------------------
-local panelsToKill = { G.ActionBars.Bar5, G.ActionBars.Bar6, G.ActionBars.Bar7, G.ActionBars.Pet.BackgroundLink, G.Panels.BottomLeftVerticalLine, G.Panels.BottomRightVerticalLine, G.Panels.BottomLeftCube, G.Panels.BottomRightCube, G.Panels.BottomLeftLine, G.Panels.BottomRightLine, G.Panels.LeftDataTextToActionBarLine, G.Panels.RightDataTextToActionBarLine }
+local panelsToKill = { G.ActionBars.Bar5, G.ActionBars.Bar6, G.ActionBars.Bar7, G.ActionBars.Pet.BackgroundLink, G.Panels.BottomLeftVerticalLine, G.Panels.BottomRightVerticalLine, G.Panels.BottomLeftCube, G.Panels.BottomRightCube, G.Panels.BottomLeftLine, G.Panels.BottomRightLine, G.Panels.LeftDataTextToActionBarLine, G.Panels.RightDataTextToActionBarLine, G.Panels.BottomPanelOverActionBars }
 
 for _, panels in pairs( panelsToKill ) do
 	panels:Kill()
@@ -93,6 +93,14 @@ if( C["chat"]["background"] ~= true ) then
 	G.Panels.RightChatBackground:SetAlpha( 0 )
 	G.Panels.LeftChatTabsBackground:SetAlpha( 0 )
 	G.Panels.RightChatTabsBackground:SetAlpha( 0 )
+end
+
+------------------------------
+-- minimap
+------------------------------
+if( TukuiMinimap ) then
+	G.Panels.DataTextMinimapLeft:Kill()
+	G.Panels.DataTextMinimapRight:Kill()
 end
 
 ------------------------------

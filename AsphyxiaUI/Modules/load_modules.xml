@@ -4,6 +4,7 @@
 	<Include file="Buffs\load_buffs.xml" />
 	<Include file="Actionbars\load_actionbars.xml" />
 	<Include file="Chat\load_chat.xml" />
+	<Include file="Databars\load_databars.xml" />
 
 	<Include file="Extras\load_extras.xml" />
 </Ui>

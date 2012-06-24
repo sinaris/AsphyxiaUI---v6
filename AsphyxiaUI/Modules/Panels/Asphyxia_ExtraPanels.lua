@@ -6,8 +6,6 @@ local S, C, L, G = unpack( Tukui )
 
 if( C["global"]["panellayout"] ~= "asphyxia" ) then return end
 
-print( "panel: asphyxia" )
-
 ---------------------------------------------------------------------------------------------
 -- additional (Asphyxia) panels
 ---------------------------------------------------------------------------------------------
@@ -61,7 +59,7 @@ verbutton:HookScript( "OnLeave", S.SetOriginalBackdrop )
 
 verbutton.Text = S.SetFontString( verbutton, S.CreateFontString() )
 verbutton.Text:Point( "CENTER", verbutton, "CENTER", 1, 1 )
-verbutton.Text:SetText( S.RGBToHex( unpack( C["media"].datatextcolor2 ) ) .. "FAQ" )
+verbutton.Text:SetText( S.RGBToHex( unpack( C["media"]["datatextcolor2"] ) ) .. "FAQ" )
 
 ---------------------------------------------------------------------------------------------
 -- help button
@@ -77,14 +75,13 @@ helpbutton:HookScript( "OnLeave", S.SetOriginalBackdrop )
 
 helpbutton.Text = S.SetFontString( helpbutton, S.CreateFontString() )
 helpbutton.Text:Point( "CENTER", helpbutton, "CENTER", 1, 1 )
-helpbutton.Text:SetText( S.RGBToHex( unpack( C["media"].datatextcolor2 ) ) .. "Help" )
+helpbutton.Text:SetText( S.RGBToHex( unpack( C["media"]["datatextcolor2"] ) ) .. "Help" )
 
 ---------------------------------------------------------------------------------------------
 -- /reloadui button
 ---------------------------------------------------------------------------------------------
 local rluibutton = CreateFrame( "Button", "TukuiReloadUIButton", UIParent, "SecureActionButtonTemplate" )
 rluibutton:CreatePanel( "Default", 26, 20, "LEFT", invisButton, "RIGHT", 3, 0 )
-rluibutton:SetFrameStrata( "HIGH" )
 rluibutton:CreateShadow( "Default" )
 rluibutton:CreateOverlay( rluibutton )
 rluibutton:SetAttribute( "type", "macro" )
@@ -94,14 +91,13 @@ rluibutton:HookScript( "OnLeave", S.SetOriginalBackdrop )
 
 rluibutton.Text = S.SetFontString( rluibutton, S.CreateFontString() )
 rluibutton.Text:Point( "CENTER", rluibutton, "CENTER", 1, 1 )
-rluibutton.Text:SetText( S.RGBToHex( unpack( C["media"].datatextcolor2 ) ) .. "RL" )
+rluibutton.Text:SetText( S.RGBToHex( unpack( C["media"]["datatextcolor2"] ) ) .. "RL" )
 
 ---------------------------------------------------------------------------------------------
 -- /resetui button
 ---------------------------------------------------------------------------------------------
 local resetuibutton = CreateFrame( "Button", "TukuiResetUIButton", UIParent, "SecureActionButtonTemplate" )
 resetuibutton:CreatePanel( "Default", 26, 20, "LEFT", rluibutton, "RIGHT", 3, 0 )
-resetuibutton:SetFrameStrata( "HIGH" )
 resetuibutton:CreateShadow( "Default" )
 resetuibutton:CreateOverlay( resetuibutton )
 resetuibutton:SetAttribute( "type", "macro" )
@@ -111,43 +107,39 @@ resetuibutton:HookScript( "OnLeave", S.SetOriginalBackdrop )
 
 resetuibutton.Text = S.SetFontString( resetuibutton, S.CreateFontString() )
 resetuibutton.Text:Point( "CENTER", resetuibutton, "CENTER", 1, 1 )
-resetuibutton.Text:SetText( S.RGBToHex( unpack( C["media"].datatextcolor2 ) ) .. "RS" )
+resetuibutton.Text:SetText( S.RGBToHex( unpack( C["media"]["datatextcolor2"] ) ) .. "RS" )
 
 ---------------------------------------------------------------------------------------------
--- minimap toggle button
+-- datatext panel toggle (button)
 ---------------------------------------------------------------------------------------------
-local mToggle = CreateFrame( "Button", "TukuiMinimapToggle", UIParent )
-mToggle:CreatePanel( "Default", 11, 30, "TOPLEFT", TukuiAurasPlayerBuffs, "TOPRIGHT", 3, 0 )
-mToggle:CreateShadow( "Default" )
-mToggle:CreateOverlay( mToggle )
-mToggle:HookScript( "OnEnter", S.SetModifiedBackdrop )
-mToggle:HookScript( "OnLeave", S.SetOriginalBackdrop )
-
-mToggle.Text = S.SetFontString( mToggle, S.CreateFontString() )
-mToggle.Text:Point( "CENTER", mToggle, "CENTER", 2, 0.5 )
-mToggle.Text:SetText( "|cffFF0000-|r" )
-
-mToggle:SetScript( "OnMouseDown", function()
-	if( TukuiMinimap:IsVisible() ) then
-		TukuiMinimap:Hide()
-		TukuiAurasPlayerBuffs:ClearAllPoints()
-		TukuiAurasPlayerBuffs:Point( "TOPRIGHT", -18, -10 )
-		TukuiAurasPlayerDebuffs:Point( "TOPRIGHT", -18, -150 )
-		mToggle.Text:SetText( "|cff00FF00+|r" )
+local icb = CreateFrame( "Frame", "InfoCenterButton", TukuiChatBackgroundRight )
+icb:CreatePanel( nil, 30, 15, "TOPRIGHT", TukuiChatBackgroundRight, "TOPRIGHT", -5, -68 )
+icb:SetAlpha( 0 )
+icb:SetFrameStrata( "MEDIUM" )
+icb:SetFrameLevel( 10 )
+icb:CreateOverlay( icb )
+icb:EnableMouse( true )
+icb.f = icb:CreateFontString( nil, overlay )
+icb.f:SetPoint( "CENTER" )
+icb.f:SetFont( S.CreateFontString() )
+icb.f:SetText( "|cff9a1212-|r" )
+icb.f:Point( "CENTER", 1, 0 )
+icb:SetScript( "OnMouseDown", function( self )
+	ToggleFrame( AsphyxiaUIInfoCenterRight )
+	ToggleFrame( AsphyxiaUIInfoCenterLeft )
+	ToggleFrame( AsphyxiaUIInfoCenter )
+	if( AsphyxiaUIInfoCenter:IsShown() or AsphyxiaUIInfoCenterRight:IsShown() or AsphyxiaUIInfoCenterLeft:IsShown() ) then
+		self.f:SetText( "|cff9a1212-|r" )
 	else
-		TukuiMinimap:Show()
-		TukuiAurasPlayerBuffs:ClearAllPoints()
-		TukuiAurasPlayerBuffs:Point( "TOPRIGHT", -204, -10 )
-		TukuiAurasPlayerDebuffs:Point( "TOPRIGHT", -204, -150 )
-		mToggle.Text:SetText( "|cffFF0000-|r" )
+		self.f:SetText( "|cff9a1212+|r" )
 	end
 end )
 
---[[mToggle:SetScript( "OnEnter", function()
+icb:SetScript( "OnEnter", function()
 	if( InCombatLockdown() ) then return end
-	mToggle:FadeIn()
+	icb:FadeIn()
 end )
 
-mToggle:SetScript( "OnLeave", function()
-	mToggle:FadeOut()
-end )]]--
+icb:SetScript( "OnLeave", function()
+	icb:FadeOut()
+end )

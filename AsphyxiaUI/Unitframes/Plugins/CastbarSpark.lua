@@ -21,7 +21,7 @@ local AddCastBarSpark = function( self )
 end
 
 for unit, object in pairs( oUFTukui.units ) do
-	if( unit == "player" ) then
+	if( unit == "player" or unit == "target" ) then
 		if( object.Castbar ) then
 			AddCastBarSpark( object.Castbar )
 		end

@@ -14,7 +14,7 @@ G.Maps.Minimap.Coord.Text:SetFont( S.CreateFontString() )
 if( C["global"]["panellayout"] == "asphyxia" ) then
 	G.Maps.Minimap:Size( 153 )
 	G.Maps.Minimap:Size( 153 )
-	G.Maps.Minimap:Point( "TOPRIGHT", UIParent, "TOPRIGHT", -34, -10 )
+	G.Maps.Minimap:Point( "TOPRIGHT", UIParent, "TOPRIGHT", -2, -2 )
 	G.Maps.Minimap:CreateShadow( "Default" )
 
 	Minimap:Size( 153 )
@@ -31,4 +31,9 @@ elseif( C["global"]["panellayout"] == "jasje" ) then
 	G.Maps.Minimap.Ticket.Text:SetPoint( "CENTER", 0, 2 )
 elseif( C["global"]["panellayout"] == "sinaris" ) then
 
+end
+
+if( C["intmodules"]["locationpanel"] == true ) then
+	G.Maps.Minimap.Zone:Kill()
+	G.Maps.Minimap.Coord:Kill()
 end

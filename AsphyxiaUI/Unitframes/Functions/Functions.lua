@@ -104,7 +104,9 @@ S.SkinAura = function( self, button )
 	button.remaining:Point( "CENTER", button,2, -2 )
 	button.remaining:SetFont( S.CreateFontString() )
 
-	button.Glow:Kill()
+	if( C["global"]["unitframelayout"] == "jasje" ) then
+		button.Glow:Kill()
+	end
 end
 
 ------------------------------

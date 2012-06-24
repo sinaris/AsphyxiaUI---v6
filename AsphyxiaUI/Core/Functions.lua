@@ -99,6 +99,23 @@ function S.SetOriginalBackdrop( self )
 	end
 end
 
+S.DataBarPoint = function( p, obj )
+	obj:SetPoint( "TOPRIGHT", S.databars[p], "TOPRIGHT", -2, -2 )
+	obj:SetPoint( "BOTTOMLEFT", S.databars[p], "BOTTOMLEFT", 2, 2 )
+end
+
+S.DataBarTooltipAnchor = function( barNum )
+	local xoff = -S.databars[barNum]:GetWidth()
+	local yoff = S.Scale(-5)
+	
+	if( C["databars"]["settings"]["vertical"] == true ) then
+		xoff = S.Scale( 5 )
+		yoff = S.databars[barNum]:GetHeight()
+	end
+
+	return xoff, yoff
+end
+
 function S.update_alpha( self )
 	if( self.parent:GetAlpha() == 0 ) then
 		self.parent:Hide()
