@@ -6,6 +6,16 @@ local S, C, L, G = unpack( Tukui )
 
 G.Install.Frame:SetTemplate( "Transparent" )
 
+if( C["global"]["panellayout"] == "asphyxia" ) then
+	G.Install.StatusBar:SetStatusBarTexture( C["media"]["normal"] )
+elseif( C["global"]["panellayout"] == "duffed" ) then
+	G.Install.StatusBar:SetStatusBarTexture( C["media"]["normal"] )
+elseif( C["global"]["panellayout"] == "jasje" ) then
+	G.Install.StatusBar:SetStatusBarTexture( C["media"]["glamour"] )
+elseif( C["global"]["panellayout"] == "sinaris" ) then
+	G.Install.StatusBar:SetStatusBarTexture( C["media"]["normal"] )
+end
+
 local InstallFrameIconLeft = CreateFrame( "Frame", "InstallFrameIconLeft", G.Install.Frame )
 InstallFrameIconLeft:CreatePanel( "Default", 58, 58, "BOTTOMLEFT", G.Install.Frame, "TOPLEFT", 0, 3 )
 InstallFrameIconLeft:SetFrameStrata( "HIGH" )
