@@ -15,6 +15,9 @@ Authors of this addon hereby grant you the following rights:
 	3.	This copyright notice shall be included in all copies or substantial
 		portions of the Software.
 
+	4.	It is not allowed the code or parts of the code to use or distribute
+		without our permission.
+
 Earlier versions were released under terms that did not require permission,
 but due to the actions of certain unscrupulous distributors, We have chosen
 to license all versions over v5 under stricter terms.

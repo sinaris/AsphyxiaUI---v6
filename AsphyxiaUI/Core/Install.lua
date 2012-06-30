@@ -1,5 +1,5 @@
 ---------------------------------------------------------------------------------------------
--- AsphyxiaUI
+-- Project: AsphyxiaUI Version 6.0
 ---------------------------------------------------------------------------------------------
 
 local S, C, L, G = unpack( Tukui )
@@ -51,6 +51,10 @@ AsphyxiaUIOnLogon:SetScript( "OnEvent", function( self, event )
 
 	if( IsAddOnLoaded( "AsphyxiaUI_Raid" ) and IsAddOnLoaded( "AsphyxiaUI_Raid_Healing" ) ) then
 		StaticPopup_Show( "ASPHYXIAUI_CHANGE_RAID_LAYOUT" )
+	end
+
+	if( C["chat"]["background"] ~= true ) then
+		StaticPopup_Show( "ASPHYXIAUI_ENABLE_CHAT_BACKGROUND" )
 	end
 
 	if( C["global"]["welcomemessage"] == true ) then

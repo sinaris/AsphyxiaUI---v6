@@ -684,7 +684,61 @@ end
 -- Pet
 ------------------------------
 do
+	------------------------------
+	-- not needed
+	------------------------------
+	do
+		G.UnitFrames.Pet:SetBackdrop( nil )
+		G.UnitFrames.Pet:SetBackdropColor( 0, 0, 0 )
+		G.UnitFrames.Pet.shadow:Kill()
+		G.UnitFrames.Pet.panel:Kill()
+	end
 
+	------------------------------
+	-- health
+	------------------------------
+	do
+		G.UnitFrames.Pet.Health:Size( 130, 15 )
+		G.UnitFrames.Pet.Health:SetStatusBarTexture( C["media"]["normal"] )
+		G.UnitFrames.Pet.Health:SetFrameLevel( 5 )
+		G.UnitFrames.Pet.Health:CreateBorder( true )
+		G.UnitFrames.Pet.Health.bg:SetTexture( 0.6, 0.6, 0.6 )
+
+		if( C["unitframes"]["unicolor"] == true ) then
+			G.UnitFrames.Pet.Health.colorTapping = false
+			G.UnitFrames.Pet.Health.colorDisconnected = false
+			G.UnitFrames.Pet.Health.colorClass = false
+			G.UnitFrames.Pet.Health:SetStatusBarColor( 0.125, 0.125, 0.125, 1 )
+			G.UnitFrames.Pet.Health.bg:SetVertexColor( 0, 0, 0, 1 )
+		else
+			G.UnitFrames.Pet.Health.colorDisconnected = true
+			G.UnitFrames.Pet.Health.colorTapping = true
+			G.UnitFrames.Pet.Health.colorClass = true
+			G.UnitFrames.Pet.Health.colorReaction = true
+		end
+
+		G.UnitFrames.Pet.Name:SetFont( S.CreateFontString() )
+		G.UnitFrames.Pet.Name:SetShadowOffset( 1.25, -1.25 )
+	end
+
+	------------------------------
+	-- power
+	------------------------------
+	do
+		G.UnitFrames.Pet.Power:Size( 130, 2 )
+		G.UnitFrames.Pet.Power:SetStatusBarTexture( C["media"]["normal"] )
+		G.UnitFrames.Pet.Power:ClearAllPoints()
+		G.UnitFrames.Pet.Power:SetPoint( "TOP", G.UnitFrames.Pet.Health, "BOTTOM", 0, -7 )
+		G.UnitFrames.Pet.Power:CreateBorder( true )
+
+	end
+
+	------------------------------
+	-- size
+	------------------------------
+	do
+		G.UnitFrames.Pet:Size( 130, 15 )
+	end
 end
 
 ------------------------------
@@ -698,28 +752,599 @@ end
 -- Focus
 ------------------------------
 do
+	------------------------------
+	-- not needed
+	------------------------------
+	do
+		G.UnitFrames.Focus:SetBackdrop( nil )
+		G.UnitFrames.Focus:SetBackdropColor( 0, 0, 0 )
+		G.UnitFrames.Focus.shadow:Kill()
+	end
 
+	------------------------------
+	-- health
+	------------------------------
+	do
+		G.UnitFrames.Focus.Health:Size( 200, 26 )
+		G.UnitFrames.Focus.Health:SetStatusBarTexture( C["media"]["normal"] )
+		G.UnitFrames.Focus.Health:SetFrameLevel( 5 )
+		G.UnitFrames.Focus.Health:CreateBorder( true )
+		G.UnitFrames.Focus.Health.bg:SetTexture( 0.6, 0.6, 0.6 )
+
+		if( C["unitframes"]["unicolor"] == true ) then
+			G.UnitFrames.Focus.Health.colorTapping = false
+			G.UnitFrames.Focus.Health.colorDisconnected = false
+			G.UnitFrames.Focus.Health.colorClass = false
+			G.UnitFrames.Focus.Health:SetStatusBarColor( 0.125, 0.125, 0.125, 1 )
+			G.UnitFrames.Focus.Health.bg:SetVertexColor( 0, 0, 0, 1 )
+		else
+			G.UnitFrames.Focus.Health.colorDisconnected = true
+			G.UnitFrames.Focus.Health.colorTapping = true
+			G.UnitFrames.Focus.Health.colorClass = true
+			G.UnitFrames.Focus.Health.colorReaction = true
+		end
+
+		G.UnitFrames.Focus.Name:SetFont( S.CreateFontString() )
+		G.UnitFrames.Focus.Name:SetShadowOffset( 1.25, -1.25 )
+		G.UnitFrames.Focus.Name:Point( "CENTER", G.UnitFrames.Focus.Health, "CENTER", 0, 1 )
+
+		G.UnitFrames.Focus.Health.value = S.SetFontString( G.UnitFrames.Focus.Health, S.CreateFontString() )
+		G.UnitFrames.Focus.Health.value:Point( "RIGHT", G.UnitFrames.Focus.Health, "RIGHT", -4, 1 )
+	end
+
+	------------------------------
+	-- power
+	------------------------------
+	do
+		G.UnitFrames.Focus.Power:Size( 200, 2 )
+		G.UnitFrames.Focus.Power:SetStatusBarTexture( C["media"]["normal"] )
+		G.UnitFrames.Focus.Power:ClearAllPoints()
+		G.UnitFrames.Focus.Power:Point( "TOPRIGHT", G.UnitFrames.Focus.Health, "BOTTOMRIGHT", 0, -7 )
+		G.UnitFrames.Focus.Power:SetFrameLevel( G.UnitFrames.Focus.Health:GetFrameLevel() + 2 )
+		G.UnitFrames.Focus.Power:CreateBorder( true )
+
+		G.UnitFrames.Focus.Power.value = S.SetFontString( G.UnitFrames.Focus.Health, S.CreateFontString() )
+		G.UnitFrames.Focus.Power.value:Point( "LEFT", G.UnitFrames.Focus.Health, "LEFT", 4, 1 )
+	end
+
+	------------------------------
+	-- castbar
+	------------------------------
+	do
+		if( C["unitframes"]["unitcastbar"] == true ) then
+			G.UnitFrames.Focus.Castbar:ClearAllPoints()
+			G.UnitFrames.Focus.Castbar:SetHeight( 20 )
+			G.UnitFrames.Focus.Castbar:Point( "TOPLEFT", G.UnitFrames.Focus, "BOTTOMLEFT", 0, -16 )
+			G.UnitFrames.Focus.Castbar:CreateBorder( true )
+
+			G.UnitFrames.Focus.Castbar.bg:Kill()
+
+			G.UnitFrames.Focus.Castbar.bg = G.UnitFrames.Focus.Castbar:CreateTexture( nil, "BORDER" )
+			G.UnitFrames.Focus.Castbar.bg:SetAllPoints( G.UnitFrames.Focus.Castbar )
+			G.UnitFrames.Focus.Castbar.bg:SetTexture( C["media"]["normal"] )
+			G.UnitFrames.Focus.Castbar.bg:SetVertexColor( 0.05, 0.05, 0.05 )
+
+			G.UnitFrames.Focus.Castbar.Time = S.SetFontString( G.UnitFrames.Focus.Castbar, S.CreateFontString() )
+			G.UnitFrames.Focus.Castbar.Time:Point( "RIGHT", G.UnitFrames.Focus.Castbar, "RIGHT", -4, 1 )
+			G.UnitFrames.Focus.Castbar.Time:SetTextColor( 0, 4, 0 )
+
+			G.UnitFrames.Focus.Castbar.Text = S.SetFontString( G.UnitFrames.Focus.Castbar, S.CreateFontString() )
+			G.UnitFrames.Focus.Castbar.Text:Point( "LEFT", G.UnitFrames.Focus.Castbar, "LEFT", 4, 1 )
+			G.UnitFrames.Focus.Castbar.Text:SetTextColor( 0.3, 0.2, 1 )
+
+			G.UnitFrames.Focus.Castbar.PostCastStart = S.PostCastStart
+			G.UnitFrames.Focus.Castbar.PostChannelStart = S.PostCastStart
+
+			if( C["unitframes"]["cbicons"] == true ) then
+				G.UnitFrames.Focus.Castbar:Width( 173 )
+
+				G.UnitFrames.Focus.Castbar.button:ClearAllPoints()
+				G.UnitFrames.Focus.Castbar.button:SetPoint( "LEFT", G.UnitFrames.Focus.Castbar, "RIGHT", 5, 0 )
+				G.UnitFrames.Focus.Castbar.button:Size( 24 )
+				G.UnitFrames.Focus.Castbar.button:CreateShadow( "Default" )
+			else
+				G.UnitFrames.Focus.Castbar:Width( 200 )
+
+				G.UnitFrames.Focus.Castbar.button:Kill()
+			end
+		end
+	end
+
+	------------------------------
+	-- buffs, debuffs
+	------------------------------
+	do
+		G.UnitFrames.Focus.Debuffs:SetHeight( 30 )
+		G.UnitFrames.Focus.Debuffs:SetWidth( 200 )
+		G.UnitFrames.Focus.Debuffs.size = 30
+		G.UnitFrames.Focus.Debuffs.num = 5
+		G.UnitFrames.Focus.Debuffs.spacing = 3
+
+		G.UnitFrames.Focus.Debuffs:ClearAllPoints()
+		G.UnitFrames.Focus.Debuffs:Point( "LEFT", G.UnitFrames.Focus, "RIGHT", 5, 0 )
+		G.UnitFrames.Focus.Debuffs.ClearAllPoints = S.dummy
+		G.UnitFrames.Focus.Debuffs.SetPoint = S.dummy
+
+		G.UnitFrames.Focus.Debuffs.initialAnchor = "LEFT"
+		G.UnitFrames.Focus.Debuffs["growth-x"] = "RIGHT"
+
+		if( G.UnitFrames.Focus.Debuffs ) then
+			for _, frames in pairs( { G.UnitFrames.Focus.Debuffs } ) do
+				if( not frames ) then return end
+
+				frames:Size( 200, 30 )
+				frames.size = 30
+				frames.num = 5
+
+				hooksecurefunc( frames, "PostCreateIcon", S.SkinAura )
+			end
+		end
+	end
+
+	------------------------------
+	-- size
+	------------------------------
+	do
+		G.UnitFrames.Focus:Size( 200, 26 )
+	end
 end
 
 ------------------------------
 -- Focus Target
 ------------------------------
 do
+	------------------------------
+	-- not needed
+	------------------------------
+	do
+		G.UnitFrames.FocusTarget:SetBackdrop( nil )
+		G.UnitFrames.FocusTarget:SetBackdropColor( 0, 0, 0 )
+		G.UnitFrames.FocusTarget.shadow:Kill()
+	end
 
+	------------------------------
+	-- health
+	------------------------------
+	do
+		G.UnitFrames.FocusTarget.Health:Size( 200, 26 )
+		G.UnitFrames.FocusTarget.Health:SetStatusBarTexture( C["media"]["normal"] )
+		G.UnitFrames.FocusTarget.Health:SetFrameLevel( 5 )
+		G.UnitFrames.FocusTarget.Health:CreateBorder( true )
+		G.UnitFrames.FocusTarget.Health.bg:SetTexture( 0.6, 0.6, 0.6 )
+
+		if( C["unitframes"]["unicolor"] == true ) then
+			G.UnitFrames.FocusTarget.Health.colorTapping = false
+			G.UnitFrames.FocusTarget.Health.colorDisconnected = false
+			G.UnitFrames.FocusTarget.Health.colorClass = false
+			G.UnitFrames.FocusTarget.Health:SetStatusBarColor( 0.125, 0.125, 0.125, 1 )
+			G.UnitFrames.FocusTarget.Health.bg:SetVertexColor( 0, 0, 0, 1 )
+		else
+			G.UnitFrames.FocusTarget.Health.colorDisconnected = true
+			G.UnitFrames.FocusTarget.Health.colorTapping = true
+			G.UnitFrames.FocusTarget.Health.colorClass = true
+			G.UnitFrames.FocusTarget.Health.colorReaction = true
+		end
+
+		G.UnitFrames.FocusTarget.Name:SetFont( S.CreateFontString() )
+		G.UnitFrames.FocusTarget.Name:SetShadowOffset( 1.25, -1.25 )
+		G.UnitFrames.FocusTarget.Name:Point( "CENTER", G.UnitFrames.FocusTarget.Health, "CENTER", 0, 1 )
+
+		G.UnitFrames.FocusTarget.Health.value = S.SetFontString( G.UnitFrames.FocusTarget.Health, S.CreateFontString() )
+		G.UnitFrames.FocusTarget.Health.value:Point( "RIGHT", G.UnitFrames.FocusTarget.Health, "RIGHT", -4, 1 )
+	end
+
+	------------------------------
+	-- power
+	------------------------------
+	do
+		G.UnitFrames.FocusTarget.Power:Size( 200, 2 )
+		G.UnitFrames.FocusTarget.Power:SetStatusBarTexture( C["media"]["normal"] )
+		G.UnitFrames.FocusTarget.Power:ClearAllPoints()
+		G.UnitFrames.FocusTarget.Power:Point( "TOPRIGHT", G.UnitFrames.FocusTarget.Health, "BOTTOMRIGHT", 0, -7 )
+		G.UnitFrames.FocusTarget.Power:SetFrameLevel( G.UnitFrames.FocusTarget.Health:GetFrameLevel() + 2 )
+		G.UnitFrames.FocusTarget.Power:CreateBorder( true )
+
+		G.UnitFrames.FocusTarget.Power.value = S.SetFontString( G.UnitFrames.FocusTarget.Health, S.CreateFontString() )
+		G.UnitFrames.FocusTarget.Power.value:Point( "LEFT", G.UnitFrames.FocusTarget.Health, "LEFT", 4, 1 )
+	end
+
+	------------------------------
+	-- castbar
+	------------------------------
+	do
+		if( C["unitframes"]["unitcastbar"] == true ) then
+			G.UnitFrames.FocusTarget.Castbar:ClearAllPoints()
+			G.UnitFrames.FocusTarget.Castbar:SetHeight( 20 )
+			G.UnitFrames.FocusTarget.Castbar:Point( "TOPLEFT", G.UnitFrames.FocusTarget, "BOTTOMLEFT", 0, -16 )
+			G.UnitFrames.FocusTarget.Castbar:CreateBorder( true )
+
+			G.UnitFrames.FocusTarget.Castbar.bg:Kill()
+
+			G.UnitFrames.FocusTarget.Castbar.bg = G.UnitFrames.FocusTarget.Castbar:CreateTexture( nil, "BORDER" )
+			G.UnitFrames.FocusTarget.Castbar.bg:SetAllPoints( G.UnitFrames.FocusTarget.Castbar )
+			G.UnitFrames.FocusTarget.Castbar.bg:SetTexture( C["media"]["normal"] )
+			G.UnitFrames.FocusTarget.Castbar.bg:SetVertexColor( 0.05, 0.05, 0.05 )
+
+			G.UnitFrames.FocusTarget.Castbar.Time = S.SetFontString( G.UnitFrames.FocusTarget.Castbar, S.CreateFontString() )
+			G.UnitFrames.FocusTarget.Castbar.Time:Point( "RIGHT", G.UnitFrames.FocusTarget.Castbar, "RIGHT", -4, 1 )
+			G.UnitFrames.FocusTarget.Castbar.Time:SetTextColor( 0, 4, 0 )
+
+			G.UnitFrames.FocusTarget.Castbar.Text = S.SetFontString( G.UnitFrames.FocusTarget.Castbar, S.CreateFontString() )
+			G.UnitFrames.FocusTarget.Castbar.Text:Point( "LEFT", G.UnitFrames.FocusTarget.Castbar, "LEFT", 4, 1 )
+			G.UnitFrames.FocusTarget.Castbar.Text:SetTextColor( 0.3, 0.2, 1 )
+
+			G.UnitFrames.FocusTarget.Castbar.PostCastStart = S.PostCastStart
+			G.UnitFrames.FocusTarget.Castbar.PostChannelStart = S.PostCastStart
+
+			if( C["unitframes"]["cbicons"] == true ) then
+				G.UnitFrames.FocusTarget.Castbar:Width( 173 )
+
+				G.UnitFrames.FocusTarget.Castbar.button:ClearAllPoints()
+				G.UnitFrames.FocusTarget.Castbar.button:SetPoint( "LEFT", G.UnitFrames.FocusTarget.Castbar, "RIGHT", 5, 0 )
+				G.UnitFrames.FocusTarget.Castbar.button:Size( 24 )
+				G.UnitFrames.FocusTarget.Castbar.button:CreateShadow( "Default" )
+			else
+				G.UnitFrames.FocusTarget.Castbar:Width( 200 )
+
+				G.UnitFrames.FocusTarget.Castbar.button:Kill()
+			end
+		end
+	end
+
+	------------------------------
+	-- buffs, debuffs
+	------------------------------
+	do
+		G.UnitFrames.FocusTarget.Debuffs:SetHeight( 30 )
+		G.UnitFrames.FocusTarget.Debuffs:SetWidth( 200 )
+		G.UnitFrames.FocusTarget.Debuffs.size = 30
+		G.UnitFrames.FocusTarget.Debuffs.num = 5
+		G.UnitFrames.FocusTarget.Debuffs.spacing = 3
+
+		G.UnitFrames.FocusTarget.Debuffs:ClearAllPoints()
+		G.UnitFrames.FocusTarget.Debuffs:Point( "LEFT", G.UnitFrames.FocusTarget, "RIGHT", 5, 0 )
+		G.UnitFrames.FocusTarget.Debuffs.ClearAllPoints = S.dummy
+		G.UnitFrames.FocusTarget.Debuffs.SetPoint = S.dummy
+
+		G.UnitFrames.FocusTarget.Debuffs.initialAnchor = "LEFT"
+		G.UnitFrames.FocusTarget.Debuffs["growth-x"] = "RIGHT"
+
+		if( G.UnitFrames.FocusTarget.Debuffs ) then
+			for _, frames in pairs( { G.UnitFrames.FocusTarget.Debuffs } ) do
+				if( not frames ) then return end
+
+				frames:Size( 200, 30 )
+				frames.size = 30
+				frames.num = 5
+
+				hooksecurefunc( frames, "PostCreateIcon", S.SkinAura )
+			end
+		end
+	end
+
+	------------------------------
+	-- size
+	------------------------------
+	do
+		G.UnitFrames.FocusTarget:Size( 200, 26 )
+	end
 end
 
 ------------------------------
 -- Boss
 ------------------------------
 do
+	for i = 1, MAX_BOSS_FRAMES do
+		------------------------------
+		-- not needed
+		------------------------------
+		do
+			G.UnitFrames["Boss" .. i]:SetBackdrop( nil )
+			G.UnitFrames["Boss" .. i]:SetBackdropColor( 0, 0, 0 )
+			G.UnitFrames["Boss" .. i].shadow:Kill()
+		end
 
+		------------------------------
+		-- health
+		------------------------------
+		do
+			G.UnitFrames["Boss" .. i].Health:Size( 200, 26 )
+			G.UnitFrames["Boss" .. i].Health:SetStatusBarTexture( C["media"]["normal"] )
+			G.UnitFrames["Boss" .. i].Health:SetFrameLevel( 5 )
+			G.UnitFrames["Boss" .. i].Health:CreateBorder( true )
+			G.UnitFrames["Boss" .. i].Health.bg:SetTexture( 0.6, 0.6, 0.6 )
+
+			if( C["unitframes"]["unicolor"] == true ) then
+				G.UnitFrames["Boss" .. i].Health.colorTapping = false
+				G.UnitFrames["Boss" .. i].Health.colorDisconnected = false
+				G.UnitFrames["Boss" .. i].Health.colorClass = false
+				G.UnitFrames["Boss" .. i].Health:SetStatusBarColor( 0.125, 0.125, 0.125, 1 )
+				G.UnitFrames["Boss" .. i].Health.bg:SetVertexColor( 0, 0, 0, 1 )
+			else
+				G.UnitFrames["Boss" .. i].Health.colorDisconnected = true
+				G.UnitFrames["Boss" .. i].Health.colorTapping = true
+				G.UnitFrames["Boss" .. i].Health.colorClass = true
+				G.UnitFrames["Boss" .. i].Health.colorReaction = true
+			end
+
+			G.UnitFrames["Boss" .. i].Name:SetFont( S.CreateFontString() )
+			G.UnitFrames["Boss" .. i].Name:SetShadowOffset( 1.25, -1.25 )
+			G.UnitFrames["Boss" .. i].Name:Point( "CENTER", G.UnitFrames["Boss" .. i].Health, "CENTER", 0, 1 )
+
+			G.UnitFrames["Boss" .. i].Health.value = S.SetFontString( G.UnitFrames["Boss" .. i].Health, S.CreateFontString() )
+			G.UnitFrames["Boss" .. i].Health.value:Point( "RIGHT", G.UnitFrames["Boss" .. i].Health, "RIGHT", -4, 1 )
+		end
+
+		------------------------------
+		-- power
+		------------------------------
+		do
+			G.UnitFrames["Boss" .. i].Power:Size( 200, 2 )
+			G.UnitFrames["Boss" .. i].Power:SetStatusBarTexture( C["media"]["normal"] )
+			G.UnitFrames["Boss" .. i].Power:ClearAllPoints()
+			G.UnitFrames["Boss" .. i].Power:Point( "TOPRIGHT", G.UnitFrames["Boss" .. i].Health, "BOTTOMRIGHT", 0, -7 )
+			G.UnitFrames["Boss" .. i].Power:SetFrameLevel( G.UnitFrames["Boss" .. i].Health:GetFrameLevel() + 2 )
+			G.UnitFrames["Boss" .. i].Power:CreateBorder( true )
+
+			G.UnitFrames["Boss" .. i].Power.value = S.SetFontString( G.UnitFrames["Boss" .. i].Health, S.CreateFontString() )
+			G.UnitFrames["Boss" .. i].Power.value:Point( "LEFT", G.UnitFrames["Boss" .. i].Health, "LEFT", 4, 1 )
+		end
+
+		------------------------------
+		-- castbar
+		------------------------------
+		do
+			if( C["unitframes"]["unitcastbar"] == true ) then
+				G.UnitFrames["Boss" .. i].Castbar:ClearAllPoints()
+				G.UnitFrames["Boss" .. i].Castbar:SetHeight( 20 )
+				G.UnitFrames["Boss" .. i].Castbar:Point( "TOPRIGHT", G.UnitFrames["Boss" .. i], "BOTTOMRIGHT", 0, -16 )
+				G.UnitFrames["Boss" .. i].Castbar:CreateBorder( true )
+
+				G.UnitFrames["Boss" .. i].Castbar.bg:Kill()
+
+				G.UnitFrames["Boss" .. i].Castbar.bg = G.UnitFrames["Boss" .. i].Castbar:CreateTexture( nil, "BORDER" )
+				G.UnitFrames["Boss" .. i].Castbar.bg:SetAllPoints( G.UnitFrames["Boss" .. i].Castbar )
+				G.UnitFrames["Boss" .. i].Castbar.bg:SetTexture( C["media"]["normal"] )
+				G.UnitFrames["Boss" .. i].Castbar.bg:SetVertexColor( 0.05, 0.05, 0.05 )
+
+				G.UnitFrames["Boss" .. i].Castbar.Time = S.SetFontString( G.UnitFrames["Boss" .. i].Castbar, S.CreateFontString() )
+				G.UnitFrames["Boss" .. i].Castbar.Time:Point( "RIGHT", G.UnitFrames["Boss" .. i].Castbar, "RIGHT", -4, 1 )
+				G.UnitFrames["Boss" .. i].Castbar.Time:SetTextColor( 0, 4, 0 )
+
+				G.UnitFrames["Boss" .. i].Castbar.Text = S.SetFontString( G.UnitFrames["Boss" .. i].Castbar, S.CreateFontString() )
+				G.UnitFrames["Boss" .. i].Castbar.Text:Point( "LEFT", G.UnitFrames["Boss" .. i].Castbar, "LEFT", 4, 1 )
+				G.UnitFrames["Boss" .. i].Castbar.Text:SetTextColor( 0.3, 0.2, 1 )
+
+				G.UnitFrames["Boss" .. i].Castbar.PostCastStart = S.PostCastStart
+				G.UnitFrames["Boss" .. i].Castbar.PostChannelStart = S.PostCastStart
+
+				if( C["unitframes"]["cbicons"] == true ) then
+					G.UnitFrames["Boss" .. i].Castbar:Width( 173 )
+
+					G.UnitFrames["Boss" .. i].Castbar.button:ClearAllPoints()
+					G.UnitFrames["Boss" .. i].Castbar.button:SetPoint( "RIGHT", G.UnitFrames["Boss" .. i].Castbar, "LEFT", -5, 0 )
+					G.UnitFrames["Boss" .. i].Castbar.button:Size( 24 )
+					G.UnitFrames["Boss" .. i].Castbar.button:CreateShadow( "Default" )
+				else
+					G.UnitFrames["Boss" .. i].Castbar:Width( 200 )
+
+					G.UnitFrames["Boss" .. i].Castbar.button:Kill()
+				end
+			end
+		end
+
+		------------------------------
+		-- buffs, debuffs
+		------------------------------
+		do
+			G.UnitFrames["Boss" .. i].Debuffs:SetHeight( 30 )
+			G.UnitFrames["Boss" .. i].Debuffs:SetWidth( 200 )
+			G.UnitFrames["Boss" .. i].Debuffs.size = 30
+			G.UnitFrames["Boss" .. i].Debuffs.num = 5
+			G.UnitFrames["Boss" .. i].Debuffs.spacing = 3
+
+			G.UnitFrames["Boss" .. i].Debuffs:ClearAllPoints()
+			G.UnitFrames["Boss" .. i].Debuffs:Point( "LEFT", G.UnitFrames["Boss" .. i], "RIGHT", 5, 0 )
+			G.UnitFrames["Boss" .. i].Debuffs.ClearAllPoints = S.dummy
+			G.UnitFrames["Boss" .. i].Debuffs.SetPoint = S.dummy
+
+			G.UnitFrames["Boss" .. i].Buffs:SetHeight( 30 )
+			G.UnitFrames["Boss" .. i].Buffs:SetWidth( 200 )
+			G.UnitFrames["Boss" .. i].Buffs.size = 30
+			G.UnitFrames["Boss" .. i].Buffs.num = 5
+			G.UnitFrames["Boss" .. i].Buffs.spacing = 3
+
+			G.UnitFrames["Boss" .. i].Buffs:ClearAllPoints()
+			G.UnitFrames["Boss" .. i].Buffs:Point( "RIGHT", G.UnitFrames["Boss" .. i], "LEFT", -5, 0 )
+			G.UnitFrames["Boss" .. i].Buffs.ClearAllPoints = S.dummy
+			G.UnitFrames["Boss" .. i].Buffs.SetPoint = S.dummy
+
+			G.UnitFrames["Boss" .. i].Debuffs.initialAnchor = "LEFT"
+			G.UnitFrames["Boss" .. i].Debuffs["growth-x"] = "RIGHT"
+
+			G.UnitFrames["Boss" .. i].Buffs.initialAnchor = "RIGHT"
+			G.UnitFrames["Boss" .. i].Buffs["growth-x"] = "LEFT"
+
+			if( G.UnitFrames["Boss" .. i].Debuffs or G.UnitFrames["Boss" .. i].Buffs ) then
+				for _, frames in pairs( { G.UnitFrames["Boss" .. i].Debuffs, G.UnitFrames["Boss" .. i].Buffs } ) do
+					if( not frames ) then return end
+
+					frames:Size( 200, 30 )
+					frames.size = 30
+					frames.num = 5
+
+					hooksecurefunc( frames, "PostCreateIcon", S.SkinAura )
+				end
+			end
+		end
+
+		------------------------------
+		-- altpowerbar
+		------------------------------
+		do
+			G.UnitFrames["Boss" .. i].AltPowerBar:SetStatusBarTexture( C["media"]["normal"] )
+		end
+
+		------------------------------
+		-- size
+		------------------------------
+		do
+			G.UnitFrames["Boss" .. i]:Size( 200, 26 )
+		end
+	end
 end
 
 ------------------------------
 -- Arena
 ------------------------------
 do
+	for i = 1, 5 do
+		------------------------------
+		-- not needed
+		------------------------------
+		do
+			G.UnitFrames["Arena" .. i]:SetBackdrop( nil )
+			G.UnitFrames["Arena" .. i]:SetBackdropColor( 0, 0, 0 )
+			G.UnitFrames["Arena" .. i].shadow:Kill()
+		end
 
+		------------------------------
+		-- health
+		------------------------------
+		do
+			G.UnitFrames["Arena" .. i].Health:Size( 200, 26 )
+			G.UnitFrames["Arena" .. i].Health:SetStatusBarTexture( C["media"]["normal"] )
+			G.UnitFrames["Arena" .. i].Health:SetFrameLevel( 5 )
+			G.UnitFrames["Arena" .. i].Health:CreateBorder( true )
+			G.UnitFrames["Arena" .. i].Health.bg:SetTexture( 0.6, 0.6, 0.6 )
+
+			if( C["unitframes"]["unicolor"] == true ) then
+				G.UnitFrames["Arena" .. i].Health.colorTapping = false
+				G.UnitFrames["Arena" .. i].Health.colorDisconnected = false
+				G.UnitFrames["Arena" .. i].Health.colorClass = false
+				G.UnitFrames["Arena" .. i].Health:SetStatusBarColor( 0.125, 0.125, 0.125, 1 )
+				G.UnitFrames["Arena" .. i].Health.bg:SetVertexColor( 0, 0, 0, 1 )
+			else
+				G.UnitFrames["Arena" .. i].Health.colorDisconnected = true
+				G.UnitFrames["Arena" .. i].Health.colorTapping = true
+				G.UnitFrames["Arena" .. i].Health.colorClass = true
+				G.UnitFrames["Arena" .. i].Health.colorReaction = true
+			end
+
+			G.UnitFrames["Arena" .. i].Name:SetFont( S.CreateFontString() )
+			G.UnitFrames["Arena" .. i].Name:SetShadowOffset( 1.25, -1.25 )
+			G.UnitFrames["Arena" .. i].Name:Point( "CENTER", G.UnitFrames["Arena" .. i].Health, "CENTER", 0, 1 )
+
+			G.UnitFrames["Arena" .. i].Health.value = S.SetFontString( G.UnitFrames["Arena" .. i].Health, S.CreateFontString() )
+			G.UnitFrames["Arena" .. i].Health.value:Point( "RIGHT", G.UnitFrames["Arena" .. i].Health, "RIGHT", -4, 1 )
+		end
+
+		------------------------------
+		-- power
+		------------------------------
+		do
+			G.UnitFrames["Arena" .. i].Power:Size( 200, 2 )
+			G.UnitFrames["Arena" .. i].Power:SetStatusBarTexture( C["media"]["normal"] )
+			G.UnitFrames["Arena" .. i].Power:ClearAllPoints()
+			G.UnitFrames["Arena" .. i].Power:Point( "TOPRIGHT", G.UnitFrames["Arena" .. i].Health, "BOTTOMRIGHT", 0, -7 )
+			G.UnitFrames["Arena" .. i].Power:SetFrameLevel( G.UnitFrames["Arena" .. i].Health:GetFrameLevel() + 2 )
+			G.UnitFrames["Arena" .. i].Power:CreateBorder( true )
+
+			G.UnitFrames["Arena" .. i].Power.value = S.SetFontString( G.UnitFrames["Arena" .. i].Health, S.CreateFontString() )
+			G.UnitFrames["Arena" .. i].Power.value:Point( "LEFT", G.UnitFrames["Arena" .. i].Health, "LEFT", 4, 1 )
+		end
+
+		------------------------------
+		-- castbar
+		------------------------------
+		do
+			if( C["unitframes"]["unitcastbar"] == true ) then
+				G.UnitFrames["Arena" .. i].Castbar:ClearAllPoints()
+				G.UnitFrames["Arena" .. i].Castbar:SetHeight( 20 )
+				G.UnitFrames["Arena" .. i].Castbar:Point( "TOPRIGHT", G.UnitFrames["Arena" .. i], "BOTTOMRIGHT", 0, -16 )
+				G.UnitFrames["Arena" .. i].Castbar:CreateBorder( true )
+
+				G.UnitFrames["Arena" .. i].Castbar.bg:Kill()
+
+				G.UnitFrames["Arena" .. i].Castbar.bg = G.UnitFrames["Arena" .. i].Castbar:CreateTexture( nil, "BORDER" )
+				G.UnitFrames["Arena" .. i].Castbar.bg:SetAllPoints( G.UnitFrames["Arena" .. i].Castbar )
+				G.UnitFrames["Arena" .. i].Castbar.bg:SetTexture( C["media"]["normal"] )
+				G.UnitFrames["Arena" .. i].Castbar.bg:SetVertexColor( 0.05, 0.05, 0.05 )
+
+				G.UnitFrames["Arena" .. i].Castbar.Time = S.SetFontString( G.UnitFrames["Arena" .. i].Castbar, S.CreateFontString() )
+				G.UnitFrames["Arena" .. i].Castbar.Time:Point( "RIGHT", G.UnitFrames["Arena" .. i].Castbar, "RIGHT", -4, 1 )
+				G.UnitFrames["Arena" .. i].Castbar.Time:SetTextColor( 0, 4, 0 )
+
+				G.UnitFrames["Arena" .. i].Castbar.Text = S.SetFontString( G.UnitFrames["Arena" .. i].Castbar, S.CreateFontString() )
+				G.UnitFrames["Arena" .. i].Castbar.Text:Point( "LEFT", G.UnitFrames["Arena" .. i].Castbar, "LEFT", 4, 1 )
+				G.UnitFrames["Arena" .. i].Castbar.Text:SetTextColor( 0.3, 0.2, 1 )
+
+				G.UnitFrames["Arena" .. i].Castbar.PostCastStart = S.PostCastStart
+				G.UnitFrames["Arena" .. i].Castbar.PostChannelStart = S.PostCastStart
+
+				if( C["unitframes"]["cbicons"] == true ) then
+					G.UnitFrames["Arena" .. i].Castbar:Width( 173 )
+
+					G.UnitFrames["Arena" .. i].Castbar.button:ClearAllPoints()
+					G.UnitFrames["Arena" .. i].Castbar.button:SetPoint( "RIGHT", G.UnitFrames["Arena" .. i].Castbar, "LEFT", -5, 0 )
+					G.UnitFrames["Arena" .. i].Castbar.button:Size( 24 )
+					G.UnitFrames["Arena" .. i].Castbar.button:CreateShadow( "Default" )
+				else
+					G.UnitFrames["Arena" .. i].Castbar:Width( 200 )
+
+					G.UnitFrames["Arena" .. i].Castbar.button:Kill()
+				end
+			end
+		end
+
+		------------------------------
+		-- buffs, debuffs
+		------------------------------
+		do
+			G.UnitFrames["Arena" .. i].Debuffs:SetHeight( 30 )
+			G.UnitFrames["Arena" .. i].Debuffs:SetWidth( 200 )
+			G.UnitFrames["Arena" .. i].Debuffs.size = 30
+			G.UnitFrames["Arena" .. i].Debuffs.num = 5
+			G.UnitFrames["Arena" .. i].Debuffs.spacing = 3
+
+			G.UnitFrames["Arena" .. i].Debuffs:ClearAllPoints()
+			G.UnitFrames["Arena" .. i].Debuffs:Point( "LEFT", G.UnitFrames["Arena" .. i], "RIGHT", 5, 0 )
+			G.UnitFrames["Arena" .. i].Debuffs.ClearAllPoints = S.dummy
+			G.UnitFrames["Arena" .. i].Debuffs.SetPoint = S.dummy
+
+			G.UnitFrames["Arena" .. i].Debuffs.initialAnchor = "LEFT"
+			G.UnitFrames["Arena" .. i].Debuffs["growth-x"] = "RIGHT"
+
+			if( G.UnitFrames["Arena" .. i].Debuffs ) then
+				for _, frames in pairs( { G.UnitFrames["Arena" .. i].Debuffs } ) do
+					if( not frames ) then return end
+
+					frames:Size( 200, 30 )
+					frames.size = 30
+					frames.num = 5
+
+					hooksecurefunc( frames, "PostCreateIcon", S.SkinAura )
+				end
+			end
+		end
+
+		------------------------------
+		-- trinket
+		------------------------------
+		do
+			G.UnitFrames["Arena" .. i].Trinketbg:ClearAllPoints()
+			G.UnitFrames["Arena" .. i].Trinketbg:Point( "RIGHT", G.UnitFrames["Arena" .. i], "LEFT", -5, 0 )
+			G.UnitFrames["Arena" .. i].Trinketbg:Size( 30 )
+			G.UnitFrames["Arena" .. i].Trinketbg:CreateShadow( "Default" )
+		end
+
+		------------------------------
+		-- size
+		------------------------------
+		do
+			G.UnitFrames["Arena" .. i]:Size( 200, 26 )
+		end
+	end
 end
 
 ------------------------------
@@ -738,6 +1363,9 @@ FramePositions:SetScript( "OnEvent", function( self, event, addon )
 	G.UnitFrames.Player:ClearAllPoints()
 	G.UnitFrames.Target:ClearAllPoints()
 	G.UnitFrames.TargetTarget:ClearAllPoints()
+	G.UnitFrames.Pet:ClearAllPoints()
+	G.UnitFrames.Focus:ClearAllPoints()
+	G.UnitFrames.FocusTarget:ClearAllPoints()
 
 	if( IsAddOnLoaded( "AsphyxiaUI_Raid" ) ) then
 		G.UnitFrames.Player:SetPoint( "TOP", UIParent, "BOTTOM", -170 , 260 )
@@ -751,4 +1379,26 @@ FramePositions:SetScript( "OnEvent", function( self, event, addon )
 	end
 
 	G.UnitFrames.TargetTarget:SetPoint( "TOPRIGHT", G.UnitFrames.Target, "BOTTOMRIGHT", 0, -49 )
+	G.UnitFrames.Pet:SetPoint( "TOPLEFT", G.UnitFrames.Player, "BOTTOMLEFT", 0, -49 )
+	G.UnitFrames.Focus:SetPoint( "TOP", UIParent, "BOTTOM", -450, 600 )
+	G.UnitFrames.FocusTarget:SetPoint( "TOP", G.UnitFrames.Focus, "BOTTOM", 0 , -43 )
+
+	for i = 1, MAX_BOSS_FRAMES do
+		G.UnitFrames["Boss" .. i]:ClearAllPoints()
+		if( i == 1 ) then
+			G.UnitFrames["Boss" .. i]:SetPoint( "TOP", UIParent, "BOTTOM", 450, 600 )
+		else
+			G.UnitFrames["Boss" .. i]:SetPoint( "TOP", G.UnitFrames["Boss" .. i - 1], "BOTTOM", 0, -43 )
+		end
+	end
+
+	for i = 1, 5 do
+		G.UnitFrames["Arena" .. i]:ClearAllPoints()
+		if( i == 1 ) then
+			G.UnitFrames["Arena" .. i]:SetPoint( "TOP", UIParent, "BOTTOM", 450, 600 )
+		else
+			G.UnitFrames["Arena" .. i]:SetPoint( "TOP", G.UnitFrames["Arena" .. i - 1], "BOTTOM", 0, -43 )
+		end
+	end
+
 end )

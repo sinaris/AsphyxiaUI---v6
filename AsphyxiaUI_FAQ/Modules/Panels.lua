@@ -32,3 +32,11 @@ end
 
 SlashCmdList.AsphyxiaUIFAQ = AsphyxiaUIFAQ
 SLASH_AsphyxiaUIFAQ1 = "/afaq"
+
+local AsphyxiaUIFAQOnLogon = CreateFrame( "Frame" )
+AsphyxiaUIFAQOnLogon:RegisterEvent( "PLAYER_ENTERING_WORLD" )
+AsphyxiaUIFAQOnLogon:SetScript( "OnEvent", function( self, event )
+	self:UnregisterEvent( "PLAYER_ENTERING_WORLD" )
+
+	print( "|cff00AAFFAsphyxiaUI - FAQ|r loaded!" )
+end )

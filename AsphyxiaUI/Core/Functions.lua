@@ -1,14 +1,14 @@
 ---------------------------------------------------------------------------------------------
--- AsphyxiaUI
+-- Project: AsphyxiaUI Version 6.0
 ---------------------------------------------------------------------------------------------
 
 local S, C, L, G = unpack( Tukui )
 
-S.buttonsize = S.Scale( C["actionbar"].buttonsize )
-S.buttonspacing = S.Scale( C["actionbar"].buttonspacing )
-S.petbuttonsize = S.Scale( C["actionbar"].petbuttonsize )
-S.petbuttonspacing = S.Scale( C["actionbar"].buttonspacing )
-S.stancebuttonsize = S.Scale( C["actionbar"].stancebuttonsize )
+S.buttonsize = S.Scale( C["actionbar"]["buttonsize"] )
+S.buttonspacing = S.Scale( C["actionbar"]["buttonspacing"] )
+S.petbuttonsize = S.Scale( C["actionbar"]["petbuttonsize"] )
+S.petbuttonspacing = S.Scale( C["actionbar"]["buttonspacing"] )
+S.stancebuttonsize = S.Scale( C["actionbar"]["stancebuttonsize"] )
 
 S.panelcolor = S.RGBToHex( unpack( C["media"]["datatextcolor1"] ) )
 

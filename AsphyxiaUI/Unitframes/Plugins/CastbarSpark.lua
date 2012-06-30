@@ -15,7 +15,7 @@ local AddCastBarSpark = function( self )
 	Spark:SetBlendMode( "ADD" )
 	Spark:Width( 15 )
 	Spark:Height( 34 )
-	Spark:Point( "LEFT", self:GetStatusBarTexture(), "RIGHT", -6, 0 )
+	Spark:Point( "LEFT", self:GetStatusBarTexture(), "RIGHT", -7, 0 )
 
 	self.Spark = Spark
 end

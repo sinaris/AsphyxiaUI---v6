@@ -75,7 +75,7 @@ AsphyxiaUIHelpButton:HookScript( "OnLeave", S.SetOriginalBackdrop )
 
 AsphyxiaUIHelpButton.Text = S.SetFontString( AsphyxiaUIHelpButton, S.CreateFontString() )
 AsphyxiaUIHelpButton.Text:Point( "CENTER", AsphyxiaUIHelpButton, "CENTER", 1, 1 )
-AsphyxiaUIHelpButton.Text:SetText( S.RGBToHex( unpack( C["media"]["datatextcolor2"] ) ) .. HELP )
+AsphyxiaUIHelpButton.Text:SetText( S.RGBToHex( unpack( C["media"]["datatextcolor2"] ) ) .. "Help" )
 
 ------------------------------
 -- ReloadUI Button

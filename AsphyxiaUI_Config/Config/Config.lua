@@ -84,6 +84,42 @@ C["databars"] = {
 	},
 }
 
+C["datatext"] = {
+	["fps_ms"] = 0,
+	["system"] = 0,
+	["bags"] = 5,
+	["gold"] = 6,
+	["wowtime"] = 12,
+	["guild"] = 1,
+	["dur"] = 0,
+	["friends"] = 2,
+	["dps_text"] = 0,
+	["hps_text"] = 0,
+	["power"] = 7,
+	["haste"] = 8,
+	["crit"] = 9,
+	["avd"] = 0,
+	["armor"] = 0,
+	["currency"] = 0,
+	["hit"] = 11,
+	["mastery"] = 10,
+	["micromenu"] = 4,
+	["regen"] = 0,
+	["talent"] = 0,
+	["calltoarms"] = 3,
+	["expertise"] = 0,
+	["profession"] = 1,
+
+	["battleground"] = true,
+	["time24"] = true,
+	["localtime"] = false,
+	["fontsize"] = 12,
+
+	["classcolor"] = false,
+	["enable_specswitcher"] = true,
+	["bgannouncer"] = false,
+}
+
 C["media"] = {
 	["asphyxia"] = [[Interface\AddOns\AsphyxiaUI\Media\Fonts\Asphyxia.ttf]],
 	["pixel_normal"] = [[Interface\AddOns\AsphyxiaUI\Media\Fonts\PixelNormal.ttf]],
