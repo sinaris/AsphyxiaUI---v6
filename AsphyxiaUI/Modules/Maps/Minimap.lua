@@ -18,10 +18,6 @@ if( C["global"]["panellayout"] == "asphyxia" ) then
 	G.Maps.Minimap:CreateShadow( "Default" )
 
 	Minimap:Size( 153 )
-elseif( C["global"]["panellayout"] == "duffed" ) then
-	G.Maps.Minimap:Point( "TOPRIGHT", UIParent, "TOPRIGHT", -34, -5 )
-
-	G.Maps.Minimap.Ticket:FontString( "Text", S.CreateFontString() )
 elseif( C["global"]["panellayout"] == "jasje" ) then
 	G.Maps.Minimap:Point( "TOPRIGHT", UIParent, "TOPRIGHT", -10, -15 )
 

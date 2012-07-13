@@ -26,7 +26,9 @@ for i = 1, GetNumFactions() do
 
 	if( name == db[1] or name == db[2] or name == db[3] or name == db[4] or name == db[5] ) then
 		local frame = CreateFrame( "Frame", "RepData" .. i, UIParent )
-		frame:CreatePanel( "Transparent", TukuiMinimap:GetWidth(), 18, "CENTER", UIParent, "CENTER", 0, 0 )
+		frame:Size( TukuiMinimap:GetWidth(), 18 )
+		frame:Point( "CENTER", UIParent, "CENTER", 0, 0 )
+		frame:SetTemplate( "Transparent" )
 		frame:CreateShadow( "Default" )
 		frame:EnableMouse( true )
 		frame:Animate( 160, 0, 0.4 )
@@ -94,7 +96,9 @@ local update = function()
 end
 
 local toggle = CreateFrame( "Frame", "RepToggle", TukuiChatBackgroundRight )
-toggle:CreatePanel( nil, 30, 15, "TOPRIGHT", TukuiChatBackgroundRight, "TOPRIGHT", -5, -52 )
+toggle:Size( 30, 15 )
+toggle:Point( "TOPRIGHT", TukuiChatBackgroundRight, "TOPRIGHT", -5, -52 )
+toggle:SetTemplate( "Default" )
 toggle:EnableMouse( true )
 toggle:SetFrameStrata( "MEDIUM" )
 toggle:SetFrameLevel( 10 )

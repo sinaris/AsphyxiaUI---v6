@@ -20,10 +20,12 @@ local AddCastBarSpark = function( self )
 	self.Spark = Spark
 end
 
-for unit, object in pairs( oUFTukui.units ) do
+AddCastBarSpark( G.UnitFrames.Player.Castbar )
+
+--[[for unit, object in pairs( oUFTukui.units ) do
 	if( unit == "player" or unit == "target" ) then
 		if( object.Castbar ) then
 			AddCastBarSpark( object.Castbar )
 		end
 	end
-end
+end]]

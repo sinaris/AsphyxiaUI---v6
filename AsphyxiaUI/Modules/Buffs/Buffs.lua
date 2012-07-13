@@ -51,48 +51,6 @@ if( C["global"]["panellayout"] == "asphyxia" ) then
 		frame:HookScript( "OnAttributeChanged", OnAttributeChanged )
 		frame:HookScript( "OnEvent", OnAttributeChanged )
 	end
-
-elseif( C["global"]["panellayout"] == "duffed" ) then
-
-	TukuiAurasPlayerBuffs:SetPoint( "TOPRIGHT", G.Maps.Minimap, "TOPLEFT", -8, 0 )
-	TukuiAurasPlayerBuffs:SetAttribute( "wrapAfter", 14 )
-	TukuiAurasPlayerBuffs:SetAttribute( "xOffset", -33 )
-	TukuiAurasPlayerBuffs:SetAttribute( "wrapYOffset", -39 )
-
-	TukuiAurasPlayerDebuffs:SetPoint( "TOPRIGHT", G.Maps.Minimap, "BOTTOMLEFT", -8, -15 )
-	TukuiAurasPlayerDebuffs:SetAttribute( "wrapAfter", 14 )
-	TukuiAurasPlayerDebuffs:SetAttribute( "xOffset", -33 )
-
-	local hooks = {
-		TukuiAurasPlayerBuffs,
-		TukuiAurasPlayerDebuffs,
-		TukuiAurasPlayerConsolidate,
-	}
-
-	local OnAttributeChanged = function( self )
-		for i = 1, self:GetNumChildren() do
-			local child = select( i, self:GetChildren() )
-
-			if( child.Duration ) then
-				child.Duration:SetFont( S.CreateFontString() )
-				child.Duration:ClearAllPoints()
-				child.Duration:SetPoint( "BOTTOM", 0, -10 )
-			end
-
-			if( child.Count ) then
-				child.Count:SetFont( S.CreateFontString() )
-				child.Count:ClearAllPoints()
-				child.Count:SetPoint( "BOTTOMRIGHT", -1, 1 )
-			end
-		end
-	end
-
-	for _, frame in pairs( hooks ) do
-		frame:RegisterEvent( "PLAYER_ENTERING_WORLD" )
-		frame:HookScript( "OnAttributeChanged", OnAttributeChanged )
-		frame:HookScript( "OnEvent", OnAttributeChanged )
-	end
-
 elseif( C["global"]["panellayout"] == "jasje" ) then
 	TukuiAurasPlayerBuffs:SetPoint( "TOPRIGHT", G.Maps.Minimap, "TOPLEFT", -8, 0 )
 	TukuiAurasPlayerBuffs:SetAttribute( "wrapAfter", 14 )
@@ -132,11 +90,6 @@ elseif( C["global"]["panellayout"] == "jasje" ) then
 		frame:HookScript( "OnAttributeChanged", OnAttributeChanged )
 		frame:HookScript( "OnEvent", OnAttributeChanged )
 	end
-
-
-
-
-
 elseif( C["global"]["panellayout"] == "sinaris" ) then
 
 end

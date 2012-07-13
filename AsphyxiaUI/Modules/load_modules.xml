@@ -6,6 +6,8 @@
 	<Include file="Chat\load_chat.xml" />
 	<Include file="Databars\load_databars.xml" />
 	<Include file="Datatext\load_datatext.xml" />
+	<Include file="Bags\load_bags.xml" />
+	<Include file="Skins\load_skins.xml" />
 
 	<Include file="Extras\load_extras.xml" />
 </Ui>

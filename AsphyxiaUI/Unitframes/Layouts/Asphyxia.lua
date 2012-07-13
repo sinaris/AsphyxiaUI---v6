@@ -86,7 +86,9 @@ do
 	do
 		if( C["unitframes"]["classicons"] == true ) then
 			local classicon = CreateFrame( "Frame", G.UnitFrames.Player:GetName() .. "_ClassIconBorder", G.UnitFrames.Player )
-			classicon:CreatePanel( "Default", 30, 30, "TOPRIGHT", G.UnitFrames.Player.Health, "TOPLEFT", -5, 2 )
+			classicon:Size( 30 )
+			classicon:Point( "TOPRIGHT", G.UnitFrames.Player.Health, "TOPLEFT", -5, 2 )
+			classicon:SetTemplate( "Default" )
 			classicon:CreateShadow( "Default" )
 
 			local class = classicon:CreateTexture( G.UnitFrames.Player:GetName() .. "_ClassIcon", "ARTWORK" )
@@ -436,7 +438,9 @@ do
 	do
 		if( C["unitframes"]["classicons"] == true ) then
 			local classicon = CreateFrame( "Frame", G.UnitFrames.Target:GetName() .. "_ClassIconBorder", G.UnitFrames.Target )
-			classicon:CreatePanel( "Default", 30, 30, "TOPLEFT", G.UnitFrames.Target.Health, "TOPRIGHT", 5, 2 )
+			classicon:Size( 30 )
+			classicon:Point( "TOPLEFT", G.UnitFrames.Target.Health, "TOPRIGHT", 5, 2 )
+			classicon:SetTemplate( "Default" )
 			classicon:CreateShadow( "Default" )
 
 			local class = classicon:CreateTexture( G.UnitFrames.Target:GetName() .. "_ClassIcon", "ARTWORK" )
@@ -1400,5 +1404,4 @@ FramePositions:SetScript( "OnEvent", function( self, event, addon )
 			G.UnitFrames["Arena" .. i]:SetPoint( "TOP", G.UnitFrames["Arena" .. i - 1], "BOTTOM", 0, -43 )
 		end
 	end
-
 end )

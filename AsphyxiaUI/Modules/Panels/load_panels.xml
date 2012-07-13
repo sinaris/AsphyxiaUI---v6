@@ -3,7 +3,6 @@
 	<Script file="Asphyxia_ExtraPanels.lua" />
 	<Script file="Asphyxia_ControlPanel.lua" />
 
-	<Script file="Duffed.lua" />
 	<Script file="Jasje.lua" />
 	<Script file="Sinaris.lua" />
 </Ui>

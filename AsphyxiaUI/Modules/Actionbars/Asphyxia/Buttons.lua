@@ -299,7 +299,9 @@ for i = 1, 6 do
 	Toggle[i].Text:Point( "CENTER", 2, 1 )
 
 	if( i == 1 ) then
-		Toggle[i]:CreatePanel( "Default", actionBarBG:GetWidth() - 8, 15, "TOP", actionBarBG, "TOP", 0, -4 )
+		Toggle[i]:Size( actionBarBG:GetWidth() - 8, 15 )
+		Toggle[i]:Point( "TOP", actionBarBG, "TOP", 0, -4 )
+		Toggle[i]:SetTemplate( "Default" )
 		Toggle[i]:SetFrameLevel( actionBarBG:GetFrameLevel() + 1 )
 		Toggle[i]:CreateOverlay( Toggle[i] )
 
@@ -320,7 +322,9 @@ for i = 1, 6 do
 		Toggle[i]:SetScript( "OnEvent", MainBars )
 
 	elseif( i == 2 ) then
-		Toggle[i]:CreatePanel( "Default", S.buttonsize, actionBarBG:GetHeight() - 44, "RIGHT", actionBarBG, "RIGHT", -4, 0 )
+		Toggle[i]:Size( S.buttonsize, actionBarBG:GetHeight() - 44 )
+		Toggle[i]:Point( "RIGHT", actionBarBG, "RIGHT", -4, 0 )
+		Toggle[i]:SetTemplate( "Default" )
 		Toggle[i]:SetFrameLevel( actionBarBG:GetFrameLevel() + 1 )
 		Toggle[i]:CreateOverlay( Toggle[i] )
 
@@ -352,7 +356,9 @@ for i = 1, 6 do
 		Toggle[i]:SetScript( "OnEvent", RightBars )
 
 	elseif( i == 3 ) then
-		Toggle[i]:CreatePanel( "Default", Toggle[i - 1]:GetWidth(), Toggle[i - 1]:GetHeight(), "TOPRIGHT", Toggle[i - 1], "TOPLEFT", -3, 0 )
+		Toggle[i]:Size( Toggle[i - 1]:GetWidth(), Toggle[i - 1]:GetHeight() )
+		Toggle[i]:Point( "TOPRIGHT", Toggle[i - 1], "TOPLEFT", -3, 0 )
+		Toggle[i]:SetTemplate( "Default" )
 		Toggle[i]:SetFrameLevel( actionBarBG:GetFrameLevel() + 1 )
 		Toggle[i]:CreateOverlay( Toggle[i] )
 
@@ -381,13 +387,19 @@ for i = 1, 6 do
 		Toggle[i]:SetScript( "OnEvent", RightBars )
 
 	elseif( i == 4 ) then
-		Toggle[i]:CreatePanel( "Default", S.buttonsize / 2, 15, "BOTTOMRIGHT", actionBarBG, "BOTTOMLEFT", -3, 0 )
+		Toggle[i]:Size( S.buttonsize / 2, 15 )
+		Toggle[i]:Point( "BOTTOMRIGHT", actionBarBG, "BOTTOMLEFT", -3, 0 )
+		Toggle[i]:SetTemplate( "Default" )
 		--Toggle[i]:SetFrameLevel( actionBarBG:GetFrameLevel() + 1 )
 	elseif( i == 5 ) then
-		Toggle[i]:CreatePanel( "Default", S.buttonsize / 2, 15, "BOTTOMLEFT", actionBarBG, "BOTTOMRIGHT", 3, 0 )
+		Toggle[i]:Size( S.buttonsize / 2, 15 )
+		Toggle[i]:Point( "BOTTOMLEFT", actionBarBG, "BOTTOMRIGHT", 3, 0 )
+		Toggle[i]:SetTemplate( "Default" )
 		--Toggle[i]:SetFrameLevel( actionBarBG:GetFrameLevel() + 1 )
 	elseif( i == 6 ) then
-		Toggle[i]:CreatePanel( "Default", 82, 17, "BOTTOMLEFT", closeAB, "TOPLEFT", 0, 3 )
+		Toggle[i]:Size( 82, 17 )
+		Toggle[i]:Point( "BOTTOMLEFT", closeAB, "TOPLEFT", 0, 3 )
+		Toggle[i]:SetTemplate( "Default" )
 		Toggle[i]:SetFrameLevel( actionBarBG:GetFrameLevel() + 1 )
 		Toggle[i]:CreateOverlay( Toggle[i] )
 
@@ -444,13 +456,16 @@ for i = 1, 6 do
 end
 
 local vehicle = CreateFrame( "Button", "TukuiExitVehicleButton", UIParent, "SecureHandlerClickTemplate" )
-vehicle:CreatePanel( "Default", S.buttonsize * 2, S.buttonsize + 1, "BOTTOMRIGHT", TukuiChatBackgroundRight, "BOTTOMLEFT", -3, 0 )
+vehicle:Size( S.buttonsize * 2, S.buttonsize + 1 )
+vehicle:Point( "BOTTOMRIGHT", TukuiChatBackgroundRight, "BOTTOMLEFT", -3, 0 )
+vehicle:SetTemplate( "Transparent" )
 vehicle:CreateOverlay( vehicle )
 vehicle:RegisterForClicks( "AnyUp" )
 vehicle:SetScript( "OnClick", function() VehicleExit() end )
-vehicle.text = S.SetFontString( vehicle, S.CreateFontString() )
-vehicle.text:Point( "CENTER", 1, 1 )
-vehicle.text:SetText( S.RGBToHex( unpack( C["media"].datatextcolor2 ) ) .. EXIT )
+
+vehicle.Text = S.SetFontString( vehicle, S.CreateFontString() )
+vehicle.Text:Point( "CENTER", 1, 1 )
+vehicle.Text:SetText( S.RGBToHex( unpack( C["media"].datatextcolor2 ) ) .. EXIT )
 RegisterStateDriver( vehicle, "visibility", "[target=vehicle,exists] show;hide" )
 
 vehicle:HookScript( "OnEnter", S.SetModifiedBackdrop )

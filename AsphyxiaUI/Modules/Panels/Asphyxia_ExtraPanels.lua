@@ -10,28 +10,36 @@ if( C["global"]["panellayout"] ~= "asphyxia" ) then return end
 -- Additional Panels
 ------------------------------
 local AsphyxiaUIInfoCenter = CreateFrame( "Frame", "AsphyxiaUIInfoCenter", G.ActionBars.Bar1 )
-AsphyxiaUIInfoCenter:CreatePanel( "Default", G.ActionBars.Bar1:GetWidth(), 20, "TOP", G.ActionBars.Bar1, "BOTTOM", 0, -3 )
+AsphyxiaUIInfoCenter:Size( G.ActionBars.Bar1:GetWidth(), 20 )
+AsphyxiaUIInfoCenter:Point( "TOP", G.ActionBars.Bar1, "BOTTOM", 0, -3 )
+AsphyxiaUIInfoCenter:SetTemplate( "Default" )
 AsphyxiaUIInfoCenter:CreateOverlay( AsphyxiaUIInfoCenter )
 AsphyxiaUIInfoCenter:CreateShadow( "Default" )
 AsphyxiaUIInfoCenter:SetFrameLevel( 2 )
 AsphyxiaUIInfoCenter:SetFrameStrata( "BACKGROUND" )
 
 local AsphyxiaUIInfoCenterLeft = CreateFrame( "Frame", "AsphyxiaUIInfoCenterLeft", TukuiSplitBarLeft )
-AsphyxiaUIInfoCenterLeft:CreatePanel( "Default", TukuiSplitBarLeft:GetWidth(), 20, "TOP", TukuiSplitBarLeft, "BOTTOM", 0, -3 )
+AsphyxiaUIInfoCenterLeft:Size( TukuiSplitBarLeft:GetWidth(), 20 )
+AsphyxiaUIInfoCenterLeft:Point( "TOP", TukuiSplitBarLeft, "BOTTOM", 0, -3 )
+AsphyxiaUIInfoCenterLeft:SetTemplate( "Default" )
 AsphyxiaUIInfoCenterLeft:CreateOverlay( AsphyxiaUIInfoCenterLeft )
 AsphyxiaUIInfoCenterLeft:CreateShadow( "Default" )
 AsphyxiaUIInfoCenterLeft:SetFrameLevel( 2 )
 AsphyxiaUIInfoCenterLeft:SetFrameStrata( "BACKGROUND" )
 
 local AsphyxiaUIInfoCenterRight = CreateFrame( "Frame", "AsphyxiaUIInfoCenterRight", TukuiSplitBarRight )
-AsphyxiaUIInfoCenterRight:CreatePanel( "Default", TukuiSplitBarRight:GetWidth(), 20, "TOP", TukuiSplitBarRight, "BOTTOM", 0, -3 )
+AsphyxiaUIInfoCenterRight:Size( TukuiSplitBarRight:GetWidth(), 20 )
+AsphyxiaUIInfoCenterRight:Point( "TOP", TukuiSplitBarRight, "BOTTOM", 0, -3 )
+AsphyxiaUIInfoCenterRight:SetTemplate( "Default" )
 AsphyxiaUIInfoCenterRight:CreateOverlay( icenterright )
 AsphyxiaUIInfoCenterRight:CreateShadow( "Default" )
 AsphyxiaUIInfoCenterRight:SetFrameLevel( 2 )
 AsphyxiaUIInfoCenterRight:SetFrameStrata( "BACKGROUND" )
 
 local AsphyxiaUITimeWatch = CreateFrame( "Frame", "AsphyxiaUITimeWatch", Minimap )
-AsphyxiaUITimeWatch:CreatePanel( "Default", 53, 17, "TOP", Minimap, "BOTTOM", S.Scale( 0 ), 8 )
+AsphyxiaUITimeWatch:Size( 53, 17 )
+AsphyxiaUITimeWatch:Point( "TOP", Minimap, "BOTTOM", 0, 8 )
+AsphyxiaUITimeWatch:SetTemplate( "Default" )
 AsphyxiaUITimeWatch:CreateShadow( "Default" )
 AsphyxiaUITimeWatch:SetFrameStrata( "MEDIUM" )
 AsphyxiaUITimeWatch:CreateOverlay( AsphyxiaUITimeWatch )
@@ -41,7 +49,9 @@ AsphyxiaUITimeWatch:SetFrameLevel( 2 )
 -- Invisible Button
 ------------------------------
 local AsphyxiaUIInvisButton = CreateFrame( "Frame", "AsphyxiaUIInvisButton", UIParent )
-AsphyxiaUIInvisButton:CreatePanel( "Transparent", 100, 20, "BOTTOM", UIParent, "BOTTOM", 0, 2 )
+AsphyxiaUIInvisButton:Size( 100, 20 )
+AsphyxiaUIInvisButton:Point( "BOTTOM", UIParent, "BOTTOM", 0, 2 )
+AsphyxiaUIInvisButton:SetTemplate( "Transparent" )
 AsphyxiaUIInvisButton:SetFrameLevel( 0 )
 AsphyxiaUIInvisButton:SetAlpha( 0 )
 
@@ -49,7 +59,9 @@ AsphyxiaUIInvisButton:SetAlpha( 0 )
 -- FAQ Button
 ------------------------------
 local AsphyxiaUIVersionButton = CreateFrame( "Button", "AsphyxiaUIVersionButton", UIParent, "SecureActionButtonTemplate" )
-AsphyxiaUIVersionButton:CreatePanel( "Default", 26, 20, "RIGHT", AsphyxiaUIInvisButton, "LEFT", -3, 0 )
+AsphyxiaUIVersionButton:Size( 26, 20 )
+AsphyxiaUIVersionButton:Point( "RIGHT", AsphyxiaUIInvisButton, "LEFT", -3, 0 )
+AsphyxiaUIVersionButton:SetTemplate( "Default" )
 AsphyxiaUIVersionButton:CreateShadow( "Default" )
 AsphyxiaUIVersionButton:CreateOverlay( AsphyxiaUIVersionButton )
 AsphyxiaUIVersionButton:SetAttribute( "type", "macro" )
@@ -65,7 +77,9 @@ AsphyxiaUIVersionButton.Text:SetText( S.RGBToHex( unpack( C["media"]["datatextco
 -- Help Button
 ------------------------------
 local AsphyxiaUIHelpButton = CreateFrame( "Button", "AsphyxiaUIHelpButton", UIParent, "SecureActionButtonTemplate" )
-AsphyxiaUIHelpButton:CreatePanel( "Default", 26, 20, "RIGHT", AsphyxiaUIVersionButton, "LEFT", -3, 0 )
+AsphyxiaUIHelpButton:Size( 26, 20 )
+AsphyxiaUIHelpButton:Point( "RIGHT", AsphyxiaUIVersionButton, "LEFT", -3, 0 )
+AsphyxiaUIHelpButton:SetTemplate( "Default" )
 AsphyxiaUIHelpButton:CreateShadow( "Default" )
 AsphyxiaUIHelpButton:CreateOverlay( AsphyxiaUIHelpButton )
 AsphyxiaUIHelpButton:SetAttribute( "type", "macro" )
@@ -81,7 +95,9 @@ AsphyxiaUIHelpButton.Text:SetText( S.RGBToHex( unpack( C["media"]["datatextcolor
 -- ReloadUI Button
 ------------------------------
 local AsphyxiaUIReloadUIButton = CreateFrame( "Button", "AsphyxiaUIReloadUIButton", UIParent, "SecureActionButtonTemplate" )
-AsphyxiaUIReloadUIButton:CreatePanel( "Default", 26, 20, "LEFT", AsphyxiaUIInvisButton, "RIGHT", 3, 0 )
+AsphyxiaUIReloadUIButton:Size( 26, 20 )
+AsphyxiaUIReloadUIButton:Point( "LEFT", AsphyxiaUIInvisButton, "RIGHT", 3, 0 )
+AsphyxiaUIReloadUIButton:SetTemplate( "Default" )
 AsphyxiaUIReloadUIButton:CreateShadow( "Default" )
 AsphyxiaUIReloadUIButton:CreateOverlay( AsphyxiaUIReloadUIButton )
 AsphyxiaUIReloadUIButton:SetAttribute( "type", "macro" )
@@ -97,7 +113,9 @@ AsphyxiaUIReloadUIButton.Text:SetText( S.RGBToHex( unpack( C["media"]["datatextc
 -- ResetUI Button
 ------------------------------
 local AsphyxiaUIResetUIButton = CreateFrame( "Button", "TukuiResetUIButton", UIParent, "SecureActionButtonTemplate" )
-AsphyxiaUIResetUIButton:CreatePanel( "Default", 26, 20, "LEFT", AsphyxiaUIReloadUIButton, "RIGHT", 3, 0 )
+AsphyxiaUIResetUIButton:Size( 26, 20 )
+AsphyxiaUIResetUIButton:Point( "LEFT", AsphyxiaUIReloadUIButton, "RIGHT", 3, 0 )
+AsphyxiaUIResetUIButton:SetTemplate( "Default" )
 AsphyxiaUIResetUIButton:CreateShadow( "Default" )
 AsphyxiaUIResetUIButton:CreateOverlay( AsphyxiaUIResetUIButton )
 AsphyxiaUIResetUIButton:SetAttribute( "type", "macro" )
@@ -113,7 +131,9 @@ AsphyxiaUIResetUIButton.Text:SetText( S.RGBToHex( unpack( C["media"]["datatextco
 -- Datatext Button
 ------------------------------
 local AsphyxiaUIInfoCenterButton = CreateFrame( "Frame", "AsphyxiaUIInfoCenterButton", TukuiChatBackgroundRight )
-AsphyxiaUIInfoCenterButton:CreatePanel( nil, 30, 15, "TOPRIGHT", TukuiChatBackgroundRight, "TOPRIGHT", -5, -68 )
+AsphyxiaUIInfoCenterButton:Size( 30, 15 )
+AsphyxiaUIInfoCenterButton:Point( "TOPRIGHT", TukuiChatBackgroundRight, "TOPRIGHT", -5, -68 )
+AsphyxiaUIInfoCenterButton:SetTemplate( "Default" )
 AsphyxiaUIInfoCenterButton:SetAlpha( 0 )
 AsphyxiaUIInfoCenterButton:SetFrameStrata( "MEDIUM" )
 AsphyxiaUIInfoCenterButton:SetFrameLevel( 10 )

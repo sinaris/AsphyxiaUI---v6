@@ -36,7 +36,9 @@ local function updateCurrency()
 
 		if( name and amount > 0 ) then
 			local frame = CreateFrame( "Frame", "CurrencyData" .. id, UIParent )
-			frame:CreatePanel( "Transparent", 120, 20, "CENTER", UIParent, "CENTER", 0, 0 )
+			frame:Size( 120, 20 )
+			frame:Point( "CENTER", UIParent, "CENTER", 0, 0 )
+			frame:SetTemplate( "Transparent" )
 			frame:EnableMouse( true )
 			frame:CreateShadow( "Default" )
 			frame:Animate( -140, 0, 0.4 )
@@ -60,7 +62,9 @@ local function updateCurrency()
 			frame.Text:SetText( format( "%s / %s", amount, max ) )
 
 			frame.IconBG = CreateFrame( "Frame", "CurrencyDataIconBG" .. id, frame )
-			frame.IconBG:CreatePanel( nil, 20, 20, "BOTTOMLEFT", frame, "BOTTOMRIGHT", S.Scale( 3 ), 0 )
+			frame.IconBG:Size( 20 )
+			frame.IconBG:Point( "BOTTOMLEFT", frame, "BOTTOMRIGHT", S.Scale( 3 ), 0 )
+			frame.IconBG:SetTemplate( "Default" )
 			frame.IconBG:CreateShadow("Default")
 
 			frame.Icon = frame.IconBG:CreateTexture( nil, "ARTWORK" )
@@ -87,7 +91,9 @@ local function updateCurrency()
 end
 
 local toggle = CreateFrame( "Frame", "CurrencyToggle", UIParent )
-toggle:CreatePanel( "Default", 30, 15, "TOPRIGHT", TukuiChatBackgroundRight, "TOPRIGHT", -5, -84 )
+toggle:Size( 30, 15 )
+toggle:Point( "TOPRIGHT", TukuiChatBackgroundRight, "TOPRIGHT", -5, -84 )
+toggle:SetTemplate( "Default" )
 toggle:EnableMouse( true )
 toggle:SetFrameStrata( "MEDIUM" )
 toggle:SetFrameLevel( 10 )

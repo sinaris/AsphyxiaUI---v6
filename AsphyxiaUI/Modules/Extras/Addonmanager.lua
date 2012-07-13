@@ -1,7 +1,9 @@
 ﻿local S, C, L, G = unpack( Tukui )
 
 local addonBG = CreateFrame( "Frame", "addonBG", UIParent )
-addonBG:CreatePanel( "Transparent", 370, 500, "CENTER", UIParent, "CENTER", 0, 0 )
+addonBG:Size( 370, 500 )
+addonBG:Point( "CENTER", UIParent, "CENTER", 0, 0 )
+addonBG:SetTemplate( "Transparent" )
 addonBG:EnableMouse( true )
 addonBG:SetMovable( true )
 addonBG:SetUserPlaced( true )
@@ -12,7 +14,10 @@ addonBG:SetFrameStrata( "HIGH" )
 addonBG:Hide()
 
 local addonHeader = CreateFrame( "Frame", "addonHeader", addonBG )
-addonHeader:CreatePanel( "Transparent", addonBG:GetWidth(), 23, "BOTTOM", addonBG, "TOP", 0, 3, true )
+addonHeader:Size( addonBG:GetWidth(), 23 )
+addonHeader:Point( "BOTTOM", addonBG, "TOP", 0, 3 )
+addonHeader:SetTemplate( "Transparent" )
+
 addonHeader.Text = S.SetFontString( addonHeader, S.CreateFontString() )
 addonHeader.Text:SetPoint( "LEFT", 5, 1 )
 addonHeader.Text:SetText( ADDONS .. ": " .. S.myname )
@@ -29,21 +34,30 @@ buttonsBG:SetHeight( scrollFrame:GetHeight() )
 scrollFrame:SetScrollChild( buttonsBG )
 
 local saveButton = CreateFrame( "Button", "saveButton", addonBG )
-saveButton:CreatePanel( "Default", 130, 20, "BOTTOMLEFT", addonBG, "BOTTOMLEFT", 10, 10, true )
+saveButton:Size( 130, 20 )
+saveButton:Point( "BOTTOMLEFT", addonBG, "BOTTOMLEFT", 10, 10 )
+saveButton:SetTemplate( "Default" )
 saveButton:SetFrameStrata( "TOOLTIP" )
+
 saveButton.Text = S.SetFontString( saveButton, S.CreateFontString() )
 saveButton.Text:Point( "CENTER", saveButton, "CENTER", 0, 0 )
 saveButton.Text:SetText( SAVE_CHANGES )
+
 saveButton:SetScript( "OnClick", function() ReloadUI() end )
 saveButton:HookScript( "OnEnter", S.SetModifiedBackdrop )
 saveButton:HookScript( "OnLeave", S.SetOriginalBackdrop )
 
+
 local closeButton = CreateFrame( "Button", "closeButton", addonBG )
-closeButton:CreatePanel( "Default", 130, 20, "BOTTOMRIGHT", addonBG, "BOTTOMRIGHT", -10, 10, true )
+saveButton:Size( 130, 20 )
+saveButton:Point( "BOTTOMRIGHT", addonBG, "BOTTOMRIGHT", -10, 10 )
+saveButton:SetTemplate( "Default" )
+closeButton:SetFrameStrata( "TOOLTIP" )
+
 closeButton.Text = S.SetFontString( closeButton, S.CreateFontString() )
 closeButton.Text:Point( "CENTER", closeButton, "CENTER", 0, 0 )
 closeButton.Text:SetText( CANCEL )
-closeButton:SetFrameStrata( "TOOLTIP" )
+
 closeButton:SetScript( "OnClick", function() addonBG:Hide() end )
 closeButton:HookScript( "OnEnter", S.SetModifiedBackdrop )
 closeButton:HookScript( "OnLeave", S.SetOriginalBackdrop )

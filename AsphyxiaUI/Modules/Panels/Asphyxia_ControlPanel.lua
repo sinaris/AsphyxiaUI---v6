@@ -12,14 +12,19 @@ print( "panel: asphyxia" )
 -- background for actionbar config
 ---------------------------------------------------------------------------------------------
 local actionBarBG = CreateFrame( "Frame", "actionBarBG", UIParent )
-actionBarBG:CreatePanel( "Default", 150, 61, "CENTER", UIParent, "CENTER", 0, 25 )
+actionBarBG:Size( 150, 61 )
+actionBarBG:Point( "CENTER", UIParent, "CENTER", 0, 25 )
+actionBarBG:SetTemplate( "Default" )
 actionBarBG:Height( 80 )
 actionBarBG:SetFrameLevel( 15 )
 actionBarBG:Hide()
 S.fadeIn( actionBarBG )
 
 local abHeader = CreateFrame( "Frame", "abHeader", actionBarBG )
-abHeader:CreatePanel( "Transparent", actionBarBG:GetWidth(), 20, "BOTTOM", actionBarBG, "TOP", 0, 2, true )
+abHeader:Size( actionBarBG:GetWidth(), 20 )
+abHeader:Point( "BOTTOM", actionBarBG, "TOP", 0, 2 )
+abHeader:SetTemplate( "Transparent" )
+
 abHeader.Text = S.SetFontString( abHeader, S.CreateFontString() )
 abHeader.Text:Point( "CENTER", abHeader, "CENTER", 0, 1 )
 abHeader.Text:SetText( S.RGBToHex( unpack( C["media"].datatextcolor2 ) ) .. L.core_controlpanel_abconfigmenu_header )
@@ -28,14 +33,19 @@ abHeader.Text:SetText( S.RGBToHex( unpack( C["media"].datatextcolor2 ) ) .. L.co
 -- background for control panel
 ---------------------------------------------------------------------------------------------
 local extrasBG = CreateFrame( "Frame", "extrasBG", UIParent )
-extrasBG:CreatePanel( "Default", 152, 132 , "CENTER", UIParent, "CENTER", 0, 25 )
+extrasBG:Size( 152, 132 )
+extrasBG:Point( "CENTER", UIParent, "CENTER", 0, 25 )
+extrasBG:SetTemplate( "Default" )
 extrasBG:SetFrameLevel( 10 )
 extrasBG:SetFrameStrata( "BACKGROUND" )
 extrasBG:Hide()
 S.fadeIn( extrasBG )
 
 local extraHeader = CreateFrame( "Frame", "extraHeader", extrasBG )
-extraHeader:CreatePanel( "Transparent", extrasBG:GetWidth(), 20, "BOTTOM", extrasBG, "TOP", 0, 2, true )
+extraHeader:Size( extrasBG:GetWidth(), 20 )
+extraHeader:Point( "BOTTOM", extrasBG, "TOP", 0, 2 )
+extraHeader:SetTemplate( "Transparent" )
+
 extraHeader.Text = S.SetFontString( extraHeader, S.CreateFontString() )
 extraHeader.Text:Point( "CENTER", extraHeader, "CENTER", 0, 1 )
 extraHeader.Text:SetText( S.RGBToHex( unpack( C["media"].datatextcolor2 ) ) .. L.core_controlpanel_controlpanel_header )
@@ -44,7 +54,9 @@ extraHeader.Text:SetText( S.RGBToHex( unpack( C["media"].datatextcolor2 ) ) .. L
 -- close button inside actionbar config
 ---------------------------------------------------------------------------------------------
 local closeAB = CreateFrame( "Frame", "closeAB", actionBarBG )
-closeAB:CreatePanel( "Default", actionBarBG:GetWidth() - 8, 15, "BOTTOM", actionBarBG, "BOTTOM", 0, 4, true )
+closeAB:Size( actionBarBG:GetWidth() - 8, 15 )
+closeAB:Point( "BOTTOM", actionBarBG, "BOTTOM", 0, 4 )
+closeAB:SetTemplate( "Default" )
 closeAB:SetFrameLevel( actionBarBG:GetFrameLevel() + 1 )
 closeAB:HookScript( "OnEnter", S.SetModifiedBackdrop )
 closeAB:HookScript( "OnLeave", S.SetOriginalBackdrop )
@@ -97,15 +109,20 @@ local texts = {
 local button = CreateFrame( "Button", "button", extrasBG )
 for i = 1, getn( buttons ) do
 	button[i] = CreateFrame( "Button", "button" .. i, extrasBG, "SecureActionButtonTemplate" )
-	button[i]:CreatePanel( "Default", extrasBG:GetWidth() - 8, 24, "TOP", extrasBG, "TOP", 0, -4, true )
+	button[i]:Size( extrasBG:GetWidth() - 8, 24 )
+	button[i]:Point( "TOP", extrasBG, "TOP", 0, -4 )
+	button[i]:SetTemplate( "Default" )
 	button[i]:SetFrameLevel( extrasBG:GetFrameLevel() + 1 )
+
 	button[i].Text = S.SetFontString( button[i], S.CreateFontString() )
 	button[i].Text:Point( "CENTER", button[i], "CENTER", 0, 1 )
 	button[i].Text:SetText( unpack( texts[i] ) )
 
 	if( i == 1 ) then
+		button[i]:ClearAllPoints()
 		button[i]:Point( "TOP", extrasBG, "TOP", 0, -5 )
 	else
+		button[i]:ClearAllPoints()
 		button[i]:Point( "TOP", button[i - 1], "BOTTOM", 0, -3 )
 	end
 	button[i]:SetAttribute( "type", "macro" )
@@ -117,10 +134,13 @@ for i = 1, getn( buttons ) do
 end
 
 local close = CreateFrame( "Frame", "close", extrasBG )
-close:CreatePanel( "Default", extrasBG:GetWidth() - 8, 15, "TOP", button[4], "BOTTOM", 0, -3, true )
+close:Size( extrasBG:GetWidth() - 8, 15 )
+close:Point( "TOP", button[4], "BOTTOM", 0, -3 )
+close:SetTemplate( "Default" )
 close:SetFrameLevel( extrasBG:GetFrameLevel() + 1 )
 close:HookScript( "OnEnter", S.SetModifiedBackdrop )
 close:HookScript( "OnLeave", S.SetOriginalBackdrop )
+
 close.Text = S.SetFontString( close, S.CreateFontString() )
 close.Text:Point( "CENTER", close, "CENTER", 0, 1 )
 close.Text:SetText( S.RGBToHex( unpack( C["media"].datatextcolor2 ) ) .. CLOSE )
@@ -130,11 +150,14 @@ close:SetScript( "OnMouseDown", function()
 end )
 
 local extraToggle = CreateFrame( "Frame", "extraToggle", UIParent )
-extraToggle:CreatePanel( "Default", 100, 20, "BOTTOM", UIParent, "BOTTOM", 0, 2, true )
+extraToggle:Size( 100, 20 )
+extraToggle:Point( "BOTTOM", UIParent, "BOTTOM", 0, 2 )
+extraToggle:SetTemplate( "Default" )
 extraToggle:SetFrameLevel( 2 )
 extraToggle:SetFrameStrata( "LOW" )
 extraToggle:CreateShadow( "Default" )
 extraToggle:CreateOverlay( extraToggle )
+
 extraToggle.Text = S.SetFontString( extraToggle, S.CreateFontString() )
 extraToggle.Text:Point( "CENTER", extraToggle, "CENTER", 0, 1 )
 extraToggle.Text:SetText( S.RGBToHex( unpack( C["media"].datatextcolor2 ) ) .. "Control Panel" )

@@ -16,7 +16,7 @@ Stat:SetFrameStrata( "BACKGROUND" )
 Stat:SetFrameLevel( 4 )
 
 local StatusBar = S.databars[barNum].statusbar
-local Text = S.databars[barNum].text
+local Text = S.databars[barNum].Text
 
 local int = 1
 local function Update( self, t )

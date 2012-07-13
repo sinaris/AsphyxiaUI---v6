@@ -19,7 +19,7 @@ Stat:ClearAllPoints()
 Stat:SetAllPoints( S.databars[barNum] )
 
 local StatusBar = S.databars[barNum].statusbar
-local Text = S.databars[barNum].text
+local Text = S.databars[barNum].Text
 
 local bandwidthString = "%.2f Mbps"
 local percentageString = "%.2f%%"
