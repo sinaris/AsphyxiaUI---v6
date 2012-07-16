@@ -5,8 +5,9 @@
 local S, C, L, G = unpack( Tukui )
 
 local function SkinFrames( self, event, addon )
-	if( addon == "Blizzard_DebugTools" ) then
-
+	if( addon == "Blizzard_TalentUI" ) then
+		PlayerTalentFrame.backdrop:SetTemplate( "Transparent" )
+		PlayerTalentFrame.backdrop:CreateShadow( "Default" )
 	end
 end
 

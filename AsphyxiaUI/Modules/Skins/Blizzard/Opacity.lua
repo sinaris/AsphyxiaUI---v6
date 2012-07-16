@@ -5,8 +5,9 @@
 local S, C, L, G = unpack( Tukui )
 
 local function SkinFrames( self, event, addon )
-	if( addon == "Blizzard_DebugTools" ) then
-
+	if( addon == "AsphyxiaUI" ) then
+		OpacityFrame:SetTemplate( "Transparent" )
+		OpacityFrame:CreateShadow( "Default" )
 	end
 end
 

@@ -37,7 +37,7 @@
 	<Script file="Petition.lua" />
 	<Script file="Pets.lua" />
 	<Script file="Pve.lua" />
-	<Script file="Pvp.lua "/>
+	<Script file="Pvp.lua" />
 	<Script file="Quest.lua" />
 	<Script file="Questlog.lua" />
 	<Script file="Raid.lua" />

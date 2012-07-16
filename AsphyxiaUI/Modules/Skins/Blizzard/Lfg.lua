@@ -5,8 +5,9 @@
 local S, C, L, G = unpack( Tukui )
 
 local function SkinFrames( self, event, addon )
-	if( addon == "Blizzard_DebugTools" ) then
-
+	if( addon == "Blizzard_LookingForGuildUI" ) then
+		LookingForGuildFrame:SetTemplate( "Transparent" )
+		LookingForGuildFrame:CreateShadow( "Default" )
 	end
 end
 

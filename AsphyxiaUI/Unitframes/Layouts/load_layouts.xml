@@ -1,0 +1,10 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/">
+	<Script file="Asphyxia.lua" />
+	<Script file="Asphyxia2.lua" />
+	<Script file="Asphyxia3.lua" />
+	<Script file="Asphyxia4.lua" />
+	<Script file="Caith.lua" />
+	<Script file="Jasje.lua" />
+	<Script file="Sinaris.lua" />
+	<Script file="Smelly.lua" />
+</Ui>

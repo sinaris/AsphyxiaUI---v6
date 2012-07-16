@@ -5,8 +5,12 @@
 local S, C, L, G = unpack( Tukui )
 
 local function SkinFrames( self, event, addon )
-	if( addon == "Blizzard_DebugTools" ) then
+	if( addon == "Blizzard_MacroUI" ) then
+		MacroFrame:SetTemplate( "Transparent" )
+		MacroFrame:CreateShadow( "Default" )
 
+		MacroPopupFrame:SetTemplate( "Transparent" )
+		MacroPopupFrame:CreateShadow( "Default" )
 	end
 end
 

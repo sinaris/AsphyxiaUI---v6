@@ -5,8 +5,11 @@
 local S, C, L, G = unpack( Tukui )
 
 local function SkinFrames( self, event, addon )
-	if( addon == "Blizzard_DebugTools" ) then
+	if( addon == "Blizzard_TrainerUI" ) then
+		ClassTrainerFrame.backdrop:SetTemplate( "Transparent" )
+		ClassTrainerFrame.backdrop:CreateShadow( "Default" )
 
+		ClassTrainerStatusBar:SetStatusBarTexture( C["media"]["normal"] )
 	end
 end
 

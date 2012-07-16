@@ -8,16 +8,5 @@
 
 	<Script file="Tags\Tags.lua" />
 
-	<Script file="Layouts\Asphyxia.lua" />
-	<Script file="Layouts\Asphyxia2.lua" />
-	<Script file="Layouts\Asphyxia3.lua" />
-	<Script file="Layouts\Asphyxia4.lua" />
-	<Script file="Layouts\Caith.lua" />
-	<Script file="Layouts\Duffed.lua" />
-	<Script file="Layouts\Duffed2.lua" />
-	<Script file="Layouts\Jasje.lua" />
-	<Script file="Layouts\Merith.lua" />
-	<Script file="Layouts\Merith2.lua" />
-	<Script file="Layouts\Sinaris.lua" />
-	<Script file="Layouts\Smelly.lua" />
+	<Include file="Layouts\load_layouts.xml" />
 </Ui>

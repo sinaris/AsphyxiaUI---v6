@@ -151,9 +151,6 @@ do
 
 				G.UnitFrames.Player.Resting:ClearAllPoints()
 				G.UnitFrames.Player.Resting:SetPoint( "BOTTOMRIGHT", G.UnitFrames.Player, "TOPLEFT", 6, 7 )
-
-			elseif( C["global"]["panellayout"] == "duffed" ) then
-				G.UnitFrames.Player.Experience:SetStatusBarTexture( C["media"]["normal"] )
 			elseif( C["global"]["panellayout"] == "jasje" ) then
 				G.UnitFrames.Player.Experience:SetStatusBarTexture( C["media"]["glamour"] )
 			elseif( C["global"]["panellayout"] == "sinaris" ) then

@@ -5,8 +5,9 @@
 local S, C, L, G = unpack( Tukui )
 
 local function SkinFrames( self, event, addon )
-	if( addon == "Blizzard_DebugTools" ) then
-
+	if( addon == "Blizzard_TimeManager" ) then
+		TimeManagerFrame:SetTemplate( "Transparent" )
+		TimeManagerFrame:CreateShadow( "Default" )
 	end
 end
 

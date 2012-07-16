@@ -5,8 +5,11 @@
 local S, C, L, G = unpack( Tukui )
 
 local function SkinFrames( self, event, addon )
-	if( addon == "Blizzard_DebugTools" ) then
+	if( addon == "AsphyxiaUI" ) then
+		PVPFrame.backdrop:SetTemplate( "Transparent" )
+		PVPFrame.backdrop:CreateShadow( "Default" )
 
+		PVPFrameConquestBar.progress:SetTexture( C["media"]["normal"] )
 	end
 end
 
