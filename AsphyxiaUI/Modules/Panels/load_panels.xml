@@ -1,8 +1,4 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/">
-	<Script file="Asphyxia.lua" />
-	<Script file="Asphyxia_ExtraPanels.lua" />
-	<Script file="Asphyxia_ControlPanel.lua" />
-
-	<Script file="Jasje.lua" />
-	<Script file="Sinaris.lua" />
+	<Script file="AsphyxiaUI.lua" />
+	<Script file="AsphyxiaUI_ControlPanel.lua" />
 </Ui>

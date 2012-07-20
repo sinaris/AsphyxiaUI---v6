@@ -1,4 +1,10 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/">
-	<Include file="Asphyxia\load_asphyxia.xml" />
-	<Include file="Jasje\load_jasje.xml" />
+	<Script file="Bar1.lua" />
+	<Script file="Bar2.lua" />
+	<Script file="Bar3.lua" />
+	<Script file="Bar4.lua" />
+	<Script file="Bar5.lua" />
+	<Script file="BarPet.lua" />
+	<Script file="BarShift.lua" />
+	<Script file="Buttons.lua" />
 </Ui>

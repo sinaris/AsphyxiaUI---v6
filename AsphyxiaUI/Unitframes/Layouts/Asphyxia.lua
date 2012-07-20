@@ -132,30 +132,24 @@ do
 			G.UnitFrames.Player.Experience:ClearAllPoints()
 			G.UnitFrames.Player.Experience:SetStatusBarColor( 0, 0.4, 1, 0.8 )
 
-			if( C["global"]["panellayout"] == "asphyxia" ) then
-				G.UnitFrames.Player.Experience:SetStatusBarTexture( C["media"]["normal"] )
-				G.UnitFrames.Player.Experience:Size( TukuiChatBackgroundLeft:GetWidth() - 4, 2 )
-				G.UnitFrames.Player.Experience:Point( "BOTTOM", TukuiChatBackgroundLeft, "TOP", 0, 5 )
-				G.UnitFrames.Player.Experience:SetFrameLevel( 12 )
-				G.UnitFrames.Player.Experience:SetAlpha( 1 )
-				G.UnitFrames.Player.Experience:CreateBorder( true )
+			G.UnitFrames.Player.Experience:SetStatusBarTexture( C["media"]["normal"] )
+			G.UnitFrames.Player.Experience:Size( AsphyxiaUILeftChatBackground:GetWidth() - 4, 2 )
+			G.UnitFrames.Player.Experience:Point( "BOTTOM", AsphyxiaUILeftChatBackground, "TOP", 0, 5 )
+			G.UnitFrames.Player.Experience:SetFrameLevel( 12 )
+			G.UnitFrames.Player.Experience:SetAlpha( 1 )
+			G.UnitFrames.Player.Experience:CreateBorder( true )
 
-				G.UnitFrames.Player.Experience:HookScript( "OnLeave", function( self ) self:SetAlpha( 1 ) end )
+			G.UnitFrames.Player.Experience:HookScript( "OnLeave", function( self ) self:SetAlpha( 1 ) end )
 
-				G.UnitFrames.Player.Experience.Text = G.UnitFrames.Player.Experience:CreateFontString( nil, "OVERLAY" )
-				G.UnitFrames.Player.Experience.Text:SetFont( S.CreateFontString() )
-				G.UnitFrames.Player.Experience.Text:SetPoint( "CENTER", 0, 1 )
-				G.UnitFrames.Player.Experience.Text:SetShadowOffset( S.mult, -S.mult )
-				G.UnitFrames.Player.Experience.Text = G.UnitFrames.Player.Experience.Text
-				G.UnitFrames.Player.Experience.PostUpdate = S.ExperienceText
+			G.UnitFrames.Player.Experience.Text = G.UnitFrames.Player.Experience:CreateFontString( nil, "OVERLAY" )
+			G.UnitFrames.Player.Experience.Text:SetFont( S.CreateFontString() )
+			G.UnitFrames.Player.Experience.Text:SetPoint( "CENTER", 0, 1 )
+			G.UnitFrames.Player.Experience.Text:SetShadowOffset( S.mult, -S.mult )
+			G.UnitFrames.Player.Experience.Text = G.UnitFrames.Player.Experience.Text
+			G.UnitFrames.Player.Experience.PostUpdate = S.ExperienceText
 
-				G.UnitFrames.Player.Resting:ClearAllPoints()
-				G.UnitFrames.Player.Resting:SetPoint( "BOTTOMRIGHT", G.UnitFrames.Player, "TOPLEFT", 6, 7 )
-			elseif( C["global"]["panellayout"] == "jasje" ) then
-				G.UnitFrames.Player.Experience:SetStatusBarTexture( C["media"]["glamour"] )
-			elseif( C["global"]["panellayout"] == "sinaris" ) then
-				G.UnitFrames.Player.Experience:SetStatusBarTexture( C["media"]["normal"] )
-			end
+			G.UnitFrames.Player.Resting:ClearAllPoints()
+			G.UnitFrames.Player.Resting:SetPoint( "BOTTOMRIGHT", G.UnitFrames.Player, "TOPLEFT", 6, 7 )
 		end
 	end
 
@@ -190,90 +184,108 @@ do
 	-- classbar
 	------------------------------
 	do
-		if( C["unitframes"]["classbar"] == true ) then
-			------------------------------
-			-- druid
-			------------------------------
-			if( S.myclass == "DRUID" ) then
-				G.UnitFrames.Player.DruidManaBackground:ClearAllPoints()
-				G.UnitFrames.Player.DruidManaBackground:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
-				G.UnitFrames.Player.DruidManaBackground:Size( 233, 2 )
-				G.UnitFrames.Player.DruidManaBackground:CreateBorder( true )
+		------------------------------
+		-- druid
+		------------------------------
+		if( S.myclass == "DRUID" ) then
+			G.UnitFrames.Player.DruidManaBackground:ClearAllPoints()
+			G.UnitFrames.Player.DruidManaBackground:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
+			G.UnitFrames.Player.DruidManaBackground:Size( 233, 2 )
+			G.UnitFrames.Player.DruidManaBackground:CreateBorder( true )
 
-				G.UnitFrames.Player.DruidMana:SetSize( G.UnitFrames.Player.DruidManaBackground:GetWidth(), G.UnitFrames.Player.DruidManaBackground:GetHeight() )
+			G.UnitFrames.Player.DruidMana:SetSize( G.UnitFrames.Player.DruidManaBackground:GetWidth(), G.UnitFrames.Player.DruidManaBackground:GetHeight() )
 
-				G.UnitFrames.Player.EclipseBar:ClearAllPoints()
-				G.UnitFrames.Player.EclipseBar:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
-				G.UnitFrames.Player.EclipseBar:Size( 233, 2 )
-				G.UnitFrames.Player.EclipseBar:CreateBorder( true )
+			G.UnitFrames.Player.EclipseBar:ClearAllPoints()
+			G.UnitFrames.Player.EclipseBar:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
+			G.UnitFrames.Player.EclipseBar:Size( 233, 2 )
+			G.UnitFrames.Player.EclipseBar:CreateBorder( true )
 
-				G.UnitFrames.Player.EclipseBar.LunarBar:SetSize( G.UnitFrames.Player.EclipseBar:GetWidth(), G.UnitFrames.Player.EclipseBar:GetHeight() )
-				G.UnitFrames.Player.EclipseBar.SolarBar:SetSize( G.UnitFrames.Player.EclipseBar:GetWidth(), G.UnitFrames.Player.EclipseBar:GetHeight() )
+			G.UnitFrames.Player.EclipseBar.LunarBar:SetSize( G.UnitFrames.Player.EclipseBar:GetWidth(), G.UnitFrames.Player.EclipseBar:GetHeight() )
+			G.UnitFrames.Player.EclipseBar.SolarBar:SetSize( G.UnitFrames.Player.EclipseBar:GetWidth(), G.UnitFrames.Player.EclipseBar:GetHeight() )
 
-				G.UnitFrames.Player.EclipseBar.Text:ClearAllPoints()
-				G.UnitFrames.Player.EclipseBar.Text:SetPoint( "TOP", G.UnitFrames.Player.EclipseBar, 0, 25 )
-				G.UnitFrames.Player.EclipseBar.Text:SetFont( S.CreateFontString() )
-				G.UnitFrames.Player.EclipseBar.Text:SetShadowOffset( S.mult, -S.mult )
-			end
+			G.UnitFrames.Player.EclipseBar.Text:ClearAllPoints()
+			G.UnitFrames.Player.EclipseBar.Text:SetPoint( "TOP", G.UnitFrames.Player.EclipseBar, 0, 25 )
+			G.UnitFrames.Player.EclipseBar.Text:SetFont( S.CreateFontString() )
+			G.UnitFrames.Player.EclipseBar.Text:SetShadowOffset( S.mult, -S.mult )
+		end
 
-			------------------------------
-			-- warlock, paladin
-			------------------------------
-			if( S.myclass == "WARLOCK" ) then
+		------------------------------
+		-- warlock, paladin
+		------------------------------
+		if( S.myclass == "WARLOCK" ) then
 
-			end
+		end
 
-			------------------------------
-			-- warlock, paladin
-			------------------------------
-			if( S.myclass == "PALADIN" ) then
-				G.UnitFrames.Player.HolyPower:ClearAllPoints()
-				G.UnitFrames.Player.HolyPower:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
-				G.UnitFrames.Player.HolyPower:Size( 233, 2 )
-				G.UnitFrames.Player.HolyPower:CreateBorder( true )
+		------------------------------
+		-- warlock, paladin
+		------------------------------
+		if( S.myclass == "PALADIN" ) then
+			G.UnitFrames.Player.HolyPower:ClearAllPoints()
+			G.UnitFrames.Player.HolyPower:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
+			G.UnitFrames.Player.HolyPower:Size( 233, 2 )
+			G.UnitFrames.Player.HolyPower:CreateBorder( true )
 
-				for i = 1, 3 do
-					G.UnitFrames.Player.HolyPower[i]:SetStatusBarColor( 228 / 255, 225 / 255, 16 / 255 )
+			for i = 1, 3 do
+				G.UnitFrames.Player.HolyPower[i]:SetStatusBarColor( 228 / 255, 225 / 255, 16 / 255 )
 
-					if( i == 1 ) then
-						G.UnitFrames.Player.HolyPower[i]:SetPoint( "LEFT", G.UnitFrames.Player.HolyPower )
-						G.UnitFrames.Player.HolyPower[i]:Size( S.Scale( 232 / 3 ), 2 )
-					else
-						G.UnitFrames.Player.HolyPower[i]:Point( "LEFT", G.UnitFrames.Player.HolyPower[i - 1], "RIGHT", 1, 0 )
-						G.UnitFrames.Player.HolyPower[i]:Size( S.Scale( 232 / 3 ), 2 )
-					end
+				if( i == 1 ) then
+					G.UnitFrames.Player.HolyPower[i]:SetPoint( "LEFT", G.UnitFrames.Player.HolyPower )
+					G.UnitFrames.Player.HolyPower[i]:Size( S.Scale( 232 / 3 ), 2 )
+				else
+					G.UnitFrames.Player.HolyPower[i]:Point( "LEFT", G.UnitFrames.Player.HolyPower[i - 1], "RIGHT", 1, 0 )
+					G.UnitFrames.Player.HolyPower[i]:Size( S.Scale( 232 / 3 ), 2 )
 				end
-			end
-
-			------------------------------
-			-- deathknight
-			------------------------------
-			if( S.myclass == "DEATHKNIGHT" ) then
-				G.UnitFrames.Player.Runes:ClearAllPoints()
-				G.UnitFrames.Player.Runes:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
-				G.UnitFrames.Player.Runes:Size( 233, 2 )
-				G.UnitFrames.Player.Runes:CreateBorder( true )
-
-				for i = 1, 6 do
-					if( i == 1 ) then
-						G.UnitFrames.Player.Runes[i]:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
-						G.UnitFrames.Player.Runes[i]:Size( S.Scale( 38 ), 2 )
-					elseif( i == 2 or i == 3 ) then
-						G.UnitFrames.Player.Runes[i]:Size( S.Scale( 38 ), 2 )
-					else
-						G.UnitFrames.Player.Runes[i]:Point( "LEFT", G.UnitFrames.Player.Runes[i - 1], "RIGHT", 1, 0 )
-						G.UnitFrames.Player.Runes[i]:Size( S.Scale( 37 ), 2 )
-					end
-				end
-			end
-
-			------------------------------
-			-- shaman
-			------------------------------
-			if( S.myclass == "SHAMAN" ) then
-
 			end
 		end
+
+		------------------------------
+		-- deathknight
+		------------------------------
+		if( S.myclass == "DEATHKNIGHT" ) then
+			G.UnitFrames.Player.Runes:ClearAllPoints()
+			G.UnitFrames.Player.Runes:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
+			G.UnitFrames.Player.Runes:Size( 233, 2 )
+			G.UnitFrames.Player.Runes:CreateBorder( true )
+
+			for i = 1, 6 do
+				if( i == 1 ) then
+					G.UnitFrames.Player.Runes[i]:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
+					G.UnitFrames.Player.Runes[i]:Size( S.Scale( 38 ), 2 )
+				elseif( i == 2 or i == 3 ) then
+					G.UnitFrames.Player.Runes[i]:Size( S.Scale( 38 ), 2 )
+				else
+					G.UnitFrames.Player.Runes[i]:Point( "LEFT", G.UnitFrames.Player.Runes[i - 1], "RIGHT", 1, 0 )
+					G.UnitFrames.Player.Runes[i]:Size( S.Scale( 37 ), 2 )
+				end
+			end
+		end
+
+		------------------------------
+		-- monk
+		------------------------------
+		if( S.myclass == "MONK" ) then
+			G.UnitFrames.Player.HarmonyBar:ClearAllPoints()
+			G.UnitFrames.Player.HarmonyBar:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
+			G.UnitFrames.Player.HarmonyBar:Size( 233, 2 )
+			G.UnitFrames.Player.HarmonyBar:CreateBorder( true )
+
+			for i = 1, 5 do
+				G.UnitFrames.Player.HarmonyBar[i]:Size( 233/5, 2 )
+				if( i == 1 ) then
+					G.UnitFrames.Player.HarmonyBar[i]:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
+				else
+					G.UnitFrames.Player.HarmonyBar[i]:Point( "LEFT", G.UnitFrames.Player.HarmonyBar[i - 1], "RIGHT", 1, 0 )
+				end
+			end
+		end
+
+		------------------------------
+		-- shaman
+		------------------------------
+		if( S.myclass == "SHAMAN" ) then
+
+		end
+
 	end
 
 	------------------------------
@@ -283,7 +295,7 @@ do
 		if( C["unitframes"]["unitcastbar"] == true ) then
 			G.UnitFrames.Player.Castbar:ClearAllPoints()
 			G.UnitFrames.Player.Castbar:SetHeight( S.Scale( 20 ) )
-			G.UnitFrames.Player.Castbar:Point( "BOTTOMRIGHT", G.ActionBars.Bar1, "TOPRIGHT", -2, 5 )
+			G.UnitFrames.Player.Castbar:Point( "BOTTOMRIGHT", AsphyxiaUIActionbar1, "TOPRIGHT", -2, 5 )
 			G.UnitFrames.Player.Castbar:SetStatusBarTexture( C["media"]["normal"] )
 			G.UnitFrames.Player.Castbar:CreateBorder( true )
 			G.UnitFrames.Player.Castbar.bg:SetVertexColor( 0.05, 0.05, 0.05 )

@@ -1,3 +1,4 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/">
-	<Script file="Chat.lua" />
+	<Script file="Chatframes.lua" />
+	<Script file="Copychat.lua" />
 </Ui>
