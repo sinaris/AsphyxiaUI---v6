@@ -6,4 +6,5 @@
 	<Include file="Blizzard\load_blizzard.xml" />
 	<Include file="Buffs\load_buffs.xml" />
 	<Include file="Chat\load_chat.xml" />
+	<Include file="Datatext\load_datatext.xml" />
 </Ui>

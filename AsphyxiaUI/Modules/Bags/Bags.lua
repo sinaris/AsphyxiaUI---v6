@@ -4,7 +4,7 @@
 
 local S, C, L, G = unpack( Tukui )
 
-S.InfoLeftRightWidth = 370
+if( C["bags"]["enable"] ~= true ) then return end
 
 local bags_BACKPACK = { 0, 1, 2, 3, 4 }
 local bags_BANK = { -1, 5, 6, 7, 8, 9, 10, 11 }
