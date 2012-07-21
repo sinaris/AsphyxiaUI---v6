@@ -4,6 +4,10 @@
 
 local S, C, L, G = unpack( Tukui )
 
+S.CreateFontString = function()
+	return C["media"]["asphyxia"], 10, "MONOCHROMEOUTLINE"
+end
+
 function S.SetModifiedBackdrop( self )
 	local color = RAID_CLASS_COLORS[S.myclass]
 	self:SetBackdropColor( color.r * 0.15, color.g * 0.15, color.b * 0.15 )
@@ -19,6 +23,19 @@ function S.SetOriginalBackdrop( self )
 	end
 end
 
-S.CreateFontString = function()
-	return C["media"]["asphyxia"], 10, "MONOCHROMEOUTLINE"
+S.DataBarPoint = function( p, obj )
+	obj:SetPoint( "TOPRIGHT", S.databars[p], "TOPRIGHT", -2, -2 )
+	obj:SetPoint( "BOTTOMLEFT", S.databars[p], "BOTTOMLEFT", 2, 2 )
+end
+
+S.DataBarTooltipAnchor = function( barNum )
+	local xoff = -S.databars[barNum]:GetWidth()
+	local yoff = S.Scale(-5)
+	
+	if( C["databars"]["settings"]["vertical"] == true ) then
+		xoff = S.Scale( 5 )
+		yoff = S.databars[barNum]:GetHeight()
+	end
+
+	return xoff, yoff
 end

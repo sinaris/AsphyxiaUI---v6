@@ -30,11 +30,21 @@ local function CreateOverlay( frame )
 	frame.overlay = overlay
 end
 
+local function FadeIn( frame )
+	UIFrameFadeIn( frame, 0.4, frame:GetAlpha(), 1 )
+end
+
+local function FadeOut( frame )
+	UIFrameFadeOut( frame, 0.8, frame:GetAlpha(), 0 )
+end
+
 local function addapi( object )
 	local mt = getmetatable( object ).__index
 
 	if( not object.CreateBorder ) then mt.CreateBorder = CreateBorder end
 	if( not object.CreateOverlay ) then mt.CreateOverlay = CreateOverlay end
+	if( not object.FadeIn ) then mt.FadeIn = FadeIn end
+	if( not object.FadeOut ) then mt.FadeOut = FadeOut end
 end
 
 local handled = { ["Frame"] = true }
