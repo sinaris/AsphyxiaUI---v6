@@ -27,7 +27,6 @@ do
 	------------------------------
 	do
 		G.UnitFrames.Player.Health:Size( 233, 26 )
-		G.UnitFrames.Player.Health:SetStatusBarTexture( C["media"]["normal"] )
 		G.UnitFrames.Player.Health:SetFrameLevel( 5 )
 		G.UnitFrames.Player.Health:CreateBorder( true )
 		G.UnitFrames.Player.Health.bg:SetTexture( 0.6, 0.6, 0.6 )
@@ -47,6 +46,8 @@ do
 
 		G.UnitFrames.Player.Health.value = S.SetFontString( G.UnitFrames.Player.Health, S.CreateFontString() )
 		G.UnitFrames.Player.Health.value:Point( "RIGHT", G.UnitFrames.Player.Health, "RIGHT", -4, 1 )
+
+		G.UnitFrames.Player.Health.PostUpdate = S.PostUpdateHealth
 	end
 
 	------------------------------
@@ -54,7 +55,6 @@ do
 	------------------------------
 	do
 		G.UnitFrames.Player.Power:Size( 233, 2 )
-		G.UnitFrames.Player.Power:SetStatusBarTexture( C["media"]["normal"] )
 		G.UnitFrames.Player.Power:ClearAllPoints()
 		G.UnitFrames.Player.Power:Point( "TOPRIGHT", G.UnitFrames.Player.Health, "BOTTOMRIGHT", 0, -7 )
 		G.UnitFrames.Player.Power:SetFrameLevel( G.UnitFrames.Player.Health:GetFrameLevel() + 2 )
@@ -132,7 +132,6 @@ do
 			G.UnitFrames.Player.Experience:ClearAllPoints()
 			G.UnitFrames.Player.Experience:SetStatusBarColor( 0, 0.4, 1, 0.8 )
 
-			G.UnitFrames.Player.Experience:SetStatusBarTexture( C["media"]["normal"] )
 			G.UnitFrames.Player.Experience:Size( AsphyxiaUILeftChatBackground:GetWidth() - 4, 2 )
 			G.UnitFrames.Player.Experience:Point( "BOTTOM", AsphyxiaUILeftChatBackground, "TOP", 0, 5 )
 			G.UnitFrames.Player.Experience:SetFrameLevel( 12 )
@@ -210,14 +209,14 @@ do
 		end
 
 		------------------------------
-		-- warlock, paladin
+		-- warlock
 		------------------------------
 		if( S.myclass == "WARLOCK" ) then
 
 		end
 
 		------------------------------
-		-- warlock, paladin
+		-- paladin
 		------------------------------
 		if( S.myclass == "PALADIN" ) then
 			G.UnitFrames.Player.HolyPower:ClearAllPoints()
@@ -225,15 +224,14 @@ do
 			G.UnitFrames.Player.HolyPower:Size( 233, 2 )
 			G.UnitFrames.Player.HolyPower:CreateBorder( true )
 
-			for i = 1, 3 do
+			for i = 1, 5 do
 				G.UnitFrames.Player.HolyPower[i]:SetStatusBarColor( 228 / 255, 225 / 255, 16 / 255 )
+				G.UnitFrames.Player.HolyPower[i]:Size( S.Scale( 233 / 5 ), 2 )
 
 				if( i == 1 ) then
 					G.UnitFrames.Player.HolyPower[i]:SetPoint( "LEFT", G.UnitFrames.Player.HolyPower )
-					G.UnitFrames.Player.HolyPower[i]:Size( S.Scale( 232 / 3 ), 2 )
 				else
 					G.UnitFrames.Player.HolyPower[i]:Point( "LEFT", G.UnitFrames.Player.HolyPower[i - 1], "RIGHT", 1, 0 )
-					G.UnitFrames.Player.HolyPower[i]:Size( S.Scale( 232 / 3 ), 2 )
 				end
 			end
 		end
@@ -248,14 +246,11 @@ do
 			G.UnitFrames.Player.Runes:CreateBorder( true )
 
 			for i = 1, 6 do
+				G.UnitFrames.Player.Runes[i]:Size( S.Scale( 233 / 6 ), 2 )
 				if( i == 1 ) then
 					G.UnitFrames.Player.Runes[i]:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
-					G.UnitFrames.Player.Runes[i]:Size( S.Scale( 38 ), 2 )
-				elseif( i == 2 or i == 3 ) then
-					G.UnitFrames.Player.Runes[i]:Size( S.Scale( 38 ), 2 )
 				else
 					G.UnitFrames.Player.Runes[i]:Point( "LEFT", G.UnitFrames.Player.Runes[i - 1], "RIGHT", 1, 0 )
-					G.UnitFrames.Player.Runes[i]:Size( S.Scale( 37 ), 2 )
 				end
 			end
 		end
@@ -270,7 +265,7 @@ do
 			G.UnitFrames.Player.HarmonyBar:CreateBorder( true )
 
 			for i = 1, 5 do
-				G.UnitFrames.Player.HarmonyBar[i]:Size( 233/5, 2 )
+				G.UnitFrames.Player.HarmonyBar[i]:Size( 233 / 5, 2 )
 				if( i == 1 ) then
 					G.UnitFrames.Player.HarmonyBar[i]:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
 				else
@@ -296,7 +291,6 @@ do
 			G.UnitFrames.Player.Castbar:ClearAllPoints()
 			G.UnitFrames.Player.Castbar:SetHeight( S.Scale( 20 ) )
 			G.UnitFrames.Player.Castbar:Point( "BOTTOMRIGHT", AsphyxiaUIActionbar1, "TOPRIGHT", -2, 5 )
-			G.UnitFrames.Player.Castbar:SetStatusBarTexture( C["media"]["normal"] )
 			G.UnitFrames.Player.Castbar:CreateBorder( true )
 			G.UnitFrames.Player.Castbar.bg:SetVertexColor( 0.05, 0.05, 0.05 )
 
@@ -322,7 +316,6 @@ do
 			G.UnitFrames.Player.Castbar.Text:SetTextColor( 0.3, 0.2, 1 )
 
 			if( C["unitframes"]["cblatency"] == true ) then
-				G.UnitFrames.Player.Castbar.SafeZone:SetTexture( C["media"]["normal"] )
 				G.UnitFrames.Player.Castbar.SafeZone:SetVertexColor( 0.8, 0.2, 0.2, 0.75 )
 			end
 		end
@@ -377,7 +370,6 @@ do
 	------------------------------
 	do
 		G.UnitFrames.Target.Health:Size( 233, 26 )
-		G.UnitFrames.Target.Health:SetStatusBarTexture( C["media"]["normal"] )
 		G.UnitFrames.Target.Health:SetFrameLevel( 5 )
 		G.UnitFrames.Target.Health:CreateBorder( true )
 		G.UnitFrames.Target.Health.bg:SetTexture( 0.6, 0.6, 0.6 )
@@ -400,6 +392,8 @@ do
 
 		G.UnitFrames.Target.Health.value = S.SetFontString( G.UnitFrames.Target.Health, S.CreateFontString() )
 		G.UnitFrames.Target.Health.value:Point( "RIGHT", G.UnitFrames.Target.Health, "RIGHT", -4, 1 )
+
+		G.UnitFrames.Target.Health.PostUpdate = S.PostUpdateHealth
 	end
 
 	------------------------------
@@ -407,7 +401,6 @@ do
 	------------------------------
 	do
 		G.UnitFrames.Target.Power:Size( 233, 2 )
-		G.UnitFrames.Target.Power:SetStatusBarTexture( C["media"]["normal"] )
 		G.UnitFrames.Target.Power:ClearAllPoints()
 		G.UnitFrames.Target.Power:Point( "TOPRIGHT", G.UnitFrames.Target.Health, "BOTTOMRIGHT", 0, -7 )
 		G.UnitFrames.Target.Power:SetFrameLevel( G.UnitFrames.Target.Health:GetFrameLevel() + 2 )
@@ -478,7 +471,6 @@ do
 			G.UnitFrames.Target.Castbar:ClearAllPoints()
 			G.UnitFrames.Target.Castbar:SetHeight( 20 )
 			G.UnitFrames.Target.Castbar:Point( "TOPRIGHT", G.UnitFrames.Target, "BOTTOMRIGHT", 0, -16 )
-			G.UnitFrames.Target.Castbar:SetStatusBarTexture( C["media"]["normal"] )
 			G.UnitFrames.Target.Castbar:CreateBorder( true )
 			G.UnitFrames.Target.Castbar.bg:SetVertexColor( 0.05, 0.05, 0.05 )
 
@@ -593,7 +585,6 @@ do
 	------------------------------
 	do
 		G.UnitFrames.TargetTarget.Health:Size( 130, 15 )
-		G.UnitFrames.TargetTarget.Health:SetStatusBarTexture( C["media"]["normal"] )
 		G.UnitFrames.TargetTarget.Health:SetFrameLevel( 5 )
 		G.UnitFrames.TargetTarget.Health:CreateBorder( true )
 		G.UnitFrames.TargetTarget.Health.bg:SetTexture( 0.6, 0.6, 0.6 )
@@ -613,6 +604,8 @@ do
 
 		G.UnitFrames.TargetTarget.Name:SetFont( S.CreateFontString() )
 		G.UnitFrames.TargetTarget.Name:SetShadowOffset( 1.25, -1.25 )
+
+		G.UnitFrames.TargetTarget.Health.PostUpdate = S.PostUpdateHealth
 	end
 
 	------------------------------
@@ -622,12 +615,12 @@ do
 		local TargetTargetPower = CreateFrame( "StatusBar", nil, G.UnitFrames.TargetTarget )
 		TargetTargetPower:Size( 130, 2 )
 		TargetTargetPower:Point( "TOP", G.UnitFrames.TargetTarget.Health, "BOTTOM", 0, -7 )
-		TargetTargetPower:SetStatusBarTexture( C["media"]["normal"] )
+		TargetTargetPower:SetStatusBarTexture( C["media"]["normTex"] )
 		TargetTargetPower:CreateBorder( true )
 
 		local TargetTargetPowerBackground = TargetTargetPower:CreateTexture( nil, "BORDER" )
 		TargetTargetPowerBackground:SetAllPoints( TargetTargetPower )
-		TargetTargetPowerBackground:SetTexture( C["media"]["normal"] )
+		TargetTargetPowerBackground:SetTexture( C["media"]["normTex"] )
 		TargetTargetPowerBackground.multiplier = 0.1
 
 		TargetTargetPower.frequentUpdates = true
@@ -712,7 +705,6 @@ do
 	------------------------------
 	do
 		G.UnitFrames.Pet.Health:Size( 130, 15 )
-		G.UnitFrames.Pet.Health:SetStatusBarTexture( C["media"]["normal"] )
 		G.UnitFrames.Pet.Health:SetFrameLevel( 5 )
 		G.UnitFrames.Pet.Health:CreateBorder( true )
 		G.UnitFrames.Pet.Health.bg:SetTexture( 0.6, 0.6, 0.6 )
@@ -732,6 +724,8 @@ do
 
 		G.UnitFrames.Pet.Name:SetFont( S.CreateFontString() )
 		G.UnitFrames.Pet.Name:SetShadowOffset( 1.25, -1.25 )
+
+		G.UnitFrames.Pet.Health.PostUpdate = S.PostUpdateHealth
 	end
 
 	------------------------------
@@ -739,7 +733,6 @@ do
 	------------------------------
 	do
 		G.UnitFrames.Pet.Power:Size( 130, 2 )
-		G.UnitFrames.Pet.Power:SetStatusBarTexture( C["media"]["normal"] )
 		G.UnitFrames.Pet.Power:ClearAllPoints()
 		G.UnitFrames.Pet.Power:SetPoint( "TOP", G.UnitFrames.Pet.Health, "BOTTOM", 0, -7 )
 		G.UnitFrames.Pet.Power:CreateBorder( true )
@@ -779,7 +772,6 @@ do
 	------------------------------
 	do
 		G.UnitFrames.Focus.Health:Size( 200, 26 )
-		G.UnitFrames.Focus.Health:SetStatusBarTexture( C["media"]["normal"] )
 		G.UnitFrames.Focus.Health:SetFrameLevel( 5 )
 		G.UnitFrames.Focus.Health:CreateBorder( true )
 		G.UnitFrames.Focus.Health.bg:SetTexture( 0.6, 0.6, 0.6 )
@@ -803,6 +795,8 @@ do
 
 		G.UnitFrames.Focus.Health.value = S.SetFontString( G.UnitFrames.Focus.Health, S.CreateFontString() )
 		G.UnitFrames.Focus.Health.value:Point( "RIGHT", G.UnitFrames.Focus.Health, "RIGHT", -4, 1 )
+
+		G.UnitFrames.Focus.Health.PostUpdate = S.PostUpdateHealth
 	end
 
 	------------------------------
@@ -810,7 +804,6 @@ do
 	------------------------------
 	do
 		G.UnitFrames.Focus.Power:Size( 200, 2 )
-		G.UnitFrames.Focus.Power:SetStatusBarTexture( C["media"]["normal"] )
 		G.UnitFrames.Focus.Power:ClearAllPoints()
 		G.UnitFrames.Focus.Power:Point( "TOPRIGHT", G.UnitFrames.Focus.Health, "BOTTOMRIGHT", 0, -7 )
 		G.UnitFrames.Focus.Power:SetFrameLevel( G.UnitFrames.Focus.Health:GetFrameLevel() + 2 )
@@ -834,7 +827,6 @@ do
 
 			G.UnitFrames.Focus.Castbar.bg = G.UnitFrames.Focus.Castbar:CreateTexture( nil, "BORDER" )
 			G.UnitFrames.Focus.Castbar.bg:SetAllPoints( G.UnitFrames.Focus.Castbar )
-			G.UnitFrames.Focus.Castbar.bg:SetTexture( C["media"]["normal"] )
 			G.UnitFrames.Focus.Castbar.bg:SetVertexColor( 0.05, 0.05, 0.05 )
 
 			G.UnitFrames.Focus.Castbar.Time = S.SetFontString( G.UnitFrames.Focus.Castbar, S.CreateFontString() )
@@ -920,7 +912,6 @@ do
 	------------------------------
 	do
 		G.UnitFrames.FocusTarget.Health:Size( 200, 26 )
-		G.UnitFrames.FocusTarget.Health:SetStatusBarTexture( C["media"]["normal"] )
 		G.UnitFrames.FocusTarget.Health:SetFrameLevel( 5 )
 		G.UnitFrames.FocusTarget.Health:CreateBorder( true )
 		G.UnitFrames.FocusTarget.Health.bg:SetTexture( 0.6, 0.6, 0.6 )
@@ -944,6 +935,8 @@ do
 
 		G.UnitFrames.FocusTarget.Health.value = S.SetFontString( G.UnitFrames.FocusTarget.Health, S.CreateFontString() )
 		G.UnitFrames.FocusTarget.Health.value:Point( "RIGHT", G.UnitFrames.FocusTarget.Health, "RIGHT", -4, 1 )
+
+		G.UnitFrames.FocusTarget.Health.PostUpdate = S.PostUpdateHealth
 	end
 
 	------------------------------
@@ -951,7 +944,6 @@ do
 	------------------------------
 	do
 		G.UnitFrames.FocusTarget.Power:Size( 200, 2 )
-		G.UnitFrames.FocusTarget.Power:SetStatusBarTexture( C["media"]["normal"] )
 		G.UnitFrames.FocusTarget.Power:ClearAllPoints()
 		G.UnitFrames.FocusTarget.Power:Point( "TOPRIGHT", G.UnitFrames.FocusTarget.Health, "BOTTOMRIGHT", 0, -7 )
 		G.UnitFrames.FocusTarget.Power:SetFrameLevel( G.UnitFrames.FocusTarget.Health:GetFrameLevel() + 2 )
@@ -975,7 +967,7 @@ do
 
 			G.UnitFrames.FocusTarget.Castbar.bg = G.UnitFrames.FocusTarget.Castbar:CreateTexture( nil, "BORDER" )
 			G.UnitFrames.FocusTarget.Castbar.bg:SetAllPoints( G.UnitFrames.FocusTarget.Castbar )
-			G.UnitFrames.FocusTarget.Castbar.bg:SetTexture( C["media"]["normal"] )
+			G.UnitFrames.FocusTarget.Castbar.bg:SetTexture( C["media"]["normTex"] )
 			G.UnitFrames.FocusTarget.Castbar.bg:SetVertexColor( 0.05, 0.05, 0.05 )
 
 			G.UnitFrames.FocusTarget.Castbar.Time = S.SetFontString( G.UnitFrames.FocusTarget.Castbar, S.CreateFontString() )
@@ -1062,7 +1054,6 @@ do
 		------------------------------
 		do
 			G.UnitFrames["Boss" .. i].Health:Size( 200, 26 )
-			G.UnitFrames["Boss" .. i].Health:SetStatusBarTexture( C["media"]["normal"] )
 			G.UnitFrames["Boss" .. i].Health:SetFrameLevel( 5 )
 			G.UnitFrames["Boss" .. i].Health:CreateBorder( true )
 			G.UnitFrames["Boss" .. i].Health.bg:SetTexture( 0.6, 0.6, 0.6 )
@@ -1086,6 +1077,8 @@ do
 
 			G.UnitFrames["Boss" .. i].Health.value = S.SetFontString( G.UnitFrames["Boss" .. i].Health, S.CreateFontString() )
 			G.UnitFrames["Boss" .. i].Health.value:Point( "RIGHT", G.UnitFrames["Boss" .. i].Health, "RIGHT", -4, 1 )
+
+			G.UnitFrames["Boss" .. i].Health.PostUpdate = S.PostUpdateHealth
 		end
 
 		------------------------------
@@ -1093,7 +1086,6 @@ do
 		------------------------------
 		do
 			G.UnitFrames["Boss" .. i].Power:Size( 200, 2 )
-			G.UnitFrames["Boss" .. i].Power:SetStatusBarTexture( C["media"]["normal"] )
 			G.UnitFrames["Boss" .. i].Power:ClearAllPoints()
 			G.UnitFrames["Boss" .. i].Power:Point( "TOPRIGHT", G.UnitFrames["Boss" .. i].Health, "BOTTOMRIGHT", 0, -7 )
 			G.UnitFrames["Boss" .. i].Power:SetFrameLevel( G.UnitFrames["Boss" .. i].Health:GetFrameLevel() + 2 )
@@ -1117,7 +1109,7 @@ do
 
 				G.UnitFrames["Boss" .. i].Castbar.bg = G.UnitFrames["Boss" .. i].Castbar:CreateTexture( nil, "BORDER" )
 				G.UnitFrames["Boss" .. i].Castbar.bg:SetAllPoints( G.UnitFrames["Boss" .. i].Castbar )
-				G.UnitFrames["Boss" .. i].Castbar.bg:SetTexture( C["media"]["normal"] )
+				G.UnitFrames["Boss" .. i].Castbar.bg:SetTexture( C["media"]["normTex"] )
 				G.UnitFrames["Boss" .. i].Castbar.bg:SetVertexColor( 0.05, 0.05, 0.05 )
 
 				G.UnitFrames["Boss" .. i].Castbar.Time = S.SetFontString( G.UnitFrames["Boss" .. i].Castbar, S.CreateFontString() )
@@ -1226,7 +1218,6 @@ do
 		------------------------------
 		do
 			G.UnitFrames["Arena" .. i].Health:Size( 200, 26 )
-			G.UnitFrames["Arena" .. i].Health:SetStatusBarTexture( C["media"]["normal"] )
 			G.UnitFrames["Arena" .. i].Health:SetFrameLevel( 5 )
 			G.UnitFrames["Arena" .. i].Health:CreateBorder( true )
 			G.UnitFrames["Arena" .. i].Health.bg:SetTexture( 0.6, 0.6, 0.6 )
@@ -1250,6 +1241,8 @@ do
 
 			G.UnitFrames["Arena" .. i].Health.value = S.SetFontString( G.UnitFrames["Arena" .. i].Health, S.CreateFontString() )
 			G.UnitFrames["Arena" .. i].Health.value:Point( "RIGHT", G.UnitFrames["Arena" .. i].Health, "RIGHT", -4, 1 )
+
+			G.UnitFrames["Arena" .. i].Health.PostUpdate = S.PostUpdateHealth
 		end
 
 		------------------------------
@@ -1257,7 +1250,6 @@ do
 		------------------------------
 		do
 			G.UnitFrames["Arena" .. i].Power:Size( 200, 2 )
-			G.UnitFrames["Arena" .. i].Power:SetStatusBarTexture( C["media"]["normal"] )
 			G.UnitFrames["Arena" .. i].Power:ClearAllPoints()
 			G.UnitFrames["Arena" .. i].Power:Point( "TOPRIGHT", G.UnitFrames["Arena" .. i].Health, "BOTTOMRIGHT", 0, -7 )
 			G.UnitFrames["Arena" .. i].Power:SetFrameLevel( G.UnitFrames["Arena" .. i].Health:GetFrameLevel() + 2 )
@@ -1281,7 +1273,7 @@ do
 
 				G.UnitFrames["Arena" .. i].Castbar.bg = G.UnitFrames["Arena" .. i].Castbar:CreateTexture( nil, "BORDER" )
 				G.UnitFrames["Arena" .. i].Castbar.bg:SetAllPoints( G.UnitFrames["Arena" .. i].Castbar )
-				G.UnitFrames["Arena" .. i].Castbar.bg:SetTexture( C["media"]["normal"] )
+				G.UnitFrames["Arena" .. i].Castbar.bg:SetTexture( C["media"]["normTex"] )
 				G.UnitFrames["Arena" .. i].Castbar.bg:SetVertexColor( 0.05, 0.05, 0.05 )
 
 				G.UnitFrames["Arena" .. i].Castbar.Time = S.SetFontString( G.UnitFrames["Arena" .. i].Castbar, S.CreateFontString() )

@@ -10,6 +10,7 @@
 	<Include file="Datatext\load_datatext.xml" />
 	<Include file="Extras\load_extras.xml" />
 	<Include file="Maps\load_maps.xml" />
+	<Include file="Misc\load_misc.xml" />
 
 	<Include file="Skins\load_skins.xml" />
 </Ui>

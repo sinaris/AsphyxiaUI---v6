@@ -1,0 +1,5 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/">
+	<Script file="Altpowerbar.lua" />
+	<Script file="Dropdownlist.lua" />
+	<Script file="Threatbar.lua" />
+</Ui>

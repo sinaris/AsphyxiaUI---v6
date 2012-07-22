@@ -1,13 +1,21 @@
 local C = {}
 
 C["global"] = {
+	["unitframelayout"] = "asphyxia",
 	["welcomemessage"] = true,
 }
 
 C["general"] = {
 	["backdropcolor"] = { 0.0, 0.0, 0.0 },
 	["bordercolor"] = { 0.125, 0.125, 0.125 },
-	["normalfont"] = false,
+}
+
+C["castbar"] = {
+	["classcolor"] = true,
+	["castbarcolor"] = { 0.150, 0.150, 0.150, 1 },
+	["nointerruptcolor"] = { 1, 0, 0, 1 },
+	["ticks"] = true,
+	["tickscolor"] = { 1, 0, 0, 1 },
 }
 
 C["chat"] = {
@@ -96,6 +104,27 @@ C["intmodules"] = {
 	["alertcombat"] = true,
 	["hattrick"] = true,
 	["locationpanel"] = true,
+	["nickalert"] = {
+		["enable"] = true,
+		["names"] = {
+			UnitName( "player" ),
+			--"OtherToonName",
+		},
+		["sound"] = "Sound\\Event Sounds\\Wisp\\WispPissed1.wav",
+	},
+	["bnetpanel"] = false,
+}
+
+C["unitframes"] = {
+	["classicons"] = true,
+	["unicolor"] = true,
+	["fader"] = false,
+	["gradienthealth"] = true,
+	["gradient"] = {
+		4.5, 0.1, 0.1,
+		0.6, 0.3, 0.3,
+		0.2, 0.2, 0.2,
+	},
 }
 
 C["media"] = {
@@ -108,6 +137,10 @@ C["media"] = {
 	["normTex"] =  [[Interface\AddOns\AsphyxiaUI\Media\Textures\Normal.tga]],
 	["iconlayoutdps"] = [[Interface\AddOns\AsphyxiaUI\Media\Textures\IconLayoutDPS.tga]],
 	["iconlayoutheal"] = [[Interface\AddOns\AsphyxiaUI\Media\Textures\IconLayoutHeal.tga]],
+
+	["bnetgold"] = [[Interface\AddOns\AsphyxiaUI\Media\Textures\BNetGoldTexture.tga]],
+	["bnetlogo"] = [[Interface\AddOns\AsphyxiaUI\Media\Textures\BNetLogoTexture.tga]],
+	["bnetlogolarge"] = [[Interface\AddOns\AsphyxiaUI\Media\Textures\BNetPanelLogoLarge.tga]],
 
 	["bordercolor"] = C["general"].bordercolor,
 	["backdropcolor"] = C["general"].backdropcolor,

@@ -20,7 +20,7 @@ local function SkinFrames( self, event, addon )
 			bank.backdrop:SetTemplate( "Transparent" )
 
 			for i = 6, 12 do
-				local bag = _G["ContainerFrame"..i]
+				local bag = _G["ContainerFrame" .. i]
 				if( bag ) then
 					bag.backdrop:SetTemplate( "Transparent" )
 				end
