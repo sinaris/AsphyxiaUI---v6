@@ -1,7 +1,7 @@
 ## Interface: 50001
 ## Title: AsphyxiaUI - FAQ
 ## Notes:
-## Version: 6.0.0
+## Version: 6.0
 ## Author: Sinaris, Merith
 ## RequiredDeps: AsphyxiaUI, Tukui
 

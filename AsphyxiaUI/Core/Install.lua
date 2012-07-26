@@ -38,9 +38,9 @@ AsphyxiaUIInstallFrameTitle:CreateShadow( "Default" )
 AsphyxiaUIInstallFrameTitle:SetTemplate( "Transparent" )
 
 local AsphyxiaUIInstallFrameTitleText = AsphyxiaUIInstallFrameTitle:CreateFontString( nil, "OVERLAY" )
-AsphyxiaUIInstallFrameTitleText:SetFont( S.CreatefontString() )
+AsphyxiaUIInstallFrameTitleText:SetFont( S.CreateFontString() )
 AsphyxiaUIInstallFrameTitleText:SetPoint( "CENTER", AsphyxiaUIInstallFrameTitle, 0, 0 )
-AsphyxiaUIInstallFrameTitleText:SetText( "|cff00AAFFAsphyxiaUI|r" )
+AsphyxiaUIInstallFrameTitleText:SetText( L.AsphyxiaUI_General_Title )
 
 local AsphyxiaUIInstallFrameBottom = CreateFrame( "Frame", "AsphyxiaUIInstallFrameBottom", G.Install.Frame )
 AsphyxiaUIInstallFrameBottom:Size( G.Install.Frame:GetWidth(), 30 )
@@ -49,19 +49,19 @@ AsphyxiaUIInstallFrameBottom:SetFrameStrata( "HIGH" )
 AsphyxiaUIInstallFrameBottom:CreateShadow( "Default" )
 AsphyxiaUIInstallFrameBottom:SetTemplate( "Transparent" )
 
-local AsphyxiaUIInstallFrameBottomText = AsphyxiaUIInstallFrameBottomText:CreateFontString( nil, "OVERLAY" )
-AsphyxiaUIInstallFrameBottomText:SetFont( S.CreatefontString() )
-AsphyxiaUIInstallFrameBottomText:SetPoint( "CENTER", AsphyxiaUIInstallFrameBottomText, 0, 0 )
-AsphyxiaUIInstallFrameBottomText:SetText( "|cff00AAFFCopyright 2012, Sinaris, EU - Das Syndikat|r" )
+local AsphyxiaUIInstallFrameBottomText = AsphyxiaUIInstallFrameBottom:CreateFontString( nil, "OVERLAY" )
+AsphyxiaUIInstallFrameBottomText:SetFont( S.CreateFontString() )
+AsphyxiaUIInstallFrameBottomText:SetPoint( "CENTER", AsphyxiaUIInstallFrameBottom, 0, 0 )
+AsphyxiaUIInstallFrameBottomText:SetText( L.AsphyxiaUI_General_Copyright )
 
 local AsphyxiaUIOnLogon = CreateFrame( "Frame" )
 AsphyxiaUIOnLogon:RegisterEvent( "PLAYER_ENTERING_WORLD" )
 AsphyxiaUIOnLogon:SetScript( "OnEvent", function( self, event )
 	self:UnregisterEvent( "PLAYER_ENTERING_WORLD" )
 
-	if( TukuiSaved == nil ) then
-		TukuiSaved = {}
-		TukuiSaved = {
+	if( AsphyxiaUISaved == nil ) then
+		AsphyxiaUISaved = {}
+		AsphyxiaUISaved = {
 			["bottomrows"] = 1,
 			["rightbars"] = 1,
 			["splitbars"] = false,
@@ -78,7 +78,7 @@ AsphyxiaUIOnLogon:SetScript( "OnEvent", function( self, event )
 	end
 
 	if( C["global"]["welcomemessage"] == true ) then
-		print( "L.welcomemessage_1" )
-		print( "L.welcomemessage_2" )
+		print( L.AsphyxiaUI_General_Welcomemessage1 )
+		print( L.AsphyxiaUI_General_Welcomemessage2 )
 	end
 end )

@@ -1,4 +1,5 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/">
+	<Include file="Locales\load_locales.xml" />
 	<Include file="Core\load_core.xml" />
 
 	<Include file="Modules\load_modules.xml" />

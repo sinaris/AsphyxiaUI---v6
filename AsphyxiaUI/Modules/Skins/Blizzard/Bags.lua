@@ -4,6 +4,8 @@
 
 local S, C, L, G = unpack( Tukui )
 
+if( C["general"]["blizzardreskin"] ~= true ) then return end
+
 if( C["bags"]["enable"] == true ) then return end
 
 local function SkinFrames( self, event, addon )

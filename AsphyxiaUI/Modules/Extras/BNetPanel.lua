@@ -11,8 +11,8 @@ if( C["intmodules"]["bnetpanel"] ~= true ) then return end
 ------------------------------
 local AsphyxiaUIBNetPanel = CreateFrame( "Frame", "AsphyxiaUIBNetPanel", UIParent )
 AsphyxiaUIBNetPanel:Size( 235, 23 )
-AsphyxiaUIBNetPanel:Point( "TOPLEFT", UIParent, "TOPLEFT", 182, -30 )
-AsphyxiaUIBNetPanel:SetTemplate( "Transparent" )
+AsphyxiaUIBNetPanel:Point( "TOPLEFT", UIParent, "TOPLEFT", 176, -23 )
+AsphyxiaUIBNetPanel:SetTemplate( "Default" )
 AsphyxiaUIBNetPanel:CreateShadow( "Default" )
 AsphyxiaUIBNetPanel:SetClampedToScreen( true )
 AsphyxiaUIBNetPanel:SetFrameLevel( 2 )
@@ -41,13 +41,13 @@ AsphyxiaUIBNetPanelShowHideButton.Title:SetPoint( "CENTER", AsphyxiaUIBNetPanelS
 local AsphyxiaUIBNetPanelBNetLogo = CreateFrame( "Frame", "AsphyxiaUIBNetPanelBNetLogo", UIParent )
 AsphyxiaUIBNetPanelBNetLogo:Size( 58, 47 )
 AsphyxiaUIBNetPanelBNetLogo:Point( "TOPLEFT", AsphyxiaUIBNetPanel, "BOTTOMLEFT", 0, -3 )
-AsphyxiaUIBNetPanelBNetLogo:SetTemplate( "Transparent" )
+AsphyxiaUIBNetPanelBNetLogo:SetTemplate( "Default" )
 AsphyxiaUIBNetPanelBNetLogo:CreateShadow( "Default" )
 
 local AsphyxiaUIBNetPanelGoldLogo = CreateFrame( "Frame", "AsphyxiaUIBNetPanelGoldLogo", UIParent )
 AsphyxiaUIBNetPanelGoldLogo:Size( 58, 47 )
 AsphyxiaUIBNetPanelGoldLogo:Point( "TOP", AsphyxiaUIBNetPanelBNetLogo, "BOTTOM", 0, -3 )
-AsphyxiaUIBNetPanelGoldLogo:SetTemplate( "Transparent" )
+AsphyxiaUIBNetPanelGoldLogo:SetTemplate( "Default" )
 AsphyxiaUIBNetPanelGoldLogo:CreateShadow( "Default" )
 
 AsphyxiaUIBNetPanelBNetLogo.Texture = AsphyxiaUIBNetPanelBNetLogo:CreateTexture( nil, "ARTWORK" )

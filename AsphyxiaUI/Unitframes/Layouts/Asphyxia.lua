@@ -212,6 +212,10 @@ do
 		-- warlock
 		------------------------------
 		if( S.myclass == "WARLOCK" ) then
+			G.UnitFrames.Player.WarlockSpecBars:ClearAllPoints()
+			G.UnitFrames.Player.WarlockSpecBars:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
+			G.UnitFrames.Player.WarlockSpecBars:Size( 233, 2 )
+			G.UnitFrames.Player.WarlockSpecBars:CreateBorder( true )
 
 		end
 
@@ -226,7 +230,11 @@ do
 
 			for i = 1, 5 do
 				G.UnitFrames.Player.HolyPower[i]:SetStatusBarColor( 228 / 255, 225 / 255, 16 / 255 )
-				G.UnitFrames.Player.HolyPower[i]:Size( S.Scale( 233 / 5 ), 2 )
+				if( i == 5 ) then
+					G.UnitFrames.Player.HolyPower[i]:Size( S.Scale( 232 / 5 ) - 1, 2 )
+				else
+					G.UnitFrames.Player.HolyPower[i]:Size( S.Scale( 232 / 5 ), 2 )
+				end
 
 				if( i == 1 ) then
 					G.UnitFrames.Player.HolyPower[i]:SetPoint( "LEFT", G.UnitFrames.Player.HolyPower )
@@ -604,8 +612,6 @@ do
 
 		G.UnitFrames.TargetTarget.Name:SetFont( S.CreateFontString() )
 		G.UnitFrames.TargetTarget.Name:SetShadowOffset( 1.25, -1.25 )
-
-		G.UnitFrames.TargetTarget.Health.PostUpdate = S.PostUpdateHealth
 	end
 
 	------------------------------
@@ -724,8 +730,6 @@ do
 
 		G.UnitFrames.Pet.Name:SetFont( S.CreateFontString() )
 		G.UnitFrames.Pet.Name:SetShadowOffset( 1.25, -1.25 )
-
-		G.UnitFrames.Pet.Health.PostUpdate = S.PostUpdateHealth
 	end
 
 	------------------------------
@@ -795,8 +799,6 @@ do
 
 		G.UnitFrames.Focus.Health.value = S.SetFontString( G.UnitFrames.Focus.Health, S.CreateFontString() )
 		G.UnitFrames.Focus.Health.value:Point( "RIGHT", G.UnitFrames.Focus.Health, "RIGHT", -4, 1 )
-
-		G.UnitFrames.Focus.Health.PostUpdate = S.PostUpdateHealth
 	end
 
 	------------------------------
@@ -935,8 +937,6 @@ do
 
 		G.UnitFrames.FocusTarget.Health.value = S.SetFontString( G.UnitFrames.FocusTarget.Health, S.CreateFontString() )
 		G.UnitFrames.FocusTarget.Health.value:Point( "RIGHT", G.UnitFrames.FocusTarget.Health, "RIGHT", -4, 1 )
-
-		G.UnitFrames.FocusTarget.Health.PostUpdate = S.PostUpdateHealth
 	end
 
 	------------------------------
@@ -1077,8 +1077,6 @@ do
 
 			G.UnitFrames["Boss" .. i].Health.value = S.SetFontString( G.UnitFrames["Boss" .. i].Health, S.CreateFontString() )
 			G.UnitFrames["Boss" .. i].Health.value:Point( "RIGHT", G.UnitFrames["Boss" .. i].Health, "RIGHT", -4, 1 )
-
-			G.UnitFrames["Boss" .. i].Health.PostUpdate = S.PostUpdateHealth
 		end
 
 		------------------------------
@@ -1241,8 +1239,6 @@ do
 
 			G.UnitFrames["Arena" .. i].Health.value = S.SetFontString( G.UnitFrames["Arena" .. i].Health, S.CreateFontString() )
 			G.UnitFrames["Arena" .. i].Health.value:Point( "RIGHT", G.UnitFrames["Arena" .. i].Health, "RIGHT", -4, 1 )
-
-			G.UnitFrames["Arena" .. i].Health.PostUpdate = S.PostUpdateHealth
 		end
 
 		------------------------------

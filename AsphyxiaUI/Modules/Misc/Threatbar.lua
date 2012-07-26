@@ -15,3 +15,5 @@ G.Misc.ThreatBar:Point( "BOTTOMRIGHT", AsphyxiaUIThreatbarBackground, -2, 2 )
 
 G.Misc.ThreatBar.text:SetFont( S.CreateFontString() )
 G.Misc.ThreatBar.Title:SetFont( S.CreateFontString() )
+
+AsphyxiaUIThreatbarBackground:SetAlpha( 0 )

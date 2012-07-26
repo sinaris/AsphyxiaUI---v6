@@ -130,6 +130,16 @@ hooksecurefunc( S, "PostNamePosition", function( self )
 	end
 end )
 
+S.ShortValue = function( v )
+	if( v >= 1e6 ) then
+		return ( "%.1fm" ):format( v / 1e6 ):gsub( "%.?0+([km])$", "%1" )
+	elseif( v >= 1e3 or v <= -1e3 ) then
+		return ( "%.1fk" ):format( v / 1e3 ):gsub( "%.?0+([km])$", "%1" )
+	else
+		return v
+	end
+end
+
 hooksecurefunc( S, "PostUpdateHealth", function( health, unit, min, max )
 	if not UnitIsConnected( unit ) or UnitIsDead( unit ) or UnitIsGhost( unit ) then
 		if not UnitIsConnected( unit ) then
@@ -219,21 +229,21 @@ hooksecurefunc( S, "PostUpdateHealth", function( health, unit, min, max )
 
 		if( min ~= max ) then
 			local r, g, b
-			r, g, b = oUF.ColorGradient( min / max, 0.69, 0.31, 0.31, 0.65, 0.63, 0.35, 0.33, 0.59, 0.33 )
+			r, g, b = oUFTukui.ColorGradient( min / max, 0.69, 0.31, 0.31, 0.65, 0.63, 0.35, 0.33, 0.59, 0.33 )
 			if( unit == "player" and health:GetAttribute( "normalUnit" ) ~= "pet" ) then
 				if( C["unitframes"]["showtotalhpmp"] == true ) then
-					health.value:SetFormattedText( "|cff559655%s|r |cffD7BEA5|||r |cff559655%s|r", ShortValue( min ), ShortValue( max ) )
+					health.value:SetFormattedText( "|cff559655%s|r |cffD7BEA5|||r |cff559655%s|r", S.ShortValue( min ), S.ShortValue( max ) )
 				else
 					health.value:SetFormattedText( "|cffAF5050%d|r |cffD7BEA5-|r |cff%02x%02x%02x%d%%|r", min, r * 255, g * 255, b * 255, floor( min / max * 100 ) )
 				end
 			elseif( unit == "target" or ( unit and unit:find( "boss%d" ) ) ) then
 				if( C["unitframes"]["showtotalhpmp"] == true ) then
-					health.value:SetFormattedText( "|cff559655%s|r |cffD7BEA5|||r |cff559655%s|r", ShortValue( min ), ShortValue( max ) )
+					health.value:SetFormattedText( "|cff559655%s|r |cffD7BEA5|||r |cff559655%s|r", S.ShortValue( min ), S.ShortValue( max ) )
 				else
-					health.value:SetFormattedText( "|cffAF5050%s|r |cffD7BEA5-|r |cff%02x%02x%02x%d%%|r", ShortValue( min ), r * 255, g * 255, b * 255, floor( min / max * 100 ) )
+					health.value:SetFormattedText( "|cffAF5050%s|r |cffD7BEA5-|r |cff%02x%02x%02x%d%%|r", S.ShortValue( min ), r * 255, g * 255, b * 255, floor( min / max * 100 ) )
 				end
 			elseif( ( unit and unit:find( "arena%d" ) ) or unit == "focus" or unit == "focustarget" ) then
-				health.value:SetText( "|cff559655" .. ShortValue( min ) .. "|r" )
+				health.value:SetText( "|cff559655" .. S.ShortValue( min ) .. "|r" )
 			else
 				health.value:SetText( "|cff559655-" .. ShortValueNegative( max - min ) .. "|r" )
 			end
@@ -241,7 +251,7 @@ hooksecurefunc( S, "PostUpdateHealth", function( health, unit, min, max )
 			if( unit == "player" and health:GetAttribute( "normalUnit" ) ~= "pet" ) then
 				health.value:SetText( "|cff559655" .. max .. "|r" )
 			elseif( unit == "target" or unit == "focus"  or unit == "focustarget" or ( unit and unit:find( "arena%d" ) ) ) then
-				health.value:SetText( "|cff559655" .. ShortValue( max ) .. "|r" )
+				health.value:SetText( "|cff559655" .. S.ShortValue( max ) .. "|r" )
 			else
 				health.value:SetText( " " )
 			end

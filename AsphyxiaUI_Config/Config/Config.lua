@@ -10,6 +10,12 @@ C["general"] = {
 	["bordercolor"] = { 0.125, 0.125, 0.125 },
 }
 
+C["actionbar"] = {
+	["vertical_rightbars"] = false,
+	["vertical_shapeshift"] = false,
+	["mainswap"] = false,
+}
+
 C["castbar"] = {
 	["classcolor"] = true,
 	["castbarcolor"] = { 0.150, 0.150, 0.150, 1 },
@@ -38,7 +44,7 @@ C["databars"] = {
 	["framerate"] = 1,
 	["latency"] = 2,
 	["memory"] = 3,
-	["durability"] = 4,
+	["durability"] = 0,
 	["currency"] = true,
 	["reputation"] = true,
 	["reps"] = {
@@ -112,14 +118,15 @@ C["intmodules"] = {
 		},
 		["sound"] = "Sound\\Event Sounds\\Wisp\\WispPissed1.wav",
 	},
-	["bnetpanel"] = false,
+	["bnetpanel"] = true,
+	["itemlevelongearandslots"] = true,
 }
 
 C["unitframes"] = {
 	["classicons"] = true,
 	["unicolor"] = true,
 	["fader"] = false,
-	["gradienthealth"] = true,
+	["gradienthealth"] = false,
 	["gradient"] = {
 		4.5, 0.1, 0.1,
 		0.6, 0.3, 0.3,
@@ -135,12 +142,13 @@ C["media"] = {
 	["copyicon"] =  [[Interface\AddOns\AsphyxiaUI\Media\Textures\CopyIcon.tga]],
 	["logo"] = [[Interface\AddOns\AsphyxiaUI\Media\Textures\Logo.tga]],
 	["normTex"] =  [[Interface\AddOns\AsphyxiaUI\Media\Textures\Normal.tga]],
+	["minimalist"] =  [[Interface\AddOns\AsphyxiaUI\Media\Textures\Minimalist.tga]],
 	["iconlayoutdps"] = [[Interface\AddOns\AsphyxiaUI\Media\Textures\IconLayoutDPS.tga]],
 	["iconlayoutheal"] = [[Interface\AddOns\AsphyxiaUI\Media\Textures\IconLayoutHeal.tga]],
 
 	["bnetgold"] = [[Interface\AddOns\AsphyxiaUI\Media\Textures\BNetGoldTexture.tga]],
 	["bnetlogo"] = [[Interface\AddOns\AsphyxiaUI\Media\Textures\BNetLogoTexture.tga]],
-	["bnetlogolarge"] = [[Interface\AddOns\AsphyxiaUI\Media\Textures\BNetPanelLogoLarge.tga]],
+	["bnetlogolarge"] = [[Interface\AddOns\AsphyxiaUI\Media\Textures\BNetPanelLogoLargeTexture.tga]],
 
 	["bordercolor"] = C["general"].bordercolor,
 	["backdropcolor"] = C["general"].backdropcolor,

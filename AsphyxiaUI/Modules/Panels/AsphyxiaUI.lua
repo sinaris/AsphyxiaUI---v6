@@ -13,6 +13,7 @@ AsphyxiaUILeftChatBackground:Point( "BOTTOMLEFT", UIParent, "BOTTOMLEFT", 2, 2 )
 AsphyxiaUILeftChatBackground:SetTemplate( "Transparent" )
 AsphyxiaUILeftChatBackground:CreateShadow( "Default" )
 AsphyxiaUILeftChatBackground:SetFrameLevel( 1 )
+AsphyxiaUILeftChatBackground:SetFrameStrata( "BACKGROUND" )
 
 local AsphyxiaUIRightChatBackground = CreateFrame( "Frame", "AsphyxiaUIRightChatBackground", UIParent )
 AsphyxiaUIRightChatBackground:Size( C["chat"]["width"], C["chat"]["height"] )
@@ -20,25 +21,23 @@ AsphyxiaUIRightChatBackground:Point( "BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", -2,
 AsphyxiaUIRightChatBackground:SetTemplate( "Transparent" )
 AsphyxiaUIRightChatBackground:CreateShadow( "Default" )
 AsphyxiaUIRightChatBackground:SetFrameLevel( 1 )
+AsphyxiaUIRightChatBackground:SetFrameStrata( "BACKGROUND" )
 
 local AsphyxiaUILeftChatTab = CreateFrame( "Frame", "AsphyxiaUILeftChatTab", UIParent )
 AsphyxiaUILeftChatTab:Size( AsphyxiaUILeftChatBackground:GetWidth() - 10, 23 )
 AsphyxiaUILeftChatTab:Point( "TOP", AsphyxiaUILeftChatBackground, "TOP", 0, -5 )
 AsphyxiaUILeftChatTab:SetTemplate( "Transparent" )
 AsphyxiaUILeftChatTab:CreateOverlay( AsphyxiaUILeftChatTab )
+AsphyxiaUILeftChatTab:SetFrameLevel( 2 )
+AsphyxiaUILeftChatTab:SetFrameStrata( "BACKGROUND" )
 
 local AsphyxiaUIRightChatTab = CreateFrame( "Frame", "AsphyxiaUIRightChatTab", UIParent )
 AsphyxiaUIRightChatTab:Size( AsphyxiaUIRightChatBackground:GetWidth() - 10, 23 )
 AsphyxiaUIRightChatTab:Point( "TOP", AsphyxiaUIRightChatBackground, "TOP", 0, -5 )
 AsphyxiaUIRightChatTab:SetTemplate( "Transparent" )
 AsphyxiaUIRightChatTab:CreateOverlay( AsphyxiaUIRightChatTab )
-
-if( C["chat"]["background"] ~= true ) then
-	G.Panels.LeftChatBackground:SetAlpha( 0 )
-	G.Panels.RightChatBackground:SetAlpha( 0 )
-	G.Panels.LeftChatTabsBackground:SetAlpha( 0 )
-	G.Panels.RightChatTabsBackground:SetAlpha( 0 )
-end
+AsphyxiaUIRightChatTab:SetFrameLevel( 2 )
+AsphyxiaUIRightChatTab:SetFrameStrata( "BACKGROUND" )
 
 ------------------------------
 -- Actionbars

@@ -3,3 +3,5 @@
 ---------------------------------------------------------------------------------------------
 
 local S, C, L, G = unpack( Tukui )
+
+if( C["general"]["blizzardreskin"] ~= true ) then return end

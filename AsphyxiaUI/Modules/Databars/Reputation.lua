@@ -26,7 +26,7 @@ for i = 1, GetNumFactions() do
 
 	if( name == db[1] or name == db[2] or name == db[3] or name == db[4] or name == db[5] ) then
 		local frame = CreateFrame( "Frame", "RepData" .. i, UIParent )
-		frame:Size( TukuiMinimap:GetWidth(), 18 )
+		frame:Size( 153, 18 )
 		frame:Point( "CENTER", UIParent, "CENTER", 0, 0 )
 		frame:SetTemplate( "Transparent" )
 		frame:CreateShadow( "Default" )

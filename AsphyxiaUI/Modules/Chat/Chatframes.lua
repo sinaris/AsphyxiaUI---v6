@@ -24,6 +24,11 @@ local function SetTabStyle( frame )
 	_G[chat .. "EditBox"]:Point( "TOPLEFT", AsphyxiaUILeftChatTab, 2, -2 )
 	_G[chat .. "EditBox"]:Point( "BOTTOMRIGHT", AsphyxiaUILeftChatTab, -2, 2 )
 
+	_G[chat.."EditBox"]:HookScript("OnShow", function()
+		_G[chat .. "EditBox"].backdrop:ClearAllPoints()
+		_G[chat .. "EditBox"].backdrop:SetAllPoints( AsphyxiaUILeftChatTab )
+		_G[chat .. "EditBox"].backdrop:CreateOverlay( _G[chat .. "EditBox"].backdrop )
+	end)
 end
 
 local function SetupChatStyle( self )

@@ -4,11 +4,6 @@
 
 local S, C, L, G = unpack( Tukui )
 
-local total = 4
-for i = 1, total do
-	TukuiPopupDialog[i]:SetTemplate( "Transparent" )
-end
-
 S.CreatePopup["ASPHYXIAUI_ENABLE_CHAT_BACKGROUND"] = {
 	question = "L.PopUps_ENABLE_CHAT_BACKGROUNDS",
 	answer1 = ACCEPT,

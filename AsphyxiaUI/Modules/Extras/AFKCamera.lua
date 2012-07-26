@@ -20,6 +20,7 @@ local OnEvent = function( self, event, unit )
 	end
 end
 
+local AFKPanel = CreateFrame( "Frame" )
 AFKPanel:RegisterEvent( "PLAYER_ENTERING_WORLD" )
 AFKPanel:RegisterEvent( "PLAYER_LEAVING_WORLD" )
 AFKPanel:RegisterEvent( "PLAYER_FLAGS_CHANGED" )

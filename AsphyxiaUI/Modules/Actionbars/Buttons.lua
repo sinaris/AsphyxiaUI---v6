@@ -32,7 +32,7 @@ local ToggleText = function( index, text, plus, neg )
 end
 
 local MainBars = function()
-	if( TukuiSaved.bottomrows == 1 ) then
+	if( AsphyxiaUISaved.bottomrows == 1 ) then
 		TukuiBar1:Height( ( S.buttonsize + S.buttonspacing * 2 ) + 2 )
 		TukuiSplitBarLeft:Height( TukuiBar1:GetHeight() )
 		TukuiSplitBarRight:Height( TukuiBar1:GetHeight() )
@@ -41,7 +41,7 @@ local MainBars = function()
 
 		TukuiBar2:Hide()
 
-		if( TukuiSaved.splitbars == true ) then
+		if( AsphyxiaUISaved.splitbars == true ) then
 			MultiBarLeft:SetParent( TukuiSplitBarLeft )
 			for i = 7, 12 do
 				local b = _G["MultiBarLeftButton" .. i]
@@ -52,7 +52,7 @@ local MainBars = function()
 			MultiBarLeft:SetParent( TukuiBar3 )
 		end
 
-	elseif( TukuiSaved.bottomrows == 2 ) then
+	elseif( AsphyxiaUISaved.bottomrows == 2 ) then
 		TukuiBar1:Height( ( S.buttonsize * 2 + S.buttonspacing * 3 ) + 2 )
 		TukuiSplitBarLeft:Height( TukuiBar1:GetHeight() )
 		TukuiSplitBarRight:Height( TukuiBar1:GetHeight() )
@@ -61,7 +61,7 @@ local MainBars = function()
 
 		TukuiBar2:Show()
 
-		if( TukuiSaved.splitbars == true ) then
+		if( AsphyxiaUISaved.splitbars == true ) then
 			MultiBarLeft:SetParent( TukuiSplitBarLeft )
 			for i = 7, 12 do
 				local b = _G["MultiBarLeftButton" .. i]
@@ -81,7 +81,7 @@ local MainBars = function()
 end
 
 local RightBars = function()
-	if( TukuiSaved.rightbars >= 1 ) then
+	if( AsphyxiaUISaved.rightbars >= 1 ) then
 		TukuiPetBar:ClearAllPoints()
 		if( C["actionbar"].vertical_rightbars == true ) then
 			if not C["chat"].background then
@@ -103,7 +103,7 @@ local RightBars = function()
 		end
 	end
 
-	if( TukuiSaved.rightbars == 1 ) then
+	if( AsphyxiaUISaved.rightbars == 1 ) then
 		TukuiRightBar:Show()
 		TukuiBar4:Hide()
 
@@ -113,11 +113,11 @@ local RightBars = function()
 			TukuiRightBar:Height( ( S.buttonsize + S.buttonspacing * 2 ) + 2 )
 		end
 		
-		if( TukuiSaved.splitbars ~= true and TukuiBar3:IsShown() ) then
+		if( AsphyxiaUISaved.splitbars ~= true and TukuiBar3:IsShown() ) then
 			MultiBarLeft:SetParent( TukuiBar3 )
 			TukuiBar3:Hide()
 		end
-	elseif( TukuiSaved.rightbars == 2 ) then
+	elseif( AsphyxiaUISaved.rightbars == 2 ) then
 		TukuiRightBar:Show()
 		TukuiBar4:Show()
 
@@ -127,11 +127,11 @@ local RightBars = function()
 			TukuiRightBar:Height( ( S.buttonsize * 2 + S.buttonspacing * 3 ) + 2 )
 		end
 
-		if( TukuiSaved.splitbars ~= true and TukuiBar3:IsShown() ) then
+		if( AsphyxiaUISaved.splitbars ~= true and TukuiBar3:IsShown() ) then
 			MultiBarLeft:SetParent( TukuiBar3 )
 			TukuiBar3:Hide()
 		end
-	elseif( TukuiSaved.rightbars == 3 ) then
+	elseif( AsphyxiaUISaved.rightbars == 3 ) then
 		TukuiRightBar:Show()
 		TukuiBar4:Show()
 
@@ -141,7 +141,7 @@ local RightBars = function()
 			TukuiRightBar:Height( ( S.buttonsize * 3 + S.buttonspacing * 4 ) + 2 )
 		end
 
-		if( TukuiSaved.splitbars ~= true ) then
+		if( AsphyxiaUISaved.splitbars ~= true ) then
 			MultiBarLeft:SetParent( TukuiBar3 )
 			TukuiBar3:Show()
 			for i = 1, 12 do
@@ -153,7 +153,7 @@ local RightBars = function()
 				if( i == 1 ) then
 					b:Point( "TOPLEFT", TukuiRightBar, 5, -5 )
 				else
-					if not TukuiSaved.splitbars and C["actionbar"].vertical_rightbars == true then
+					if not AsphyxiaUISaved.splitbars and C["actionbar"].vertical_rightbars == true then
 						b:Point( "TOP", b2, "BOTTOM", 0, -S.buttonspacing )
 					else
 						b:Point( "LEFT", b2, "RIGHT", S.buttonspacing, 0 )
@@ -162,11 +162,11 @@ local RightBars = function()
 			end
 		end
 
-	elseif( TukuiSaved.rightbars == 0 ) then
+	elseif( AsphyxiaUISaved.rightbars == 0 ) then
 		TukuiRightBar:Hide()
 		TukuiBar4:Hide()
 
-		if( TukuiSaved.splitbars ~= true ) then
+		if( AsphyxiaUISaved.splitbars ~= true ) then
 			MultiBarLeft:SetParent( TukuiBar3 )
 			TukuiBar3:Hide()
 		end
@@ -174,7 +174,7 @@ local RightBars = function()
 end
 
 local SplitBars = function()
-	if( TukuiSaved.splitbars == true ) then
+	if( AsphyxiaUISaved.splitbars == true ) then
 		MultiBarLeft:SetParent( TukuiSplitBarLeft )
 		for i = 1, 12 do
 			local b = _G["MultiBarLeftButton" .. i]
@@ -195,7 +195,7 @@ local SplitBars = function()
 			end
 		end
 
-		if( TukuiSaved.rightbars == 3 ) then
+		if( AsphyxiaUISaved.rightbars == 3 ) then
 			TukuiRightBar:Show()
 			if( C["actionbar"].vertical_rightbars == true ) then
 				TukuiRightBar:Width( ( S.buttonsize * 2 + S.buttonspacing * 3 ) + 2 )
@@ -205,11 +205,11 @@ local SplitBars = function()
 		end
 
 		for i = 7, 12 do
-			if( TukuiSaved.bottomrows == 1 ) then
+			if( AsphyxiaUISaved.bottomrows == 1 ) then
 				local b = _G["MultiBarLeftButton" .. i]
 				b:SetAlpha( 1 )
 				b:SetScale( 0.000001 )
-			elseif( TukuiSaved.bottomrows == 2 ) then
+			elseif( AsphyxiaUISaved.bottomrows == 2 ) then
 				local b = _G["MultiBarLeftButton" .. i]
 				b:SetAlpha( 1 )	
 				b:SetScale( 1 )
@@ -238,7 +238,7 @@ local SplitBars = function()
 		ToggleText( 4, ">", false, true )
 		ToggleText( 5, "<", false, true )
 
-	elseif( TukuiSaved.splitbars == false ) then
+	elseif( AsphyxiaUISaved.splitbars == false ) then
 		MultiBarLeft:SetParent( TukuiBar3 )
 
 		for i = 1, 12 do
@@ -256,10 +256,8 @@ local SplitBars = function()
 		Toggle[5]:ClearAllPoints()
 
 		Toggle[4]:Point( "BOTTOMLEFT", AsphyxiaUIControlPanelActionbarBackgroundCloseButton, "TOPLEFT", 0, 23 )
-		--Toggle[4]:SetFrameStrata( "DIALOG" )
 
 		Toggle[5]:Point( "LEFT", Toggle[4], "RIGHT", 4, 0 )
-		--Toggle[5]:SetFrameStrata( "DIALOG" )
 
 		ToggleText( 4, "<", true )
 		ToggleText( 5, ">", true )
@@ -278,9 +276,9 @@ local SplitBars = function()
 end
 
 local function LockCheck( index )
-	if( TukuiSaved.actionbarsLocked == true ) then
+	if( AsphyxiaUISaved.actionbarsLocked == true ) then
 		Toggle[index].Text:SetText( "unlock" )
-	elseif TukuiSaved.actionbarsLocked == false then
+	elseif AsphyxiaUISaved.actionbarsLocked == false then
 		Toggle[index].Text:SetText( "lock" )
 	end
 end
@@ -307,10 +305,10 @@ for i = 1, 6 do
 		Toggle[i]:SetScript( "OnMouseDown", function()
 			if( InCombatLockdown() ) then return end
 
-			TukuiSaved.bottomrows = TukuiSaved.bottomrows + 1
+			AsphyxiaUISaved.bottomrows = AsphyxiaUISaved.bottomrows + 1
 
-			if( TukuiSaved.bottomrows > 2 ) then
-				TukuiSaved.bottomrows = 1
+			if( AsphyxiaUISaved.bottomrows > 2 ) then
+				AsphyxiaUISaved.bottomrows = 1
 			end
 
 			MainBars()
@@ -336,15 +334,15 @@ for i = 1, 6 do
 		Toggle[i]:SetScript( "OnMouseDown", function()
 			if( InCombatLockdown() ) then return end
 
-			TukuiSaved.rightbars = TukuiSaved.rightbars - 1
+			AsphyxiaUISaved.rightbars = AsphyxiaUISaved.rightbars - 1
 
-			if( TukuiSaved.splitbars == true and TukuiSaved.rightbars > 2 ) then
-				TukuiSaved.rightbars = 1
-			elseif( TukuiSaved.rightbars < 0 ) then
-				if( TukuiSaved.splitbars == true ) then
-					TukuiSaved.rightbars = 2
+			if( AsphyxiaUISaved.splitbars == true and AsphyxiaUISaved.rightbars > 2 ) then
+				AsphyxiaUISaved.rightbars = 1
+			elseif( AsphyxiaUISaved.rightbars < 0 ) then
+				if( AsphyxiaUISaved.splitbars == true ) then
+					AsphyxiaUISaved.rightbars = 2
 				else
-					TukuiSaved.rightbars = 3
+					AsphyxiaUISaved.rightbars = 3
 				end
 			end
 			RightBars()
@@ -370,12 +368,12 @@ for i = 1, 6 do
 		Toggle[i]:SetScript( "OnMouseDown", function()
 			if( InCombatLockdown() ) then return end
 
-			TukuiSaved.rightbars = TukuiSaved.rightbars + 1
+			AsphyxiaUISaved.rightbars = AsphyxiaUISaved.rightbars + 1
 
-			if( TukuiSaved.splitbars == true and TukuiSaved.rightbars > 2 ) then
-				TukuiSaved.rightbars = 0
-			elseif( TukuiSaved.rightbars > 3 ) then
-				TukuiSaved.rightbars = 0
+			if( AsphyxiaUISaved.splitbars == true and AsphyxiaUISaved.rightbars > 2 ) then
+				AsphyxiaUISaved.rightbars = 0
+			elseif( AsphyxiaUISaved.rightbars > 3 ) then
+				AsphyxiaUISaved.rightbars = 0
 			end
 
 			RightBars()
@@ -386,12 +384,10 @@ for i = 1, 6 do
 		Toggle[i]:Size( S.buttonsize / 2, 15 )
 		Toggle[i]:Point( "BOTTOMRIGHT", AsphyxiaUIControlPanelActionbarBackground, "BOTTOMLEFT", -3, 0 )
 		Toggle[i]:SetTemplate( "Default" )
-		--Toggle[i]:SetFrameLevel( AsphyxiaUIControlPanelActionbarBackground:GetFrameLevel() + 1 )
 	elseif( i == 5 ) then
 		Toggle[i]:Size( S.buttonsize / 2, 15 )
 		Toggle[i]:Point( "BOTTOMLEFT", AsphyxiaUIControlPanelActionbarBackground, "BOTTOMRIGHT", 3, 0 )
 		Toggle[i]:SetTemplate( "Default" )
-		--Toggle[i]:SetFrameLevel( AsphyxiaUIControlPanelActionbarBackground:GetFrameLevel() + 1 )
 	elseif( i == 6 ) then
 		Toggle[i]:Size( 82, 17 )
 		Toggle[i]:Point( "BOTTOMLEFT", AsphyxiaUIControlPanelActionbarBackgroundCloseButton, "TOPLEFT", 0, 3 )
@@ -405,12 +401,12 @@ for i = 1, 6 do
 		Toggle[i]:SetScript( "OnMouseDown", function()	
 			if( InCombatLockdown() ) then return end
 			
-			if( TukuiSaved.actionbarsLocked == true ) then
-				TukuiSaved.actionbarsLocked = false
-				print( "unlocked" )
-			elseif( TukuiSaved.actionbarsLocked == false ) then
-				TukuiSaved.actionbarsLocked = true
-				print( "locked" )
+			if( AsphyxiaUISaved.actionbarsLocked == true ) then
+				AsphyxiaUISaved.actionbarsLocked = false
+				print( L.AsphyxiaUI_Actionbars_Buttons_Text_Unlocked )
+			elseif( AsphyxiaUISaved.actionbarsLocked == false ) then
+				AsphyxiaUISaved.actionbarsLocked = true
+				print( L.AsphyxiaUI_Actionbars_Buttons_Text_Locked )
 			end
 
 			LockCheck( i )
@@ -425,10 +421,10 @@ for i = 1, 6 do
 		Toggle[i]:SetScript( "OnMouseDown", function()
 			if( InCombatLockdown() ) then return end
 
-			if( TukuiSaved.splitbars == false ) then
-				TukuiSaved.splitbars = true
-			elseif( TukuiSaved.splitbars == true ) then
-				TukuiSaved.splitbars = false
+			if( AsphyxiaUISaved.splitbars == false ) then
+				AsphyxiaUISaved.splitbars = true
+			elseif( AsphyxiaUISaved.splitbars == true ) then
+				AsphyxiaUISaved.splitbars = false
 			end
 			SplitBars()
 		end )
@@ -439,11 +435,11 @@ for i = 1, 6 do
 	Toggle[i]:RegisterEvent( "PLAYER_REGEN_ENABLED" )
 
 	Toggle[i]:SetScript( "OnUpdate", function() 
-		if( TukuiSaved.actionbarsLocked == true ) then
+		if( AsphyxiaUISaved.actionbarsLocked == true ) then
 			for i = 1, 5 do
 				Toggle[i]:EnableMouse( false )
 			end
-		elseif( TukuiSaved.actionbarsLocked == false ) then
+		elseif( AsphyxiaUISaved.actionbarsLocked == false ) then
 			for i = 1, 5 do
 				Toggle[i]:EnableMouse( true )
 			end
