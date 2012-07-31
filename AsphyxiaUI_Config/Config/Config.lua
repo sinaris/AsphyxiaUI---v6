@@ -5,6 +5,11 @@ C["global"] = {
 	["welcomemessage"] = true,
 }
 
+C["unitframes"] = {
+	["cblatency"] = true,
+	["fader"] = true,
+}
+
 C["general"] = {
 	["backdropcolor"] = { 0.0, 0.0, 0.0 },
 	["bordercolor"] = { 0.125, 0.125, 0.125 },

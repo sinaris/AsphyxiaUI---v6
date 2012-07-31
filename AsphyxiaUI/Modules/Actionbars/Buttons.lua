@@ -247,14 +247,12 @@ local SplitBars = function()
 		Toggle[5]:ClearAllPoints()
 
 		Toggle[4]:Point( "BOTTOMLEFT", AsphyxiaUIControlPanelActionbarBackgroundCloseButton, "TOPLEFT", 0, 23 )
-		Toggle[4]:SetFrameStrata( "DIALOG" )
 		Toggle[4]:CreateOverlay( Toggle[4] )
 
 		Toggle[4]:HookScript( "OnEnter", S.SetModifiedBackdrop )
 		Toggle[4]:HookScript( "OnLeave", S.SetOriginalBackdrop )
 
 		Toggle[5]:Point( "LEFT", Toggle[4], "RIGHT", 4, 0 )
-		Toggle[5]:SetFrameStrata( "DIALOG" )
 		Toggle[5]:CreateOverlay( Toggle[5] )
 
 		Toggle[5]:HookScript( "OnEnter", S.SetModifiedBackdrop )
