@@ -7,7 +7,7 @@ local S, C, L, G = unpack( Tukui )
 if( C["general"]["blizzardreskin"] ~= true ) then return end
 
 local function SkinFrames( self, event, addon )
-	if( addon == "Blizzard_AchievementUI" ) then
+	if( addon == "Blizzard_ArchaeologyUI" ) then
 		ArchaeologyFrame:SetTemplate( "Transparent" )
 	end
 end

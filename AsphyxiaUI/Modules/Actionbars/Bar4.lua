@@ -29,5 +29,5 @@ for i = 1, 12 do
 		else
 			b:Point( "LEFT", b2, "RIGHT", S.buttonspacing, 0 )
 		end
-	end	
+	end
 end

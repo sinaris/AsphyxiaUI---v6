@@ -6,7 +6,7 @@ local S, C, L, G = unpack( Tukui )
 
 if( C["actionbar"]["enable"] ~= true ) then return end
 
-local bar = AsphyxiaUIActionbar2
+local bar = TukuiBar2
 MultiBarBottomLeft:SetParent( bar )
 
 for i = 1, 12 do
