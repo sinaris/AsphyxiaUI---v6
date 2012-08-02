@@ -51,7 +51,7 @@ local DataTextPosition = function( frame, object, point )
 	elseif( point == 7 ) then
 		object:SetParent( DataLeft )
 		object:Height( DataLeft:GetHeight() )
-		object:Point( "CENTER", DataLeft, 0, 1 )
+		object:Point( "CENTER", DataLeft, 0, 0 )
 	elseif( point == 8 ) then
 		object:SetParent( DataCenter )
 		object:SetHeight( DataCenter:GetHeight() )
@@ -72,7 +72,7 @@ local DataTextPosition = function( frame, object, point )
 	elseif( point == 11 ) then
 		object:SetParent( DataRight )
 		object:Height( DataRight:GetHeight() )
-		object:Point( "CENTER", DataRight, 0, 1 )
+		object:Point( "CENTER", DataRight, 0, 0 )
 	elseif( point == 12 ) then
 		object:SetParent( Minimap )
 		object:Height( Minimap:GetHeight() )

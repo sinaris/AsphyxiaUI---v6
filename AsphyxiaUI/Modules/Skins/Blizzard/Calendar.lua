@@ -16,6 +16,15 @@ local function SkinFrames( self, event, addon )
 
 		CalendarTexturePickerFrame:SetTemplate("Transparent")
 		CalendarTexturePickerFrame:CreateShadow( "Default" )
+
+		CalendarViewRaidFrame:SetTemplate( "Transparent" )
+		CalendarViewRaidFrame:CreateShadow( "Default" )
+
+		CalendarViewHolidayFrame:SetTemplate( "Transparent" )
+		CalendarViewHolidayFrame:CreateShadow( "Default" )
+
+		CalendarViewEventFrame:SetTemplate( "Transparent" )
+		CalendarViewEventFrame:CreateShadow( "Default" )
 	end
 end
 

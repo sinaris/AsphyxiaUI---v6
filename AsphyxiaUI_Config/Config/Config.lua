@@ -19,6 +19,7 @@ C["actionbar"] = {
 	["vertical_rightbars"] = false,
 	["vertical_shapeshift"] = false,
 	["mainswap"] = false,
+	["mouseover_shapeshift"] = false,
 }
 
 C["castbar"] = {

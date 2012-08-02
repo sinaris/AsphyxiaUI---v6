@@ -24,10 +24,10 @@ local Toggle = CreateFrame( "Frame", "TukuiToggleActionbar", AsphyxiaUIControlPa
 local ToggleText = function( index, text, plus, neg )
 	if( plus ) then
 		Toggle[index].Text:SetText( text )
-		Toggle[index].Text:SetTextColor( .3, .3, .9 )
+		Toggle[index].Text:SetTextColor( 0.3, 0.3, 0.9 )
 	elseif( neg ) then
 		Toggle[index].Text:SetText( text )
-		Toggle[index].Text:SetTextColor( .9, .3, .3 )
+		Toggle[index].Text:SetTextColor( 0.9, 0.3, 0.3 )
 	end
 end
 
