@@ -14,3 +14,13 @@ AsphyxiaUI - v6: ToDo List
 		- Kill.lua (done)
 		- PopUps.lua
 			- There will be some more (un)needed Popus later.
+
+- **AsphyxiaUI Config**
+
+- **AsphyxiaUI Raid DPS and Tank Layout**
+
+- **AsphyxiaUI Raid Healing Layout**
+
+- **AsphyxiaUI Changelog**
+
+- **AsphyxiaUI F.A.Q.**
