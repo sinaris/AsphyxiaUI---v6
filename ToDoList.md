@@ -1,7 +1,7 @@
 AsphyxiaUI - v6: ToDo List
 ==========================
 
-AsphyxiaUI
+- AsphyxiaUI
 	- Core Files:
 		- API.lua (done)
 		- Commands.lua
