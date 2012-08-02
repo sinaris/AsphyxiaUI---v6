@@ -5,7 +5,11 @@
 local S, C, L, G = unpack( Tukui )
 
 S.CreateFontString = function()
-	return C["media"]["asphyxia"], 10, "MONOCHROMEOUTLINE"
+	if( S.client == "ruRU" ) then
+		return C["media"]["pixel_ru"], 10, "MONOCHROMEOUTLINE"
+	else
+		return C["media"]["asphyxia"], 10, "MONOCHROMEOUTLINE"
+	end
 end
 
 function S.SetModifiedBackdrop( self )

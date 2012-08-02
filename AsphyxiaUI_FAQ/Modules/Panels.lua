@@ -4,6 +4,8 @@
 
 local S, C, L, G = unpack( Tukui )
 
+local AsphyxiaUIFAQ = CreateFrame( "Frame" )
+
 local AsphyxiaUIFAQOnLogon = CreateFrame( "Frame" )
 AsphyxiaUIFAQOnLogon:RegisterEvent( "PLAYER_ENTERING_WORLD" )
 AsphyxiaUIFAQOnLogon:SetScript( "OnEvent", function( self, event )

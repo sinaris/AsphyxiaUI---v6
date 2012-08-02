@@ -4,5 +4,6 @@
 
 local S, C, L, G = unpack( Tukui )
 
-S.GetAsphyxiaUIVersion = GetAddOnMetadata( "AsphyxiaUI", "Version" )
-S.InfoLeftRightWidth = 370
+if( C["intmodules"]["layoutchanger"] ~= true ) then return end
+
+local AsphyxiaUILayoutChanger = CreateFrame( "Frame" )

@@ -125,6 +125,7 @@ C["intmodules"] = {
 	},
 	["bnetpanel"] = true,
 	["itemlevelongearandslots"] = true,
+	["layoutchanger"] = true,
 }
 
 C["unitframes"] = {

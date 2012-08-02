@@ -5,6 +5,7 @@
 	<Script file="BNetPanel.lua" />
 	<Script file="HatTrick.lua" />
 	<Script file="ItemLevelOnGearAndSlots.lua" />
+	<Script file="LayoutChanger.lua" />
 	<Script file="LocationPanel.lua" />
 	<Script file="NickAlert.lua" />
 </Ui>

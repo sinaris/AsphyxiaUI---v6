@@ -40,7 +40,7 @@ AsphyxiaUIInstallFrameTitle:SetTemplate( "Transparent" )
 local AsphyxiaUIInstallFrameTitleText = AsphyxiaUIInstallFrameTitle:CreateFontString( nil, "OVERLAY" )
 AsphyxiaUIInstallFrameTitleText:SetFont( S.CreateFontString() )
 AsphyxiaUIInstallFrameTitleText:SetPoint( "CENTER", AsphyxiaUIInstallFrameTitle, 0, 0 )
-AsphyxiaUIInstallFrameTitleText:SetText( L.AsphyxiaUI_General_Title )
+AsphyxiaUIInstallFrameTitleText:SetText( L.Global_ADDON_TITLE )
 
 local AsphyxiaUIInstallFrameBottom = CreateFrame( "Frame", "AsphyxiaUIInstallFrameBottom", G.Install.Frame )
 AsphyxiaUIInstallFrameBottom:Size( G.Install.Frame:GetWidth(), 30 )
@@ -52,7 +52,7 @@ AsphyxiaUIInstallFrameBottom:SetTemplate( "Transparent" )
 local AsphyxiaUIInstallFrameBottomText = AsphyxiaUIInstallFrameBottom:CreateFontString( nil, "OVERLAY" )
 AsphyxiaUIInstallFrameBottomText:SetFont( S.CreateFontString() )
 AsphyxiaUIInstallFrameBottomText:SetPoint( "CENTER", AsphyxiaUIInstallFrameBottom, 0, 0 )
-AsphyxiaUIInstallFrameBottomText:SetText( L.AsphyxiaUI_General_Copyright )
+AsphyxiaUIInstallFrameBottomText:SetText( L.Global_ADDON_COPYRIGHT )
 
 local AsphyxiaUIOnLogon = CreateFrame( "Frame" )
 AsphyxiaUIOnLogon:RegisterEvent( "PLAYER_ENTERING_WORLD" )
@@ -78,7 +78,7 @@ AsphyxiaUIOnLogon:SetScript( "OnEvent", function( self, event )
 	end
 
 	if( C["global"]["welcomemessage"] == true ) then
-		print( L.AsphyxiaUI_General_Welcomemessage1 )
-		print( L.AsphyxiaUI_General_Welcomemessage2 )
+		print( L.Global_WELCOME_MESSAGE1 )
+		print( L.Global_WELCOME_MESSAGE2 )
 	end
 end )
