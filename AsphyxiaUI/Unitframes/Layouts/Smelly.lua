@@ -26,7 +26,7 @@ do
 	-- health
 	------------------------------
 	do
-		G.UnitFrames.Player.Health:Size( 233, 26 )
+		G.UnitFrames.Player.Health:Size( 233, 30 )
 		G.UnitFrames.Player.Health:SetFrameLevel( 5 )
 		G.UnitFrames.Player.Health:CreateBorder( true )
 		G.UnitFrames.Player.Health.bg:SetTexture( 0.6, 0.6, 0.6 )
@@ -45,7 +45,7 @@ do
 		end
 
 		G.UnitFrames.Player.Health.value = S.SetFontString( G.UnitFrames.Player.Health, S.CreateFontString() )
-		G.UnitFrames.Player.Health.value:Point( "RIGHT", G.UnitFrames.Player.Health, "RIGHT", -4, 1 )
+		G.UnitFrames.Player.Health.value:Point( "RIGHT", G.UnitFrames.Player.Health, "RIGHT", -6, 3 )
 
 		G.UnitFrames.Player.Health.PostUpdate = S.PostUpdateHealth
 	end
@@ -54,14 +54,15 @@ do
 	-- power
 	------------------------------
 	do
-		G.UnitFrames.Player.Power:Size( 233, 2 )
+		G.UnitFrames.Player.Power:Size( 218, 2 )
 		G.UnitFrames.Player.Power:ClearAllPoints()
-		G.UnitFrames.Player.Power:Point( "TOPRIGHT", G.UnitFrames.Player.Health, "BOTTOMRIGHT", 0, -7 )
+		G.UnitFrames.Player.Power:Point( "TOP", G.UnitFrames.Player.Health, "BOTTOM", 2, 6 )
+		G.UnitFrames.Player.Power:Point( "TOPRIGHT", G.UnitFrames.Player.Health, "BOTTOMRIGHT", -8, -2 )
 		G.UnitFrames.Player.Power:SetFrameLevel( G.UnitFrames.Player.Health:GetFrameLevel() + 2 )
 		G.UnitFrames.Player.Power:CreateBorder( true )
 
 		G.UnitFrames.Player.Power.value = S.SetFontString( G.UnitFrames.Player.Health, S.CreateFontString() )
-		G.UnitFrames.Player.Power.value:Point( "LEFT", G.UnitFrames.Player.Health, "LEFT", 4, 1 )
+		G.UnitFrames.Player.Power.value:Point( "LEFT", G.UnitFrames.Player.Health, "LEFT", 6, 3 )
 	end
 
 	------------------------------
@@ -86,7 +87,7 @@ do
 	do
 		if( C["unitframes"]["classicons"] == true ) then
 			local classicon = CreateFrame( "Frame", G.UnitFrames.Player:GetName() .. "_ClassIconBorder", G.UnitFrames.Player )
-			classicon:Size( 30 )
+			classicon:Size( 34 )
 			classicon:Point( "TOPRIGHT", G.UnitFrames.Player.Health, "TOPLEFT", -5, 2 )
 			classicon:SetTemplate( "Default" )
 			classicon:CreateShadow( "Default" )
