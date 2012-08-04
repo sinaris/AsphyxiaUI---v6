@@ -4,8 +4,6 @@
 
 local S, C, L, G = unpack( Tukui )
 
-print( "AsphyxiaUI Panels loaded!" )
-
 ------------------------------
 -- Actionbars
 ------------------------------
@@ -63,7 +61,6 @@ G.ActionBars.Pet:Point( "BOTTOM", AsphyxiaUIRightBar, "TOP", 0, 3 )
 G.ActionBars.Pet:SetTemplate( "Transparent" )
 G.ActionBars.Pet:CreateShadow( "Default" )
 
-
 ------------------------------
 -- Chat
 ------------------------------
@@ -98,7 +95,6 @@ G.Panels.RightChatTabsBackground:SetTemplate( "Transparent" )
 G.Panels.RightChatTabsBackground:CreateOverlay( AsphyxiaUILeftChatTab )
 G.Panels.RightChatTabsBackground:SetFrameLevel( 2 )
 G.Panels.RightChatTabsBackground:SetFrameStrata( "BACKGROUND" )
-
 
 ------------------------------
 -- Datatext Panels
@@ -142,7 +138,6 @@ AsphyxiaUIInfoCenterRight:SetFrameLevel( 2 )
 AsphyxiaUIInfoCenterRight:SetFrameStrata( "BACKGROUND" )
 AsphyxiaUIInfoCenterRight:CreateOverlay( AsphyxiaUIInfoCenterRight )
 
-
 ------------------------------
 -- Minimap
 ------------------------------
@@ -152,7 +147,5 @@ if( TukuiMinimap ) then
 	AsphyxiaUITimeWatch:Point( "TOP", Minimap, "BOTTOM", 0, 8 )
 	AsphyxiaUITimeWatch:SetTemplate( "Default" )
 	AsphyxiaUITimeWatch:CreateShadow( "Default" )
-	--AsphyxiaUITimeWatch:SetFrameLevel( 3 )
-	--AsphyxiaUITimeWatch:SetFrameStrata( "MEDIUM" )
 	AsphyxiaUITimeWatch:CreateOverlay( AsphyxiaUITimeWatch )
 end

@@ -12,7 +12,7 @@ AsphyxiaUIFAQMainFrame:SetSize( 650, 350 )
 AsphyxiaUIFAQMainFrame:SetPoint( "CENTER" )
 AsphyxiaUIFAQMainFrame:SetTemplate( "Transparent" )
 AsphyxiaUIFAQMainFrame:CreateShadow( "Default" )
---AsphyxiaUIFAQMainFrame:Hide()
+AsphyxiaUIFAQMainFrame:Hide()
 AsphyxiaUIFAQMainFrame:SetFrameLevel( 10 )
 AsphyxiaUIFAQMainFrame:SetFrameStrata( "BACKGROUND" )
 
@@ -43,6 +43,11 @@ AsphyxiaUIFAQMainFrameTitle:Size( AsphyxiaUIFAQMainFrame:GetWidth( ) - 122, 30 )
 AsphyxiaUIFAQMainFrameTitle:Point( "BOTTOM", AsphyxiaUIFAQMainFrame, "TOP", 0, 3 )
 AsphyxiaUIFAQMainFrameTitle:SetTemplate( "Transparent" )
 AsphyxiaUIFAQMainFrameTitle:CreateShadow( "Default" )
+
+local AsphyxiaUIFAQMainFrameTitleText = AsphyxiaUIFAQMainFrameTitle:CreateFontString( nil, "OVERLAY" )
+AsphyxiaUIFAQMainFrameTitleText:SetFont( S.CreateFontString( true ) )
+AsphyxiaUIFAQMainFrameTitleText:SetPoint( "CENTER", AsphyxiaUIFAQMainFrameTitle, 0, 0 )
+AsphyxiaUIFAQMainFrameTitleText:SetText( L.Faq_TITLE )
 
 
 ------------------------------
@@ -193,6 +198,96 @@ local AsphyxiaUIFAQMainFrameContentBuildDefault = function()
 	AsphyxiaUIFAQMainFrameContentText6:SetText( L.Faq_CONTENT_TEXT_FIELD_0_6 )
 end
 
+local AsphyxiaUIFAQMainFrameContentBuild1 = function()
+	AsphyxiaUIFAQMainFrameContentTitle:SetText( L.Faq_CONTENT_TEXT_TITLE_1 )
+	AsphyxiaUIFAQMainFrameContentText1:SetText( L.Faq_CONTENT_TEXT_FIELD_0_1 )
+	AsphyxiaUIFAQMainFrameContentText2:SetText( L.Faq_CONTENT_TEXT_FIELD_0_2 )
+	AsphyxiaUIFAQMainFrameContentText3:SetText( L.Faq_CONTENT_TEXT_FIELD_0_3 )
+	AsphyxiaUIFAQMainFrameContentText4:SetText( L.Faq_CONTENT_TEXT_FIELD_0_4 )
+	AsphyxiaUIFAQMainFrameContentText5:SetText( L.Faq_CONTENT_TEXT_FIELD_0_5 )
+	AsphyxiaUIFAQMainFrameContentText6:SetText( L.Faq_CONTENT_TEXT_FIELD_0_6 )
+end
+
+local AsphyxiaUIFAQMainFrameContentBuild2 = function()
+	AsphyxiaUIFAQMainFrameContentTitle:SetText( L.Faq_CONTENT_TEXT_TITLE_2 )
+	AsphyxiaUIFAQMainFrameContentText1:SetText( L.Faq_CONTENT_TEXT_FIELD_0_1 )
+	AsphyxiaUIFAQMainFrameContentText2:SetText( L.Faq_CONTENT_TEXT_FIELD_0_2 )
+	AsphyxiaUIFAQMainFrameContentText3:SetText( L.Faq_CONTENT_TEXT_FIELD_0_3 )
+	AsphyxiaUIFAQMainFrameContentText4:SetText( L.Faq_CONTENT_TEXT_FIELD_0_4 )
+	AsphyxiaUIFAQMainFrameContentText5:SetText( L.Faq_CONTENT_TEXT_FIELD_0_5 )
+	AsphyxiaUIFAQMainFrameContentText6:SetText( L.Faq_CONTENT_TEXT_FIELD_0_6 )
+end
+
+local AsphyxiaUIFAQMainFrameContentBuild3 = function()
+	AsphyxiaUIFAQMainFrameContentTitle:SetText( L.Faq_CONTENT_TEXT_TITLE_3 )
+	AsphyxiaUIFAQMainFrameContentText1:SetText( L.Faq_CONTENT_TEXT_FIELD_0_1 )
+	AsphyxiaUIFAQMainFrameContentText2:SetText( L.Faq_CONTENT_TEXT_FIELD_0_2 )
+	AsphyxiaUIFAQMainFrameContentText3:SetText( L.Faq_CONTENT_TEXT_FIELD_0_3 )
+	AsphyxiaUIFAQMainFrameContentText4:SetText( L.Faq_CONTENT_TEXT_FIELD_0_4 )
+	AsphyxiaUIFAQMainFrameContentText5:SetText( L.Faq_CONTENT_TEXT_FIELD_0_5 )
+	AsphyxiaUIFAQMainFrameContentText6:SetText( L.Faq_CONTENT_TEXT_FIELD_0_6 )
+end
+
+local AsphyxiaUIFAQMainFrameContentBuild4 = function()
+	AsphyxiaUIFAQMainFrameContentTitle:SetText( L.Faq_CONTENT_TEXT_TITLE_4 )
+	AsphyxiaUIFAQMainFrameContentText1:SetText( L.Faq_CONTENT_TEXT_FIELD_0_1 )
+	AsphyxiaUIFAQMainFrameContentText2:SetText( L.Faq_CONTENT_TEXT_FIELD_0_2 )
+	AsphyxiaUIFAQMainFrameContentText3:SetText( L.Faq_CONTENT_TEXT_FIELD_0_3 )
+	AsphyxiaUIFAQMainFrameContentText4:SetText( L.Faq_CONTENT_TEXT_FIELD_0_4 )
+	AsphyxiaUIFAQMainFrameContentText5:SetText( L.Faq_CONTENT_TEXT_FIELD_0_5 )
+	AsphyxiaUIFAQMainFrameContentText6:SetText( L.Faq_CONTENT_TEXT_FIELD_0_6 )
+end
+
+local AsphyxiaUIFAQMainFrameContentBuild5 = function()
+	AsphyxiaUIFAQMainFrameContentTitle:SetText( L.Faq_CONTENT_TEXT_TITLE_5 )
+	AsphyxiaUIFAQMainFrameContentText1:SetText( L.Faq_CONTENT_TEXT_FIELD_0_1 )
+	AsphyxiaUIFAQMainFrameContentText2:SetText( L.Faq_CONTENT_TEXT_FIELD_0_2 )
+	AsphyxiaUIFAQMainFrameContentText3:SetText( L.Faq_CONTENT_TEXT_FIELD_0_3 )
+	AsphyxiaUIFAQMainFrameContentText4:SetText( L.Faq_CONTENT_TEXT_FIELD_0_4 )
+	AsphyxiaUIFAQMainFrameContentText5:SetText( L.Faq_CONTENT_TEXT_FIELD_0_5 )
+	AsphyxiaUIFAQMainFrameContentText6:SetText( L.Faq_CONTENT_TEXT_FIELD_0_6 )
+end
+
+local AsphyxiaUIFAQMainFrameContentBuild6 = function()
+	AsphyxiaUIFAQMainFrameContentTitle:SetText( L.Faq_CONTENT_TEXT_TITLE_6 )
+	AsphyxiaUIFAQMainFrameContentText1:SetText( L.Faq_CONTENT_TEXT_FIELD_0_1 )
+	AsphyxiaUIFAQMainFrameContentText2:SetText( L.Faq_CONTENT_TEXT_FIELD_0_2 )
+	AsphyxiaUIFAQMainFrameContentText3:SetText( L.Faq_CONTENT_TEXT_FIELD_0_3 )
+	AsphyxiaUIFAQMainFrameContentText4:SetText( L.Faq_CONTENT_TEXT_FIELD_0_4 )
+	AsphyxiaUIFAQMainFrameContentText5:SetText( L.Faq_CONTENT_TEXT_FIELD_0_5 )
+	AsphyxiaUIFAQMainFrameContentText6:SetText( L.Faq_CONTENT_TEXT_FIELD_0_6 )
+end
+
+local AsphyxiaUIFAQMainFrameContentBuild7 = function()
+	AsphyxiaUIFAQMainFrameContentTitle:SetText( L.Faq_CONTENT_TEXT_TITLE_7 )
+	AsphyxiaUIFAQMainFrameContentText1:SetText( L.Faq_CONTENT_TEXT_FIELD_0_1 )
+	AsphyxiaUIFAQMainFrameContentText2:SetText( L.Faq_CONTENT_TEXT_FIELD_0_2 )
+	AsphyxiaUIFAQMainFrameContentText3:SetText( L.Faq_CONTENT_TEXT_FIELD_0_3 )
+	AsphyxiaUIFAQMainFrameContentText4:SetText( L.Faq_CONTENT_TEXT_FIELD_0_4 )
+	AsphyxiaUIFAQMainFrameContentText5:SetText( L.Faq_CONTENT_TEXT_FIELD_0_5 )
+	AsphyxiaUIFAQMainFrameContentText6:SetText( L.Faq_CONTENT_TEXT_FIELD_0_6 )
+end
+
+local AsphyxiaUIFAQMainFrameContentBuild8 = function()
+	AsphyxiaUIFAQMainFrameContentTitle:SetText( L.Faq_CONTENT_TEXT_TITLE_8 )
+	AsphyxiaUIFAQMainFrameContentText1:SetText( L.Faq_CONTENT_TEXT_FIELD_0_1 )
+	AsphyxiaUIFAQMainFrameContentText2:SetText( L.Faq_CONTENT_TEXT_FIELD_0_2 )
+	AsphyxiaUIFAQMainFrameContentText3:SetText( L.Faq_CONTENT_TEXT_FIELD_0_3 )
+	AsphyxiaUIFAQMainFrameContentText4:SetText( L.Faq_CONTENT_TEXT_FIELD_0_4 )
+	AsphyxiaUIFAQMainFrameContentText5:SetText( L.Faq_CONTENT_TEXT_FIELD_0_5 )
+	AsphyxiaUIFAQMainFrameContentText6:SetText( L.Faq_CONTENT_TEXT_FIELD_0_6 )
+end
+
+local AsphyxiaUIFAQMainFrameContentBuild9 = function()
+	AsphyxiaUIFAQMainFrameContentTitle:SetText( L.Faq_CONTENT_TEXT_TITLE_9 )
+	AsphyxiaUIFAQMainFrameContentText1:SetText( L.Faq_CONTENT_TEXT_FIELD_0_1 )
+	AsphyxiaUIFAQMainFrameContentText2:SetText( L.Faq_CONTENT_TEXT_FIELD_0_2 )
+	AsphyxiaUIFAQMainFrameContentText3:SetText( L.Faq_CONTENT_TEXT_FIELD_0_3 )
+	AsphyxiaUIFAQMainFrameContentText4:SetText( L.Faq_CONTENT_TEXT_FIELD_0_4 )
+	AsphyxiaUIFAQMainFrameContentText5:SetText( L.Faq_CONTENT_TEXT_FIELD_0_5 )
+	AsphyxiaUIFAQMainFrameContentText6:SetText( L.Faq_CONTENT_TEXT_FIELD_0_6 )
+end
+
 
 ------------------------------
 -- MainFrame - Slash
@@ -201,40 +296,33 @@ local afaq = AsphyxiaUIFAQMainFrameSlashcommand or function() end
 AsphyxiaUIFAQMainFrameSlashcommand = function( msg )
 	if( InCombatLockdown() ) then print( ERR_NOT_IN_COMBAT ) return end
 
-	if( AsphyxiaUIFAQMainFrame:IsVisible() ) then
-		AsphyxiaUIFAQMainFrame:Hide()
-	else
-		AsphyxiaUIFAQMainFrame:Show()
-		AsphyxiaUIFAQMainFrameContentBuildDefault()
-	end
-
-	--[[if( msg == "1" ) then
+	if( msg == "1" ) then
 		if not AsphyxiaUIFAQMainFrame:IsVisible() then return end
-		ahelp1content()
+		AsphyxiaUIFAQMainFrameContentBuild1()
 	elseif( msg == "2" ) then
 		if not AsphyxiaUIFAQMainFrame:IsVisible() then return end
-		ahelp2content()
+		AsphyxiaUIFAQMainFrameContentBuild2()
 	elseif( msg == "3" ) then
 		if not AsphyxiaUIFAQMainFrame:IsVisible() then return end
-		ahelp3content()
+		AsphyxiaUIFAQMainFrameContentBuild3()
 	elseif( msg == "4" ) then
 		if not AsphyxiaUIFAQMainFrame:IsVisible() then return end
-		ahelp4content()
+		AsphyxiaUIFAQMainFrameContentBuild4()
 	elseif( msg == "5" ) then
 		if not AsphyxiaUIFAQMainFrame:IsVisible() then return end
-		ahelp5content()
+		AsphyxiaUIFAQMainFrameContentBuild5()
 	elseif( msg == "6" ) then
 		if not AsphyxiaUIFAQMainFrame:IsVisible() then return end
-		ahelp6content()
+		AsphyxiaUIFAQMainFrameContentBuild6()
 	elseif( msg == "7" ) then
 		if not AsphyxiaUIFAQMainFrame:IsVisible() then return end
-		ahelp7content()
+		AsphyxiaUIFAQMainFrameContentBuild7()
 	elseif( msg == "8" ) then
 		if not AsphyxiaUIFAQMainFrame:IsVisible() then return end
-		ahelp8content()
+		AsphyxiaUIFAQMainFrameContentBuild8()
 	elseif( msg == "9" ) then
 		if not AsphyxiaUIFAQMainFrame:IsVisible() then return end
-		ahelp9content()
+		AsphyxiaUIFAQMainFrameContentBuild9()
 	else
 		if( AsphyxiaUIFAQMainFrame:IsVisible() ) then
 			AsphyxiaUIFAQMainFrame:Hide()
@@ -242,19 +330,11 @@ AsphyxiaUIFAQMainFrameSlashcommand = function( msg )
 			AsphyxiaUIFAQMainFrame:Show()
 			AsphyxiaUIFAQMainFrameContentBuildDefault()
 		end
-	end]]
+	end
 end
 
 SlashCmdList.AsphyxiaUIFAQMainFrameSlashcommand = AsphyxiaUIFAQMainFrameSlashcommand
 SLASH_AsphyxiaUIFAQMainFrameSlashcommand1 = "/afaq"
-
-
-
-
-
-
-
-
 
 
 local AsphyxiaUIFAQOnLogon = CreateFrame( "Frame" )

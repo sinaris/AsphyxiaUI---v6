@@ -41,6 +41,12 @@ local OnAttributeChanged = function( self )
 			child.Count:ClearAllPoints()
 			child.Count:SetPoint( "TOP", 0, -4 )
 		end
+
+		if( child.Holder ) then
+			child.Holder:ClearAllPoints()
+			child.Holder:SetPoint( "TOP", child, "BOTTOM", 0, -3 )
+			child.Holder:CreateShadow( "Default" )
+		end
 	end
 end
 

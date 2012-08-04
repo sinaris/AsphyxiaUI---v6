@@ -217,7 +217,7 @@ hooksecurefunc( S, "PostUpdateHealth", function( health, unit, min, max )
 
 		if( min ~= max ) then
 			local r, g, b
-			r, g, b = oUFTukui.ColorGradient( min / max, 0.69, 0.31, 0.31, 0.65, 0.63, 0.35, 0.33, 0.59, 0.33 )
+			r, g, b = oUFTukui.ColorGradient( min, max, 0.69, 0.31, 0.31, 0.65, 0.63, 0.35, 0.33, 0.59, 0.33 )
 			if( unit == "player" and health:GetAttribute( "normalUnit" ) ~= "pet" ) then
 				if( C["unitframes"]["showtotalhpmp"] == true ) then
 					health.value:SetFormattedText( "|cff559655%s|r |cffD7BEA5|||r |cff559655%s|r", S.ShortValue( min ), S.ShortValue( max ) )

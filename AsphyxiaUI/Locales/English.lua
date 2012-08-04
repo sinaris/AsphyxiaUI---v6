@@ -10,8 +10,8 @@ local S, C, L, G = unpack( Tukui )
 L.Global_ADDON_TITLE = "AsphyxiaUI"
 L.Global_ADDON_COPYRIGHT = "Copyright 2012 - Sinaris, EU - Das Syndikat"
 
-L.Global_WELCOME_MESSAGE1 = ""
-L.Global_WELCOME_MESSAGE2 = ""
+L.Global_WELCOME_MESSAGE1 = "Whats up, |cff00AAFF" .. S.myname .. "!|r Thank you for using |cffFF6347AsphyxiaUI " .. GetAddOnMetadata( "AsphyxiaUI", "Version" ) .. "|r."
+L.Global_WELCOME_MESSAGE2 = "For detailed Information |cff00FFFFvisit www.tukui.org or https://github.com/Sinaris/AsphyxiaUI"
 
 ------------------------------
 -- Popups
@@ -22,13 +22,13 @@ L.Popups_ENABLE_CHAT_BACKGROUNDS = ""
 ------------------------------
 -- Changelog, seperate Addon
 ------------------------------
-L.Changelog_TITLE = ""
+L.Changelog_TITLE = "|cff00AAFFAsphyxiaUI|r - Changelog"
 L.Changelog_VERSION = ""
 
 ------------------------------
 -- F.A.Q., seperate Addon
 ------------------------------
-L.Faq_TITLE = ""
+L.Faq_TITLE = "|cff00AAFFAsphyxiaUI|r - F.A.Q."
 L.Faq_VERSION = ""
 
 L.Faq_BUTTONS_TEXT = {
@@ -43,16 +43,16 @@ L.Faq_BUTTONS_TEXT = {
 	[9] = "Donations",
 }
 
-L.Faq_CONTENT_TEXT_TITLE_0 = "AsphyxiaUI - F.A.Q."
-L.Faq_CONTENT_TEXT_TITLE_1 = "Information"
-L.Faq_CONTENT_TEXT_TITLE_2 = "Unitframes"
-L.Faq_CONTENT_TEXT_TITLE_3 = "Actionbars"
-L.Faq_CONTENT_TEXT_TITLE_4 = "Panels, Nameplates"
-L.Faq_CONTENT_TEXT_TITLE_5 = "Minimap, Chat"
-L.Faq_CONTENT_TEXT_TITLE_6 = "Extra Addons, Skins"
-L.Faq_CONTENT_TEXT_TITLE_7 = "Reported Issues"
-L.Faq_CONTENT_TEXT_TITLE_8 = "Credits"
-L.Faq_CONTENT_TEXT_TITLE_9 = "Donations"
+L.Faq_CONTENT_TEXT_TITLE_0 = "|cff00AAFFAsphyxiaUI - F.A.Q.|r"
+L.Faq_CONTENT_TEXT_TITLE_1 = "|cff00AAFFInformation|r"
+L.Faq_CONTENT_TEXT_TITLE_2 = "|cff00AAFFUnitframes|r"
+L.Faq_CONTENT_TEXT_TITLE_3 = "|cff00AAFFActionbars|r"
+L.Faq_CONTENT_TEXT_TITLE_4 = "|cff00AAFFPanels, Nameplates|r"
+L.Faq_CONTENT_TEXT_TITLE_5 = "|cff00AAFFMinimap, Chat|r"
+L.Faq_CONTENT_TEXT_TITLE_6 = "|cff00AAFFExtra Addons, Skins|r"
+L.Faq_CONTENT_TEXT_TITLE_7 = "|cff00AAFFReported Issues|r"
+L.Faq_CONTENT_TEXT_TITLE_8 = "|cff00AAFFCredits|r"
+L.Faq_CONTENT_TEXT_TITLE_9 = "|cff00AAFFDonations|r"
 
 L.Faq_CONTENT_TEXT_FIELD_0_1 = "AsphyxiaUI - F.A.Q."
 L.Faq_CONTENT_TEXT_FIELD_0_2 = "Welcome to the F.A.Q. from AsphyxiaUI!\n\nThis F.A.Q. will help you to find the important settings and commands for AsphyxiaUI."
