@@ -29,7 +29,7 @@ AsphyxiaUIControlPanelActionbarBackgroundHeader.Text:SetText( S.RGBToHex( unpack
 -- Extra Config
 ------------------------------
 local AsphyxiaUIControlPanelExtraBackground = CreateFrame( "Frame", "AsphyxiaUIControlPanelExtraBackground", UIParent )
-AsphyxiaUIControlPanelExtraBackground:Size( 150, 132 )
+AsphyxiaUIControlPanelExtraBackground:Size( 150, 186 )
 AsphyxiaUIControlPanelExtraBackground:Point( "CENTER", UIParent, "CENTER", 0, 25 )
 AsphyxiaUIControlPanelExtraBackground:SetTemplate( "Transparent" )
 AsphyxiaUIControlPanelExtraBackground:CreateShadow( "Default" )
@@ -74,6 +74,8 @@ local AsphyxiaUIControlPanelButtons = {
 	[2] = { "/am" },
 	[3] = { "/tc" },
 	[4] = { "/mtukui" },
+	[5] = { "/acl" },
+	[6] = { "/afaq" },
 }
 
 ------------------------------
@@ -84,6 +86,8 @@ local AsphyxiaUIControlPanelButtonsTexts = {
 	[2] = { S.RGBToHex( unpack( C["media"]["datatextcolor2"] ) ) .. "AddOns" },
 	[3] = { S.RGBToHex( unpack( C["media"]["datatextcolor2"] ) ) .. "Tukui" },
 	[4] = { S.RGBToHex( unpack( C["media"]["datatextcolor2"] ) ) .. "MoveUI" },
+	[5] = { "Changelog" },
+	[6] = { "F.A.Q." },
 }
 
 local AsphyxiaUIControlPanelButtonsButtons = CreateFrame( "Button", "AsphyxiaUIControlPanelButtonsButtons", AsphyxiaUIControlPanelExtraBackground )
@@ -115,7 +119,7 @@ end
 
 local AsphyxiaUIControlPanelExtraBackgroundCloseButton = CreateFrame( "Frame", "AsphyxiaUIControlPanelExtraBackgroundCloseButton", AsphyxiaUIControlPanelExtraBackground )
 AsphyxiaUIControlPanelExtraBackgroundCloseButton:Size( AsphyxiaUIControlPanelExtraBackground:GetWidth() - 8, 15 )
-AsphyxiaUIControlPanelExtraBackgroundCloseButton:Point( "TOP", AsphyxiaUIControlPanelButtonsButtons[4], "BOTTOM", 0, -3 )
+AsphyxiaUIControlPanelExtraBackgroundCloseButton:Point( "TOP", AsphyxiaUIControlPanelButtonsButtons[6], "BOTTOM", 0, -3 )
 AsphyxiaUIControlPanelExtraBackgroundCloseButton:SetTemplate( "Default" )
 AsphyxiaUIControlPanelExtraBackgroundCloseButton:SetFrameLevel( AsphyxiaUIControlPanelExtraBackground:GetFrameLevel() + 1 )
 AsphyxiaUIControlPanelExtraBackgroundCloseButton:HookScript( "OnEnter", S.SetModifiedBackdrop )

@@ -4,11 +4,15 @@
 
 local S, C, L, G = unpack( Tukui )
 
-S.CreateFontString = function()
-	if( S.client == "ruRU" ) then
-		return C["media"]["pixel_ru"], 10, "MONOCHROMEOUTLINE"
+S.CreateFontString = function( normalfont )
+	if( normalfont ) then
+		return C["media"]["font"], 12, "THINOUTLINE"
 	else
-		return C["media"]["asphyxia"], 10, "MONOCHROMEOUTLINE"
+		if( S.client == "ruRU" ) then
+			return C["media"]["pixel_ru"], 10, "MONOCHROMEOUTLINE"
+		else
+			return C["media"]["asphyxia"], 10, "MONOCHROMEOUTLINE"
+		end
 	end
 end
 

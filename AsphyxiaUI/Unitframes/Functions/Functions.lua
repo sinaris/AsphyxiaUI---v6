@@ -103,10 +103,6 @@ S.SkinAura = function( self, button )
 	button.remaining:ClearAllPoints()
 	button.remaining:Point( "CENTER", button,2, -2 )
 	button.remaining:SetFont( S.CreateFontString() )
-
-	if( C["global"]["unitframelayout"] == "jasje" ) then
-		button.Glow:Kill()
-	end
 end
 
 ------------------------------
@@ -116,17 +112,9 @@ hooksecurefunc( S, "PostNamePosition", function( self )
 	self.Name:ClearAllPoints()
 	
 	if( self.Power.value:GetText() and UnitIsEnemy( "player", "target" ) and C["unitframes"]["targetpowerpvponly"] == true ) or ( self.Power.value:GetText() and C["unitframes"]["targetpowerpvponly"] == false ) then
-		if( C["global"]["unitframelayout"] == "jasje" ) then
-			self.Name:SetPoint( "LEFT", self.panel, "LEFT", 3, 1 )
-		else
-			self.Name:SetPoint( "CENTER", self.Health, "CENTER", 0, 1 )
-		end
+		self.Name:SetPoint( "CENTER", self.Health, "CENTER", 0, 1 )
 	else
-		if( C["global"]["unitframelayout"] == "jasje" ) then
-			self.Name:SetPoint( "LEFT", self.panel, "LEFT", 3, 1 )
-		else
-			self.Name:SetPoint( "CENTER", self.Health, "CENTER", 0, 1 )
-		end
+		self.Name:SetPoint( "CENTER", self.Health, "CENTER", 0, 1 )
 	end
 end )
 
@@ -153,7 +141,7 @@ hooksecurefunc( S, "PostUpdateHealth", function( health, unit, min, max )
 		local r, g, b
 
 		if( C["unitframes"]["gradienthealth"] == true and C["unitframes"]["unicolor"] == true ) then
-			local r, g, b = oUFTukui.ColorGradient( min / max, unpack( C["unitframes"]["gradient"] ) )
+			local r, g, b = oUFTukui.ColorGradient( min, max, unpack( C["unitframes"]["gradient"] ) )
 			health:SetStatusBarColor( r, g, b )
 		end
 

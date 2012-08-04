@@ -3,6 +3,7 @@
 ## Notes:
 ## Version: 6.0
 ## Author: Sinaris, Merith
-## RequiredDeps: AsphyxiaUI, Tukui
+## RequiredDeps: Tukui, AsphyxiaUI, AsphyxiaUI_Config
+## X-oUF: oUFTukui
 
 AsphyxiaUI_Raid_Healing.xml

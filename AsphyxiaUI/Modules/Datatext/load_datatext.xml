@@ -1,3 +1,5 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/">
 	<Script file="Datatext.lua" />
+	<Script file="Layoutswitch.lua" />
+	<Script file="Professions.lua" />
 </Ui>
