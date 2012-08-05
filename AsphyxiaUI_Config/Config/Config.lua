@@ -85,24 +85,7 @@ C["datatext"] = {
 	["system"] = 0,
 	["talent"] = 0,
 	["wowtime"] = 12,
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	["profession"] = 1,
+	["profession"] = 0,
 
 	["battleground"] = true,
 	["time24"] = true,

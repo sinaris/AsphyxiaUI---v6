@@ -829,6 +829,7 @@ do
 
 			G.UnitFrames.Focus.Castbar.bg = G.UnitFrames.Focus.Castbar:CreateTexture( nil, "BORDER" )
 			G.UnitFrames.Focus.Castbar.bg:SetAllPoints( G.UnitFrames.Focus.Castbar )
+			G.UnitFrames.Focus.Castbar.bg:SetTexture( C["media"]["normTex"] )
 			G.UnitFrames.Focus.Castbar.bg:SetVertexColor( 0.05, 0.05, 0.05 )
 
 			G.UnitFrames.Focus.Castbar.Time = S.SetFontString( G.UnitFrames.Focus.Castbar, S.CreateFontString() )

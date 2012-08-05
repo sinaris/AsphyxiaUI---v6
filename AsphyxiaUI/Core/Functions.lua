@@ -47,3 +47,27 @@ S.DataBarTooltipAnchor = function( barNum )
 
 	return xoff, yoff
 end
+
+function S.update_alpha( self )
+	if( self.parent:GetAlpha() == 0 ) then
+		self.parent:Hide()
+		self:Hide()
+	end
+end
+
+function S.fadeOut( self )
+	UIFrameFadeOut( self, .4, 1, 0 )
+	self.frame:Show()
+end
+
+function S.fadeIn( p )
+	p.frame = CreateFrame( "Frame", nil, p )
+	p.frame:Hide()
+	p.frame.parent = p
+	p.frame:SetScript( "OnUpdate", S.update_alpha )
+	p:SetScript( "OnShow", function()
+		p.frame:Hide()
+		UIFrameFadeIn( p, .4, 0, 1 )
+	end )
+	p.fadeOut = S.fadeOut
+end

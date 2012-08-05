@@ -139,6 +139,44 @@ AsphyxiaUIInfoCenterRight:SetFrameStrata( "BACKGROUND" )
 AsphyxiaUIInfoCenterRight:CreateOverlay( AsphyxiaUIInfoCenterRight )
 
 ------------------------------
+-- /resetui Button
+------------------------------
+local AsphyxiaUIResetUIButton = CreateFrame( "Button", "AsphyxiaUIResetUIButton", UIParent, "SecureActionButtonTemplate" )
+AsphyxiaUIResetUIButton:Size( 26, 20 )
+AsphyxiaUIResetUIButton:Point( "BOTTOM", UIParent, "BOTTOM", -66, 2 )
+AsphyxiaUIResetUIButton:SetTemplate( "Default" )
+AsphyxiaUIResetUIButton:SetFrameStrata( "HIGH" )
+AsphyxiaUIResetUIButton:CreateShadow( "Default" )
+AsphyxiaUIResetUIButton:CreateOverlay( AsphyxiaUIResetUIButton )
+AsphyxiaUIResetUIButton:SetAttribute( "type", "macro" )
+AsphyxiaUIResetUIButton:SetAttribute( "macrotext", "/resetui" )
+AsphyxiaUIResetUIButton:HookScript( "OnEnter", S.SetModifiedBackdrop )
+AsphyxiaUIResetUIButton:HookScript( "OnLeave", S.SetOriginalBackdrop )
+
+AsphyxiaUIResetUIButton.Text = S.SetFontString( AsphyxiaUIResetUIButton, S.CreateFontString() )
+AsphyxiaUIResetUIButton.Text:Point( "CENTER", AsphyxiaUIResetUIButton, "CENTER", 1, 1 )
+AsphyxiaUIResetUIButton.Text:SetText( S.RGBToHex( unpack( C["media"]["datatextcolor2"] ) ) .. "RS" )
+
+------------------------------
+-- /reloadui Button
+------------------------------
+local AsphyxiaUIReloadUIButton = CreateFrame( "Button", "AsphyxiaUIReloadUIButton", UIParent, "SecureActionButtonTemplate" )
+AsphyxiaUIReloadUIButton:Size( 26, 20 )
+AsphyxiaUIReloadUIButton:Point( "BOTTOM", UIParent, "BOTTOM", 66, 2 )
+AsphyxiaUIReloadUIButton:SetTemplate( "Default" )
+AsphyxiaUIReloadUIButton:SetFrameStrata( "HIGH" )
+AsphyxiaUIReloadUIButton:CreateShadow( "Default" )
+AsphyxiaUIReloadUIButton:CreateOverlay( AsphyxiaUIReloadUIButton )
+AsphyxiaUIReloadUIButton:SetAttribute( "type", "macro" )
+AsphyxiaUIReloadUIButton:SetAttribute( "macrotext", "/rl" )
+AsphyxiaUIReloadUIButton:HookScript( "OnEnter", S.SetModifiedBackdrop )
+AsphyxiaUIReloadUIButton:HookScript( "OnLeave", S.SetOriginalBackdrop )
+
+AsphyxiaUIReloadUIButton.Text = S.SetFontString( AsphyxiaUIReloadUIButton, S.CreateFontString() )
+AsphyxiaUIReloadUIButton.Text:Point( "CENTER", AsphyxiaUIReloadUIButton, "CENTER", 1, 1 )
+AsphyxiaUIReloadUIButton.Text:SetText( S.RGBToHex( unpack( C["media"]["datatextcolor2"] ) ) .. "RL" )
+
+------------------------------
 -- Minimap
 ------------------------------
 if( TukuiMinimap ) then
@@ -148,4 +186,20 @@ if( TukuiMinimap ) then
 	AsphyxiaUITimeWatch:SetTemplate( "Default" )
 	AsphyxiaUITimeWatch:CreateShadow( "Default" )
 	AsphyxiaUITimeWatch:CreateOverlay( AsphyxiaUITimeWatch )
+
+	local AsphyxiaUIHelpButton = CreateFrame( "Frame", "AsphyxiaUIVersionframeButton", TukuiMinimap )
+	AsphyxiaUIHelpButton:Size( 13, 17 )
+	AsphyxiaUIHelpButton:SetPoint( "RIGHT", AsphyxiaUITimeWatch, "LEFT", -3, 0 )
+	AsphyxiaUIHelpButton:SetTemplate( "Default" )
+	AsphyxiaUIHelpButton:CreateShadow( "Default" )
+	AsphyxiaUIHelpButton:CreateOverlay( AsphyxiaUIHelpButton )
+	AsphyxiaUIHelpButton:SetFrameLevel( 4 )
+
+	local AsphyxiaUIVersionframeButton = CreateFrame( "Frame", "AsphyxiaUIVersionframeButton", TukuiMinimap )
+	AsphyxiaUIVersionframeButton:Size( 13, 17 )
+	AsphyxiaUIVersionframeButton:SetPoint( "LEFT", AsphyxiaUITimeWatch, "RIGHT", 3, 0 )
+	AsphyxiaUIVersionframeButton:SetTemplate( "Default" )
+	AsphyxiaUIVersionframeButton:CreateShadow( "Default" )
+	AsphyxiaUIVersionframeButton:CreateOverlay( AsphyxiaUIVersionframeButton )
+	AsphyxiaUIVersionframeButton:SetFrameLevel( 4 )
 end
