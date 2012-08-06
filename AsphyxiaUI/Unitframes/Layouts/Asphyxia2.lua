@@ -28,7 +28,8 @@ do
 	do
 		G.UnitFrames.Player.Health:Size( 233, 13 )
 		G.UnitFrames.Player.Health:SetFrameLevel( 5 )
-		G.UnitFrames.Player.Health:CreateBorder( true )
+		--G.UnitFrames.Player.Health:CreateBorder( true )
+		G.UnitFrames.Player.Health:CreateBackdrop("Default")
 		G.UnitFrames.Player.Health.bg:SetTexture( 0.6, 0.6, 0.6 )
 
 		if( C["unitframes"]["unicolor"] == true ) then
