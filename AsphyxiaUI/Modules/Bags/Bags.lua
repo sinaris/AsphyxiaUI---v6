@@ -12,7 +12,17 @@ local ST_NORMAL = 1
 local ST_FISHBAG = 2
 local ST_SPECIAL = 3
 local bag_bars = 0
-	
+
+local function Stuffing_Sort( args )
+	if not args then
+		args = ""
+	end
+
+	Stuffing.itmax = 0
+	Stuffing:SetBagsForSorting( args )
+	Stuffing:SortBags()
+end
+
 local function BagsSlotUpdate( self, b )
 	local scount = _G[b.frame:GetName() .. "Count"]
 	scount:SetFont( S.CreateFontString() )
