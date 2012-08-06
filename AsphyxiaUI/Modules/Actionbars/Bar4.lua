@@ -31,3 +31,5 @@ for i = 1, 12 do
 		end
 	end
 end
+
+RegisterStateDriver( bar, "visibility", "[vehicleui][petbattle][overridebar] hide; show" )

@@ -246,3 +246,28 @@ hooksecurefunc( S, "PostUpdateHealth", function( health, unit, min, max )
 		end
 	end
 end )
+
+hooksecurefunc( S, "PostUpdateHealthRaid", function( health, unit, min, max )
+	if( not UnitIsConnected( unit ) or UnitIsDead( unit ) or UnitIsGhost( unit ) ) then
+		if( not UnitIsConnected( unit ) ) then
+			health.value:SetText( "|cffD7BEA5" .. L.unitframes_ouf_offline .. "|r" )
+		elseif( UnitIsDead( unit ) ) then
+			health.value:SetText( "|cffD7BEA5" .. L.unitframes_ouf_dead .. "|r" )
+		elseif( UnitIsGhost( unit ) ) then
+			health.value:SetText( "|cffD7BEA5" .. L.unitframes_ouf_ghost .. "|r" )
+		end
+	else
+		local r, g, b
+
+		if( C["unitframes"]["gradienthealth"] == true and C["unitframes"]["unicolor"] == true ) then
+			local r, g, b = oUFTukui.ColorGradient( min, max, unpack( C["unitframes"]["gradient"] ) )
+			health:SetStatusBarColor( r, g, b )
+		end
+
+		if( min ~= max ) then
+			health.value:SetText( "|cff559655-" .. S.ShortValue( max - min ) .. "|r" )
+		else
+			health.value:SetText( " " )
+		end
+	end
+end )

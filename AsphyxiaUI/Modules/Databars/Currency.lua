@@ -35,7 +35,7 @@ local function updateCurrency()
 		local r, g, b = oUFTukui.ColorGradient( amount, max, 0, 0.8, 0, 0.8, 0.8, 0, 0.8, 0, 0 )
 		if( name and amount > 0 ) then
 			local frame = CreateFrame( "Frame", "CurrencyData" .. id, UIParent )
-			frame:Size( 120, 20 )
+			frame:Size( 148, 20 )
 			frame:Point( "CENTER", UIParent, "CENTER", 0, 0 )
 			frame:SetTemplate( "Transparent" )
 			frame:EnableMouse( true )
