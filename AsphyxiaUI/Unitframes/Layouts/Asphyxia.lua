@@ -217,6 +217,15 @@ do
 			G.UnitFrames.Player.WarlockSpecBars:Size( 233, 2 )
 			G.UnitFrames.Player.WarlockSpecBars:CreateBorder( true )
 
+			for i = 1, 4 do
+				G.UnitFrames.Player.WarlockSpecBars[i]:Size( S.Scale( 232 / 4 ), 2 )
+
+				if( i == 1 ) then
+					G.UnitFrames.Player.WarlockSpecBars[i]:SetPoint( "LEFT", G.UnitFrames.Player.WarlockSpecBars )
+				else
+					G.UnitFrames.Player.WarlockSpecBars[i]:Point( "LEFT", G.UnitFrames.Player.WarlockSpecBars[i - 1], "RIGHT", 1, 0 )
+				end
+			end
 		end
 
 		------------------------------
@@ -254,7 +263,7 @@ do
 			G.UnitFrames.Player.Runes:CreateBorder( true )
 
 			for i = 1, 6 do
-				G.UnitFrames.Player.Runes[i]:Size( S.Scale( 233 / 6 ), 2 )
+				G.UnitFrames.Player.Runes[i]:Size( S.Scale( 232 / 6 ) - 1 , 2 )
 				if( i == 1 ) then
 					G.UnitFrames.Player.Runes[i]:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
 				else
@@ -272,12 +281,33 @@ do
 			G.UnitFrames.Player.HarmonyBar:Size( 233, 2 )
 			G.UnitFrames.Player.HarmonyBar:CreateBorder( true )
 
-			for i = 1, 5 do
-				G.UnitFrames.Player.HarmonyBar[i]:Size( 233 / 5, 2 )
-				if( i == 1 ) then
-					G.UnitFrames.Player.HarmonyBar[i]:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
-				else
-					G.UnitFrames.Player.HarmonyBar[i]:Point( "LEFT", G.UnitFrames.Player.HarmonyBar[i - 1], "RIGHT", 1, 0 )
+			local maxChi = UnitPowerMax("player", SPELL_POWER_LIGHT_FORCE)
+
+			for i = 1, maxChi do
+				if maxChi == 4 then
+					if( i == 4 or i == 3 ) then
+						G.UnitFrames.Player.HarmonyBar[i]:Size( ( 233 / 4 ) - 1, 2 )
+					else
+						G.UnitFrames.Player.HarmonyBar[i]:Size( 233 / 4, 2 )
+					end
+
+					if( i == 1 ) then
+						G.UnitFrames.Player.HarmonyBar[i]:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
+					else
+						G.UnitFrames.Player.HarmonyBar[i]:Point( "LEFT", G.UnitFrames.Player.HarmonyBar[i - 1], "RIGHT", 1, 0 )
+					end
+				elseif maxChi == 5 then
+					if( i == 5 ) then
+						G.UnitFrames.Player.HarmonyBar[i]:Size( S.Scale( 232 / 5 ) - 1, 2 )
+					else
+						G.UnitFrames.Player.HarmonyBar[i]:Size( S.Scale( 232 / 5 ), 2 )
+					end
+	
+					if( i == 1 ) then
+						G.UnitFrames.Player.HarmonyBar[i]:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
+					else
+						G.UnitFrames.Player.HarmonyBar[i]:Point( "LEFT", G.UnitFrames.Player.HarmonyBar[i - 1], "RIGHT", 1, 0 )
+					end
 				end
 			end
 		end
@@ -286,9 +316,39 @@ do
 		-- shaman
 		------------------------------
 		if( S.myclass == "SHAMAN" ) then
+			for i = 1, 4 do
+				G.UnitFrames.Player.TotemBar[i]:ClearAllPoints()
+				G.UnitFrames.Player.TotemBar[i]:Size( S.Scale( 232 / 4 ) - 5, 2 )
 
+				if( i == 1 ) then
+					G.UnitFrames.Player.TotemBar[i]:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
+				else
+					G.UnitFrames.Player.TotemBar[i]:Point( "LEFT", G.UnitFrames.Player.TotemBar[i - 1], "RIGHT", 7, 0 )
+				end
+
+				G.UnitFrames.Player.TotemBar[i]:CreateBorder( true )
+			end
 		end
 
+		------------------------------
+		-- priest
+		------------------------------
+		if( S.myclass == "PRIEST" ) then
+			G.UnitFrames.Player.ShadowOrbsBar :ClearAllPoints()
+			G.UnitFrames.Player.ShadowOrbsBar :SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
+			G.UnitFrames.Player.ShadowOrbsBar :Size( 233, 2 )
+			G.UnitFrames.Player.ShadowOrbsBar :CreateBorder( true )
+
+			for i = 1, 3 do
+				G.UnitFrames.Player.ShadowOrbsBar [i]:Size( S.Scale( 232 / 3 ), 2 )
+
+				if( i == 1 ) then
+					G.UnitFrames.Player.ShadowOrbsBar [i]:SetPoint( "LEFT", G.UnitFrames.Player.ShadowOrbsBar  )
+				else
+					G.UnitFrames.Player.ShadowOrbsBar [i]:Point( "LEFT", G.UnitFrames.Player.ShadowOrbsBar [i - 1], "RIGHT", 1, 0 )
+				end
+			end
+		end
 	end
 
 	------------------------------
@@ -355,8 +415,6 @@ do
 	do
 		G.UnitFrames.Player:Size( 233, 26 )
 	end
-
-
 end
 
 ------------------------------

@@ -28,7 +28,7 @@ S.RaidFrameAttributes = function()
 		"groupBy", "GROUP",
 		"maxColumns", 8,
 		"unitsPerColumn", 5,
-		"columnSpacing", S.Scale( 4 ),
+		"columnSpacing", S.Scale( 7 ),
 		"columnAnchorPoint", "TOP"
 end
 
