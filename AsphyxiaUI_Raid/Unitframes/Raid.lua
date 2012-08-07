@@ -46,7 +46,8 @@ S.PostUpdateRaidUnit = function( self )
 	self.Health:ClearAllPoints()
 	self.Health:SetAllPoints( self )
 	self.Health:SetStatusBarTexture( C["media"]["normTex"] )
-	self.Health:CreateBorder( true )
+	--self.Health:CreateBorder( true )
+	self.Health:CreateBackdrop( "Default" )
 
 	self.Health.colorDisconnected = false
 	self.Health.colorClass = false
@@ -68,18 +69,38 @@ S.PostUpdateRaidUnit = function( self )
 		self.Health.colorReaction = true
 	end
 
+
+	self:RegisterEvent( "PLAYER_TARGET_CHANGED" )
+	self.PLAYER_TARGET_CHANGED = function( self )
+		if( UnitExists( "target" ) and UnitIsUnit( self.unit, "target" ) ) then
+			self.Health:SetStatusBarColor( 1, 0, 0 )
+		else
+			self.Health:SetStatusBarColor( 0.150, 0.150, 0.150, 1 )
+		end
+	end
+
 	if( C["unitframes"]["gradienthealth"] == true and C["unitframes"]["unicolor"] == true ) then
 		self:HookScript( "OnEnter", function( self )
-			if( not UnitIsConnected( self.unit ) or UnitIsDead( self.unit ) or UnitIsGhost( self.unit ) ) then return end
-			local hover = RAID_CLASS_COLORS[select( 2, UnitClass( self.unit ) )]
-			if( not hover ) then return end
-			self.Health:SetStatusBarColor( hover.r, hover.g, hover.b )
-		end)
+			self:RegisterEvent( "PLAYER_TARGET_CHANGED" )
+
+			if UnitExists("target") and UnitIsUnit(self.unit, "target") then
+				self.Health:SetStatusBarColor( 1, 0, 0 )
+			else
+				if( not UnitIsConnected( self.unit ) or UnitIsDead( self.unit ) or UnitIsGhost( self.unit ) ) then return end
+				local hover = RAID_CLASS_COLORS[select( 2, UnitClass( self.unit ) )]
+				if( not hover ) then return end
+				self.Health:SetStatusBarColor( hover.r, hover.g, hover.b )
+			end
+		end )
 
 		self:HookScript( "OnLeave", function( self )
-			if( not UnitIsConnected( self.unit ) or UnitIsDead( self.unit ) or UnitIsGhost( self.unit ) ) then return end
-			local r, g, b = oUFTukui.ColorGradient( UnitHealth( self.unit ), UnitHealthMax( self.unit ), unpack( C["unitframes"]["gradient"] ) )
-			self.Health:SetStatusBarColor( r, g, b )
+			if UnitExists("target") and UnitIsUnit(self.unit, "target") then
+				self.Health:SetStatusBarColor( 1, 0, 0 )
+			else
+				if( not UnitIsConnected( self.unit ) or UnitIsDead( self.unit ) or UnitIsGhost( self.unit ) ) then return end
+				local r, g, b = oUFTukui.ColorGradient( UnitHealth( self.unit ), UnitHealthMax( self.unit ), unpack( C["unitframes"]["gradient"] ) )
+				self.Health:SetStatusBarColor( r, g, b )
+			end
 		end )
 	end
 
