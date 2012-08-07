@@ -54,10 +54,9 @@ do
 	-- power
 	------------------------------
 	do
-		G.UnitFrames.Player.Power:Size( 233, 2 )
+		G.UnitFrames.Player.Power:Size( 180, 47 )
 		G.UnitFrames.Player.Power:ClearAllPoints()
-		G.UnitFrames.Player.Power:Point( "TOPRIGHT", G.UnitFrames.Player.Health, "BOTTOMRIGHT", 0, -7 )
-		G.UnitFrames.Player.Power:SetFrameLevel( G.UnitFrames.Player.Health:GetFrameLevel() + 2 )
+		G.UnitFrames.Player.Power:Point( "TOPRIGHT", G.UnitFrames.Player.Health, "TOPRIGHT", 15, 0 )
 		G.UnitFrames.Player.Power:CreateBorder( true )
 
 		G.UnitFrames.Player.Power.value = S.SetFontString( G.UnitFrames.Player.Health, S.CreateFontString() )
@@ -69,14 +68,21 @@ do
 	------------------------------
 	do
 		if( C["unitframes"]["charportrait"] == true ) then
-			G.UnitFrames.Player.Portrait:ClearAllPoints()
-			G.UnitFrames.Player.Portrait:SetAllPoints( G.UnitFrames.Player.Health )
-			G.UnitFrames.Player.Portrait:SetAlpha( 0.2 )
+			local PlayerPortrait = CreateFrame( "Frame", nil, G.UnitFrames.Player )
+			PlayerPortrait:Size( 65, 18 )
+			PlayerPortrait:SetPoint( "TOPLEFT", G.UnitFrames.Player.Health, "BOTTOMLEFT", -2, -5 )
+			PlayerPortrait:SetTemplate( "Default" )
+			PlayerPortrait:CreateShadow( "Default" )
+
+			G.UnitFrames.Player.Portrait:SetAlpha( 1 )
 			G.UnitFrames.Player.Portrait.SetAlpha = S.dummy
+			G.UnitFrames.Player.Portrait:ClearAllPoints()
+			G.UnitFrames.Player.Portrait:Point( "TOPLEFT", PlayerPortrait, "TOPLEFT", 2, -2 )
+			G.UnitFrames.Player.Portrait:Point( "BOTTOMRIGHT", PlayerPortrait, "BOTTOMRIGHT", -3, 3 )
+
 			G.UnitFrames.Player.Health:ClearAllPoints()
 			G.UnitFrames.Player.Health:SetPoint( "TOPLEFT", 0, 0 )
 			G.UnitFrames.Player.Health:SetPoint( "TOPRIGHT" )
-			G.UnitFrames.Player.Portrait:SetFrameLevel( G.UnitFrames.Player.Health:GetFrameLevel() )
 		end
 	end
 
@@ -217,6 +223,15 @@ do
 			G.UnitFrames.Player.WarlockSpecBars:Size( 233, 2 )
 			G.UnitFrames.Player.WarlockSpecBars:CreateBorder( true )
 
+			for i = 1, 4 do
+				G.UnitFrames.Player.WarlockSpecBars[i]:Size( S.Scale( 232 / 4 ), 2 )
+
+				if( i == 1 ) then
+					G.UnitFrames.Player.WarlockSpecBars[i]:SetPoint( "LEFT", G.UnitFrames.Player.WarlockSpecBars )
+				else
+					G.UnitFrames.Player.WarlockSpecBars[i]:Point( "LEFT", G.UnitFrames.Player.WarlockSpecBars[i - 1], "RIGHT", 1, 0 )
+				end
+			end
 		end
 
 		------------------------------
@@ -254,7 +269,7 @@ do
 			G.UnitFrames.Player.Runes:CreateBorder( true )
 
 			for i = 1, 6 do
-				G.UnitFrames.Player.Runes[i]:Size( S.Scale( 233 / 6 ), 2 )
+				G.UnitFrames.Player.Runes[i]:Size( S.Scale( 232 / 6 ) - 1 , 2 )
 				if( i == 1 ) then
 					G.UnitFrames.Player.Runes[i]:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
 				else
@@ -272,12 +287,33 @@ do
 			G.UnitFrames.Player.HarmonyBar:Size( 233, 2 )
 			G.UnitFrames.Player.HarmonyBar:CreateBorder( true )
 
-			for i = 1, 5 do
-				G.UnitFrames.Player.HarmonyBar[i]:Size( 233 / 5, 2 )
-				if( i == 1 ) then
-					G.UnitFrames.Player.HarmonyBar[i]:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
-				else
-					G.UnitFrames.Player.HarmonyBar[i]:Point( "LEFT", G.UnitFrames.Player.HarmonyBar[i - 1], "RIGHT", 1, 0 )
+			local maxChi = UnitPowerMax("player", SPELL_POWER_LIGHT_FORCE)
+
+			for i = 1, maxChi do
+				if maxChi == 4 then
+					if( i == 4 or i == 3 ) then
+						G.UnitFrames.Player.HarmonyBar[i]:Size( ( 233 / 4 ) - 1, 2 )
+					else
+						G.UnitFrames.Player.HarmonyBar[i]:Size( 233 / 4, 2 )
+					end
+
+					if( i == 1 ) then
+						G.UnitFrames.Player.HarmonyBar[i]:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
+					else
+						G.UnitFrames.Player.HarmonyBar[i]:Point( "LEFT", G.UnitFrames.Player.HarmonyBar[i - 1], "RIGHT", 1, 0 )
+					end
+				elseif maxChi == 5 then
+					if( i == 5 ) then
+						G.UnitFrames.Player.HarmonyBar[i]:Size( S.Scale( 232 / 5 ) - 1, 2 )
+					else
+						G.UnitFrames.Player.HarmonyBar[i]:Size( S.Scale( 232 / 5 ), 2 )
+					end
+	
+					if( i == 1 ) then
+						G.UnitFrames.Player.HarmonyBar[i]:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
+					else
+						G.UnitFrames.Player.HarmonyBar[i]:Point( "LEFT", G.UnitFrames.Player.HarmonyBar[i - 1], "RIGHT", 1, 0 )
+					end
 				end
 			end
 		end
@@ -286,9 +322,39 @@ do
 		-- shaman
 		------------------------------
 		if( S.myclass == "SHAMAN" ) then
+			for i = 1, 4 do
+				G.UnitFrames.Player.TotemBar[i]:ClearAllPoints()
+				G.UnitFrames.Player.TotemBar[i]:Size( S.Scale( 232 / 4 ) - 5, 2 )
 
+				if( i == 1 ) then
+					G.UnitFrames.Player.TotemBar[i]:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
+				else
+					G.UnitFrames.Player.TotemBar[i]:Point( "LEFT", G.UnitFrames.Player.TotemBar[i - 1], "RIGHT", 7, 0 )
+				end
+
+				G.UnitFrames.Player.TotemBar[i]:CreateBorder( true )
+			end
 		end
 
+		------------------------------
+		-- priest
+		------------------------------
+		if( S.myclass == "PRIEST" ) then
+			G.UnitFrames.Player.ShadowOrbsBar :ClearAllPoints()
+			G.UnitFrames.Player.ShadowOrbsBar :SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
+			G.UnitFrames.Player.ShadowOrbsBar :Size( 233, 2 )
+			G.UnitFrames.Player.ShadowOrbsBar :CreateBorder( true )
+
+			for i = 1, 3 do
+				G.UnitFrames.Player.ShadowOrbsBar [i]:Size( S.Scale( 232 / 3 ), 2 )
+
+				if( i == 1 ) then
+					G.UnitFrames.Player.ShadowOrbsBar [i]:SetPoint( "LEFT", G.UnitFrames.Player.ShadowOrbsBar  )
+				else
+					G.UnitFrames.Player.ShadowOrbsBar [i]:Point( "LEFT", G.UnitFrames.Player.ShadowOrbsBar [i - 1], "RIGHT", 1, 0 )
+				end
+			end
+		end
 	end
 
 	------------------------------
@@ -355,8 +421,6 @@ do
 	do
 		G.UnitFrames.Player:Size( 233, 26 )
 	end
-
-
 end
 
 ------------------------------
@@ -408,10 +472,9 @@ do
 	-- power
 	------------------------------
 	do
-		G.UnitFrames.Target.Power:Size( 233, 2 )
+		G.UnitFrames.Target.Power:Size( 180, 47 )
 		G.UnitFrames.Target.Power:ClearAllPoints()
-		G.UnitFrames.Target.Power:Point( "TOPRIGHT", G.UnitFrames.Target.Health, "BOTTOMRIGHT", 0, -7 )
-		G.UnitFrames.Target.Power:SetFrameLevel( G.UnitFrames.Target.Health:GetFrameLevel() + 2 )
+		G.UnitFrames.Target.Power:Point( "TOPLEFT", G.UnitFrames.Target.Health, "TOPLEFT", -15, 0 )
 		G.UnitFrames.Target.Power:CreateBorder( true )
 
 		G.UnitFrames.Target.Power.value = S.SetFontString( G.UnitFrames.Target.Health, S.CreateFontString() )
@@ -431,14 +494,21 @@ do
 	------------------------------
 	do
 		if( C["unitframes"]["charportrait"] == true ) then
-			G.UnitFrames.Target.Portrait:ClearAllPoints()
-			G.UnitFrames.Target.Portrait:SetAllPoints( G.UnitFrames.Target.Health )
-			G.UnitFrames.Target.Portrait:SetAlpha( 0.2 )
+			local TargetPortrait = CreateFrame( "Frame", nil, G.UnitFrames.Target )
+			TargetPortrait:Size( 65, 18 )
+			TargetPortrait:SetPoint( "TOPRIGHT", G.UnitFrames.Target.Health, "BOTTOMRIGHT", 2, -5 )
+			TargetPortrait:SetTemplate( "Default" )
+			TargetPortrait:CreateShadow( "Default" )
+
+			G.UnitFrames.Target.Portrait:SetAlpha( 1 )
 			G.UnitFrames.Target.Portrait.SetAlpha = S.dummy
+			G.UnitFrames.Target.Portrait:ClearAllPoints()
+			G.UnitFrames.Target.Portrait:Point( "TOPLEFT", TargetPortrait, "TOPLEFT", 2, -2 )
+			G.UnitFrames.Target.Portrait:Point( "BOTTOMRIGHT", TargetPortrait, "BOTTOMRIGHT", -3, 3 )
+
 			G.UnitFrames.Target.Health:ClearAllPoints()
 			G.UnitFrames.Target.Health:SetPoint( "TOPLEFT", 0, 0 )
 			G.UnitFrames.Target.Health:SetPoint( "TOPRIGHT" )
-			G.UnitFrames.Target.Portrait:SetFrameLevel( G.UnitFrames.Target.Health:GetFrameLevel() )
 		end
 	end
 
@@ -478,7 +548,7 @@ do
 		if( C["unitframes"]["unitcastbar"] == true ) then
 			G.UnitFrames.Target.Castbar:ClearAllPoints()
 			G.UnitFrames.Target.Castbar:SetHeight( 20 )
-			G.UnitFrames.Target.Castbar:Point( "TOPRIGHT", G.UnitFrames.Target, "BOTTOMRIGHT", 0, -16 )
+			G.UnitFrames.Target.Castbar:Point( "TOPRIGHT", G.UnitFrames.Target, "BOTTOMRIGHT", 0, -28 )
 			G.UnitFrames.Target.Castbar:CreateBorder( true )
 			G.UnitFrames.Target.Castbar.bg:SetVertexColor( 0.05, 0.05, 0.05 )
 
@@ -1369,18 +1439,18 @@ FramePositions:SetScript( "OnEvent", function( self, event, addon )
 	G.UnitFrames.FocusTarget:ClearAllPoints()
 
 	if( IsAddOnLoaded( "AsphyxiaUI_Raid" ) ) then
-		G.UnitFrames.Player:SetPoint( "TOP", UIParent, "BOTTOM", -170 , 260 )
-		G.UnitFrames.Target:SetPoint( "TOP", UIParent, "BOTTOM", 170 , 260 )
+		G.UnitFrames.Player:SetPoint( "TOP", UIParent, "BOTTOM", -170 , 272 )
+		G.UnitFrames.Target:SetPoint( "TOP", UIParent, "BOTTOM", 170 , 272 )
 	elseif( IsAddOnLoaded( "AsphyxiaUI_Raid_Healing" ) ) then
-		G.UnitFrames.Player:SetPoint( "TOP", UIParent, "BOTTOM", -309 , 350 )
-		G.UnitFrames.Target:SetPoint( "TOP", UIParent, "BOTTOM", 309 , 350 )
+		G.UnitFrames.Player:SetPoint( "TOP", UIParent, "BOTTOM", -309 , 362 )
+		G.UnitFrames.Target:SetPoint( "TOP", UIParent, "BOTTOM", 309 , 362 )
 	else
-		G.UnitFrames.Player:SetPoint( "TOP", UIParent, "BOTTOM", -309 , 350 )
-		G.UnitFrames.Target:SetPoint( "TOP", UIParent, "BOTTOM", 309 , 350 )
+		G.UnitFrames.Player:SetPoint( "TOP", UIParent, "BOTTOM", -309 , 362 )
+		G.UnitFrames.Target:SetPoint( "TOP", UIParent, "BOTTOM", 309 , 362 )
 	end
 
-	G.UnitFrames.TargetTarget:SetPoint( "TOPRIGHT", G.UnitFrames.Target, "BOTTOMRIGHT", 0, -49 )
-	G.UnitFrames.Pet:SetPoint( "TOPLEFT", G.UnitFrames.Player, "BOTTOMLEFT", 0, -49 )
+	G.UnitFrames.TargetTarget:SetPoint( "TOPRIGHT", G.UnitFrames.Target, "BOTTOMRIGHT", 0, -61 )
+	G.UnitFrames.Pet:SetPoint( "TOPLEFT", G.UnitFrames.Player, "BOTTOMLEFT", 0, -61 )
 	G.UnitFrames.Focus:SetPoint( "TOP", UIParent, "BOTTOM", -450, 600 )
 	G.UnitFrames.FocusTarget:SetPoint( "TOP", G.UnitFrames.Focus, "BOTTOM", 0 , -43 )
 

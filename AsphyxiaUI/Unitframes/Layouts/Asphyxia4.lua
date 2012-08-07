@@ -26,7 +26,7 @@ do
 	-- health
 	------------------------------
 	do
-		G.UnitFrames.Player.Health:Size( 233, 26 )
+		G.UnitFrames.Player.Health:Size( 233, 20 )
 		G.UnitFrames.Player.Health:SetFrameLevel( 5 )
 		G.UnitFrames.Player.Health:CreateBorder( true )
 		G.UnitFrames.Player.Health.bg:SetTexture( 0.6, 0.6, 0.6 )
@@ -54,10 +54,9 @@ do
 	-- power
 	------------------------------
 	do
-		G.UnitFrames.Player.Power:Size( 233, 2 )
+		G.UnitFrames.Player.Power:Size( 243, 18 )
 		G.UnitFrames.Player.Power:ClearAllPoints()
-		G.UnitFrames.Player.Power:Point( "TOPRIGHT", G.UnitFrames.Player.Health, "BOTTOMRIGHT", 0, -7 )
-		G.UnitFrames.Player.Power:SetFrameLevel( G.UnitFrames.Player.Health:GetFrameLevel() + 2 )
+		G.UnitFrames.Player.Power:Point( "TOP", G.UnitFrames.Player.Health, "BOTTOM", 0, 9 )
 		G.UnitFrames.Player.Power:CreateBorder( true )
 
 		G.UnitFrames.Player.Power.value = S.SetFontString( G.UnitFrames.Player.Health, S.CreateFontString() )
@@ -86,8 +85,8 @@ do
 	do
 		if( C["unitframes"]["classicons"] == true ) then
 			local classicon = CreateFrame( "Frame", G.UnitFrames.Player:GetName() .. "_ClassIconBorder", G.UnitFrames.Player )
-			classicon:Size( 30 )
-			classicon:Point( "TOPRIGHT", G.UnitFrames.Player.Health, "TOPLEFT", -5, 2 )
+			classicon:Size( 33 )
+			classicon:Point( "TOPRIGHT", G.UnitFrames.Player.Health, "TOPLEFT", -10, 2 )
 			classicon:SetTemplate( "Default" )
 			classicon:CreateShadow( "Default" )
 
@@ -217,6 +216,15 @@ do
 			G.UnitFrames.Player.WarlockSpecBars:Size( 233, 2 )
 			G.UnitFrames.Player.WarlockSpecBars:CreateBorder( true )
 
+			for i = 1, 4 do
+				G.UnitFrames.Player.WarlockSpecBars[i]:Size( S.Scale( 232 / 4 ), 2 )
+
+				if( i == 1 ) then
+					G.UnitFrames.Player.WarlockSpecBars[i]:SetPoint( "LEFT", G.UnitFrames.Player.WarlockSpecBars )
+				else
+					G.UnitFrames.Player.WarlockSpecBars[i]:Point( "LEFT", G.UnitFrames.Player.WarlockSpecBars[i - 1], "RIGHT", 1, 0 )
+				end
+			end
 		end
 
 		------------------------------
@@ -254,7 +262,7 @@ do
 			G.UnitFrames.Player.Runes:CreateBorder( true )
 
 			for i = 1, 6 do
-				G.UnitFrames.Player.Runes[i]:Size( S.Scale( 233 / 6 ), 2 )
+				G.UnitFrames.Player.Runes[i]:Size( S.Scale( 232 / 6 ) - 1 , 2 )
 				if( i == 1 ) then
 					G.UnitFrames.Player.Runes[i]:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
 				else
@@ -272,12 +280,33 @@ do
 			G.UnitFrames.Player.HarmonyBar:Size( 233, 2 )
 			G.UnitFrames.Player.HarmonyBar:CreateBorder( true )
 
-			for i = 1, 5 do
-				G.UnitFrames.Player.HarmonyBar[i]:Size( 233 / 5, 2 )
-				if( i == 1 ) then
-					G.UnitFrames.Player.HarmonyBar[i]:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
-				else
-					G.UnitFrames.Player.HarmonyBar[i]:Point( "LEFT", G.UnitFrames.Player.HarmonyBar[i - 1], "RIGHT", 1, 0 )
+			local maxChi = UnitPowerMax("player", SPELL_POWER_LIGHT_FORCE)
+
+			for i = 1, maxChi do
+				if maxChi == 4 then
+					if( i == 4 or i == 3 ) then
+						G.UnitFrames.Player.HarmonyBar[i]:Size( ( 233 / 4 ) - 1, 2 )
+					else
+						G.UnitFrames.Player.HarmonyBar[i]:Size( 233 / 4, 2 )
+					end
+
+					if( i == 1 ) then
+						G.UnitFrames.Player.HarmonyBar[i]:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
+					else
+						G.UnitFrames.Player.HarmonyBar[i]:Point( "LEFT", G.UnitFrames.Player.HarmonyBar[i - 1], "RIGHT", 1, 0 )
+					end
+				elseif maxChi == 5 then
+					if( i == 5 ) then
+						G.UnitFrames.Player.HarmonyBar[i]:Size( S.Scale( 232 / 5 ) - 1, 2 )
+					else
+						G.UnitFrames.Player.HarmonyBar[i]:Size( S.Scale( 232 / 5 ), 2 )
+					end
+	
+					if( i == 1 ) then
+						G.UnitFrames.Player.HarmonyBar[i]:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
+					else
+						G.UnitFrames.Player.HarmonyBar[i]:Point( "LEFT", G.UnitFrames.Player.HarmonyBar[i - 1], "RIGHT", 1, 0 )
+					end
 				end
 			end
 		end
@@ -286,9 +315,39 @@ do
 		-- shaman
 		------------------------------
 		if( S.myclass == "SHAMAN" ) then
+			for i = 1, 4 do
+				G.UnitFrames.Player.TotemBar[i]:ClearAllPoints()
+				G.UnitFrames.Player.TotemBar[i]:Size( S.Scale( 232 / 4 ) - 5, 2 )
 
+				if( i == 1 ) then
+					G.UnitFrames.Player.TotemBar[i]:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
+				else
+					G.UnitFrames.Player.TotemBar[i]:Point( "LEFT", G.UnitFrames.Player.TotemBar[i - 1], "RIGHT", 7, 0 )
+				end
+
+				G.UnitFrames.Player.TotemBar[i]:CreateBorder( true )
+			end
 		end
 
+		------------------------------
+		-- priest
+		------------------------------
+		if( S.myclass == "PRIEST" ) then
+			G.UnitFrames.Player.ShadowOrbsBar :ClearAllPoints()
+			G.UnitFrames.Player.ShadowOrbsBar :SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
+			G.UnitFrames.Player.ShadowOrbsBar :Size( 233, 2 )
+			G.UnitFrames.Player.ShadowOrbsBar :CreateBorder( true )
+
+			for i = 1, 3 do
+				G.UnitFrames.Player.ShadowOrbsBar [i]:Size( S.Scale( 232 / 3 ), 2 )
+
+				if( i == 1 ) then
+					G.UnitFrames.Player.ShadowOrbsBar [i]:SetPoint( "LEFT", G.UnitFrames.Player.ShadowOrbsBar  )
+				else
+					G.UnitFrames.Player.ShadowOrbsBar [i]:Point( "LEFT", G.UnitFrames.Player.ShadowOrbsBar [i - 1], "RIGHT", 1, 0 )
+				end
+			end
+		end
 	end
 
 	------------------------------
@@ -355,8 +414,6 @@ do
 	do
 		G.UnitFrames.Player:Size( 233, 26 )
 	end
-
-
 end
 
 ------------------------------
@@ -377,7 +434,7 @@ do
 	-- health
 	------------------------------
 	do
-		G.UnitFrames.Target.Health:Size( 233, 26 )
+		G.UnitFrames.Target.Health:Size( 233, 20 )
 		G.UnitFrames.Target.Health:SetFrameLevel( 5 )
 		G.UnitFrames.Target.Health:CreateBorder( true )
 		G.UnitFrames.Target.Health.bg:SetTexture( 0.6, 0.6, 0.6 )
@@ -408,10 +465,9 @@ do
 	-- power
 	------------------------------
 	do
-		G.UnitFrames.Target.Power:Size( 233, 2 )
+		G.UnitFrames.Target.Power:Size( 243, 18 )
 		G.UnitFrames.Target.Power:ClearAllPoints()
-		G.UnitFrames.Target.Power:Point( "TOPRIGHT", G.UnitFrames.Target.Health, "BOTTOMRIGHT", 0, -7 )
-		G.UnitFrames.Target.Power:SetFrameLevel( G.UnitFrames.Target.Health:GetFrameLevel() + 2 )
+		G.UnitFrames.Target.Power:Point( "TOP", G.UnitFrames.Target.Health, "BOTTOM", 0, 9 )
 		G.UnitFrames.Target.Power:CreateBorder( true )
 
 		G.UnitFrames.Target.Power.value = S.SetFontString( G.UnitFrames.Target.Health, S.CreateFontString() )
@@ -448,8 +504,8 @@ do
 	do
 		if( C["unitframes"]["classicons"] == true ) then
 			local classicon = CreateFrame( "Frame", G.UnitFrames.Target:GetName() .. "_ClassIconBorder", G.UnitFrames.Target )
-			classicon:Size( 30 )
-			classicon:Point( "TOPLEFT", G.UnitFrames.Target.Health, "TOPRIGHT", 5, 2 )
+			classicon:Size( 33 )
+			classicon:Point( "TOPLEFT", G.UnitFrames.Target.Health, "TOPRIGHT", 10, 2 )
 			classicon:SetTemplate( "Default" )
 			classicon:CreateShadow( "Default" )
 
@@ -478,7 +534,7 @@ do
 		if( C["unitframes"]["unitcastbar"] == true ) then
 			G.UnitFrames.Target.Castbar:ClearAllPoints()
 			G.UnitFrames.Target.Castbar:SetHeight( 20 )
-			G.UnitFrames.Target.Castbar:Point( "TOPRIGHT", G.UnitFrames.Target, "BOTTOMRIGHT", 0, -16 )
+			G.UnitFrames.Target.Castbar:Point( "TOPRIGHT", G.UnitFrames.Target, "BOTTOMRIGHT", 0, -10 )
 			G.UnitFrames.Target.Castbar:CreateBorder( true )
 			G.UnitFrames.Target.Castbar.bg:SetVertexColor( 0.05, 0.05, 0.05 )
 
