@@ -1,7 +1,6 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/">
 	<Script file="Tooltip.lua" />
 	<Script file="Icon.lua" />
-	<Script file="ItemIDCount.lua" />
 	<Script file="ItemLevel.lua" />
 	<Script file="Talents.lua" />
 </Ui>

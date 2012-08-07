@@ -19,6 +19,9 @@ L.Global_WELCOME_MESSAGE2 = "For detailed Information |cff00FFFFvisit www.tukui.
 L.Popups_SELECT_RAID_LAYOUT = ""
 L.Popups_ENABLE_CHAT_BACKGROUNDS = ""
 
+L.Tooltip_LOADING_TALENT = "Loading Talents..."
+L.Tooltip_NO_TALENTS = "No Talents"
+
 ------------------------------
 -- Changelog, seperate Addon
 ------------------------------
