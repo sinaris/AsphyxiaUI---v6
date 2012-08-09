@@ -60,7 +60,7 @@ local MainBars = function()
 		TukuiSplitBarRight:Height( TukuiBar1:GetHeight() )
 
 		ToggleText( 1, "- - -", false, true )
-		RegisterStateDriver( TukuiBar2, "visibility", "[vehicleui][petbattle] hide; show" )
+		RegisterStateDriver( TukuiBar2, "visibility", "[vehicleui][petbattle][overridebar] hide; show" )
 		TukuiBar2:Show()
 
 		if( AsphyxiaUISaved.splitbars == true ) then
@@ -77,11 +77,8 @@ local MainBars = function()
 		end
 
 	end
-	Toggle[4]:Height( 16 )
-	Toggle[4]:Width( 39 )
-
-	Toggle[5]:Height( 16 )
-	Toggle[5]:Width( 39 )
+	Toggle[4]:Size( 39, 16 )
+	Toggle[5]:Size( 39, 16 )
 end
 
 local RightBars = function()
@@ -108,7 +105,7 @@ local RightBars = function()
 	end
 
 	if( AsphyxiaUISaved.rightbars == 1 ) then
-		RegisterStateDriver( TukuiRightBar, "visibility", "[vehicleui][petbattle]	 hide; show" )
+		RegisterStateDriver( TukuiRightBar, "visibility", "[vehicleui][petbattle][overridebar] hide; show" )
 		UnregisterStateDriver( TukuiBar4, "visibility" )
 		TukuiRightBar:Show()
 		TukuiBar4:Hide()
@@ -126,8 +123,8 @@ local RightBars = function()
 			TukuiBar3:Hide()
 		end
 	elseif( AsphyxiaUISaved.rightbars == 2 ) then
-		RegisterStateDriver( TukuiRightBar, "visibility", "[vehicleui][petbattle] hide; show" )
-		RegisterStateDriver( TukuiBar4, "visibility", "[vehicleui][petbattle] hide; show" )
+		RegisterStateDriver( TukuiRightBar, "visibility", "[vehicleui][petbattle][overridebar] hide; show" )
+		RegisterStateDriver( TukuiBar4, "visibility", "[vehicleui][petbattle][overridebar] hide; show" )
 		TukuiRightBar:Show()
 		TukuiBar4:Show()
 
@@ -144,8 +141,8 @@ local RightBars = function()
 			TukuiBar3:Hide()
 		end
 	elseif( AsphyxiaUISaved.rightbars == 3 ) then
-		RegisterStateDriver( TukuiRightBar, "visibility", "[vehicleui][petbattle] hide; show" )
-		RegisterStateDriver( TukuiBar4, "visibility", "[vehicleui][petbattle] hide; show" )
+		RegisterStateDriver( TukuiRightBar, "visibility", "[vehicleui][petbattle][overridebar] hide; show" )
+		RegisterStateDriver( TukuiBar4, "visibility", "[vehicleui][petbattle][overridebar] hide; show" )
 		TukuiRightBar:Show()
 		TukuiBar4:Show()
 
@@ -158,7 +155,7 @@ local RightBars = function()
 		if( AsphyxiaUISaved.splitbars ~= true ) then
 			MultiBarLeft:ClearAllPoints()
 			MultiBarLeft:SetParent( TukuiBar3 )
-			RegisterStateDriver( TukuiBar3, "visibility", "[vehicleui][petbattle] hide; show" )
+			RegisterStateDriver( TukuiBar3, "visibility", "[vehicleui][petbattle][overridebar] hide; show" )
 			TukuiBar3:Show()
 
 			for i = 1, 12 do
@@ -218,7 +215,7 @@ local SplitBars = function()
 		end
 
 		if( AsphyxiaUISaved.rightbars == 3 ) then
-			RegisterStateDriver( TukuiRightBar, "visibility", "[vehicleui][petbattle] hide; show" )
+			RegisterStateDriver( TukuiRightBar, "visibility", "[vehicleui][petbattle][overridebar] hide; show" )
 			TukuiRightBar:Show()
 			if( C["actionbar"]["vertical_rightbars"] == true ) then
 				TukuiRightBar:Width( ( S.buttonsize * 2 + S.buttonspacing * 3 ) + 2 )
@@ -238,23 +235,20 @@ local SplitBars = function()
 				b:SetScale( 1 )
 			end
 		end
-		RegisterStateDriver( TukuiSplitBarLeft, "visibility", "[vehicleui][petbattle] hide; show" )
-		RegisterStateDriver( TukuiSplitBarRight, "visibility", "[vehicleui][petbattle] hide; show" )
+		RegisterStateDriver( TukuiSplitBarLeft, "visibility", "[vehicleui][petbattle][overridebar] hide; show" )
+		RegisterStateDriver( TukuiSplitBarRight, "visibility", "[vehicleui][petbattle][overridebar] hide; show" )
 		TukuiSplitBarLeft:Show()
 		TukuiSplitBarRight:Show()
 
 		Toggle[4]:ClearAllPoints()
-		Toggle[5]:ClearAllPoints()
-
 		Toggle[4]:Point( "BOTTOMLEFT", AsphyxiaUIControlPanelActionbarBackgroundCloseButton, "TOPLEFT", 0, 23 )
 		Toggle[4]:CreateOverlay( Toggle[4] )
-
 		Toggle[4]:HookScript( "OnEnter", S.SetModifiedBackdrop )
 		Toggle[4]:HookScript( "OnLeave", S.SetOriginalBackdrop )
 
+		Toggle[5]:ClearAllPoints()
 		Toggle[5]:Point( "LEFT", Toggle[4], "RIGHT", 4, 0 )
 		Toggle[5]:CreateOverlay( Toggle[5] )
-
 		Toggle[5]:HookScript( "OnEnter", S.SetModifiedBackdrop )
 		Toggle[5]:HookScript( "OnLeave", S.SetOriginalBackdrop )
 
@@ -277,10 +271,9 @@ local SplitBars = function()
 		end
 
 		Toggle[4]:ClearAllPoints()
-		Toggle[5]:ClearAllPoints()
-
 		Toggle[4]:Point( "BOTTOMLEFT", AsphyxiaUIControlPanelActionbarBackgroundCloseButton, "TOPLEFT", 0, 23 )
 
+		Toggle[5]:ClearAllPoints()
 		Toggle[5]:Point( "LEFT", Toggle[4], "RIGHT", 4, 0 )
 
 		ToggleText( 4, "<", true )
@@ -473,18 +466,18 @@ for i = 1, 6 do
 	end )
 end
 
-local vehicle = CreateFrame( "Button", "TukuiExitVehicleButton", UIParent, "SecureHandlerClickTemplate" )
-vehicle:Size( S.buttonsize * 2, S.buttonsize + 1 )
-vehicle:Point( "BOTTOMRIGHT", TukuiChatBackgroundRight, "BOTTOMLEFT", -3, 0 )
-vehicle:SetTemplate( "Transparent" )
-vehicle:CreateOverlay( vehicle )
-vehicle:RegisterForClicks( "AnyUp" )
-vehicle:SetScript( "OnClick", function() VehicleExit() end )
+local AsphyxiaUIExitVehicleButton = CreateFrame( "Button", "AsphyxiaUIExitVehicleButton", UIParent, "SecureHandlerClickTemplate" )
+AsphyxiaUIExitVehicleButton:Size( S.buttonsize * 2, S.buttonsize + 1 )
+AsphyxiaUIExitVehicleButton:Point( "BOTTOMRIGHT", TukuiChatBackgroundRight, "BOTTOMLEFT", -3, 0 )
+AsphyxiaUIExitVehicleButton:SetTemplate( "Transparent" )
+AsphyxiaUIExitVehicleButton:CreateOverlay( AsphyxiaUIExitVehicleButton )
+AsphyxiaUIExitVehicleButton:RegisterForClicks( "AnyUp" )
+AsphyxiaUIExitVehicleButton:SetScript( "OnClick", function() VehicleExit() end )
 
-vehicle.Text = S.SetFontString( vehicle, S.CreateFontString() )
-vehicle.Text:Point( "CENTER", 1, 1 )
-vehicle.Text:SetText( S.RGBToHex( unpack( C["media"].datatextcolor2 ) ) .. EXIT )
-RegisterStateDriver( vehicle, "visibility", "[target=vehicle,exists] show;hide" )
+AsphyxiaUIExitVehicleButton.Text = S.SetFontString( AsphyxiaUIExitVehicleButton, S.CreateFontString() )
+AsphyxiaUIExitVehicleButton.Text:Point( "CENTER", 1, 1 )
+AsphyxiaUIExitVehicleButton.Text:SetText( S.RGBToHex( unpack( C["media"]["datatextcolor2"] ) ) .. EXIT )
+RegisterStateDriver( AsphyxiaUIExitVehicleButton, "visibility", "[target=vehicle,exists] show;hide" )
 
-vehicle:HookScript( "OnEnter", S.SetModifiedBackdrop )
-vehicle:HookScript( "OnLeave", S.SetOriginalBackdrop )
+AsphyxiaUIExitVehicleButton:HookScript( "OnEnter", S.SetModifiedBackdrop )
+AsphyxiaUIExitVehicleButton:HookScript( "OnLeave", S.SetOriginalBackdrop )
