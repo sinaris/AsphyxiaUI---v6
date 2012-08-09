@@ -71,3 +71,76 @@ function S.fadeIn( p )
 	end )
 	p.fadeOut = S.fadeOut
 end
+
+local MOVE_UI = false
+local function MoveUI()
+	if( InCombatLockdown() ) then return end
+
+	if( MOVE_UI ) then
+		MOVE_UI = false
+	else
+		MOVE_UI = true
+	end
+
+	local defsize = 16
+	local w = tonumber( string.match( ( { GetScreenResolutions() } )[GetCurrentResolution()], "(%d+)x+%d" ) )
+	local h = tonumber( string.match( ( { GetScreenResolutions() } )[GetCurrentResolution()], "%d+x(%d+)" ) )
+	local x = tonumber( gridsize ) or defsize
+
+	function Grid()
+		ali = CreateFrame( "Frame", nil, UIParent )
+		ali:SetFrameLevel( 0 )
+		ali:SetFrameStrata( "BACKGROUND" )
+
+		for i = - ( w / x / 2 ), w / x / 2 do
+			local Aliv = ali:CreateTexture( nil, "BACKGROUND" )
+			Aliv:SetTexture( 0.3, 0, 0, 0.7 )
+			Aliv:Point( "CENTER", UIParent, "CENTER", i * x, 0 )
+			Aliv:SetSize( 1, h )
+		end
+
+		for i = - ( h / x / 2 ), h / x / 2 do
+			local Alih = ali:CreateTexture( nil, "BACKGROUND" )
+			Alih:SetTexture( 0.3, 0, 0, 0.7 )
+			Alih:Point( "CENTER", UIParent, "CENTER", 0, i * x )
+			Alih:SetSize( w, 1 )
+		end
+	end
+
+	if( Ali ) then
+		if( ox ~= x ) then
+			ox = x
+			ali:Hide()
+			Grid()
+			Ali = true
+			print( "Ali: ON" )
+		else
+			ali:Hide()
+			print( "Ali: OFF" )
+			Ali = false
+		end
+	else
+		ox = x
+		Grid()
+		Ali = true
+		print( "Ali: ON" )
+	end
+
+	local PanelsToMove = {
+		AsphyxiaUIUnitframesPlayerCastbarMover,
+	}
+
+	if( AsphyxiaUIUnitframesPlayerCastbarMover ) then
+		if( MOVE_UI ) then
+			for _, panels in pairs( PanelsToMove ) do
+				panels:Show()
+			end
+		else
+			for _, panels in pairs( PanelsToMove ) do
+				panels:Hide()
+			end
+		end
+	end
+end
+
+hooksecurefunc( _G.SlashCmdList, "MOVING", MoveUI )

@@ -2,6 +2,7 @@ local C = {}
 
 C["global"] = {
 	["unitframelayout"] = "asphyxia",
+	["ablayout"] = 1,
 	["welcomemessage"] = true,
 }
 
@@ -50,7 +51,7 @@ C["databars"] = {
 	["framerate"] = 1,
 	["latency"] = 2,
 	["memory"] = 3,
-	["durability"] = 0,
+	["durability"] = 4,
 	["currency"] = true,
 	["reputation"] = true,
 	["reps"] = {
@@ -110,6 +111,7 @@ C["intmodules"] = {
 	["bnetpanel"] = true,
 	["itemlevelongearandslots"] = true,
 	["layoutchanger"] = true,
+	["micromenu"] = true,
 }
 
 C["unitframes"] = {

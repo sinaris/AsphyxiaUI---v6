@@ -19,8 +19,19 @@ L.Global_WELCOME_MESSAGE2 = "For detailed Information |cff00FFFFvisit www.tukui.
 L.Popups_SELECT_RAID_LAYOUT = ""
 L.Popups_ENABLE_CHAT_BACKGROUNDS = ""
 
+------------------------------
+-- Tooltip
+------------------------------
 L.Tooltip_LOADING_TALENT = "Loading Talents..."
 L.Tooltip_NO_TALENTS = "No Talents"
+
+------------------------------
+-- GameTooltip
+------------------------------
+L.Gametooltip_SHOW_HIDE_CURRENCYBARS = "Show or hide currency datapanels."
+L.Gametooltip_SHOW_HIDE_DATAPANELS = "Show or hide datatext panels below the actionbar."
+L.Gametooltip_SHOW_HIDE_MINIMAP = "Show or hide the minimap."
+L.Gametooltip_SWITCH_RAIDLAYOUT = "Switch raidlayout."
 
 ------------------------------
 -- Changelog, seperate Addon

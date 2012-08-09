@@ -348,6 +348,25 @@ do
 				end
 			end
 		end
+
+		------------------------------
+		-- mage
+		------------------------------
+		if( S.myclass == "MAGE" ) then
+			G.UnitFrames.Player.ArcaneChargeBar:ClearAllPoints()
+			G.UnitFrames.Player.ArcaneChargeBar:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
+			G.UnitFrames.Player.ArcaneChargeBar:Size( 233, 2 )
+			G.UnitFrames.Player.ArcaneChargeBar:CreateBorder( true )
+
+			for i = 1, 6 do
+				G.UnitFrames.Player.ArcaneChargeBar[i]:Size( S.Scale( 232 / 6 ) - 1 , 2 )
+				if( i == 1 ) then
+					G.UnitFrames.Player.ArcaneChargeBar[i]:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
+				else
+					G.UnitFrames.Player.ArcaneChargeBar[i]:Point( "LEFT", G.UnitFrames.Player.ArcaneChargeBar[i - 1], "RIGHT", 1, 0 )
+				end
+			end
+		end
 	end
 
 	------------------------------
@@ -355,9 +374,23 @@ do
 	------------------------------
 	do
 		if( C["unitframes"]["unitcastbar"] == true ) then
+			local AsphyxiaUIUnitframesPlayerCastbarMover = CreateFrame( "Frame", "AsphyxiaUIUnitframesPlayerCastbarMover", UIParent )
+			AsphyxiaUIUnitframesPlayerCastbarMover:Size( 378, 22 )
+			AsphyxiaUIUnitframesPlayerCastbarMover:SetPoint( "BOTTOM", G.ActionBars.Bar1, "TOP", 0, 3 )
+			AsphyxiaUIUnitframesPlayerCastbarMover:SetTemplate( "Default" )
+			AsphyxiaUIUnitframesPlayerCastbarMover:SetBackdropBorderColor( 1, 0, 0 )
+			AsphyxiaUIUnitframesPlayerCastbarMover:SetClampedToScreen( true )
+			AsphyxiaUIUnitframesPlayerCastbarMover:SetMovable( true )
+			AsphyxiaUIUnitframesPlayerCastbarMover:SetFrameStrata( "HIGH" )
+			AsphyxiaUIUnitframesPlayerCastbarMover:Hide()
+			AsphyxiaUIUnitframesPlayerCastbarMover:FontString( "Text", S.CreateFontString() )
+			AsphyxiaUIUnitframesPlayerCastbarMover.Text:SetPoint( "CENTER", AsphyxiaUIUnitframesPlayerCastbarMover, "CENTER", 0, 0 )
+			AsphyxiaUIUnitframesPlayerCastbarMover.Text:SetText( "Move Player Castbar" )
+			tinsert( S.AllowFrameMoving, AsphyxiaUIUnitframesPlayerCastbarMover )
+
 			G.UnitFrames.Player.Castbar:ClearAllPoints()
 			G.UnitFrames.Player.Castbar:SetHeight( S.Scale( 20 ) )
-			G.UnitFrames.Player.Castbar:Point( "BOTTOMRIGHT", G.ActionBars.Bar1, "TOPRIGHT", -2, 5 )
+			G.UnitFrames.Player.Castbar:Point( "BOTTOMRIGHT", AsphyxiaUIUnitframesPlayerCastbarMover, "BOTTOMRIGHT", -2, 2 )
 			G.UnitFrames.Player.Castbar:CreateBorder( true )
 			G.UnitFrames.Player.Castbar.bg:SetVertexColor( 0.05, 0.05, 0.05 )
 

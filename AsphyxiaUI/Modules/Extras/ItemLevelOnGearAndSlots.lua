@@ -181,9 +181,7 @@ function makeDurability( frame, slot )
 		end
 
 		iDura:SetSize( 10, 10 )
-		--iDura:SetBackdrop( {bgFile = nil, edgeFile = nil, tile = false, tileSize = 32, edgeSize = 0, insets = {left = 0, right = 0, top = 0, bottom = 0}})
-		--iDura:SetBackdropColor(0,0,0,0)
-		
+
 		local iDuraText = iDura:CreateFontString( nil, "ARTWORK" )
 		isValid = iDuraText:SetFont( S.CreateFontString() )
 		iDuraText:SetPoint( "CENTER", iDura, "CENTER", 0, 0 )

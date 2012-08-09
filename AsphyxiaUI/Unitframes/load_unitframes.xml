@@ -6,7 +6,5 @@
 
 	<Script file="Functions\Functions.lua" />
 
-	<Script file="Tags\Tags.lua" />
-
 	<Include file="Layouts\load_layouts.xml" />
 </Ui>

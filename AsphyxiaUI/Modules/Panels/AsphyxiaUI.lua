@@ -5,7 +5,7 @@
 local S, C, L, G = unpack( Tukui )
 
 ------------------------------
--- Actionbars
+-- Actionbars - Panels
 ------------------------------
 G.ActionBars.Bar1:ClearAllPoints()
 G.ActionBars.Bar1:Size( ( S.buttonsize * 12 ) + ( S.buttonspacing * 13 ) + 2, ( S.buttonsize * 2 ) + ( S.buttonspacing * 3 ) + 2 )
@@ -112,7 +112,7 @@ G.Panels.DataTextRight:SetTemplate( "Transparent" )
 G.Panels.DataTextRight:CreateOverlay( G.Panels.DataTextRight )
 
 local AsphyxiaUIInfoCenter = CreateFrame( "Frame", "AsphyxiaUIInfoCenter", G.ActionBars.Bar1 )
-AsphyxiaUIInfoCenter:Size( G.ActionBars.Bar1:GetWidth(), 20 )
+AsphyxiaUIInfoCenter:Size( ( S.buttonsize * 12 ) + ( S.buttonspacing * 13 ) + 2, 20 )
 AsphyxiaUIInfoCenter:Point( "TOP", G.ActionBars.Bar1, "BOTTOM", 0, -3 )
 AsphyxiaUIInfoCenter:SetTemplate( "Default" )
 AsphyxiaUIInfoCenter:CreateShadow( "Default" )
@@ -121,8 +121,8 @@ AsphyxiaUIInfoCenter:SetFrameStrata( "BACKGROUND" )
 AsphyxiaUIInfoCenter:CreateOverlay( AsphyxiaUIInfoCenter )
 
 local AsphyxiaUIInfoCenterLeft = CreateFrame( "Frame", "AsphyxiaUIInfoCenterLeft", AsphyxiaUISplitBarLeft )
-AsphyxiaUIInfoCenterLeft:Size( AsphyxiaUISplitBarLeft:GetWidth(), 20 )
-AsphyxiaUIInfoCenterLeft:Point( "TOP", AsphyxiaUISplitBarLeft, "BOTTOM", 0, -3 )
+AsphyxiaUIInfoCenterLeft:Size( ( S.buttonsize * 3 ) + ( S.buttonspacing * 4 ) + 2, 20 )
+AsphyxiaUIInfoCenterLeft:Point( "RIGHT", AsphyxiaUIInfoCenter, "LEFT", -3, 0 )
 AsphyxiaUIInfoCenterLeft:SetTemplate( "Default" )
 AsphyxiaUIInfoCenterLeft:CreateShadow( "Default" )
 AsphyxiaUIInfoCenterLeft:SetFrameLevel( 2 )
@@ -130,13 +130,56 @@ AsphyxiaUIInfoCenterLeft:SetFrameStrata( "BACKGROUND" )
 AsphyxiaUIInfoCenterLeft:CreateOverlay( AsphyxiaUIInfoCenterLeft )
 
 local AsphyxiaUIInfoCenterRight = CreateFrame( "Frame", "AsphyxiaUIInfoCenterRight", AsphyxiaUISplitBarRight )
-AsphyxiaUIInfoCenterRight:Size( AsphyxiaUISplitBarRight:GetWidth(), 20 )
-AsphyxiaUIInfoCenterRight:Point( "TOP", AsphyxiaUISplitBarRight, "BOTTOM", 0, -3 )
+AsphyxiaUIInfoCenterRight:Size( ( S.buttonsize * 3 ) + ( S.buttonspacing * 4 ) + 2, 20 )
+AsphyxiaUIInfoCenterRight:Point( "LEFT", AsphyxiaUIInfoCenter, "RIGHT", 3, 0 )
 AsphyxiaUIInfoCenterRight:SetTemplate( "Default" )
 AsphyxiaUIInfoCenterRight:CreateShadow( "Default" )
 AsphyxiaUIInfoCenterRight:SetFrameLevel( 2 )
 AsphyxiaUIInfoCenterRight:SetFrameStrata( "BACKGROUND" )
 AsphyxiaUIInfoCenterRight:CreateOverlay( AsphyxiaUIInfoCenterRight )
+
+local AsphyxiaUIInfoCenterToggleButton = CreateFrame( "Frame", "AsphyxiaUIInfoCenterToggleButton", TukuiChatBackgroundRight )
+AsphyxiaUIInfoCenterToggleButton:Size(30,15)
+AsphyxiaUIInfoCenterToggleButton:SetPoint("TOPRIGHT", TukuiChatBackgroundRight, "TOPRIGHT", -5, -68)
+AsphyxiaUIInfoCenterToggleButton:SetTemplate("Default")
+AsphyxiaUIInfoCenterToggleButton:SetAlpha( 0 )
+AsphyxiaUIInfoCenterToggleButton:SetFrameStrata( "MEDIUM" )
+AsphyxiaUIInfoCenterToggleButton:SetFrameLevel( 10 )
+AsphyxiaUIInfoCenterToggleButton:CreateOverlay( AsphyxiaUIInfoCenterToggleButton )
+AsphyxiaUIInfoCenterToggleButton:EnableMouse( true )
+
+AsphyxiaUIInfoCenterToggleButton.Text = AsphyxiaUIInfoCenterToggleButton:CreateFontString( nil, "OVERLAY" )
+AsphyxiaUIInfoCenterToggleButton.Text:SetPoint( "CENTER" )
+AsphyxiaUIInfoCenterToggleButton.Text:SetFont( S.CreateFontString() )
+AsphyxiaUIInfoCenterToggleButton.Text:SetText( "|cff9a1212-|r" )
+AsphyxiaUIInfoCenterToggleButton.Text:Point( "CENTER", 1, 0 )
+
+AsphyxiaUIInfoCenterToggleButton:SetScript( "OnMouseDown", function( self )
+	ToggleFrame( AsphyxiaUIInfoCenterRight )
+	ToggleFrame( AsphyxiaUIInfoCenterLeft )
+	ToggleFrame( AsphyxiaUIInfoCenter )
+	if( AsphyxiaUIInfoCenter:IsShown() ) then
+		self.Text:SetText( "|cff9a1212-|r" )
+	else
+		self.Text:SetText( "|cff9a1212+|r" )
+	end
+end )
+
+AsphyxiaUIInfoCenterToggleButton:SetScript( "OnEnter", function( self )
+	if( InCombatLockdown() ) then return end
+	AsphyxiaUIInfoCenterToggleButton:FadeIn()
+
+	GameTooltip:ClearLines()
+	GameTooltip:SetOwner( self )
+	GameTooltip:AddLine( L.Gametooltip_SHOW_HIDE_DATAPANELS )
+	GameTooltip:Show()
+end )
+
+AsphyxiaUIInfoCenterToggleButton:SetScript( "OnLeave", function( self )
+	AsphyxiaUIInfoCenterToggleButton:FadeOut()
+
+	GameTooltip:Hide()
+end )
 
 ------------------------------
 -- /resetui Button

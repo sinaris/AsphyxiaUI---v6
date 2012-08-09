@@ -1,6 +1,0 @@
-<Ui xmlns="http://www.blizzard.com/wow/ui/">
-	<Script file="Achievements.lua" />
-	<Script file="Ghostframe.lua" />
-	<Script file="Mirror.lua" />
-	<Script file="Timertracker.lua" />
-</Ui>

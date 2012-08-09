@@ -8,7 +8,6 @@ local S, C, L, G = unpack( Tukui )
 -- Not Needed
 ------------------------------
 local KillPanels = {
-	G.ActionBars.Bar5,
 	G.ActionBars.Bar6,
 	G.ActionBars.Bar7,
 
@@ -27,6 +26,9 @@ local KillPanels = {
 for _, Panels in pairs( KillPanels ) do
 	Panels:Kill()
 end
+
+G.ActionBars.Bar5:ClearAllPoints()
+G.ActionBars.Bar5:SetParent( TukuiUIHider )
 
 ------------------------------
 -- Minimap

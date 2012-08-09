@@ -25,6 +25,19 @@ AsphyxiaUILayoutSwitchButton:SetScript( "OnClick", function()
 	end
 end )
 
+AsphyxiaUILayoutSwitchButton:SetScript( "OnEnter", function( self )
+	if( InCombatLockdown() ) then return end
+
+	GameTooltip:ClearLines()
+	GameTooltip:SetOwner( self )
+	GameTooltip:AddLine( L.Gametooltip_SWITCH_RAIDLAYOUT )
+	GameTooltip:Show()
+end )
+
+AsphyxiaUILayoutSwitchButton:SetScript( "OnLeave", function( self )
+	GameTooltip:Hide()
+end )
+
 AsphyxiaUILayoutSwitchButton.Text = S.SetFontString( AsphyxiaUILayoutSwitchButton, S.CreateFontString() )
 AsphyxiaUILayoutSwitchButton.Text:Point( "RIGHT", AsphyxiaUILayoutSwitchButton, "RIGHT", -5, 1 )
 AsphyxiaUILayoutSwitchButton.Text:SetText( S.RGBToHex( unpack( C["media"]["datatextcolor2"] ) ) .. "switch layout" )

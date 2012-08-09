@@ -4,6 +4,32 @@
 
 local S, C, L, G = unpack( Tukui )
 
+local function AsphyxiaUICVarSetup()
+	SetCVar( "Maxfps", 999 )
+	SetCVar( "autoDismountFlying", 0 )
+	SetCVar( "guildMemberNotify", 1 )
+	SetCVar( "chatBubblesParty", 1 )
+	SetCVar( "chatBubbles", 1 )
+	SetCVar( "cameraDistanceMax", 50 )
+	SetCVar( "cameraDistanceMaxFactor", 3.4 )
+	SetCVar( "profanityFilter", 0 )
+	SetCVar( "taintLog", 1 )
+	SetAutoDeclineGuildInvites( 1 )
+	SetCVar( "showTutorials", 0 )
+	SetCVar( "gameTip", "0" )
+	SetCVar( "ConversationMode", "inline" )
+	SetCVar( "WhisperMode", "inline" )
+	SetCVar( "BnWhisperMode", "inline" )
+	SetCVar( "nameplateShowFriends", 0 )
+	SetCVar( "nameplateShowFriendlyPets", 0 )
+	SetCVar( "nameplateShowFriendlyGuardians", 0 )
+	SetCVar( "nameplateShowFriendlyTotems", 0 )
+	SetCVar( "nameplateShowEnemies", 1 )
+	SetCVar( "nameplateShowEnemyPets", 0 )
+	SetCVar( "nameplateShowEnemyGuardians", 0 )
+	SetCVar( "nameplateShowEnemyTotems", 0 )
+end
+
 G.Install.Frame:SetTemplate( "Transparent" )
 
 local AsphyxiaUIInstallFrameIconLeft = CreateFrame( "Frame", "AsphyxiaUIInstallFrameIconLeft", G.Install.Frame )
@@ -58,6 +84,8 @@ local AsphyxiaUIOnLogon = CreateFrame( "Frame" )
 AsphyxiaUIOnLogon:RegisterEvent( "PLAYER_ENTERING_WORLD" )
 AsphyxiaUIOnLogon:SetScript( "OnEvent", function( self, event )
 	self:UnregisterEvent( "PLAYER_ENTERING_WORLD" )
+
+	AsphyxiaUICVarSetup()
 
 	if( AsphyxiaUISaved == nil ) then
 		AsphyxiaUISaved = {}

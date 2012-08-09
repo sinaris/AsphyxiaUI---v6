@@ -101,20 +101,27 @@ toggle:CreateShadow( "Default" )
 toggle:SetAlpha( 0 )
 toggle:HookScript( "OnEnter", S.SetModifiedBackdrop )
 toggle:HookScript( "OnLeave", S.SetOriginalBackdrop )
-toggle:SetScript("OnEnter", function()
+toggle:SetScript("OnEnter", function( self )
 	if( InCombatLockdown() ) then return end
-		toggle:FadeIn()
-	end )
+	toggle:FadeIn()
 
-	toggle:SetScript( "OnLeave", function()
-		toggle:FadeOut()
-	end )
+	GameTooltip:ClearLines()
+	GameTooltip:SetOwner( self )
+	GameTooltip:AddLine( L.Gametooltip_SHOW_HIDE_CURRENCYBARS )
+	GameTooltip:Show()
+end )
 
-	toggle.Text = toggle:CreateFontString( nil, "OVERLAY" )
-	toggle.Text:SetFont( S.CreateFontString() )
-	toggle.Text:Point( "CENTER", toggle, "CENTER", 1.5, 1 )
-	toggle.Text:SetText( S.RGBToHex( unpack( C["media"]["datatextcolor2"] ) ) .. "C" )
-	toggle:SetScript( "OnMouseUp", function( self )
+toggle:SetScript( "OnLeave", function( self )
+	toggle:FadeOut()
+
+	GameTooltip:Hide()
+end )
+
+toggle.Text = toggle:CreateFontString( nil, "OVERLAY" )
+toggle.Text:SetFont( S.CreateFontString() )
+toggle.Text:Point( "CENTER", toggle, "CENTER", 1.5, 1 )
+toggle.Text:SetText( S.RGBToHex( unpack( C["media"]["datatextcolor2"] ) ) .. "C" )
+toggle:SetScript( "OnMouseUp", function( self )
 	for _, frame in pairs( CurrencyData ) do
 		if( frame and frame:IsVisible() ) then
 			frame:SlideOut()

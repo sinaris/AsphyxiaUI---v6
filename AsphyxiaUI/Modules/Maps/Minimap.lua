@@ -15,3 +15,47 @@ G.Maps.Minimap:Point( "TOPRIGHT", UIParent, "TOPRIGHT", -2, -2 )
 G.Maps.Minimap:CreateShadow( "Default" )
 
 Minimap:Size( 153 )
+
+local AsphyxiaUIMinimapToggleButton = CreateFrame( "Button", "AsphyxiaUIMinimapToggleButton", UIParent )
+AsphyxiaUIMinimapToggleButton:Size( 11, 30 )
+AsphyxiaUIMinimapToggleButton:SetPoint( "TOPLEFT", TukuiAurasPlayerBuffs, "TOPRIGHT", 3, 0 )
+AsphyxiaUIMinimapToggleButton:SetTemplate("Default")
+AsphyxiaUIMinimapToggleButton:CreateShadow( "Default" )
+AsphyxiaUIMinimapToggleButton:CreateOverlay( AsphyxiaUIMinimapToggleButton )
+AsphyxiaUIMinimapToggleButton:FadeOut()
+
+AsphyxiaUIMinimapToggleButton.Text = S.SetFontString( AsphyxiaUIMinimapToggleButton, S.CreateFontString() )
+AsphyxiaUIMinimapToggleButton.Text:Point( "CENTER", AsphyxiaUIMinimapToggleButton, "CENTER", 2, 0.5 )
+AsphyxiaUIMinimapToggleButton.Text:SetText( "|cffFF0000-|r" )
+
+AsphyxiaUIMinimapToggleButton:SetScript( "OnMouseDown", function()
+	if( TukuiMinimap:IsVisible() ) then
+		TukuiMinimap:Hide()
+		TukuiAurasPlayerBuffs:ClearAllPoints()
+		TukuiAurasPlayerBuffs:Point( "TOPRIGHT", -16, -2 )
+		TukuiAurasPlayerDebuffs:Point( "TOPRIGHT", -16, -142 )
+		AsphyxiaUIMinimapToggleButton.Text:SetText( "|cff00FF00+|r" )
+	else
+		TukuiMinimap:Show()
+		TukuiAurasPlayerBuffs:ClearAllPoints()
+		TukuiAurasPlayerBuffs:Point( "TOPRIGHT", UIParent, -172, -2 )
+		TukuiAurasPlayerDebuffs:Point( "TOPRIGHT", UIParent, -172, -137 )
+		AsphyxiaUIMinimapToggleButton.Text:SetText( "|cffFF0000-|r" )
+	end
+end )
+
+AsphyxiaUIMinimapToggleButton:SetScript( "OnEnter", function( self )
+	if( InCombatLockdown() ) then return end
+	AsphyxiaUIMinimapToggleButton:FadeIn()
+
+	GameTooltip:ClearLines()
+	GameTooltip:SetOwner( self )
+	GameTooltip:AddLine( L.Gametooltip_SHOW_HIDE_MINIMAP )
+	GameTooltip:Show()
+end )
+
+AsphyxiaUIMinimapToggleButton:SetScript( "OnLeave", function( self )
+	AsphyxiaUIMinimapToggleButton:FadeOut()
+
+	GameTooltip:Hide()
+end )

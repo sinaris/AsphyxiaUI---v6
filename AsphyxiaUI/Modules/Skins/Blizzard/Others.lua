@@ -65,51 +65,6 @@ local function SkinFrames( self, event, addon )
 		LFDRoleCheckPopup:CreateShadow( "Default" )
 
 		RolePollPopup:SetTemplate( "Transparent" )
-
-		local slides = {
-			"InterfaceOptionsCombatPanelSpellAlertOpacitySlider",
-			"InterfaceOptionsCombatPanelMaxSpellStartRecoveryOffset",
-			"InterfaceOptionsBattlenetPanelToastDurationSlider",
-			"InterfaceOptionsCameraPanelMaxDistanceSlider",
-			"InterfaceOptionsCameraPanelFollowSpeedSlider",
-			"InterfaceOptionsMousePanelMouseSensitivitySlider",
-			"InterfaceOptionsMousePanelMouseLookSpeedSlider",
-			"Advanced_MaxFPSSlider",
-			"Advanced_MaxFPSBKSlider",
-			"Advanced_GammaSlider",
-			"AudioOptionsSoundPanelSoundQuality",
-			"AudioOptionsSoundPanelMasterVolume",
-			"AudioOptionsSoundPanelSoundVolume",
-			"AudioOptionsSoundPanelMusicVolume",
-			"AudioOptionsSoundPanelAmbienceVolume",
-			"AudioOptionsVoicePanelMicrophoneVolume",
-			"AudioOptionsVoicePanelSpeakerVolume",
-			"AudioOptionsVoicePanelSoundFade",
-			"AudioOptionsVoicePanelMusicFade",
-			"AudioOptionsVoicePanelAmbienceFade",
-		}
-		
-		for i = 1, getn( slides ) do
-			if( _G[slides[i]] ) then
-				if( _G[slides[i]] ~= AudioOptionsSoundPanelSoundVolume ) then
-					SkinSlideBar( _G[slides[i]], 8, true )
-				else
-					SkinSlideBar( _G[slides[i]], 8 )
-				end
-			end
-		end
-
-		Graphics_Quality:SetScript( "OnUpdate", function( self )
-			SkinSlideBar( Graphics_Quality, 11 )
-		end )
-		Graphics_RightQuality:SetAlpha( 0 )
-
-		Graphics_QualityLow2:Point( "BOTTOM", 0, -20 )
-		Graphics_QualityFair:Point( "BOTTOM", 0, -20 )
-		Graphics_RightQualityLabel:Point( "TOP", 0, 16 )
-		Graphics_QualityMed:Point( "BOTTOM", 0, -20 )
-		Graphics_QualityHigh2:Point( "BOTTOM", 0, -20 )
-		Graphics_QualityUltra:Point( "BOTTOM", 0, -20 )
 	end
 end
 

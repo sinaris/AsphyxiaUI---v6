@@ -60,7 +60,7 @@ local MainBars = function()
 		TukuiSplitBarRight:Height( TukuiBar1:GetHeight() )
 
 		ToggleText( 1, "- - -", false, true )
-		RegisterStateDriver( TukuiBar2, "visibility", "[vehicleui][petbattle][overridebar] hide; show" )
+		RegisterStateDriver( TukuiBar2, "visibility", "[vehicleui][petbattle] hide; show" )
 		TukuiBar2:Show()
 
 		if( AsphyxiaUISaved.splitbars == true ) then
@@ -108,7 +108,7 @@ local RightBars = function()
 	end
 
 	if( AsphyxiaUISaved.rightbars == 1 ) then
-		RegisterStateDriver( TukuiRightBar, "visibility", "[vehicleui][petbattle][overridebar] hide; show" )
+		RegisterStateDriver( TukuiRightBar, "visibility", "[vehicleui][petbattle]	 hide; show" )
 		UnregisterStateDriver( TukuiBar4, "visibility" )
 		TukuiRightBar:Show()
 		TukuiBar4:Hide()
@@ -126,8 +126,8 @@ local RightBars = function()
 			TukuiBar3:Hide()
 		end
 	elseif( AsphyxiaUISaved.rightbars == 2 ) then
-		RegisterStateDriver( TukuiRightBar, "visibility", "[vehicleui][petbattle][overridebar] hide; show" )
-		RegisterStateDriver( TukuiBar4, "visibility", "[vehicleui][petbattle][overridebar] hide; show" )
+		RegisterStateDriver( TukuiRightBar, "visibility", "[vehicleui][petbattle] hide; show" )
+		RegisterStateDriver( TukuiBar4, "visibility", "[vehicleui][petbattle] hide; show" )
 		TukuiRightBar:Show()
 		TukuiBar4:Show()
 
@@ -144,8 +144,8 @@ local RightBars = function()
 			TukuiBar3:Hide()
 		end
 	elseif( AsphyxiaUISaved.rightbars == 3 ) then
-		RegisterStateDriver( TukuiRightBar, "visibility", "[vehicleui][petbattle][overridebar] hide; show" )
-		RegisterStateDriver( TukuiBar4, "visibility", "[vehicleui][petbattle][overridebar] hide; show" )
+		RegisterStateDriver( TukuiRightBar, "visibility", "[vehicleui][petbattle] hide; show" )
+		RegisterStateDriver( TukuiBar4, "visibility", "[vehicleui][petbattle] hide; show" )
 		TukuiRightBar:Show()
 		TukuiBar4:Show()
 
@@ -158,7 +158,7 @@ local RightBars = function()
 		if( AsphyxiaUISaved.splitbars ~= true ) then
 			MultiBarLeft:ClearAllPoints()
 			MultiBarLeft:SetParent( TukuiBar3 )
-			RegisterStateDriver( TukuiBar3, "visibility", "[vehicleui][petbattle][overridebar] hide; show" )
+			RegisterStateDriver( TukuiBar3, "visibility", "[vehicleui][petbattle] hide; show" )
 			TukuiBar3:Show()
 
 			for i = 1, 12 do
@@ -218,7 +218,7 @@ local SplitBars = function()
 		end
 
 		if( AsphyxiaUISaved.rightbars == 3 ) then
-			RegisterStateDriver( TukuiRightBar, "visibility", "[vehicleui][petbattle][overridebar] hide; show" )
+			RegisterStateDriver( TukuiRightBar, "visibility", "[vehicleui][petbattle] hide; show" )
 			TukuiRightBar:Show()
 			if( C["actionbar"]["vertical_rightbars"] == true ) then
 				TukuiRightBar:Width( ( S.buttonsize * 2 + S.buttonspacing * 3 ) + 2 )
@@ -238,8 +238,8 @@ local SplitBars = function()
 				b:SetScale( 1 )
 			end
 		end
-		RegisterStateDriver( TukuiSplitBarLeft, "visibility", "[vehicleui][petbattle][overridebar] hide; show" )
-		RegisterStateDriver( TukuiSplitBarRight, "visibility", "[vehicleui][petbattle][overridebar] hide; show" )
+		RegisterStateDriver( TukuiSplitBarLeft, "visibility", "[vehicleui][petbattle] hide; show" )
+		RegisterStateDriver( TukuiSplitBarRight, "visibility", "[vehicleui][petbattle] hide; show" )
 		TukuiSplitBarLeft:Show()
 		TukuiSplitBarRight:Show()
 
