@@ -83,10 +83,7 @@ S.PostUpdateRaidUnit = function( self )
 		end )
 	end
 
-	local color = RAID_CLASS_COLORS[S.myclass]
-	self:HighlightUnit( color.r, color.g, color.b, 1 )
-
-	--self:HighlightUnit( 1, 0, 0, 1 )
+	self:HighlightUnit( 1, 0, 0, 1 )
 
 	------------------------------
 	-- name

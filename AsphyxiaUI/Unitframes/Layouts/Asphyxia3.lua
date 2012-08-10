@@ -196,14 +196,16 @@ do
 			G.UnitFrames.Player.DruidManaBackground:ClearAllPoints()
 			G.UnitFrames.Player.DruidManaBackground:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
 			G.UnitFrames.Player.DruidManaBackground:Size( 233, 2 )
-			G.UnitFrames.Player.DruidManaBackground:CreateBorder( true )
+			G.UnitFrames.Player.DruidManaBackground:CreateBackdrop( "Default" )
+			G.UnitFrames.Player.DruidManaBackground.backdrop:CreateShadow( "Default" )
 
 			G.UnitFrames.Player.DruidMana:SetSize( G.UnitFrames.Player.DruidManaBackground:GetWidth(), G.UnitFrames.Player.DruidManaBackground:GetHeight() )
 
 			G.UnitFrames.Player.EclipseBar:ClearAllPoints()
 			G.UnitFrames.Player.EclipseBar:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
 			G.UnitFrames.Player.EclipseBar:Size( 233, 2 )
-			G.UnitFrames.Player.EclipseBar:CreateBorder( true )
+			G.UnitFrames.Player.EclipseBar:CreateBackdrop( "Default" )
+			G.UnitFrames.Player.EclipseBar.backdrop:CreateShadow( "Default" )
 
 			G.UnitFrames.Player.EclipseBar.LunarBar:SetSize( G.UnitFrames.Player.EclipseBar:GetWidth(), G.UnitFrames.Player.EclipseBar:GetHeight() )
 			G.UnitFrames.Player.EclipseBar.SolarBar:SetSize( G.UnitFrames.Player.EclipseBar:GetWidth(), G.UnitFrames.Player.EclipseBar:GetHeight() )
@@ -221,7 +223,8 @@ do
 			G.UnitFrames.Player.WarlockSpecBars:ClearAllPoints()
 			G.UnitFrames.Player.WarlockSpecBars:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
 			G.UnitFrames.Player.WarlockSpecBars:Size( 233, 2 )
-			G.UnitFrames.Player.WarlockSpecBars:CreateBorder( true )
+			G.UnitFrames.Player.WarlockSpecBars:CreateBackdrop( "Default" )
+			G.UnitFrames.Player.WarlockSpecBars.backdrop:CreateShadow( "Default" )
 
 			for i = 1, 4 do
 				G.UnitFrames.Player.WarlockSpecBars[i]:Size( S.Scale( 232 / 4 ), 2 )
@@ -241,7 +244,8 @@ do
 			G.UnitFrames.Player.HolyPower:ClearAllPoints()
 			G.UnitFrames.Player.HolyPower:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
 			G.UnitFrames.Player.HolyPower:Size( 233, 2 )
-			G.UnitFrames.Player.HolyPower:CreateBorder( true )
+			G.UnitFrames.Player.HolyPower:CreateBackdrop( "Default" )
+			G.UnitFrames.Player.HolyPower.backdrop:CreateShadow( "Default" )
 
 			for i = 1, 5 do
 				G.UnitFrames.Player.HolyPower[i]:SetStatusBarColor( 228 / 255, 225 / 255, 16 / 255 )
@@ -266,7 +270,8 @@ do
 			G.UnitFrames.Player.Runes:ClearAllPoints()
 			G.UnitFrames.Player.Runes:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
 			G.UnitFrames.Player.Runes:Size( 233, 2 )
-			G.UnitFrames.Player.Runes:CreateBorder( true )
+			G.UnitFrames.Player.Runes:CreateBackdrop( "Default" )
+			G.UnitFrames.Player.Runes.backdrop:CreateShadow( "Default" )
 
 			for i = 1, 6 do
 				G.UnitFrames.Player.Runes[i]:Size( S.Scale( 232 / 6 ) - 1 , 2 )
@@ -285,12 +290,13 @@ do
 			G.UnitFrames.Player.HarmonyBar:ClearAllPoints()
 			G.UnitFrames.Player.HarmonyBar:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
 			G.UnitFrames.Player.HarmonyBar:Size( 233, 2 )
-			G.UnitFrames.Player.HarmonyBar:CreateBorder( true )
+			G.UnitFrames.Player.HarmonyBar:CreateBackdrop( "Default" )
+			G.UnitFrames.Player.HarmonyBar.backdrop:CreateShadow( "Default" )
 
-			local maxChi = UnitPowerMax("player", SPELL_POWER_LIGHT_FORCE)
+			local maxChi = UnitPowerMax( "player", SPELL_POWER_LIGHT_FORCE )
 
 			for i = 1, maxChi do
-				if maxChi == 4 then
+				if( maxChi == 4 ) then
 					if( i == 4 or i == 3 ) then
 						G.UnitFrames.Player.HarmonyBar[i]:Size( ( 233 / 4 ) - 1, 2 )
 					else
@@ -302,13 +308,13 @@ do
 					else
 						G.UnitFrames.Player.HarmonyBar[i]:Point( "LEFT", G.UnitFrames.Player.HarmonyBar[i - 1], "RIGHT", 1, 0 )
 					end
-				elseif maxChi == 5 then
+				elseif( maxChi == 5 ) then
 					if( i == 5 ) then
 						G.UnitFrames.Player.HarmonyBar[i]:Size( S.Scale( 232 / 5 ) - 1, 2 )
 					else
 						G.UnitFrames.Player.HarmonyBar[i]:Size( S.Scale( 232 / 5 ), 2 )
 					end
-	
+
 					if( i == 1 ) then
 						G.UnitFrames.Player.HarmonyBar[i]:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
 					else
@@ -332,7 +338,8 @@ do
 					G.UnitFrames.Player.TotemBar[i]:Point( "LEFT", G.UnitFrames.Player.TotemBar[i - 1], "RIGHT", 7, 0 )
 				end
 
-				G.UnitFrames.Player.TotemBar[i]:CreateBorder( true )
+				G.UnitFrames.Player.TotemBar[i]:CreateBackdrop( "Default" )
+				G.UnitFrames.Player.TotemBar[i].backdrop:CreateShadow( "Default" )
 			end
 		end
 
@@ -340,18 +347,19 @@ do
 		-- priest
 		------------------------------
 		if( S.myclass == "PRIEST" ) then
-			G.UnitFrames.Player.ShadowOrbsBar :ClearAllPoints()
-			G.UnitFrames.Player.ShadowOrbsBar :SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
-			G.UnitFrames.Player.ShadowOrbsBar :Size( 233, 2 )
-			G.UnitFrames.Player.ShadowOrbsBar :CreateBorder( true )
+			G.UnitFrames.Player.ShadowOrbsBar:ClearAllPoints()
+			G.UnitFrames.Player.ShadowOrbsBar:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
+			G.UnitFrames.Player.ShadowOrbsBar:Size( 233, 2 )
+			G.UnitFrames.Player.ShadowOrbsBar:CreateBackdrop( "Default" )
+			G.UnitFrames.Player.ShadowOrbsBar.backdrop:CreateShadow( "Default" )
 
 			for i = 1, 3 do
-				G.UnitFrames.Player.ShadowOrbsBar [i]:Size( S.Scale( 232 / 3 ), 2 )
+				G.UnitFrames.Player.ShadowOrbsBar[i]:Size( S.Scale( 232 / 3 ), 2 )
 
 				if( i == 1 ) then
-					G.UnitFrames.Player.ShadowOrbsBar [i]:SetPoint( "LEFT", G.UnitFrames.Player.ShadowOrbsBar  )
+					G.UnitFrames.Player.ShadowOrbsBar[i]:SetPoint( "LEFT", G.UnitFrames.Player.ShadowOrbsBar  )
 				else
-					G.UnitFrames.Player.ShadowOrbsBar [i]:Point( "LEFT", G.UnitFrames.Player.ShadowOrbsBar [i - 1], "RIGHT", 1, 0 )
+					G.UnitFrames.Player.ShadowOrbsBar[i]:Point( "LEFT", G.UnitFrames.Player.ShadowOrbsBar [i - 1], "RIGHT", 1, 0 )
 				end
 			end
 		end
@@ -363,7 +371,8 @@ do
 			G.UnitFrames.Player.ArcaneChargeBar:ClearAllPoints()
 			G.UnitFrames.Player.ArcaneChargeBar:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
 			G.UnitFrames.Player.ArcaneChargeBar:Size( 233, 2 )
-			G.UnitFrames.Player.ArcaneChargeBar:CreateBorder( true )
+			G.UnitFrames.Player.ArcaneChargeBar:CreateBackdrop( "Default" )
+			G.UnitFrames.Player.ArcaneChargeBar.backdrop:CreateShadow( "Default" )
 
 			for i = 1, 6 do
 				G.UnitFrames.Player.ArcaneChargeBar[i]:Size( S.Scale( 232 / 6 ) - 1 , 2 )
