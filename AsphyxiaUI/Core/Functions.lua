@@ -72,6 +72,25 @@ function S.fadeIn( p )
 	p.fadeOut = S.fadeOut
 end
 
+function S.RoleIconUpdate( self, event )
+	local lfdrole = self.LFDRole
+	local role = UnitGroupRolesAssigned( self.unit )
+
+	if( role == "TANK" or role == "HEALER" or role == "DAMAGER" ) and UnitIsConnected( self.unit ) then
+		if( role == "TANK" ) then
+			lfdrole:SetTexture( C["media"]["lfdrole_tank"] )
+		elseif( role == "HEALER" ) then
+			lfdrole:SetTexture( C["media"]["lfdrole_healer"] )
+		elseif( role == "DAMAGER" ) then
+			lfdrole:SetTexture( C["media"]["lfdrole_dps"] )
+		end
+
+		lfdrole:Show()
+	else
+		lfdrole:Hide()
+	end
+end
+
 local MOVE_UI = false
 local function MoveUI()
 	if( InCombatLockdown() ) then return end

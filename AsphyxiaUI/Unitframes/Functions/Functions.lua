@@ -128,6 +128,17 @@ S.ShortValue = function( v )
 	end
 end
 
+S.ShortValueNegative = function( v )
+	if( v <= 999 ) then return v end
+	if( v >= 1000000 ) then
+		local value = string.format( "%.1fm", v / 1000000 )
+		return value
+	elseif( v >= 1000 ) then
+		local value = string.format( "%.1fk", v / 1000 )
+		return value
+	end
+end
+
 hooksecurefunc( S, "PostUpdateHealth", function( health, unit, min, max )
 	if not UnitIsConnected( unit ) or UnitIsDead( unit ) or UnitIsGhost( unit ) then
 		if not UnitIsConnected( unit ) then
@@ -248,24 +259,32 @@ hooksecurefunc( S, "PostUpdateHealth", function( health, unit, min, max )
 end )
 
 hooksecurefunc( S, "PostUpdateHealthRaid", function( health, unit, min, max )
-	if( not UnitIsConnected( unit ) or UnitIsDead( unit ) or UnitIsGhost( unit ) ) then
-		if( not UnitIsConnected( unit ) ) then
+	if not UnitIsConnected( unit ) or UnitIsDead( unit ) or UnitIsGhost( unit ) then
+		if not UnitIsConnected( unit ) then
 			health.value:SetText( "|cffD7BEA5" .. L.unitframes_ouf_offline .. "|r" )
 		elseif( UnitIsDead( unit ) ) then
-			health.value:SetText( "|cffD7BEA5" .. L.unitframes_ouf_dead .. "|r" )
+			health.value:SetText("|cffD7BEA5" .. L.unitframes_ouf_dead .. "|r" )
 		elseif( UnitIsGhost( unit ) ) then
 			health.value:SetText( "|cffD7BEA5" .. L.unitframes_ouf_ghost .. "|r" )
 		end
 	else
-		local r, g, b
-
-		if( C["unitframes"]["gradienthealth"] == true and C["unitframes"]["unicolor"] == true ) then
-			local r, g, b = oUFTukui.ColorGradient( min, max, unpack( C["unitframes"]["gradient"] ) )
+		if not UnitIsPlayer( unit ) and UnitIsFriend( unit, "player" ) and C["unitframes"].unicolor ~= true then
+			local c = S.UnitColor.reaction[5]
+			local r, g, b = c[1], c[2], c[3]
 			health:SetStatusBarColor( r, g, b )
+			health.bg:SetTexture( .1, .1, .1 )
 		end
 
+		if( C["unitframes"].gradienthealth == true and C["unitframes"].unicolor == true ) then
+			if not UnitIsConnected( unit ) or UnitIsDead( unit ) or UnitIsGhost( unit ) then return end
+			if not health.classcolored then
+				local r, g, b = oUF.ColorGradient( min, max, unpack( C["unitframes"].gradient ) )
+				health:SetStatusBarColor( r, g, b )
+			end
+		end
+		
 		if( min ~= max ) then
-			health.value:SetText( "|cff559655-" .. S.ShortValue( max - min ) .. "|r" )
+			health.value:SetText( "|cff559655-" .. S.ShortValueNegative( max - min ) .. "|r" )
 		else
 			health.value:SetText( " " )
 		end

@@ -142,6 +142,10 @@ C["media"] = {
 	["bnetlogo"] = [[Interface\AddOns\AsphyxiaUI\Media\Textures\BNetLogoTexture.tga]],
 	["bnetlogolarge"] = [[Interface\AddOns\AsphyxiaUI\Media\Textures\BNetPanelLogoLargeTexture.tga]],
 
+	["lfdrole_dps"] = [[Interface\AddOns\AsphyxiaUI\Media\Textures\LFDRoleDPS.tga]],
+	["lfdrole_healer"] = [[Interface\AddOns\AsphyxiaUI\Media\Textures\LFDRoleHealer.tga]],
+	["lfdrole_tank"] = [[Interface\AddOns\AsphyxiaUI\Media\Textures\LFDRoleTank.tga]],
+
 	["bordercolor"] = C["general"].bordercolor,
 	["backdropcolor"] = C["general"].backdropcolor,
 	["datatextcolor1"] = { 1, 1, 1 },

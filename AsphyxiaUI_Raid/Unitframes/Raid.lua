@@ -72,16 +72,20 @@ S.PostUpdateRaidUnit = function( self )
 		self:HookScript( "OnEnter", function( self )
 			if( not UnitIsConnected( self.unit ) or UnitIsDead( self.unit ) or UnitIsGhost( self.unit ) ) then return end
 			local hover = RAID_CLASS_COLORS[select( 2, UnitClass( self.unit ) )]
-			if( not hover ) then return end
+			-- if( not hover ) then return end
 			self.Health:SetStatusBarColor( hover.r, hover.g, hover.b )
+			self.Health.classcolored = true
 		end )
 
 		self:HookScript( "OnLeave", function( self )
 			if( not UnitIsConnected( self.unit ) or UnitIsDead( self.unit ) or UnitIsGhost( self.unit ) ) then return end
 			local r, g, b = oUFTukui.ColorGradient( UnitHealth( self.unit ), UnitHealthMax( self.unit ), unpack( C["unitframes"]["gradient"] ) )
 			self.Health:SetStatusBarColor( r, g, b )
+			self.Health.classcolored = false
 		end )
 	end
+
+	self.Health.PostUpdate = S.PostUpdateHealthRaid
 
 	self:HighlightUnit( 1, 0, 0, 1 )
 
@@ -127,7 +131,8 @@ S.PostUpdateRaidUnit = function( self )
 	LFDRole:Height( 15 * S.raidscale )
 	LFDRole:Width( 15 * S.raidscale )
 	LFDRole:Point( "TOP", 0, 10 )
-	LFDRole:SetTexture( "Interface\\AddOns\\Tukui\\medias\\textures\\lfdicons.blp" )
+	LFDRole.Override = S.RoleIconUpdate
+	self:RegisterEvent( "UNIT_CONNECTION", S.RoleIconUpdate )
 	self.LFDRole = LFDRole
 
 	local MasterLooter = self.Health:CreateTexture( nil, "OVERLAY" )
@@ -156,4 +161,18 @@ AsphyxiaUIRaidPosition:SetScript( "OnEvent", function( self, event )
 	raid:ClearAllPoints()
 
 	raid:SetPoint( "BOTTOMLEFT", TukuiChatBackgroundLeft, "TOPLEFT", 2, 14 )
+end )
+
+local MaxGroup = CreateFrame( "Frame" )
+MaxGroup:RegisterEvent( "PLAYER_ENTERING_WORLD" )
+MaxGroup:RegisterEvent( "ZONE_CHANGED_NEW_AREA" )
+MaxGroup:SetScript( "OnEvent", function( self )
+	local inInstance, instanceType = IsInInstance()
+	local _, _, _, _, maxPlayers, _, _ = GetInstanceInfo()
+
+	if( inInstance and instanceType == "raid" and maxPlayers ~= 40 ) then
+		G.UnitFrames.RaidUnits:SetAttribute( "groupFilter", "1,2,3,4,5" )
+	else
+		G.UnitFrames.RaidUnits:SetAttribute( "groupFilter", "1,2,3,4,5,6,7,8" )
+	end
 end )

@@ -8,9 +8,6 @@ local S, C, L, G = unpack( Tukui )
 -- Not Needed
 ------------------------------
 local KillPanels = {
-	G.ActionBars.Bar6,
-	G.ActionBars.Bar7,
-
 	G.ActionBars.Pet.BackgroundLink,
 	G.Panels.BottomPanelOverActionBars,
 	G.Panels.BottomLeftVerticalLine,
@@ -29,6 +26,12 @@ end
 
 G.ActionBars.Bar5:ClearAllPoints()
 G.ActionBars.Bar5:SetParent( TukuiUIHider )
+
+G.ActionBars.Bar6:ClearAllPoints()
+G.ActionBars.Bar6:SetParent( TukuiUIHider )
+
+G.ActionBars.Bar7:ClearAllPoints()
+G.ActionBars.Bar7:SetParent( TukuiUIHider )
 
 ------------------------------
 -- Minimap

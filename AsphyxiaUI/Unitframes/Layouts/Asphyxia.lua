@@ -733,7 +733,7 @@ do
 		TargetTargetPower:Point( "TOP", G.UnitFrames.TargetTarget.Health, "BOTTOM", 0, -7 )
 		TargetTargetPower:SetStatusBarTexture( C["media"]["normTex"] )
 		TargetTargetPower:CreateBackdrop( "Default" )
-		TargetTargetPower.backdrop:CreateBorder( "Default" )
+		TargetTargetPower.backdrop:CreateShadow( "Default" )
 
 		local TargetTargetPowerBackground = TargetTargetPower:CreateTexture( nil, "BORDER" )
 		TargetTargetPowerBackground:SetAllPoints( TargetTargetPower )
@@ -1302,13 +1302,6 @@ do
 					hooksecurefunc( frames, "PostCreateIcon", S.SkinAura )
 				end
 			end
-		end
-
-		------------------------------
-		-- altpowerbar
-		------------------------------
-		do
-			G.UnitFrames["Boss" .. i].AltPowerBar:SetStatusBarTexture( C["media"]["normTex"] )
 		end
 
 		------------------------------
