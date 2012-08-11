@@ -68,6 +68,8 @@ S.PostUpdateRaidUnit = function( self )
 		self.Health.colorReaction = true
 	end
 
+	self.Health.PostUpdate = S.PostUpdateHealthRaid
+
 	if( C["unitframes"]["gradienthealth"] == true and C["unitframes"]["unicolor"] == true ) then
 		self:HookScript( "OnEnter", function( self )
 			if( not UnitIsConnected( self.unit ) or UnitIsDead( self.unit ) or UnitIsGhost( self.unit ) ) then return end
@@ -84,8 +86,6 @@ S.PostUpdateRaidUnit = function( self )
 			self.Health.classcolored = false
 		end )
 	end
-
-	self.Health.PostUpdate = S.PostUpdateHealthRaid
 
 	self:HighlightUnit( 1, 0, 0, 1 )
 
