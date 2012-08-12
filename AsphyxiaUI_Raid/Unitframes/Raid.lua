@@ -57,6 +57,9 @@ S.PostUpdateRaidUnit = function( self )
 	self.Health.value:Point( "CENTER", self.Health, 1, -5 )
 	self.Health.value:SetFont( S.CreateFontString() )
 
+	self.Health.PostUpdate = S.PostUpdateHealthRaid
+	self.Health.frequentUpdates = true
+
 	if( C["unitframes"]["unicolor"] == true ) then
 		self.Health.colorDisconnected = false
 		self.Health.colorClass = false
@@ -67,8 +70,6 @@ S.PostUpdateRaidUnit = function( self )
 		self.Health.colorClass = true
 		self.Health.colorReaction = true
 	end
-
-	self.Health.PostUpdate = S.PostUpdateHealthRaid
 
 	if( C["unitframes"]["gradienthealth"] == true and C["unitframes"]["unicolor"] == true ) then
 		self:HookScript( "OnEnter", function( self )
@@ -159,6 +160,7 @@ AsphyxiaUIRaidPosition:SetScript( "OnEvent", function( self, event )
 	local raid = G.UnitFrames.RaidUnits
 	local pets = G.UnitFrames.RaidPets
 	raid:ClearAllPoints()
+	pets:ClearAllPoints()
 
 	raid:SetPoint( "BOTTOMLEFT", TukuiChatBackgroundLeft, "TOPLEFT", 2, 14 )
 end )

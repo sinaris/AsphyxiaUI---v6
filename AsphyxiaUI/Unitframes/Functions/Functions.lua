@@ -278,7 +278,7 @@ hooksecurefunc( S, "PostUpdateHealthRaid", function( health, unit, min, max )
 		if( C["unitframes"]["gradienthealth"] == true and C["unitframes"]["unicolor"] == true ) then
 			if( not UnitIsConnected( unit ) or UnitIsDead( unit ) or UnitIsGhost( unit ) ) then return end
 			if( not health.classcolored ) then
-				local r, g, b = oUF.ColorGradient( min, max, unpack( C["unitframes"]["gradient"] ) )
+				local r, g, b = oUFTukui.ColorGradient( min, max, unpack( C["unitframes"]["gradient"] ) )
 				health:SetStatusBarColor( r, g, b )
 			end
 		end
