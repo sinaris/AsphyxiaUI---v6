@@ -47,7 +47,7 @@ S.PostUpdateRaidUnit = function( self )
 	self.Health:SetAllPoints( self )
 	self.Health:SetStatusBarTexture( C["media"]["normTex"] )
 	self.Health:CreateBorder( true )
-
+	self.Health:SetFrameLevel( 1 )
 	self.Health.colorDisconnected = false
 	self.Health.colorClass = false
 	self.Health:SetStatusBarColor( 0.2, 0.2, 0.2, 1 )
