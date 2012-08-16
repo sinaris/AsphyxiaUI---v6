@@ -3,4 +3,5 @@
 	<Script file="Icon.lua" />
 	<Script file="ItemLevel.lua" />
 	<Script file="Talents.lua" />
+	<Script file="SpellItemID.lua" />
 </Ui>

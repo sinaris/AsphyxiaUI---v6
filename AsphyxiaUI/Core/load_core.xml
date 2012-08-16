@@ -6,4 +6,6 @@
 	<Script file="Init.lua" />
 	<Script file="Kill.lua" />
 	<Script file="Install.lua" />
+
+	<Script file="Filter\CombatText.lua" />
 </Ui>

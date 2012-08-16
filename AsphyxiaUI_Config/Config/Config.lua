@@ -111,7 +111,8 @@ C["intmodules"] = {
 	["bnetpanel"] = true,
 	["itemlevelongearandslots"] = true,
 	["layoutchanger"] = true,
-	["micromenu"] = true,
+	["achscreen"] = true,
+	["minimapbuttons"] = true,
 }
 
 C["unitframes"] = {
@@ -124,6 +125,36 @@ C["unitframes"] = {
 		0.6, 0.3, 0.3,
 		0.2, 0.2, 0.2,
 	},
+}
+
+C["combattext"] = {
+	["enable"] = true,
+	["blizzheadnumbers"] = false,
+	["damagestyle"] = true,
+	["damage"] = true,
+	["healing"] = true,
+	["showhots"] = true,
+	["showoverhealing"] = true,
+	["petdamage"] = true,
+	["dotdamage"] = true,
+	["damagecolor"] = true,
+	["critprefix"] = "*",
+	["critpostfix"] = "*",
+	["icons"] = true,
+	["iconsize"] = 16,
+	["treshold"] = 1,
+	["healtreshold"] = 1,
+	["scrollable"] = false,
+	["maxlines"] = 15,
+	["timevisible"] = 3,
+	["stopvespam"] = false,
+	["dkrunes"] = true,
+	["killingblow"] = false,
+	["mergeaoespam"] = true,
+	["mergeaoespamtime"] = 3,
+	["dispel"] = true,
+	["interrupt"] = true,
+	["direction"] = "bottom",
 }
 
 C["media"] = {
@@ -145,6 +176,12 @@ C["media"] = {
 	["lfdrole_dps"] = [[Interface\AddOns\AsphyxiaUI\Media\Textures\LFDRoleDPS.tga]],
 	["lfdrole_healer"] = [[Interface\AddOns\AsphyxiaUI\Media\Textures\LFDRoleHealer.tga]],
 	["lfdrole_tank"] = [[Interface\AddOns\AsphyxiaUI\Media\Textures\LFDRoleTank.tga]],
+
+	["combattextfont_normal"] = [=[Interface\Addons\AsphyxiaUI\medias\fonts\CombatTextFontNormal.ttf]=],
+	["combattextfont_ru"] = [=[Interface\Addons\AsphyxiaUI\medias\fonts\CombatTextFontRu.ttf]=],
+	["combattextfontsize"] = 20,
+	["combattextfontstyle"] = "OUTLINE",
+	["combattextfontshadow"] = false,
 
 	["bordercolor"] = C["general"].bordercolor,
 	["backdropcolor"] = C["general"].backdropcolor,

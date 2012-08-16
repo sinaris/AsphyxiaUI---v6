@@ -24,6 +24,8 @@ L.Popups_ENABLE_CHAT_BACKGROUNDS = ""
 ------------------------------
 L.Tooltip_LOADING_TALENT = "Loading Talents..."
 L.Tooltip_NO_TALENTS = "No Talents"
+L.Tooltip_ITEMID = "Item ID:"
+L.Tooltip_SPELLID = "Spell ID:"
 
 ------------------------------
 -- GameTooltip

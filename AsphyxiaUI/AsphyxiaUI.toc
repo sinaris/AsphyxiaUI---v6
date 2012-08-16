@@ -5,6 +5,7 @@
 ## Author: Sinaris, Merith
 ## SavedVariablesPerCharacter: AsphyxiaUISaved
 ## RequiredDeps: AsphyxiaUI_Config, Tukui
+## OptionalDeps: Blizzard_CombatText
 ## X-oUF: oUFTukui
 
 AsphyxiaUI_Loader.xml

@@ -11,6 +11,7 @@
 	<Include file="Maps\load_maps.xml" />
 	<Include file="Misc\load_misc.xml" />
 	<Include file="Tooltip\load_tooltip.xml" />
+	<Include file="UI\load_ui.xml" />
 
 	<Include file="Skins\load_skins.xml" />
 </Ui>
