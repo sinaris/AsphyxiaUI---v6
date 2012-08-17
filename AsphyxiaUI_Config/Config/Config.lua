@@ -9,6 +9,7 @@ C["global"] = {
 C["unitframes"] = {
 	["cblatency"] = true,
 	["fader"] = true,
+	["druidmana"] = true,
 }
 
 C["general"] = {
@@ -177,8 +178,7 @@ C["media"] = {
 	["lfdrole_healer"] = [[Interface\AddOns\AsphyxiaUI\Media\Textures\LFDRoleHealer.tga]],
 	["lfdrole_tank"] = [[Interface\AddOns\AsphyxiaUI\Media\Textures\LFDRoleTank.tga]],
 
-	["combattextfont_normal"] = [=[Interface\Addons\AsphyxiaUI\medias\fonts\CombatTextFontNormal.ttf]=],
-	["combattextfont_ru"] = [=[Interface\Addons\AsphyxiaUI\medias\fonts\CombatTextFontRu.ttf]=],
+	["combattextfont"] = [=[Interface\Addons\Tukui\medias\fonts\normal_font.ttf]=],
 	["combattextfontsize"] = 20,
 	["combattextfontstyle"] = "OUTLINE",
 	["combattextfontshadow"] = false,

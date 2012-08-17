@@ -43,3 +43,30 @@ local function ActionBarStyleButtons( self )
 end
 
 hooksecurefunc( "ActionButton_Update", ActionBarStyleButtons )
+
+function S.ShowHighlightActionButton( self )
+	if( self.overlay ) then
+		local color = RAID_CLASS_COLORS[S.myclass]
+		self.overlay:Hide()
+		ActionButton_HideOverlayGlow( self )
+		self.shine = SpellBook_GetAutoCastShine()
+		self.shine:Show()
+		self.shine:SetParent( self )
+		self.shine:SetPoint( "CENTER", self, "CENTER" )
+		AutoCastShine_AutoCastStart( self.shine, color.r, color.g, color.b )
+
+		for _, sparkle in next, self.shine.sparkles do
+			sparkle:SetHeight( sparkle:GetHeight() * 2 )
+			sparkle:SetWidth( sparkle:GetWidth() * 2 )
+		end
+	end
+end
+
+function S.HideHighlightActionButton( self )
+	if( self.shine ) then
+		AutoCastShine_AutoCastStop( self.shine )
+	end
+end
+
+hooksecurefunc( "ActionButton_ShowOverlayGlow", S.ShowHighlightActionButton )
+hooksecurefunc( "ActionButton_HideOverlayGlow", S.HideHighlightActionButton )

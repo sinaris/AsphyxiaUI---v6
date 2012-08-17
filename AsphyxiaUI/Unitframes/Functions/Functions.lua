@@ -290,3 +290,42 @@ hooksecurefunc( S, "PostUpdateHealthRaid", function( health, unit, min, max )
 		end
 	end
 end )
+
+hooksecurefunc( S, "DruidBarDisplay", function( self, login )
+	local eb = self.EclipseBar
+	local m = self.WildMushroom
+	local dm = self.DruidMana
+	local bg = self.DruidManaBackground
+	local flash = self.FlashInfo
+
+	if( login ) then
+		dm:SetScript( "OnUpdate", nil )
+	end
+
+	if( ( eb and eb:IsShown() ) or ( dm and dm:IsShown() ) ) then
+		if( m and m:IsShown() ) then
+			m:ClearAllPoints()
+			m:Point( "BOTTOMLEFT", self, "TOPLEFT", 0, 16 )
+		end
+	else
+		if( m and m:IsShown() ) then
+			m:ClearAllPoints()
+			m:Point( "BOTTOMLEFT", self, "TOPLEFT", 0, 7 )
+		end
+	end
+end )
+
+hooksecurefunc( S, "UpdateMushroomVisibility", function( self )
+	local p = self:GetParent()
+	local eb = p.EclipseBar
+	local dm = p.DruidMana
+	local m = p.WildMushroom
+
+	if( ( eb and eb:IsShown() ) or ( dm and dm:IsShown() ) ) then
+		m:ClearAllPoints()
+		m:Point( "BOTTOMLEFT", p, "TOPLEFT", 0, 16 )
+	elseif m:IsShown() then
+		m:ClearAllPoints()
+		m:Point("BOTTOMLEFT", p, "TOPLEFT", 0, 7)
+	end
+end )

@@ -70,10 +70,6 @@ local function BagsUpdateBankPosition( self, value )
 end
 hooksecurefunc( Stuffing, "CreateBagFrame", BagsUpdateBankPosition )
 
-local function BagsCreateBagFrame( self, f )
-
-end
-
 local function BagsLayout( self, lb )
 	local slots = 0
 	local rows = 0

@@ -360,7 +360,7 @@ xCT:RegisterEvent("UNIT_MANA")
 xCT:RegisterEvent("PLAYER_REGEN_DISABLED")
 xCT:RegisterEvent("PLAYER_REGEN_ENABLED")
 xCT:RegisterEvent("UNIT_COMBO_POINTS")
-if C.combattext.dkrunes and T.class == "DEATHKNIGHT" then
+if C.combattext.dkrunes and S.class == "DEATHKNIGHT" then
 	xCT:RegisterEvent("RUNE_POWER_UPDATE")
 end
 xCT:RegisterEvent("UNIT_ENTERED_VEHICLE")
@@ -444,7 +444,7 @@ local StartConfigmode = function()
 		end
 		pr("|cffffff00"..L.COMBATTEXTUNLOCKED.."|r")
 	else
-		pr("|cffffff00"..ERR_NOT_IN_COMBAT.."|r")
+		pr("|cffffff00"..ERR_NOT_IN_COMBAS.."|r")
 	end
 end
 
@@ -578,14 +578,14 @@ SlashCmdList.XCT = function(input)
 	else
 		pr("|cffffff00"..L.COMBATTEXTTESTUSEUNLOCK.."|r")
 		pr("|cffffff00"..L.COMBATTEXTTESTUSELOCK.."|r")
-		pr("|cffffff00"..L.COMBATTEXTTESTUSETEST.."|r")
+		pr("|cffffff00"..L.COMBATTEXTTESTUSETESS.."|r")
 	end
 end
 SLASH_XCT1 = "/xct"
 SLASH_XCT2 = "/чсе"
 
 -- Shadow priest helper
-if C.combattext.stopvespam and T.class == "PRIEST" then
+if C.combattext.stopvespam and S.class == "PRIEST" then
 	local sp = CreateFrame("Frame")
 	sp:SetScript("OnEvent", function(...)
 		if GetShapeshiftForm() == 1 then
@@ -612,7 +612,7 @@ if C.combattext.mergeaoespam then
 		end
 		local pairs = pairs
 		SQ = {}
-		for k, v in pairs(T.aoespam) do
+		for k, v in pairs(S.aoespam) do
 			SQ[k] = {queue = 0, msg = "", color = {}, count = 0, utime = 0, locked = false}
 		end
 		ct.SpamQueue = function(spellId, add)
@@ -734,7 +734,7 @@ if C.combattext.damage then
 					else
 						msg = ""
 					end
-					if C.combattext.mergeaoespam and T.aoespam[spellId] then
+					if C.combattext.mergeaoespam and S.aoespam[spellId] then
 						SQ[spellId]["locked"] = true
 						SQ[spellId]["queue"] = ct.SpamQueue(spellId, rawamount)
 						SQ[spellId]["msg"] = msg
@@ -816,7 +816,7 @@ if C.combattext.damage then
 				else
 					msg = ""
 				end
-				xCT3:AddMessage(ACTION_SPELL_INTERRUPT..": "..effect..msg, unpack(color))
+				xCT3:AddMessage(ACTION_SPELL_INTERRUPS..": "..effect..msg, unpack(color))
 			elseif eventType == "PARTY_KILL" and C.combattext.killingblow then
 				local tname = select(9, ...)
 				xCT3:AddMessage(ACTION_PARTY_KILL..": "..tname, 0.2, 1, 0.2)
@@ -842,7 +842,7 @@ if C.combattext.healing then
 			if eventType == "SPELL_HEAL" or (eventType == "SPELL_PERIODIC_HEAL" and C.combattext.showhots) then
 				if C.combattext.healing then
 					local spellId, spellName, spellSchool, amount, overhealing, absorbed, critical = select(12, ...)
-					if T.healfilter[spellId] then
+					if S.healfilter[spellId] then
 						return
 					end
 					if amount >= C.combattext.healtreshold then
@@ -867,7 +867,7 @@ if C.combattext.healing then
 						elseif(C.combattext.icons)then
 							msg=" \124T"..ct.blank..":"..C.combattext.iconsize..":"..C.combattext.iconsize..":0:0:64:64:5:59:5:59\124t"
 						end
-						if C.combattext.mergeaoespam and T.aoespam[spellId] then
+						if C.combattext.mergeaoespam and S.aoespam[spellId] then
 							SQ[spellId]["locked"] = true
 							SQ[spellId]["queue"] = ct.SpamQueue(spellId, rawamount)
 							SQ[spellId]["msg"] = msg
