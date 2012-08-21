@@ -1483,13 +1483,19 @@ do
 		end
 
 		------------------------------
+		-- pvp scpec icon
+		------------------------------
+		do
+			G.UnitFrames["Arena" .. i].PVPSpecIcon:Size( 26 )
+			G.UnitFrames["Arena" .. i].PVPSpecIcon:CreateShadow( "Default" )
+		end
+
+		------------------------------
 		-- trinket
 		------------------------------
 		do
-			G.UnitFrames["Arena" .. i].Trinketbg:ClearAllPoints()
-			G.UnitFrames["Arena" .. i].Trinketbg:Point( "RIGHT", G.UnitFrames["Arena" .. i], "LEFT", -5, 0 )
-			G.UnitFrames["Arena" .. i].Trinketbg:Size( 30 )
-			G.UnitFrames["Arena" .. i].Trinketbg:CreateShadow( "Default" )
+			G.UnitFrames["Arena" .. i].Trinket:Size( 26 )
+			G.UnitFrames["Arena" .. i].Trinket:CreateShadow( "Default" )
 		end
 
 		------------------------------

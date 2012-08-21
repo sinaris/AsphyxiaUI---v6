@@ -70,3 +70,5 @@ end
 
 hooksecurefunc( "ActionButton_ShowOverlayGlow", S.ShowHighlightActionButton )
 hooksecurefunc( "ActionButton_HideOverlayGlow", S.HideHighlightActionButton )
+
+S.SetDefaultActionButtonCooldownFont = C.media.asphyxia

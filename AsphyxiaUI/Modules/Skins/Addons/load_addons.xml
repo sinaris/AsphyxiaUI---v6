@@ -1,3 +1,7 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/">
-
+	<Script file="EmbedRight.lua" />
+	<Script file="DBM.lua" />
+	<Script file="Skada.lua" />
+	<Script file="TinyDPS.lua" />
+	<Script file="Recount.lua" />
 </Ui>

@@ -117,11 +117,44 @@ S.AFK_LIST = {
 }
 
 local AsphyxiaUIAFKPanel = CreateFrame( "Frame", "AsphyxiaUIAFKPanel", nil )
-AsphyxiaUIAFKPanel:Size( 9999, 150 )
-AsphyxiaUIAFKPanel:Point( "BOTTOM", UIParent, "BOTTOM", 0, 0 )
+AsphyxiaUIAFKPanel:SetPoint( "BOTTOMLEFT", UIParent, "BOTTOMLEFT", -2, -2 )
+AsphyxiaUIAFKPanel:SetPoint( "TOPRIGHT", UIParent, "BOTTOMRIGHT", 2, 150 )
 AsphyxiaUIAFKPanel:SetTemplate( "Transparent" )
 AsphyxiaUIAFKPanel:CreateShadow( "Default" )
 AsphyxiaUIAFKPanel:Hide()
+
+local AsphyxiaUIAFKPanelTop = CreateFrame( "Frame", "AsphyxiaUIAFKPanelTop", nil )
+AsphyxiaUIAFKPanelTop:SetPoint( "TOPLEFT", UIParent, "TOPLEFT",-2, 2 )
+AsphyxiaUIAFKPanelTop:SetPoint( "BOTTOMRIGHT", UIParent, "TOPRIGHT", 2, -80 )
+AsphyxiaUIAFKPanelTop:SetTemplate( "Transparent" )
+AsphyxiaUIAFKPanelTop:CreateShadow( "Default" )
+AsphyxiaUIAFKPanelTop:SetFrameStrata("FULLSCREEN")
+AsphyxiaUIAFKPanelTop:Hide()
+
+AsphyxiaUIAFKPanelTop.AsphyxiaUIText = AsphyxiaUIAFKPanelTop:CreateFontString( nil, "OVERLAY" )
+AsphyxiaUIAFKPanelTop.AsphyxiaUIText:SetPoint( "BOTTOMRIGHT", AsphyxiaUIAFKPanelTop, "BOTTOMRIGHT", -200, 13 )
+AsphyxiaUIAFKPanelTop.AsphyxiaUIText:SetFont( C["media"]["font"], 30, "OUTLINE" )
+AsphyxiaUIAFKPanelTop.AsphyxiaUIText:SetText( "AsphyxiaUI" )
+
+AsphyxiaUIAFKPanelTop.ClockText = AsphyxiaUIAFKPanelTop:CreateFontString( nil, "OVERLAY" )
+AsphyxiaUIAFKPanelTop.ClockText:SetPoint( "BOTTOMLEFT", AsphyxiaUIAFKPanelTop, "BOTTOMRIGHT", -190, 10 )
+AsphyxiaUIAFKPanelTop.ClockText:SetFont( C["media"]["font"], 20, "OUTLINE" )
+AsphyxiaUIAFKPanelTop.ClockText:SetTextColor( 0.7, 0.7, 0.7 )
+
+AsphyxiaUIAFKPanelTop.DateText = AsphyxiaUIAFKPanelTop:CreateFontString( nil, "OVERLAY" )
+AsphyxiaUIAFKPanelTop.DateText:SetPoint( "BOTTOMLEFT", AsphyxiaUIAFKPanelTop, "BOTTOMRIGHT", -190, 34 )
+AsphyxiaUIAFKPanelTop.DateText:SetFont( C["media"]["font"], 15, "OUTLINE" )
+AsphyxiaUIAFKPanelTop.DateText:SetTextColor( 0.7, 0.7, 0.7 )
+
+local interval = 0
+AsphyxiaUIAFKPanelTop:SetScript( "OnUpdate", function( self, elapsed )
+	interval = interval - elapsed
+	if( interval <= 0 ) then
+		AsphyxiaUIAFKPanelTop.ClockText:SetText( format("%s", date( "%H:%M:%S" ) ) )
+		AsphyxiaUIAFKPanelTop.DateText:SetText( format("%s", date( "%a %b/%d" ) ) )
+		interval = .5
+	end
+end )
 
 local OnEvent = function( self, event, unit )
 	if( event == "PLAYER_FLAGS_CHANGED" ) then
@@ -129,9 +162,11 @@ local OnEvent = function( self, event, unit )
 			if( UnitIsAFK( unit ) ) then
 				SpinStart()
 				AsphyxiaUIAFKPanel:Show()
+				AsphyxiaUIAFKPanelTop:Show()
 			else
 				SpinStop()
 				AsphyxiaUIAFKPanel:Hide()
+				AsphyxiaUIAFKPanelTop:Hide()
 			end
 		end
 	elseif( event == "PLAYER_LEAVING_WORLD" ) then

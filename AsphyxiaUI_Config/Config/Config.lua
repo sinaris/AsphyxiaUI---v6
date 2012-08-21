@@ -1,5 +1,12 @@
 local C = {}
 
+C["addonskins"] = {
+	["embedright"] = {
+		["enable"] = true,
+		["combattoggle"] = true,
+	},
+}
+
 C["global"] = {
 	["unitframelayout"] = "asphyxia",
 	["ablayout"] = 1,
