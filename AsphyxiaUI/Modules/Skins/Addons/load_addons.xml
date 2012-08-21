@@ -4,4 +4,5 @@
 	<Script file="Skada.lua" />
 	<Script file="TinyDPS.lua" />
 	<Script file="Recount.lua" />
+	<Script file="Omen.lua" />
 </Ui>

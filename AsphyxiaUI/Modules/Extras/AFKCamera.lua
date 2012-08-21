@@ -6,6 +6,19 @@ local S, C, L, G = unpack( Tukui )
 
 if( C["intmodules"]["afkcamera"] ~= true ) then return end
 
+local color = RAID_CLASS_COLORS[S.myclass]
+local PName = S.myname
+local PLevel = S.level
+local PClass = UnitClass( "player" )
+local PRace = S.myrace
+local PFaction = S.myfaction
+local Puild
+if( IsInGuild() ) then
+	PGuild = select( 1, GetGuildInfo( "player" ) )
+else
+	PGuild = " "
+end
+
 S.AFK_LIST = {
 	"Nearby questgivers that are awaiting your return are shown as a question mark on your mini-map.",
 	"Your spell casting can be cancelled by moving, jumping or hitting the escape key.",
@@ -128,29 +141,54 @@ AsphyxiaUIAFKPanelTop:SetPoint( "TOPLEFT", UIParent, "TOPLEFT",-2, 2 )
 AsphyxiaUIAFKPanelTop:SetPoint( "BOTTOMRIGHT", UIParent, "TOPRIGHT", 2, -80 )
 AsphyxiaUIAFKPanelTop:SetTemplate( "Transparent" )
 AsphyxiaUIAFKPanelTop:CreateShadow( "Default" )
-AsphyxiaUIAFKPanelTop:SetFrameStrata("FULLSCREEN")
+AsphyxiaUIAFKPanelTop:SetFrameStrata( "FULLSCREEN" )
 AsphyxiaUIAFKPanelTop:Hide()
 
-AsphyxiaUIAFKPanelTop.AsphyxiaUIText = AsphyxiaUIAFKPanelTop:CreateFontString( nil, "OVERLAY" )
-AsphyxiaUIAFKPanelTop.AsphyxiaUIText:SetPoint( "BOTTOMRIGHT", AsphyxiaUIAFKPanelTop, "BOTTOMRIGHT", -200, 13 )
-AsphyxiaUIAFKPanelTop.AsphyxiaUIText:SetFont( C["media"]["font"], 30, "OUTLINE" )
-AsphyxiaUIAFKPanelTop.AsphyxiaUIText:SetText( "AsphyxiaUI" )
+local AsphyxiaUIAFKPanelTopIcon = CreateFrame( "Frame", "AsphyxiaUIAFKPanelTopIcon", AsphyxiaUIAFKPanelTop )
+AsphyxiaUIAFKPanelTopIcon:Size( 48 )
+AsphyxiaUIAFKPanelTopIcon:Point( "CENTER", AsphyxiaUIAFKPanelTop, "BOTTOM", 0, 0 )
+AsphyxiaUIAFKPanelTopIcon:SetTemplate( "Default" )
+AsphyxiaUIAFKPanelTopIcon:CreateShadow( "Default" )
 
-AsphyxiaUIAFKPanelTop.ClockText = AsphyxiaUIAFKPanelTop:CreateFontString( nil, "OVERLAY" )
-AsphyxiaUIAFKPanelTop.ClockText:SetPoint( "BOTTOMLEFT", AsphyxiaUIAFKPanelTop, "BOTTOMRIGHT", -190, 10 )
-AsphyxiaUIAFKPanelTop.ClockText:SetFont( C["media"]["font"], 20, "OUTLINE" )
-AsphyxiaUIAFKPanelTop.ClockText:SetTextColor( 0.7, 0.7, 0.7 )
+AsphyxiaUIAFKPanelTopIcon.Texture = AsphyxiaUIAFKPanelTopIcon:CreateTexture( nil, "ARTWORK" )
+AsphyxiaUIAFKPanelTopIcon.Texture:Point( "TOPLEFT", 2, -2 )
+AsphyxiaUIAFKPanelTopIcon.Texture:Point( "BOTTOMRIGHT", -2, 2 )
+AsphyxiaUIAFKPanelTopIcon.Texture:SetTexture( C["media"]["logo"] )
+
+AsphyxiaUIAFKPanelTop.AsphyxiaUIText = AsphyxiaUIAFKPanelTop:CreateFontString( nil, "OVERLAY" )
+AsphyxiaUIAFKPanelTop.AsphyxiaUIText:SetPoint( "CENTER", AsphyxiaUIAFKPanelTop, "CENTER", 0, 0 )
+AsphyxiaUIAFKPanelTop.AsphyxiaUIText:SetFont( C["media"]["font"], 40, "OUTLINE" )
+AsphyxiaUIAFKPanelTop.AsphyxiaUIText:SetText( "|cffFF6347AsphyxiaUI " .. GetAddOnMetadata( "AsphyxiaUI", "Version" ) .. "|r" )
 
 AsphyxiaUIAFKPanelTop.DateText = AsphyxiaUIAFKPanelTop:CreateFontString( nil, "OVERLAY" )
-AsphyxiaUIAFKPanelTop.DateText:SetPoint( "BOTTOMLEFT", AsphyxiaUIAFKPanelTop, "BOTTOMRIGHT", -190, 34 )
+AsphyxiaUIAFKPanelTop.DateText:SetPoint( "BOTTOMLEFT", AsphyxiaUIAFKPanelTop, "BOTTOMRIGHT", -100, 44 )
 AsphyxiaUIAFKPanelTop.DateText:SetFont( C["media"]["font"], 15, "OUTLINE" )
-AsphyxiaUIAFKPanelTop.DateText:SetTextColor( 0.7, 0.7, 0.7 )
+
+AsphyxiaUIAFKPanelTop.ClockText = AsphyxiaUIAFKPanelTop:CreateFontString( nil, "OVERLAY" )
+AsphyxiaUIAFKPanelTop.ClockText:SetPoint( "BOTTOMLEFT", AsphyxiaUIAFKPanelTop, "BOTTOMRIGHT", -100, 20 )
+AsphyxiaUIAFKPanelTop.ClockText:SetFont( C["media"]["font"], 20, "OUTLINE" )
+
+AsphyxiaUIAFKPanelTop.PlayerNameText = AsphyxiaUIAFKPanelTop:CreateFontString( nil, "OVERLAY" )
+AsphyxiaUIAFKPanelTop.PlayerNameText:SetPoint( "LEFT", AsphyxiaUIAFKPanelTop, "LEFT", 25, 15 )
+AsphyxiaUIAFKPanelTop.PlayerNameText:SetFont( C["media"]["font"], 28, "OUTLINE" )
+AsphyxiaUIAFKPanelTop.PlayerNameText:SetText( PName )
+AsphyxiaUIAFKPanelTop.PlayerNameText:SetTextColor( color.r, color.g, color.b )
+
+AsphyxiaUIAFKPanelTop.GuildText = AsphyxiaUIAFKPanelTop:CreateFontString( nil, "OVERLAY" )
+AsphyxiaUIAFKPanelTop.GuildText:SetPoint( "LEFT", AsphyxiaUIAFKPanelTop, "LEFT", 25, -3 )
+AsphyxiaUIAFKPanelTop.GuildText:SetFont( C["media"]["font"], 15, "OUTLINE" )
+AsphyxiaUIAFKPanelTop.GuildText:SetText( "|cff00AAFF" .. PGuild .. "|r" )
+
+AsphyxiaUIAFKPanelTop.PlayerInfoText = AsphyxiaUIAFKPanelTop:CreateFontString( nil, "OVERLAY" )
+AsphyxiaUIAFKPanelTop.PlayerInfoText:SetPoint( "LEFT", AsphyxiaUIAFKPanelTop, "LEFT", 25, -20 )
+AsphyxiaUIAFKPanelTop.PlayerInfoText:SetFont( C["media"]["font"], 15, "OUTLINE" )
+AsphyxiaUIAFKPanelTop.PlayerInfoText:SetText( LEVEL .. " " .. PLevel .. " " .. PFaction .. " " .. PClass )
 
 local interval = 0
 AsphyxiaUIAFKPanelTop:SetScript( "OnUpdate", function( self, elapsed )
 	interval = interval - elapsed
 	if( interval <= 0 ) then
-		AsphyxiaUIAFKPanelTop.ClockText:SetText( format("%s", date( "%H:%M:%S" ) ) )
+		AsphyxiaUIAFKPanelTop.ClockText:SetText( format("%s", date( "|cff00AAFF%H:%M:%S|r" ) ) )
 		AsphyxiaUIAFKPanelTop.DateText:SetText( format("%s", date( "%a %b/%d" ) ) )
 		interval = .5
 	end

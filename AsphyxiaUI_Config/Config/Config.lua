@@ -1,10 +1,12 @@
 local C = {}
 
 C["addonskins"] = {
-	["embedright"] = {
-		["enable"] = true,
-		["combattoggle"] = true,
-	},
+	["background"] = true,
+	["combattoggle"] = true,
+	["embedright"] = "skada",
+	["embedrighttoggle"] = true,
+	["tinydps"] = true,
+	["skada"] = true,
 }
 
 C["global"] = {
@@ -176,6 +178,7 @@ C["media"] = {
 	["minimalist"] =  [[Interface\AddOns\AsphyxiaUI\Media\Textures\Minimalist.tga]],
 	["iconlayoutdps"] = [[Interface\AddOns\AsphyxiaUI\Media\Textures\IconLayoutDPS.tga]],
 	["iconlayoutheal"] = [[Interface\AddOns\AsphyxiaUI\Media\Textures\IconLayoutHeal.tga]],
+	["addonstoggle"] = [[Interface\AddOns\AsphyxiaUI\Media\Textures\AddOnsToggle.tga]],
 
 	["bnetgold"] = [[Interface\AddOns\AsphyxiaUI\Media\Textures\BNetGoldTexture.tga]],
 	["bnetlogo"] = [[Interface\AddOns\AsphyxiaUI\Media\Textures\BNetLogoTexture.tga]],
