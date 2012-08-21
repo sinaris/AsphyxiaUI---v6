@@ -1,10 +1,10 @@
 local C = {}
 
 C["addonskins"] = {
-	["background"] = true,
-	["combattoggle"] = true,
+	["background"] = false,
+	["combattoggle"] = false,
 	["embedright"] = "skada",
-	["embedrighttoggle"] = true,
+	["embedrighttoggle"] = false,
 	["tinydps"] = true,
 	["skada"] = true,
 }
