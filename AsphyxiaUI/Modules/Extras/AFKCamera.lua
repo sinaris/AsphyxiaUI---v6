@@ -188,8 +188,8 @@ local interval = 0
 AsphyxiaUIAFKPanelTop:SetScript( "OnUpdate", function( self, elapsed )
 	interval = interval - elapsed
 	if( interval <= 0 ) then
-		AsphyxiaUIAFKPanelTop.ClockText:SetText( format("%s", date( "|cff00AAFF%H:%M:%S|r" ) ) )
-		AsphyxiaUIAFKPanelTop.DateText:SetText( format("%s", date( "%a %b/%d" ) ) )
+		AsphyxiaUIAFKPanelTop.ClockText:SetText( format("%s", date( "%H:%M:%S" ) ) )
+		AsphyxiaUIAFKPanelTop.DateText:SetText( format("%s", date( "|cff00AAFF%a|r %b/%d" ) ) )
 		interval = .5
 	end
 end )
