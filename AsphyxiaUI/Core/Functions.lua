@@ -132,21 +132,23 @@ local function MoveUI()
 			ali:Hide()
 			Grid()
 			Ali = true
-			print( "Ali: ON" )
+			print( L.Grid_GRID_SHOW )
 		else
 			ali:Hide()
-			print( "Ali: OFF" )
+			print( L.Grid_GRID_HIDE )
 			Ali = false
 		end
 	else
 		ox = x
 		Grid()
 		Ali = true
-		print( "Ali: ON" )
+		print( L.Grid_GRID_SHOW )
 	end
 
 	local PanelsToMove = {
 		AsphyxiaUIUnitframesPlayerCastbarMover,
+		RaidCD,
+		MicroAnchormover,
 	}
 
 	if( AsphyxiaUIUnitframesPlayerCastbarMover ) then

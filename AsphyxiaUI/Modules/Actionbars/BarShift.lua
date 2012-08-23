@@ -4,6 +4,10 @@
 
 local S, C, L, G = unpack( Tukui )
 
+if( C["actionbar"].enable ~= true ) then return end
+
+local bar = G.ActionBars.Stance
+
 TukuiStance:ClearAllPoints()
 if( C["actionbar"].vertical_shapeshift == true ) then
 	TukuiStance:Point( "TOPLEFT", TukuiChatBackgroundLeft, "TOPRIGHT", 2, 0 )
@@ -11,26 +15,45 @@ else
 	TukuiStance:Point( "BOTTOMLEFT", TukuiChatBackgroundLeft, "BOTTOMRIGHT", 2, -1 )
 end
 
-local AsphyxiaUIStancebarBorder = CreateFrame( "Frame", "AsphyxiaUIStancebarBorder", UIParent )
-AsphyxiaUIStancebarBorder:SetTemplate( "Transparent" )
-AsphyxiaUIStancebarBorder:SetFrameLevel( 1 )
-AsphyxiaUIStancebarBorder:SetFrameStrata( "BACKGROUND" )
+local AsphyxiaUIStanceBarBorder = CreateFrame( "Frame", "AsphyxiaUIStanceBarBorder", StanceButton1 )
+AsphyxiaUIStanceBarBorder:SetTemplate( "Transparent" )
+AsphyxiaUIStanceBarBorder:SetFrameLevel( 1 )
+AsphyxiaUIStanceBarBorder:SetFrameStrata( "BACKGROUND" )
 
-AsphyxiaUIStancebarBorder:RegisterEvent("PLAYER_LOGIN")
-AsphyxiaUIStancebarBorder:RegisterEvent("PLAYER_ENTERING_WORLD")
-AsphyxiaUIStancebarBorder:RegisterEvent("UPDATE_SHAPESHIFT_FORMS")
-AsphyxiaUIStancebarBorder:RegisterEvent("UPDATE_SHAPESHIFT_FORM")
-AsphyxiaUIStancebarBorder:SetScript("OnEvent", function(self, event, ...)
-local forms = GetNumShapeshiftForms()
-	if forms > 0 then
-		if C.actionbar.vertical_shapeshift == true then
-			--AsphyxiaUIStancebarBorder:Width(S.buttonsize)
-			--AsphyxiaUIStancebarBorder:Height((S.buttonsize * forms) + ((S.buttonspacing * forms) - 3 ))
-			--AsphyxiaUIStancebarBorder:Point("TOPLEFT", _G["StanceButton1"], "TOPLEFT")
+TukuiStance:HookScript( "OnEvent", function( self, event, ... )
+	if( C["actionbar"]["vertical_shapeshift"] == true ) then
+		AsphyxiaUIStanceBarBorder:Point( "TOP", 0, S.buttonspacing )
+		AsphyxiaUIStanceBarBorder:Size( StanceButton1:GetHeight() + 2 * S.buttonspacing, ( ( StanceButton1:GetWidth() + S.buttonspacing ) * GetNumShapeshiftForms() ) + S.buttonspacing )
+	else
+		AsphyxiaUIStanceBarBorder:Point( "LEFT", -S.buttonspacing, 0 )
+		AsphyxiaUIStanceBarBorder:Size( ( ( StanceButton1:GetWidth() + S.buttonspacing ) * GetNumShapeshiftForms() ) + S.buttonspacing, StanceButton1:GetHeight() + 2 * S.buttonspacing )
+	end
+end )
+
+bar:HookScript( "OnEvent", function( self, event, unit )
+	local button
+	for i = 1, NUM_STANCE_SLOTS do
+		button = _G["StanceButton" .. i]
+		button:ClearAllPoints()
+		button:SetParent( self )
+		button:SetFrameStrata( "LOW" )
+		if( i == 1 ) then
+			if( C["actionbar"]["vertical_shapeshift"] == true ) then
+				button:Point( "TOPLEFT", 5, -5 )
+			else
+				button:Point( "BOTTOMLEFT", 5, 5 )
+			end
 		else
-			--AsphyxiaUIStancebarBorder:Width( ( ( S.buttonsize + S.buttonspacing ) * forms ) + ( S.buttonspacing * 2 ) )
-			--AsphyxiaUIStancebarBorder:Height(S.buttonsize + ( S.buttonspacing * 2 ) )
-			--AsphyxiaUIStancebarBorder:Point("TOPLEFT", _G["StanceButton1"], "TOPLEFT", -2, -2)
+			local previous = _G["StanceButton" .. i - 1]
+			if( C["actionbar"]["vertical_shapeshift"] == true ) then
+				button:Point( "TOP", previous, "BOTTOM", 0, -S.buttonspacing )
+			else
+				button:Point( "LEFT", previous, "RIGHT", S.buttonspacing, 0 )
+			end
+		end
+		local _, name = GetShapeshiftFormInfo( i )
+		if( name ) then
+			button:Show()
 		end
 	end
-end)
+end )

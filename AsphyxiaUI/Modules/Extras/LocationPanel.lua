@@ -6,7 +6,7 @@ local S, C, L, G = unpack( Tukui )
 
 if( C["intmodules"]["locationpanel"] ~= true ) then return end
 
-local AsphyxiaUILocationPanelZoneText = CreateFrame( "Frame", "AsphyxiaUILocationPanelZoneText", UIParent )
+local AsphyxiaUILocationPanelZoneText = CreateFrame( "Frame", "AsphyxiaUILocationPanelZoneText", TukuiPetBattleHider )
 AsphyxiaUILocationPanelZoneText:Size( 70, 23 )
 AsphyxiaUILocationPanelZoneText:Point( "TOP", UIParent, "TOP", 0, -2 )
 AsphyxiaUILocationPanelZoneText:SetTemplate( "Default" )

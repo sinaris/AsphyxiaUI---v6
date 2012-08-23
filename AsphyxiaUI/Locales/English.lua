@@ -16,8 +16,8 @@ L.Global_WELCOME_MESSAGE2 = "For detailed Information |cff00FFFFvisit www.tukui.
 ------------------------------
 -- Popups
 ------------------------------
-L.Popups_SELECT_RAID_LAYOUT = ""
-L.Popups_ENABLE_CHAT_BACKGROUNDS = ""
+L.Popups_SELECT_RAID_LAYOUT = "2 raid layouts are active, please select a layout."
+L.Popups_ENABLE_CHAT_BACKGROUNDS = "AsphyxiaUI needs to have the chatbackground enabled."
 
 ------------------------------
 -- Tooltip
@@ -34,6 +34,13 @@ L.Gametooltip_SHOW_HIDE_CURRENCYBARS = "Show or hide currency datapanels."
 L.Gametooltip_SHOW_HIDE_DATAPANELS = "Show or hide datatext panels below the actionbar."
 L.Gametooltip_SHOW_HIDE_MINIMAP = "Show or hide the minimap."
 L.Gametooltip_SWITCH_RAIDLAYOUT = "Switch raidlayout."
+L.Gametooltip_SHOW_HIDE_REPUTATION = "Show or hide reputation panels below the minimap."
+
+------------------------------
+-- Modules
+------------------------------
+L.Grid_GRID_SHOW = "|cff00FF00Grid enabled|r"
+L.Grid_GRID_HIDE = "|cffFF0000Grid disabled|r"
 
 ------------------------------
 -- Changelog, seperate Addon
@@ -76,6 +83,13 @@ L.Faq_CONTENT_TEXT_FIELD_0_3 = "Please select a category."
 L.Faq_CONTENT_TEXT_FIELD_0_4 = ""
 L.Faq_CONTENT_TEXT_FIELD_0_5 = ""
 L.Faq_CONTENT_TEXT_FIELD_0_6 = ""
+
+L.Faq_CONTENT_TEXT_FIELD_1_1 = "AsphyxiaUI - F.A.Q."
+L.Faq_CONTENT_TEXT_FIELD_1_2 = "Welcome to the F.A.Q. from AsphyxiaUI!\n\nThis F.A.Q. will help you to find the important settings and commands for AsphyxiaUI."
+L.Faq_CONTENT_TEXT_FIELD_1_3 = "Please select a category."
+L.Faq_CONTENT_TEXT_FIELD_1_4 = ""
+L.Faq_CONTENT_TEXT_FIELD_1_5 = ""
+L.Faq_CONTENT_TEXT_FIELD_1_6 = ""
 
 if( TukuiConfigUILocalization ) then
 

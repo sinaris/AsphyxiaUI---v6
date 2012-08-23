@@ -2,11 +2,14 @@
 	<Script file="AddOnManager.lua" />
 	<Script file="AFKCamera.lua" />
 	<Script file="AlertCombat.lua" />
-	<Script file="BNetPanel.lua" />
+	<!--<Script file="BNetPanel.lua" />-->
 	<Script file="CombatText.lua" />
 	<Script file="HatTrick.lua" />
 	<Script file="ItemLevelOnGearAndSlots.lua" />
 	<Script file="LocationPanel.lua" />
+	<Script file="MicroMenu.lua" />
 	<Script file="MinimapButtons.lua" />
 	<Script file="NickAlert.lua" />
+	<Script file="RaidbuffReminder.lua" />
+	<Script file="RaidCooldowns.lua" />
 </Ui>

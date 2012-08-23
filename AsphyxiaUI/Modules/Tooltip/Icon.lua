@@ -4,7 +4,7 @@
 
 local S, C, L, G = unpack( Tukui )
 
-if( C["tooltip"]["enable"] ~= true ) then return end
+if( C["tooltip"]["enable"] ~= true or C["tooltip"]["icon"] ~= true ) then return end
 
 local function AddTooltipIcon( self, icon )
 	if( icon ) then

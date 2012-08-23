@@ -184,7 +184,7 @@ end )
 ------------------------------
 -- /resetui Button
 ------------------------------
-local AsphyxiaUIResetUIButton = CreateFrame( "Button", "AsphyxiaUIResetUIButton", UIParent, "SecureActionButtonTemplate" )
+local AsphyxiaUIResetUIButton = CreateFrame( "Button", "AsphyxiaUIResetUIButton", TukuiPetBattleHider, "SecureActionButtonTemplate" )
 AsphyxiaUIResetUIButton:Size( 26, 20 )
 AsphyxiaUIResetUIButton:Point( "BOTTOM", UIParent, "BOTTOM", -66, 2 )
 AsphyxiaUIResetUIButton:SetTemplate( "Default" )
@@ -203,7 +203,7 @@ AsphyxiaUIResetUIButton.Text:SetText( S.RGBToHex( unpack( C["media"]["datatextco
 ------------------------------
 -- /reloadui Button
 ------------------------------
-local AsphyxiaUIReloadUIButton = CreateFrame( "Button", "AsphyxiaUIReloadUIButton", UIParent, "SecureActionButtonTemplate" )
+local AsphyxiaUIReloadUIButton = CreateFrame( "Button", "AsphyxiaUIReloadUIButton", TukuiPetBattleHider, "SecureActionButtonTemplate" )
 AsphyxiaUIReloadUIButton:Size( 26, 20 )
 AsphyxiaUIReloadUIButton:Point( "BOTTOM", UIParent, "BOTTOM", 66, 2 )
 AsphyxiaUIReloadUIButton:SetTemplate( "Default" )

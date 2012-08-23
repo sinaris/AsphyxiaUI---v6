@@ -21,6 +21,14 @@ C["unitframes"] = {
 	["druidmana"] = true,
 }
 
+C["raidcooldowns"] = {
+	["enable"] = true,
+	["icons"] = true,
+	["showinparty"] = true,
+	["showinraid"] = true,
+	["showinarena"] = true,
+}
+
 C["general"] = {
 	["backdropcolor"] = { 0.0, 0.0, 0.0 },
 	["bordercolor"] = { 0.125, 0.125, 0.125 },
@@ -73,6 +81,15 @@ C["databars"] = {
 	},
 }
 
+C["tooltip"] = {
+	["enable"] = true,
+	["icon"] = true,
+	["itemlevel"] = true,
+	["spellitemids"] = true,
+	["talents"] = true,
+	["symbiosis"] = true,
+}
+
 C["datatext"] = {
 	["armor"] = 0,
 	["avd"] = 0,
@@ -123,6 +140,7 @@ C["intmodules"] = {
 	["layoutchanger"] = true,
 	["achscreen"] = true,
 	["minimapbuttons"] = true,
+	["micromenu"] = true,
 }
 
 C["unitframes"] = {

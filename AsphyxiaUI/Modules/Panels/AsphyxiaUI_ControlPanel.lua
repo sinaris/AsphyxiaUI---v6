@@ -136,7 +136,7 @@ end )
 ------------------------------
 -- Control Panel Button
 ------------------------------
-local AsphyxiaUIControlPanelButton = CreateFrame( "Frame", "AsphyxiaUIControlPanelButton", UIParent )
+local AsphyxiaUIControlPanelButton = CreateFrame( "Frame", "AsphyxiaUIControlPanelButton", TukuiPetBattleHider )
 AsphyxiaUIControlPanelButton:Size( 100, 20 )
 AsphyxiaUIControlPanelButton:Point( "BOTTOM", UIParent, "BOTTOM", 0, 2 )
 AsphyxiaUIControlPanelButton:SetTemplate( "Default" )

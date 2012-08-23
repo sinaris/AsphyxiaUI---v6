@@ -4,7 +4,7 @@
 
 local S, C, L, G = unpack( Tukui )
 
-if( C["tooltip"]["enable"] ~= true ) then return end
+if( C["tooltip"]["enable"] ~= true or C["tooltip"]["talents"] ~= true ) then return end
 
 local ttt = CreateFrame( "Frame", "GameTooltipTalents" )
 local maxtree, left, leftText
@@ -47,7 +47,7 @@ local function TalentText()
 			for i = 1, GameTooltip:NumLines() do
 				left = _G[GameTooltip:GetName() .. "TextLeft" .. i]
 				leftText = left:GetText() or ""
-				if( leftText:match( "^" .. SPECIALIZATION ) ) then
+				if( leftText ~= "" and leftText:match( "^" .. SPECIALIZATION ) ) then
 					left:SetText( SPECIALIZATION .. ": |cffffffff" .. select( 2, GetSpecializationInfoByID( maxtree ) ) .. "|r" )
 				end
 				GameTooltip:Show()

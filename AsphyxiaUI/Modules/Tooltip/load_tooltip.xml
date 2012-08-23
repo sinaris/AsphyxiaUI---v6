@@ -4,4 +4,5 @@
 	<Script file="ItemLevel.lua" />
 	<Script file="Talents.lua" />
 	<Script file="SpellItemID.lua" />
+	<Script file="Symbiosis.lua" />
 </Ui>

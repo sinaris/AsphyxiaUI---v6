@@ -15,7 +15,7 @@ end
 if( S.maxDatabars == 0 ) then return end
 
 for i = 1, S.maxDatabars do
-	S.databars[i] = CreateFrame( "Frame", "AsphyxiaUIDataBar" .. i .. "_Panel", UIParent )
+	S.databars[i] = CreateFrame( "Frame", "AsphyxiaUIDataBar" .. i .. "_Panel", TukuiPetBattleHider )
 	S.databars[i]:CreateShadow()
 	if( i == 1 ) then
 		S.databars[i]:Size( C["databars"]["settings"]["width"], C["databars"]["settings"]["height"] )

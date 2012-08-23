@@ -4,7 +4,7 @@
 
 local S, C, L, G = unpack( Tukui )
 
-if( C["tooltip"]["enable"] ~= true ) then return end
+if( C["tooltip"]["enable"] ~= true or C["tooltip"]["spellitemids"] ~= true ) then return end
 
 local function addLine( self, id, isItem )
 	if( isItem ) then

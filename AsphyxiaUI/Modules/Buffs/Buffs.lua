@@ -7,12 +7,12 @@ local S, C, L, G = unpack( Tukui )
 TukuiAurasPlayerBuffs:ClearAllPoints()
 TukuiAurasPlayerDebuffs:ClearAllPoints()
 
-TukuiAurasPlayerBuffs:SetPoint( "TOPRIGHT", UIParent, -172, -2 )
+TukuiAurasPlayerBuffs:SetPoint( "TOPRIGHT", UIParent, -204, -2 )
 TukuiAurasPlayerBuffs:SetAttribute( "wrapAfter", 17 )
 TukuiAurasPlayerBuffs:SetAttribute( "xOffset", -33 )
 TukuiAurasPlayerBuffs:SetAttribute( "wrapYOffset", -67.5 )
 
-TukuiAurasPlayerDebuffs:SetPoint( "TOPRIGHT", UIParent, -172, -137 )
+TukuiAurasPlayerDebuffs:SetPoint( "TOPRIGHT", UIParent, -204, -137 )
 TukuiAurasPlayerDebuffs:SetAttribute( "wrapAfter", 17 )
 TukuiAurasPlayerDebuffs:SetAttribute( "xOffset", -33 )
 

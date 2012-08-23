@@ -11,7 +11,7 @@ G.Maps.Minimap.Coord.Text:SetFont( S.CreateFontString() )
 
 G.Maps.Minimap:Size( 153 )
 G.Maps.Minimap:Size( 153 )
-G.Maps.Minimap:Point( "TOPRIGHT", UIParent, "TOPRIGHT", -2, -2 )
+G.Maps.Minimap:Point( "TOPRIGHT", UIParent, "TOPRIGHT", -34, -2 )
 G.Maps.Minimap:CreateShadow( "Default" )
 
 Minimap:Size( 153 )
@@ -38,8 +38,8 @@ AsphyxiaUIMinimapToggleButton:SetScript( "OnMouseDown", function()
 	else
 		TukuiMinimap:Show()
 		TukuiAurasPlayerBuffs:ClearAllPoints()
-		TukuiAurasPlayerBuffs:Point( "TOPRIGHT", UIParent, -172, -2 )
-		TukuiAurasPlayerDebuffs:Point( "TOPRIGHT", UIParent, -172, -137 )
+		TukuiAurasPlayerBuffs:Point( "TOPRIGHT", UIParent, -204, -2 )
+		TukuiAurasPlayerDebuffs:Point( "TOPRIGHT", UIParent, -204, -137 )
 		AsphyxiaUIMinimapToggleButton.Text:SetText( "|cffFF0000-|r" )
 	end
 end )

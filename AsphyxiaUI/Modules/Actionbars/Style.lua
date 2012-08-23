@@ -10,10 +10,6 @@ local function ActionBarStyleButtons( self )
 	local Btname = _G[name .. "Name"]
 	local HotKey = _G[name .. "HotKey"]
 
-	if( name:match( "MultiCast" ) ) then return end
-
-	if( name:match( "ExtraActionButton" ) ) then return end
-
 	Count:ClearAllPoints()
 	Count:Point( "BOTTOMRIGHT", 0, 2 )
 	Count:SetFont( S.CreateFontString() )
