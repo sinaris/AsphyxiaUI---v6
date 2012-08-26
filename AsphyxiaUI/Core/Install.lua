@@ -105,8 +105,6 @@ AsphyxiaUIOnLogon:SetScript( "OnEvent", function( self, event )
 		S.ShowPopup( "ASPHYXIAUI_ENABLE_CHAT_BACKGROUND" )
 	end
 
-	if( C["global"]["welcomemessage"] == true ) then
-		print( L.Global_WELCOME_MESSAGE1 )
-		print( L.Global_WELCOME_MESSAGE2 )
-	end
+	print( L.Global_WELCOME_MESSAGE1 )
+	print( L.Global_WELCOME_MESSAGE2 )
 end )

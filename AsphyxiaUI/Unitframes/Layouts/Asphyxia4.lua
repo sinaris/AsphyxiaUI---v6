@@ -281,6 +281,33 @@ do
 		end
 
 		------------------------------
+		-- rogue
+		------------------------------
+		if( S.myclass == "ROGUE" ) then
+			if( C["unitframes"]["classbar"] == true ) then
+				G.UnitFrames.Player.ComboPointsBar:ClearAllPoints()
+				G.UnitFrames.Player.ComboPointsBar:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
+				G.UnitFrames.Player.ComboPointsBar:Size( 233, 2 )
+				G.UnitFrames.Player.ComboPointsBar:CreateBackdrop( "Default" )
+				G.UnitFrames.Player.ComboPointsBar.backdrop:CreateShadow( "Default" )
+
+				for i = 1, 5 do
+					if( i == 5 ) then
+						G.UnitFrames.Player.ComboPointsBar[i]:Size( S.Scale( 232 / 5 ) - 1, 2 )
+					else
+						G.UnitFrames.Player.ComboPointsBar[i]:Size( S.Scale( 232 / 5 ), 2 )
+					end
+
+					if( i == 1 ) then
+						G.UnitFrames.Player.ComboPointsBar[i]:SetPoint( "LEFT", G.UnitFrames.Player.ComboPointsBar, "LEFT", 0, 0 )
+					else
+						G.UnitFrames.Player.ComboPointsBar[i]:Point( "LEFT", G.UnitFrames.Player.ComboPointsBar[i - 1], "RIGHT", 1, 0 )
+					end
+				end
+			end
+		end
+
+		------------------------------
 		-- deathknight
 		------------------------------
 		if( S.myclass == "DEATHKNIGHT" ) then

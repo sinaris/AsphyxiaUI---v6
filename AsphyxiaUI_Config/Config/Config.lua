@@ -11,8 +11,6 @@ C["addonskins"] = {
 
 C["global"] = {
 	["unitframelayout"] = "asphyxia",
-	["ablayout"] = 1,
-	["welcomemessage"] = true,
 }
 
 C["unitframes"] = {
@@ -23,7 +21,6 @@ C["unitframes"] = {
 
 C["raidcooldowns"] = {
 	["enable"] = true,
-	["icons"] = true,
 	["showinparty"] = true,
 	["showinraid"] = true,
 	["showinarena"] = true,
@@ -38,7 +35,6 @@ C["actionbar"] = {
 	["vertical_rightbars"] = false,
 	["vertical_shapeshift"] = false,
 	["mainswap"] = false,
-	["mouseover_shapeshift"] = false,
 }
 
 C["castbar"] = {
@@ -46,7 +42,6 @@ C["castbar"] = {
 	["castbarcolor"] = { 0.150, 0.150, 0.150, 1 },
 	["nointerruptcolor"] = { 1, 0, 0, 1 },
 	["ticks"] = true,
-	["tickscolor"] = { 1, 0, 0, 1 },
 }
 
 C["chat"] = {
@@ -137,7 +132,6 @@ C["intmodules"] = {
 	},
 	["bnetpanel"] = true,
 	["itemlevelongearandslots"] = true,
-	["layoutchanger"] = true,
 	["achscreen"] = true,
 	["minimapbuttons"] = true,
 	["micromenu"] = true,
@@ -207,7 +201,7 @@ C["media"] = {
 	["lfdrole_healer"] = [[Interface\AddOns\AsphyxiaUI\Media\Textures\LFDRoleHealer.tga]],
 	["lfdrole_tank"] = [[Interface\AddOns\AsphyxiaUI\Media\Textures\LFDRoleTank.tga]],
 
-	["combattextfont"] = [=[Interface\Addons\Tukui\medias\fonts\normal_font.ttf]=],
+	["combattextfont"] = [[Interface\Addons\Tukui\medias\fonts\normal_font.ttf]],
 	["combattextfontsize"] = 20,
 	["combattextfontstyle"] = "OUTLINE",
 	["combattextfontshadow"] = false,
