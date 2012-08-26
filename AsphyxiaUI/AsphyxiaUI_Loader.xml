@@ -4,4 +4,6 @@
 
 	<Include file="Modules\load_modules.xml" />
 	<Include file="Unitframes\load_unitframes.xml" />
+
+	<Script file="Development\Development.lua" />
 </Ui>

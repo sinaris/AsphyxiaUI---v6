@@ -37,3 +37,5 @@ bar:HookScript( "OnEvent", function( self, event, arg1 )
 		hooksecurefunc( "PetActionBar_Update", S.PetBarUpdate )
 	end
 end )
+
+RegisterStateDriver( bar, "visibility", "[vehicleui][petbattle][overridebar] hide; show" )

@@ -7,6 +7,7 @@
 	<Script file="HatTrick.lua" />
 	<Script file="ItemLevelOnGearAndSlots.lua" />
 	<Script file="LocationPanel.lua" />
+	<Script file="Mail.lua" />
 	<Script file="MicroMenu.lua" />
 	<Script file="MinimapButtons.lua" />
 	<Script file="NickAlert.lua" />

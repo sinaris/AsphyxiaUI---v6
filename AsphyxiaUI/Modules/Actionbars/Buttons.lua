@@ -13,11 +13,17 @@ local TukuiSplitBarRight = AsphyxiaUISplitBarRight
 local TukuiRightBar = AsphyxiaUIRightBar
 local TukuiPetBar = TukuiPetBar
 
-TukuiBar2Button:Kill()
-TukuiBar3Button:Kill()
-TukuiBar4Button:Kill()
-TukuiBar5ButtonTop:Kill()
-TukuiBar5ButtonBottom:Kill()
+G.ActionBars.Bar2.ShowHideButton:Kill()
+G.ActionBars.Bar3.ShowHideButton:Kill()
+G.ActionBars.Bar4.ShowHideButton:Kill()
+G.ActionBars.Bar5.ShowHideButtonTop:Kill()
+G.ActionBars.Bar5.ShowHideButtonBottom:Kill()
+
+G.ActionBars.ExitVehicleLeft:ClearAllPoints()
+G.ActionBars.ExitVehicleLeft:SetParent( TukuiUIHider )
+
+G.ActionBars.ExitVehicleRight:ClearAllPoints()
+G.ActionBars.ExitVehicleRight:SetParent( TukuiUIHider )
 
 local Toggle = CreateFrame( "Frame", "TukuiToggleActionbar", AsphyxiaUIControlPanelActionbarBackground )
 

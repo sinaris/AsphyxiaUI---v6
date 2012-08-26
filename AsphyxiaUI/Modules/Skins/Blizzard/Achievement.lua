@@ -12,6 +12,26 @@ local function SkinFrames( self, event, addon )
 		AchievementFrame.backdrop:CreateShadow( "Default" )
 		AchievementFrameCategoriesContainer.backdrop:SetTemplate( "Transparent" )
 		AchievementFrameAchievementsContainer.backdrop:SetTemplate( "Transparent" )
+
+		hooksecurefunc( "AchievementButton_DisplayAchievement", function( frame )
+			if( frame.accountWide and frame.bg3 ) then
+				frame.bg3:SetTexture( ACHIEVEMENTUI_BLUEBORDER_R, ACHIEVEMENTUI_BLUEBORDER_G, ACHIEVEMENTUI_BLUEBORDER_B )
+			elseif( frame.bg3 ) then
+				frame.bg3:SetTexture( unpack( C["media"]["bordercolor"] ) )
+			end
+		end )
+
+		hooksecurefunc( "AchievementFrameSummary_UpdateAchievements", function()
+			for i = 1, ACHIEVEMENTUI_MAX_SUMMARY_ACHIEVEMENTS do
+				local frame = _G["AchievementFrameSummaryAchievement" .. i]
+
+				if( frame.accountWide ) then
+					frame.backdrop:SetBackdropBorderColor( ACHIEVEMENTUI_BLUEBORDER_R, ACHIEVEMENTUI_BLUEBORDER_G, ACHIEVEMENTUI_BLUEBORDER_B )
+				else
+					frame.backdrop:SetBackdropBorderColor( unpack( C["media"]["bordercolor"] ) )
+				end
+			end
+		end )
 	end
 end
 

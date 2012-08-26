@@ -40,11 +40,12 @@ GameTooltip:HookScript( "OnTooltipSetUnit", function( self )
 				if( select( 11, UnitAura( unit, i, "HELPFUL" ) ) == 110309 ) then return end
 			end
 			local uclass = select( 2, UnitClass( unit ) )
+			local ulevel = UnitLevel( unit )
 			local spec = SPEC_CORE_ABILITY_TEXT[select( 1, GetSpecializationInfo( GetSpecialization() ) )]
 			local spellID
-			if( S.myclass == "DRUID" and uclass ~= "DRUID" ) then
+			if( S.class == "DRUID" and S.level >= 87 and uclass ~= "DRUID" ) then
 				spellID = stabledruid[uclass][spec]
-			elseif( S.myclass ~= "DRUID" and uclass == "DRUID" ) then
+			elseif( S.class ~= "DRUID" and ( uclass == "DRUID" and ulevel >= 87 ) ) then
 				spellID = stable[S.myclass][spec]
 			end
 			local name = GetSpellInfo( spellID )

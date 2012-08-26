@@ -31,6 +31,7 @@ TukuiStance:HookScript( "OnEvent", function( self, event, ... )
 end )
 
 bar:HookScript( "OnEvent", function( self, event, unit )
+	if( InCombatLockdown() ) then return end
 	local button
 	for i = 1, NUM_STANCE_SLOTS do
 		button = _G["StanceButton" .. i]

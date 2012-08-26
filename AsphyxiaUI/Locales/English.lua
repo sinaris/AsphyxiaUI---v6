@@ -42,6 +42,12 @@ L.Gametooltip_SHOW_HIDE_REPUTATION = "Show or hide reputation panels below the m
 L.Grid_GRID_SHOW = "|cff00FF00Grid enabled|r"
 L.Grid_GRID_HIDE = "|cffFF0000Grid disabled|r"
 
+L.Mail_STOPPED = "Stopped, inventory is full."
+L.Mail_UNIQUE = "Stopped. Found a duplicate unique item in bag or in bank."
+L.Mail_COMPLETE = "All done."
+L.Mail_NEED = "Need a mailbox."
+L.Mail_MESSAGES = "messages"
+
 ------------------------------
 -- Changelog, seperate Addon
 ------------------------------

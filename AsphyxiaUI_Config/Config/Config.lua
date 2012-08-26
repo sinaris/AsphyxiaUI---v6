@@ -141,6 +141,7 @@ C["intmodules"] = {
 	["achscreen"] = true,
 	["minimapbuttons"] = true,
 	["micromenu"] = true,
+	["mail"] = true,
 }
 
 C["unitframes"] = {
