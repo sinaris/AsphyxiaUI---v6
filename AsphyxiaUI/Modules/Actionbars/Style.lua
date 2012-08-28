@@ -6,21 +6,22 @@ local S, C, L, G = unpack( Tukui )
 
 local function ActionBarStyleButtons( self )
 	local name = self:GetName()
+	local action = self.action
+	local Button = self
 	local Count = _G[name .. "Count"]
 	local Btname = _G[name .. "Name"]
 	local HotKey = _G[name .. "HotKey"]
+	local normal  = _G[name .. "NormalTexture"]
 
 	Count:ClearAllPoints()
 	Count:Point( "BOTTOMRIGHT", 0, 2 )
 	Count:SetFont( S.CreateFontString() )
 
-	if( C["actionbar"]["macrotext"] ~= true ) then
-		if( Btname ) then
-			Btname:SetText( "" )
-			Btname:Kill()
-		end
-	else
-		if( Btname ) then
+	if( Btname and normal and C["actionbar"]["macro"] == true ) then
+		local query = GetActionText( action )
+		if( query ) then
+			local text = string.sub( query, 1, 5 )
+			Btname:SetText( text )
 			Btname:SetAlphaGradient( 0, Button:GetWidth() )
 			Btname:SetFont( S.CreateFontString() )
 		end
@@ -42,14 +43,13 @@ hooksecurefunc( "ActionButton_Update", ActionBarStyleButtons )
 
 function S.ShowHighlightActionButton( self )
 	if( self.overlay ) then
-		local color = RAID_CLASS_COLORS[S.myclass]
 		self.overlay:Hide()
 		ActionButton_HideOverlayGlow( self )
 		self.shine = SpellBook_GetAutoCastShine()
 		self.shine:Show()
 		self.shine:SetParent( self )
 		self.shine:SetPoint( "CENTER", self, "CENTER" )
-		AutoCastShine_AutoCastStart( self.shine, color.r, color.g, color.b )
+		AutoCastShine_AutoCastStart( self.shine, S.ClassColor.r, S.ClassColor.g, S.ClassColor.b )
 
 		for _, sparkle in next, self.shine.sparkles do
 			sparkle:SetHeight( sparkle:GetHeight() * 2 )
@@ -67,4 +67,4 @@ end
 hooksecurefunc( "ActionButton_ShowOverlayGlow", S.ShowHighlightActionButton )
 hooksecurefunc( "ActionButton_HideOverlayGlow", S.HideHighlightActionButton )
 
-S.SetDefaultActionButtonCooldownFont = C.media.asphyxia
+S.SetDefaultActionButtonCooldownFont = C["media"]["asphyxia"]

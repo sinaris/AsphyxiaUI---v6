@@ -8,17 +8,17 @@ if( C["databars"]["currency"] ~= true ) then return end
 
 local CurrencyData = {}
 local tokens = {
-	{ 61, 250 },	-- Dalaran Jewelcrafter's Token
-	{ 81, 250 },	-- Dalaran Cooking Award
-	{ 241, 250 },	-- Champion Seal
-	{ 361, 200 },	-- Illustrious Jewelcrafter's Token
-	{ 390, 3000 },	-- Conquest Points
-	{ 391, 2000 },	-- Tol Barad Commendation
-	{ 392, 4000 },	-- Honor Points
-	{ 395, 4000 },	-- Justice Points
-	{ 396, 4000 },	-- Valor Points
-	{ 402, 250 },	-- Chef's Award 
-	{ 416, 300 },	-- Mark of the World Tree
+	{ 61, 250 },
+	{ 81, 250 },
+	{ 241, 250 },
+	{ 361, 200 },
+	{ 390, 3000 },
+	{ 391, 2000 },
+	{ 392, 4000 },
+	{ 395, 4000 },
+	{ 396, 4000 },
+	{ 402, 250 },
+	{ 416, 300 },
 }
 
 local function updateCurrency()

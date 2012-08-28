@@ -3,6 +3,9 @@ AsphyxiaUI - v6: ToDo List
 
 - **AsphyxiaUI**
 
+	- Unitframes
+		- Adding missing unitframe layouts
+
 - **AsphyxiaUI Config**
 
 - **AsphyxiaUI Raid DPS and Tank Layout**

@@ -26,6 +26,7 @@ L.Tooltip_LOADING_TALENT = "Loading Talents..."
 L.Tooltip_NO_TALENTS = "No Talents"
 L.Tooltip_ITEMID = "Item ID:"
 L.Tooltip_SPELLID = "Spell ID:"
+L.Tooltip_INSPECTOPEN = "Inspect Frame is open."
 
 ------------------------------
 -- GameTooltip
@@ -39,6 +40,11 @@ L.Gametooltip_SHOW_HIDE_REPUTATION = "Show or hide reputation panels below the m
 ------------------------------
 -- Modules
 ------------------------------
+L.Actionbars_LOCK = "|cffe45050Locked|r"
+L.Actionbars_UNLOCK = "|cff50e468Unlocked|r"
+L.Actionbars_BARSLOCK = "Actionbars |cffe45050locked|r"
+L.Actionbars_BARSUNLOCK = "Actionbars |cff50e468unlocked|r"
+
 L.Grid_GRID_SHOW = "|cff00FF00Grid enabled|r"
 L.Grid_GRID_HIDE = "|cffFF0000Grid disabled|r"
 
@@ -48,17 +54,19 @@ L.Mail_COMPLETE = "All done."
 L.Mail_NEED = "Need a mailbox."
 L.Mail_MESSAGES = "messages"
 
+L.Spellbinder_BINDERHEADER = "Mouse Bindings"
+
 ------------------------------
 -- Changelog, seperate Addon
 ------------------------------
 L.Changelog_TITLE = "|cff00AAFFAsphyxiaUI|r - Changelog"
-L.Changelog_VERSION = ""
+L.Changelog_VERSION = "6.0.0"
 
 ------------------------------
 -- F.A.Q., seperate Addon
 ------------------------------
 L.Faq_TITLE = "|cff00AAFFAsphyxiaUI|r - F.A.Q."
-L.Faq_VERSION = ""
+L.Faq_VERSION = "6.0.0"
 
 L.Faq_BUTTONS_TEXT = {
 	[1] = "Informations",
@@ -212,6 +220,7 @@ if( TukuiConfigUILocalization ) then
 	TukuiConfigUILocalization.tooltipicon = "Show the icon in Ablilty-tooltips |cFFFF0000*New*|r"
 	TukuiConfigUILocalization.tooltipreforge = "Show what is refoged in gear tooltip |cFFFF0000*New*|r"
 	TukuiConfigUILocalization.tooltipsepllitemids = "Show Spell-ID or Item-ID in tooltip |cFFFF0000*New*|r"
+	TukuiConfigUILocalization.tooltipreforge = "Show what is refoged in gear tooltip |cFFFF0000*New*|r"
 
 	TukuiConfigUILocalization.intmodules = "AsphyxiaUI Modules"
 	TukuiConfigUILocalization.intmodulesalertcombat = "Alert Combat"
@@ -227,10 +236,22 @@ if( TukuiConfigUILocalization ) then
 	TukuiConfigUILocalization.intmodulesaddonmanager = "InGame Addon-Manager"
 	TukuiConfigUILocalization.intmodulesnickalert = "Nick-Alert: |cFFFF0000*Please edit the Config-File for this option or the UI will be broken!*|r"
 	TukuiConfigUILocalization.intmodulesitemlevelongearandslots = "Show Item-Level on Character-Slots |cFFFF0000*New*|r"
+	TukuiConfigUILocalization.intmodulesclickcast = "Enable click-to-cast |cFFFF0000*New*|r"
+	TukuiConfigUILocalization.intmodulesinterrupts = "Announce successful interrupts"
+	TukuiConfigUILocalization.intmodulesspells = "Announce spells"
 
 	TukuiConfigUILocalization.raidcooldowns = "Raidcooldowns"
 	TukuiConfigUILocalization.raidcooldownsenable = "Enable raidcooldowns"
 	TukuiConfigUILocalization.raidcooldownsshowinparty = "Party"
 	TukuiConfigUILocalization.raidcooldownsshowinraid = "Raid"
 	TukuiConfigUILocalization.raidcooldownsshowinarena = "Arena"
+
+	TukuiConfigUILocalization.actionbarvertical_shapeshift = "Enable vertical stance bar"
+	TukuiConfigUILocalization.actionbarmainswap = "Swap actionbar 1 and 2"
+	TukuiConfigUILocalization.actionbarvertical_rightbars = "Enable vertical right bars"
+
+	TukuiConfigUILocalization.unitframesclassicons = "Enable classicons on player and target frame"
+	TukuiConfigUILocalization.unitframesgradient = "Gradient health color: |cFFFF0000*Please edit the Config-File for this option or the UI will be broken!*|r"
+	TukuiConfigUILocalization.unitframesfader = "Enable unitframe fader"
+	TukuiConfigUILocalization.unitframesgradienthealth = "Enable gradient health on unitframes"
 end

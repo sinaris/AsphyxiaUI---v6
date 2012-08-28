@@ -111,7 +111,6 @@ for i = 1, getn( AsphyxiaUIControlPanelButtons ) do
 	end
 	AsphyxiaUIControlPanelButtonsButtons[i]:SetAttribute( "type", "macro" )
 	AsphyxiaUIControlPanelButtonsButtons[i]:SetAttribute( "macrotext", unpack( AsphyxiaUIControlPanelButtons[i] ) )
-	--AsphyxiaUIControlPanelButtonsButtons[i]:SetFrameStrata( "BACKGROUND" )
 	AsphyxiaUIControlPanelButtonsButtons[i]:CreateOverlay( AsphyxiaUIControlPanelButtonsButtons[i] )
 	AsphyxiaUIControlPanelButtonsButtons[i]:HookScript( "OnEnter", S.SetModifiedBackdrop )
 	AsphyxiaUIControlPanelButtonsButtons[i]:HookScript( "OnLeave", S.SetOriginalBackdrop )

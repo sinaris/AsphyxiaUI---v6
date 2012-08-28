@@ -1,11 +1,12 @@
 ## Interface: 50001
 ## Title: AsphyxiaUI - Core
 ## Notes:
-## Version: 6.0
-## Author: Sinaris, Merith
-## SavedVariablesPerCharacter: AsphyxiaUISaved
+## Version: 6.0.0
+## Author: Sinaris
+## SavedVariablesPerCharacter: AsphyxiaUISaved, ClickCast
 ## RequiredDeps: AsphyxiaUI_Config, Tukui
 ## OptionalDeps: Blizzard_CombatText, !ClassColors, Clique, DBM-Core, Omen, Recount, Skada, TinyDPS
 ## X-oUF: oUFTukui
+## Website: www.natias.de
 
 AsphyxiaUI_Loader.xml

@@ -914,7 +914,6 @@ do
 		G.UnitFrames.Pet.Power:SetPoint( "TOP", G.UnitFrames.Pet.Health, "BOTTOM", 0, -7 )
 		G.UnitFrames.Pet.Power:CreateBackdrop( "Default" )
 		G.UnitFrames.Pet.Power.backdrop:CreateShadow( "Default" )
-
 	end
 
 	------------------------------

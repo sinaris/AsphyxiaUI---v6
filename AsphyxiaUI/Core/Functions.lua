@@ -4,6 +4,8 @@
 
 local S, C, L, G = unpack( Tukui )
 
+S.ClassColor = RAID_CLASS_COLORS[S.myclass]
+
 S.CreateFontString = function( normalfont )
 	if( normalfont ) then
 		return C["media"]["font"], 12, "THINOUTLINE"
@@ -17,15 +19,13 @@ S.CreateFontString = function( normalfont )
 end
 
 function S.SetModifiedBackdrop( self )
-	local color = RAID_CLASS_COLORS[S.myclass]
-	self:SetBackdropColor( color.r * 0.15, color.g * 0.15, color.b * 0.15 )
-	self:SetBackdropBorderColor( color.r, color.g, color.b )
+	self:SetBackdropColor( S.ClassColor.r * 0.15, S.ClassColor.g * 0.15, S.ClassColor.b * 0.15 )
+	self:SetBackdropBorderColor( S.ClassColor.r, S.ClassColor.g, S.ClassColor.b )
 end
 
 function S.SetOriginalBackdrop( self )
-	local color = RAID_CLASS_COLORS[S.myclass]
 	if( C["general"]["classcolortheme"] == true ) then
-		self:SetBackdropBorderColor( color.r, color.g, color.b )
+		self:SetBackdropBorderColor( S.ClassColor.r, S.ClassColor.g, S.ClassColor.b )
 	else
 		self:SetTemplate( "Default" )
 	end
@@ -56,7 +56,7 @@ function S.update_alpha( self )
 end
 
 function S.fadeOut( self )
-	UIFrameFadeOut( self, .4, 1, 0 )
+	UIFrameFadeOut( self, 0.4, 1, 0 )
 	self.frame:Show()
 end
 
@@ -67,7 +67,7 @@ function S.fadeIn( p )
 	p.frame:SetScript( "OnUpdate", S.update_alpha )
 	p:SetScript( "OnShow", function()
 		p.frame:Hide()
-		UIFrameFadeIn( p, .4, 0, 1 )
+		UIFrameFadeIn( p, 0.4, 0, 1 )
 	end )
 	p.fadeOut = S.fadeOut
 end

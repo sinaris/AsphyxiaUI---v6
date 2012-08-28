@@ -83,6 +83,7 @@ C["tooltip"] = {
 	["spellitemids"] = true,
 	["talents"] = true,
 	["symbiosis"] = true,
+	["reforge"] = true,
 }
 
 C["datatext"] = {
@@ -136,6 +137,9 @@ C["intmodules"] = {
 	["minimapbuttons"] = true,
 	["micromenu"] = true,
 	["mail"] = true,
+	["clickcast"] = true,
+	["spells"] = true,
+	["interrupts"] = true,
 }
 
 C["unitframes"] = {

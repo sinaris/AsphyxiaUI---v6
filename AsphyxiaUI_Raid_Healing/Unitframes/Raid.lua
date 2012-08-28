@@ -38,7 +38,13 @@ S.PostUpdateRaidUnit = function( self )
 	------------------------------
 	self.panel:Kill()
 	self:SetBackdropColor( 0.0, 0.0, 0.0, 0.0 )
-	--self.Power:Kill()
+
+	local panel = CreateFrame( "Frame", nil, self )
+	panel:SetTemplate( "Transparent" )
+	panel:Point( "TOPRIGHT", self, "TOPRIGHT", 2, 2 )
+	panel:Point( "BOTTOMLEFT", self, "BOTTOMLEFT", -2, -2 )
+	panel:SetFrameLevel( 1 )
+	self.panel = panel
 
 	------------------------------
 	-- health
@@ -46,8 +52,7 @@ S.PostUpdateRaidUnit = function( self )
 	self.Health:ClearAllPoints()
 	self.Health:SetAllPoints( self )
 	self.Health:SetStatusBarTexture( C["media"]["normTex"] )
-	self.Health:CreateBorder( true )
-	self.Health:SetFrameLevel( 1 )
+	self.Health:SetFrameLevel( 2 )
 	self.Health.colorDisconnected = false
 	self.Health.colorClass = false
 	self.Health:SetStatusBarColor( 0.2, 0.2, 0.2, 1 )

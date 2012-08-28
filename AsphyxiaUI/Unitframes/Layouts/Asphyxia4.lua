@@ -28,7 +28,8 @@ do
 	do
 		G.UnitFrames.Player.Health:Size( 233, 20 )
 		G.UnitFrames.Player.Health:SetFrameLevel( 5 )
-		G.UnitFrames.Player.Health:CreateBorder( true )
+		G.UnitFrames.Player.Health:CreateBackdrop( "Default" )
+		G.UnitFrames.Player.Health.backdrop:CreateShadow( "Default" )
 		G.UnitFrames.Player.Health.bg:SetTexture( 0.6, 0.6, 0.6 )
 
 		if( C["unitframes"]["unicolor"] == true ) then
@@ -57,7 +58,8 @@ do
 		G.UnitFrames.Player.Power:Size( 243, 18 )
 		G.UnitFrames.Player.Power:ClearAllPoints()
 		G.UnitFrames.Player.Power:Point( "TOP", G.UnitFrames.Player.Health, "BOTTOM", 0, 9 )
-		G.UnitFrames.Player.Power:CreateBorder( true )
+		G.UnitFrames.Player.Power:CreateBackdrop( "Default" )
+		G.UnitFrames.Player.Power.backdrop:CreateShadow( "Default" )
 
 		G.UnitFrames.Player.Power.value = S.SetFontString( G.UnitFrames.Player.Health, S.CreateFontString() )
 		G.UnitFrames.Player.Power.value:Point( "LEFT", G.UnitFrames.Player.Health, "LEFT", 4, 1 )
@@ -135,7 +137,8 @@ do
 			G.UnitFrames.Player.Experience:Point( "BOTTOM", G.Panels.LeftChatBackground, "TOP", 0, 5 )
 			G.UnitFrames.Player.Experience:SetFrameLevel( 12 )
 			G.UnitFrames.Player.Experience:SetAlpha( 1 )
-			G.UnitFrames.Player.Experience:CreateBorder( true )
+			G.UnitFrames.Player.Experience:CreateBackdrop( "Default" )
+			G.UnitFrames.Player.Experience.backdrop:CreateShadow( "Default" )
 
 			G.UnitFrames.Player.Experience:HookScript( "OnLeave", function( self ) self:SetAlpha( 1 ) end )
 
@@ -461,7 +464,8 @@ do
 			G.UnitFrames.Player.Castbar:ClearAllPoints()
 			G.UnitFrames.Player.Castbar:SetHeight( S.Scale( 20 ) )
 			G.UnitFrames.Player.Castbar:Point( "BOTTOMRIGHT", AsphyxiaUIUnitframesPlayerCastbarMover, "BOTTOMRIGHT", -2, 2 )
-			G.UnitFrames.Player.Castbar:CreateBorder( true )
+			G.UnitFrames.Player.Castbar:CreateBackdrop( "Default" )
+			G.UnitFrames.Player.Castbar.backdrop:CreateShadow( "Default" )
 			G.UnitFrames.Player.Castbar.bg:SetVertexColor( 0.05, 0.05, 0.05 )
 
 			if( C["unitframes"]["cbicons"] == true ) then
@@ -539,7 +543,8 @@ do
 	do
 		G.UnitFrames.Target.Health:Size( 233, 20 )
 		G.UnitFrames.Target.Health:SetFrameLevel( 5 )
-		G.UnitFrames.Target.Health:CreateBorder( true )
+		G.UnitFrames.Target.Health:CreateBackdrop( "Default" )
+		G.UnitFrames.Target.Health.backdrop:CreateShadow( "Default" )
 		G.UnitFrames.Target.Health.bg:SetTexture( 0.6, 0.6, 0.6 )
 
 		if( C["unitframes"]["unicolor"] == true ) then
@@ -571,7 +576,8 @@ do
 		G.UnitFrames.Target.Power:Size( 243, 18 )
 		G.UnitFrames.Target.Power:ClearAllPoints()
 		G.UnitFrames.Target.Power:Point( "TOP", G.UnitFrames.Target.Health, "BOTTOM", 0, 9 )
-		G.UnitFrames.Target.Power:CreateBorder( true )
+		G.UnitFrames.Target.Power:CreateBackdrop( "Default" )
+		G.UnitFrames.Target.Power.backdrop:CreateShadow( "Default" )
 
 		G.UnitFrames.Target.Power.value = S.SetFontString( G.UnitFrames.Target.Health, S.CreateFontString() )
 		G.UnitFrames.Target.Power.value:Point( "LEFT", G.UnitFrames.Player.Health, "LEFT", 4, 1 )
@@ -638,7 +644,8 @@ do
 			G.UnitFrames.Target.Castbar:ClearAllPoints()
 			G.UnitFrames.Target.Castbar:SetHeight( 20 )
 			G.UnitFrames.Target.Castbar:Point( "TOPRIGHT", G.UnitFrames.Target, "BOTTOMRIGHT", 0, -10 )
-			G.UnitFrames.Target.Castbar:CreateBorder( true )
+			G.UnitFrames.Target.Castbar:CreateBackdrop( "Default" )
+			G.UnitFrames.Target.Castbar.backdrop:CreateShadow( "Default" )
 			G.UnitFrames.Target.Castbar.bg:SetVertexColor( 0.05, 0.05, 0.05 )
 
 			if( C["unitframes"]["cbicons"] == true ) then
@@ -753,7 +760,8 @@ do
 	do
 		G.UnitFrames.TargetTarget.Health:Size( 130, 15 )
 		G.UnitFrames.TargetTarget.Health:SetFrameLevel( 5 )
-		G.UnitFrames.TargetTarget.Health:CreateBorder( true )
+		G.UnitFrames.TargetTarget.Health:CreateBackdrop( "Default" )
+		G.UnitFrames.TargetTarget.Health.backdrop:CreateShadow( "Default" )
 		G.UnitFrames.TargetTarget.Health.bg:SetTexture( 0.6, 0.6, 0.6 )
 
 		if( C["unitframes"]["unicolor"] == true ) then
@@ -781,7 +789,8 @@ do
 		TargetTargetPower:Size( 130, 2 )
 		TargetTargetPower:Point( "TOP", G.UnitFrames.TargetTarget.Health, "BOTTOM", 0, -7 )
 		TargetTargetPower:SetStatusBarTexture( C["media"]["normTex"] )
-		TargetTargetPower:CreateBorder( true )
+		TargetTargetPower:CreateBackdrop( "Default" )
+		TargetTargetPower.backdrop:CreateShadow( "Default" )
 
 		local TargetTargetPowerBackground = TargetTargetPower:CreateTexture( nil, "BORDER" )
 		TargetTargetPowerBackground:SetAllPoints( TargetTargetPower )
@@ -871,7 +880,8 @@ do
 	do
 		G.UnitFrames.Pet.Health:Size( 130, 15 )
 		G.UnitFrames.Pet.Health:SetFrameLevel( 5 )
-		G.UnitFrames.Pet.Health:CreateBorder( true )
+		G.UnitFrames.Pet.Health:CreateBackdrop( "Default" )
+		G.UnitFrames.Pet.Health.backdrop:CreateShadow( "Default" )
 		G.UnitFrames.Pet.Health.bg:SetTexture( 0.6, 0.6, 0.6 )
 
 		if( C["unitframes"]["unicolor"] == true ) then
@@ -898,8 +908,8 @@ do
 		G.UnitFrames.Pet.Power:Size( 130, 2 )
 		G.UnitFrames.Pet.Power:ClearAllPoints()
 		G.UnitFrames.Pet.Power:SetPoint( "TOP", G.UnitFrames.Pet.Health, "BOTTOM", 0, -7 )
-		G.UnitFrames.Pet.Power:CreateBorder( true )
-
+		G.UnitFrames.Pet.Power:CreateBackdrop( "Default" )
+		G.UnitFrames.Pet.Power.backdrop:CreateShadow( "Default" )
 	end
 
 	------------------------------
@@ -936,7 +946,8 @@ do
 	do
 		G.UnitFrames.Focus.Health:Size( 200, 26 )
 		G.UnitFrames.Focus.Health:SetFrameLevel( 5 )
-		G.UnitFrames.Focus.Health:CreateBorder( true )
+		G.UnitFrames.Focus.Health:CreateBackdrop( "Default" )
+		G.UnitFrames.Focus.Health.backdrop:CreateShadow( "Default" )
 		G.UnitFrames.Focus.Health.bg:SetTexture( 0.6, 0.6, 0.6 )
 
 		if( C["unitframes"]["unicolor"] == true ) then
@@ -968,7 +979,8 @@ do
 		G.UnitFrames.Focus.Power:ClearAllPoints()
 		G.UnitFrames.Focus.Power:Point( "TOPRIGHT", G.UnitFrames.Focus.Health, "BOTTOMRIGHT", 0, -7 )
 		G.UnitFrames.Focus.Power:SetFrameLevel( G.UnitFrames.Focus.Health:GetFrameLevel() + 2 )
-		G.UnitFrames.Focus.Power:CreateBorder( true )
+		G.UnitFrames.Focus.Power:CreateBackdrop( "Default" )
+		G.UnitFrames.Focus.Power.backdrop:CreateShadow( "Default" )
 
 		G.UnitFrames.Focus.Power.value = S.SetFontString( G.UnitFrames.Focus.Health, S.CreateFontString() )
 		G.UnitFrames.Focus.Power.value:Point( "LEFT", G.UnitFrames.Focus.Health, "LEFT", 4, 1 )
@@ -982,7 +994,8 @@ do
 			G.UnitFrames.Focus.Castbar:ClearAllPoints()
 			G.UnitFrames.Focus.Castbar:SetHeight( 20 )
 			G.UnitFrames.Focus.Castbar:Point( "TOPLEFT", G.UnitFrames.Focus, "BOTTOMLEFT", 0, -16 )
-			G.UnitFrames.Focus.Castbar:CreateBorder( true )
+			G.UnitFrames.Focus.Castbar:CreateBackdrop( "Default" )
+			G.UnitFrames.Focus.Castbar.backdrop:CreateShadow( "Default" )
 
 			G.UnitFrames.Focus.Castbar.bg:Kill()
 
@@ -1074,7 +1087,8 @@ do
 	do
 		G.UnitFrames.FocusTarget.Health:Size( 200, 26 )
 		G.UnitFrames.FocusTarget.Health:SetFrameLevel( 5 )
-		G.UnitFrames.FocusTarget.Health:CreateBorder( true )
+		G.UnitFrames.FocusTarget.Health:CreateBackdrop( "Default" )
+		G.UnitFrames.FocusTarget.Health.backdrop:CreateShadow( "Default" )
 		G.UnitFrames.FocusTarget.Health.bg:SetTexture( 0.6, 0.6, 0.6 )
 
 		if( C["unitframes"]["unicolor"] == true ) then
@@ -1106,7 +1120,8 @@ do
 		G.UnitFrames.FocusTarget.Power:ClearAllPoints()
 		G.UnitFrames.FocusTarget.Power:Point( "TOPRIGHT", G.UnitFrames.FocusTarget.Health, "BOTTOMRIGHT", 0, -7 )
 		G.UnitFrames.FocusTarget.Power:SetFrameLevel( G.UnitFrames.FocusTarget.Health:GetFrameLevel() + 2 )
-		G.UnitFrames.FocusTarget.Power:CreateBorder( true )
+		G.UnitFrames.FocusTarget.Power:CreateBackdrop( "Default" )
+		G.UnitFrames.FocusTarget.Power.backdrop:CreateShadow( "Default" )
 
 		G.UnitFrames.FocusTarget.Power.value = S.SetFontString( G.UnitFrames.FocusTarget.Health, S.CreateFontString() )
 		G.UnitFrames.FocusTarget.Power.value:Point( "LEFT", G.UnitFrames.FocusTarget.Health, "LEFT", 4, 1 )
@@ -1120,7 +1135,8 @@ do
 			G.UnitFrames.FocusTarget.Castbar:ClearAllPoints()
 			G.UnitFrames.FocusTarget.Castbar:SetHeight( 20 )
 			G.UnitFrames.FocusTarget.Castbar:Point( "TOPLEFT", G.UnitFrames.FocusTarget, "BOTTOMLEFT", 0, -16 )
-			G.UnitFrames.FocusTarget.Castbar:CreateBorder( true )
+			G.UnitFrames.FocusTarget.Castbar:CreateBackdrop( "Default" )
+			G.UnitFrames.FocusTarget.Castbar.backdrop:CreateShadow( "Default" )
 
 			G.UnitFrames.FocusTarget.Castbar.bg:Kill()
 
@@ -1214,7 +1230,8 @@ do
 		do
 			G.UnitFrames["Boss" .. i].Health:Size( 200, 26 )
 			G.UnitFrames["Boss" .. i].Health:SetFrameLevel( 5 )
-			G.UnitFrames["Boss" .. i].Health:CreateBorder( true )
+			G.UnitFrames["Boss" .. i].Health:CreateBackdrop( "Default" )
+			G.UnitFrames["Boss" .. i].Health.backdrop:CreateShadow( "Default" )
 			G.UnitFrames["Boss" .. i].Health.bg:SetTexture( 0.6, 0.6, 0.6 )
 
 			if( C["unitframes"]["unicolor"] == true ) then
@@ -1246,7 +1263,8 @@ do
 			G.UnitFrames["Boss" .. i].Power:ClearAllPoints()
 			G.UnitFrames["Boss" .. i].Power:Point( "TOPRIGHT", G.UnitFrames["Boss" .. i].Health, "BOTTOMRIGHT", 0, -7 )
 			G.UnitFrames["Boss" .. i].Power:SetFrameLevel( G.UnitFrames["Boss" .. i].Health:GetFrameLevel() + 2 )
-			G.UnitFrames["Boss" .. i].Power:CreateBorder( true )
+			G.UnitFrames["Boss" .. i].Power:CreateBackdrop( "Default" )
+			G.UnitFrames["Boss" .. i].Power.backdrop:CreateShadow( "Default" )
 
 			G.UnitFrames["Boss" .. i].Power.value = S.SetFontString( G.UnitFrames["Boss" .. i].Health, S.CreateFontString() )
 			G.UnitFrames["Boss" .. i].Power.value:Point( "LEFT", G.UnitFrames["Boss" .. i].Health, "LEFT", 4, 1 )
@@ -1260,7 +1278,8 @@ do
 				G.UnitFrames["Boss" .. i].Castbar:ClearAllPoints()
 				G.UnitFrames["Boss" .. i].Castbar:SetHeight( 20 )
 				G.UnitFrames["Boss" .. i].Castbar:Point( "TOPRIGHT", G.UnitFrames["Boss" .. i], "BOTTOMRIGHT", 0, -16 )
-				G.UnitFrames["Boss" .. i].Castbar:CreateBorder( true )
+				G.UnitFrames["Boss" .. i].Castbar:CreateBackdrop( "Default" )
+				G.UnitFrames["Boss" .. i].Castbar.backdrop:CreateShadow( "Default" )
 
 				G.UnitFrames["Boss" .. i].Castbar.bg:Kill()
 
@@ -1376,7 +1395,8 @@ do
 		do
 			G.UnitFrames["Arena" .. i].Health:Size( 200, 26 )
 			G.UnitFrames["Arena" .. i].Health:SetFrameLevel( 5 )
-			G.UnitFrames["Arena" .. i].Health:CreateBorder( true )
+			G.UnitFrames["Arena" .. i].Health:CreateBackdrop( "Default" )
+			G.UnitFrames["Arena" .. i].Health.backdrop:CreateShadow( "Default" )
 			G.UnitFrames["Arena" .. i].Health.bg:SetTexture( 0.6, 0.6, 0.6 )
 
 			if( C["unitframes"]["unicolor"] == true ) then
@@ -1408,7 +1428,8 @@ do
 			G.UnitFrames["Arena" .. i].Power:ClearAllPoints()
 			G.UnitFrames["Arena" .. i].Power:Point( "TOPRIGHT", G.UnitFrames["Arena" .. i].Health, "BOTTOMRIGHT", 0, -7 )
 			G.UnitFrames["Arena" .. i].Power:SetFrameLevel( G.UnitFrames["Arena" .. i].Health:GetFrameLevel() + 2 )
-			G.UnitFrames["Arena" .. i].Power:CreateBorder( true )
+			G.UnitFrames["Arena" .. i].Power:CreateBackdrop( "Default" )
+			G.UnitFrames["Arena" .. i].Power.backdrop:CreateShadow( "Default" )
 
 			G.UnitFrames["Arena" .. i].Power.value = S.SetFontString( G.UnitFrames["Arena" .. i].Health, S.CreateFontString() )
 			G.UnitFrames["Arena" .. i].Power.value:Point( "LEFT", G.UnitFrames["Arena" .. i].Health, "LEFT", 4, 1 )
@@ -1422,7 +1443,8 @@ do
 				G.UnitFrames["Arena" .. i].Castbar:ClearAllPoints()
 				G.UnitFrames["Arena" .. i].Castbar:SetHeight( 20 )
 				G.UnitFrames["Arena" .. i].Castbar:Point( "TOPRIGHT", G.UnitFrames["Arena" .. i], "BOTTOMRIGHT", 0, -16 )
-				G.UnitFrames["Arena" .. i].Castbar:CreateBorder( true )
+				G.UnitFrames["Arena" .. i].Castbar:CreateBackdrop( "Default" )
+				G.UnitFrames["Arena" .. i].Castbar.backdrop:CreateShadow( "Default" )
 
 				G.UnitFrames["Arena" .. i].Castbar.bg:Kill()
 

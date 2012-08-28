@@ -24,20 +24,6 @@ local function Animate( self, x, y, duration )
 	self.anim.out1:SetScript( "OnFinished", function() self:Hide() end )
 end
 
-local function CreateBorder( self, shadow )
-	if( self:GetFrameStrata() == "BACKGROUND" ) then self:SetFrameStrata( "LOW" ) end
-
-	local border = CreateFrame( "Frame", nil, self )
-	border:SetPoint( "TOPLEFT", self, "TOPLEFT", S.Scale( -2 ), S.Scale( 2 ) )
-	border:SetPoint( "BOTTOMRIGHT", self, "BOTTOMRIGHT", S.Scale( 2 ), S.Scale( -2 ) )
-	border:SetTemplate( "Default" )
-	
-	if( shadow == true ) then
-		border:CreateShadow( "Default" )
-	end
-	border:SetFrameLevel( self:GetFrameLevel() )
-end
-
 local function CreateOverlay( frame )
 	if( frame.overlay ) then return end
 

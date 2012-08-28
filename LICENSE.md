@@ -1,7 +1,7 @@
 AsphyxiaUI - v6: License
 ========================
 
-Copyright 20011-2012 Sinaris, Merith
+Copyright 20011-2012 Sinaris
 
 The contents of this addon, excluding third-party resources, are
 copyrighted to their authors with all rights reserved.
@@ -25,4 +25,4 @@ to license all versions over v5 under stricter terms.
 All rights not explicitly addressed in this license are reserved by
 the copyright holders.
 
-You can write us at _L.EMAIL_ for reporting abuse.
+You can write us at natias@natias.de for reporting abuse.

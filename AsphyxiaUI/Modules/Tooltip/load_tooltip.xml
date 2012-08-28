@@ -5,4 +5,5 @@
 	<Script file="Talents.lua" />
 	<Script file="SpellItemID.lua" />
 	<Script file="Symbiosis.lua" />
+	<Script file="Reforge.lua" />
 </Ui>

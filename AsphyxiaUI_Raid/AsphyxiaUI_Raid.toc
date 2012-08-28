@@ -1,9 +1,10 @@
 ## Interface: 50001
 ## Title: AsphyxiaUI - Raid DPS/Tank Layout
 ## Notes:
-## Version: 6.0
-## Author: Sinaris, Merith
+## Version: 6.0.0
+## Author: Sinaris
 ## RequiredDeps: Tukui, AsphyxiaUI, AsphyxiaUI_Config
 ## X-oUF: oUFTukui
+## Website: www.natias.de
 
 AsphyxiaUI_Raid.xml

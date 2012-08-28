@@ -144,7 +144,8 @@ do
 			G.UnitFrames.Player.Experience:Point( "BOTTOM", G.Panels.LeftChatBackground, "TOP", 0, 5 )
 			G.UnitFrames.Player.Experience:SetFrameLevel( 12 )
 			G.UnitFrames.Player.Experience:SetAlpha( 1 )
-			G.UnitFrames.Player.Experience:CreateBorder( true )
+			G.UnitFrames.Player.Experience:CreateBackdrop( "Default" )
+			G.UnitFrames.Player.Experience.backdrop:CreateShadow( "Default" )
 
 			G.UnitFrames.Player.Experience:HookScript( "OnLeave", function( self ) self:SetAlpha( 1 ) end )
 
@@ -470,7 +471,8 @@ do
 			G.UnitFrames.Player.Castbar:ClearAllPoints()
 			G.UnitFrames.Player.Castbar:SetHeight( S.Scale( 20 ) )
 			G.UnitFrames.Player.Castbar:Point( "BOTTOMRIGHT", AsphyxiaUIUnitframesPlayerCastbarMover, "BOTTOMRIGHT", -2, 2 )
-			G.UnitFrames.Player.Castbar:CreateBorder( true )
+			G.UnitFrames.Player.Castbar:CreateBackdrop( "Default" )
+			G.UnitFrames.Player.Castbar.backdrop:CreateShadow( "Default" )
 			G.UnitFrames.Player.Castbar.bg:SetVertexColor( 0.05, 0.05, 0.05 )
 
 			if( C["unitframes"]["cbicons"] == true ) then
@@ -988,7 +990,6 @@ do
 		G.UnitFrames.Pet.Power:SetPoint( "TOP", G.UnitFrames.Pet.Health, "BOTTOM", 0, -7 )
 		G.UnitFrames.Pet.Power:CreateBackdrop( "Default" )
 		G.UnitFrames.Pet.Power.backdrop:CreateShadow( "Default" )
-
 	end
 
 	------------------------------

@@ -6,7 +6,6 @@ local S, C, L, G = unpack( Tukui )
 
 if( C["intmodules"]["afkcamera"] ~= true ) then return end
 
-local color = RAID_CLASS_COLORS[S.myclass]
 local PName = S.myname
 local PLevel = S.level
 local PClass = UnitClass( "player" )
@@ -172,7 +171,7 @@ AsphyxiaUIAFKPanelTop.PlayerNameText = AsphyxiaUIAFKPanelTop:CreateFontString( n
 AsphyxiaUIAFKPanelTop.PlayerNameText:SetPoint( "LEFT", AsphyxiaUIAFKPanelTop, "LEFT", 25, 15 )
 AsphyxiaUIAFKPanelTop.PlayerNameText:SetFont( C["media"]["font"], 28, "OUTLINE" )
 AsphyxiaUIAFKPanelTop.PlayerNameText:SetText( PName )
-AsphyxiaUIAFKPanelTop.PlayerNameText:SetTextColor( color.r, color.g, color.b )
+AsphyxiaUIAFKPanelTop.PlayerNameText:SetTextColor( S.ClassColor.r, S.ClassColor.g, S.ClassColor.b )
 
 AsphyxiaUIAFKPanelTop.GuildText = AsphyxiaUIAFKPanelTop:CreateFontString( nil, "OVERLAY" )
 AsphyxiaUIAFKPanelTop.GuildText:SetPoint( "LEFT", AsphyxiaUIAFKPanelTop, "LEFT", 25, -3 )

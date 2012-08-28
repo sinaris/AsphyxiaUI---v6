@@ -302,9 +302,9 @@ end
 
 local function LockCheck( index )
 	if( AsphyxiaUISaved.actionbarsLocked == true ) then
-		Toggle[index].Text:SetText( "unlock" )
+		Toggle[index].Text:SetText( L.Actionbars_UNLOCK )
 	elseif AsphyxiaUISaved.actionbarsLocked == false then
-		Toggle[index].Text:SetText( "lock" )
+		Toggle[index].Text:SetText( L.Actionbars_LOCK )
 	end
 end
 
@@ -428,10 +428,10 @@ for i = 1, 6 do
 
 			if( AsphyxiaUISaved.actionbarsLocked == true ) then
 				AsphyxiaUISaved.actionbarsLocked = false
-				print( L.AsphyxiaUI_Actionbars_Buttons_Text_Unlocked )
+				print( L.Actionbars_BARSUNLOCK )
 			elseif( AsphyxiaUISaved.actionbarsLocked == false ) then
 				AsphyxiaUISaved.actionbarsLocked = true
-				print( L.AsphyxiaUI_Actionbars_Buttons_Text_Locked )
+				print( L.Actionbars_BARSLOCK )
 			end
 
 			LockCheck( i )
