@@ -166,7 +166,23 @@ do
 	------------------------------
 	do
 		if( S.level == MAX_PLAYER_LEVEL ) then
+			G.UnitFrames.Player.Reputation:ClearAllPoints()
 
+			G.UnitFrames.Player.Reputation:Size( G.Panels.LeftChatBackground:GetWidth() - 4, 2 )
+			G.UnitFrames.Player.Reputation:Point( "BOTTOM", G.Panels.LeftChatBackground, "TOP", 0, 5 )
+			G.UnitFrames.Player.Reputation:SetFrameLevel( 10 )
+			G.UnitFrames.Player.Reputation:SetAlpha( 1 )
+			G.UnitFrames.Player.Reputation:CreateBackdrop( "Default" )
+			G.UnitFrames.Player.Reputation.backdrop:CreateShadow( "Default" )
+
+			G.UnitFrames.Player.Reputation:HookScript( "OnLeave", function( self ) self:SetAlpha( 1 ) end )
+
+			G.UnitFrames.Player.Reputation.Text = G.UnitFrames.Player.Reputation:CreateFontString( nil, "OVERLAY" )
+			G.UnitFrames.Player.Reputation.Text:SetFont( S.CreateFontString() )
+			G.UnitFrames.Player.Reputation.Text:SetPoint( "CENTER", 0, 1 )
+			G.UnitFrames.Player.Reputation.Text:SetShadowOffset( S.mult, -S.mult )
+			G.UnitFrames.Player.Reputation.Text = G.UnitFrames.Player.Reputation.Text
+			G.UnitFrames.Player.Reputation.PostUpdate = S.UpdateReputationColor
 		end
 	end
 

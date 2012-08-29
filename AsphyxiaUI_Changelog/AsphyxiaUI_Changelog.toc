@@ -4,6 +4,6 @@
 ## Version: 6.0.0
 ## Author: Sinaris
 ## RequiredDeps: AsphyxiaUI, Tukui
-## Website: www.natias.de
+## Website: http://www.natias.de
 
 AsphyxiaUI_Changelog.xml

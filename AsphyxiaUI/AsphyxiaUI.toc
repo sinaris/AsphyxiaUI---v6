@@ -7,6 +7,6 @@
 ## RequiredDeps: AsphyxiaUI_Config, Tukui
 ## OptionalDeps: Blizzard_CombatText, !ClassColors, Clique, DBM-Core, Omen, Recount, Skada, TinyDPS
 ## X-oUF: oUFTukui
-## Website: www.natias.de
+## Website: http://www.natias.de
 
 AsphyxiaUI_Loader.xml

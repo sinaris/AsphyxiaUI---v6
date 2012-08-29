@@ -6,4 +6,5 @@
 	<Script file="SpellItemID.lua" />
 	<Script file="Symbiosis.lua" />
 	<Script file="Reforge.lua" />
+	<Script file="Role.lua" />
 </Ui>

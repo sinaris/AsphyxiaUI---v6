@@ -5,6 +5,6 @@
 ## Author: Sinaris
 ## RequiredDeps: Tukui, AsphyxiaUI, AsphyxiaUI_Config
 ## X-oUF: oUFTukui
-## Website: www.natias.de
+## Website: http://www.natias.de
 
 AsphyxiaUI_Raid_Healing.xml

@@ -84,6 +84,7 @@ C["tooltip"] = {
 	["talents"] = true,
 	["symbiosis"] = true,
 	["reforge"] = true,
+	["role"] = true,
 }
 
 C["datatext"] = {
@@ -140,6 +141,7 @@ C["intmodules"] = {
 	["clickcast"] = true,
 	["spells"] = true,
 	["interrupts"] = true,
+	["autorole"] = true,
 }
 
 C["unitframes"] = {

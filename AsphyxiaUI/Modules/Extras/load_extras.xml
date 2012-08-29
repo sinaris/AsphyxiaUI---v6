@@ -2,6 +2,7 @@
 	<Script file="AddOnManager.lua" />
 	<Script file="AFKCamera.lua" />
 	<Script file="AlertCombat.lua" />
+	<Script file="AutoRole.lua" />
 	<Script file="Click2Cast.lua" />
 	<Script file="CombatText.lua" />
 	<Script file="HatTrick.lua" />
