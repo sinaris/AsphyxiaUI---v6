@@ -24,9 +24,25 @@ local function Stuffing_Sort( args )
 end
 
 local function BagsSlotUpdate( self, b )
+	local texture, count, locked = GetContainerItemInfo( b.bag, b.slot )
+	local clink = GetContainerItemLink( b.bag, b.slot )
+	local isQuestItem, questId = GetContainerItemQuestInfo( b.bag, b.slot )
+
 	local scount = _G[b.frame:GetName() .. "Count"]
 	scount:SetFont( S.CreateFontString() )
 	scount:Point( "BOTTOMRIGHT", 0, 2 )
+
+	if( clink ) then
+		b.name, _, b.rarity = GetItemInfo( clink )
+
+		if( not b.frame.lock and b.rarity and b.rarity > 1 and not ( isQuestItem or questId ) ) then
+			b.frame:SetBackdropBorderColor( GetItemQualityColor( b.rarity ) )
+		elseif( isQuestItem or questId ) then
+			b.frame:SetBackdropBorderColor( 1, 1, 0 )
+		end
+	else
+		b.name, b.rarity = nil, nil
+	end
 end
 hooksecurefunc( Stuffing, "SlotUpdate", BagsSlotUpdate )
 
