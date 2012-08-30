@@ -49,10 +49,10 @@ hooksecurefunc( Stuffing, "SlotUpdate", BagsSlotUpdate )
 local function BagsUpdateBagsPosition( self )
 	TukuiBags:ClearAllPoints()
 
-	if( C["chat"].background ~= true ) then
+	if( C["chat"]["background"] ~= true ) then
 		TukuiBags:SetPoint( "BOTTOMLEFT", G.Panels.DataTextRight, "TOPLEFT", 0, 3 )
 	elseif( HasPetUI() ) then
-		if( C["actionbar"].vertical_rightbars == true ) then
+		if( C["actionbar"]["vertical_rightbars"] == true ) then
 			TukuiBags:SetPoint( "BOTTOMRIGHT", G.Panels.RightChatBackground, "TOPRIGHT", 0, 3 )
 		else
 			TukuiBags:SetPoint( "BOTTOM", G.ActionBars.Pet, "TOP", 0, 3 )
@@ -60,7 +60,7 @@ local function BagsUpdateBagsPosition( self )
 	elseif( UnitHasVehicleUI( "player" ) ) then
 		TukuiBags:SetPoint( "BOTTOMRIGHT", G.Panels.RightChatBackground, "TOPRIGHT", 0, 3 )
 	else
-		if( C["actionbar"].vertical_rightbars == true ) then
+		if( C["actionbar"]["vertical_rightbars"] == true ) then
 			TukuiBags:SetPoint( "BOTTOMRIGHT", G.Panels.RightChatBackground, "TOPRIGHT", 0, 3 )
 		else
 			if( AsphyxiaUISaved.rightbars >= 1 ) then

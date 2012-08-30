@@ -173,9 +173,12 @@ local AsphyxiaUIRaidPosition = CreateFrame( "Frame" )
 AsphyxiaUIRaidPosition:RegisterEvent( "PLAYER_LOGIN" )
 AsphyxiaUIRaidPosition:SetScript( "OnEvent", function( self, event )
 	local raid = G.UnitFrames.RaidUnits
-	local pets = G.UnitFrames.RaidPets
 	raid:ClearAllPoints()
-	pets:ClearAllPoints()
+
+	if( C["unitframes"]["showraidpets"] == true ) then
+		local pets = G.UnitFrames.RaidPets
+		pets:ClearAllPoints()
+	end
 
 	raid:SetPoint( "TOP", UIParent, "BOTTOM", 0, 415 )
 end )

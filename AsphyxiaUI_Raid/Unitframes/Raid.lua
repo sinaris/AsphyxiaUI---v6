@@ -162,21 +162,22 @@ S.PostUpdateRaidUnit = function( self )
 	------------------------------
 	-- aggro
 	------------------------------
-	--if( C["unitframes"]["aggro"] == true ) then
-		table.insert( self.__elements, S.UpdateThreat )
-		self:RegisterEvent( "PLAYER_TARGET_CHANGED", S.UpdateThreat )
-		self:RegisterEvent( "UNIT_THREAT_LIST_UPDATE", S.UpdateThreat )
-		self:RegisterEvent( "UNIT_THREAT_SITUATION_UPDATE", S.UpdateThreat )
-	--end
+	table.insert( self.__elements, S.UpdateThreat )
+	self:RegisterEvent( "PLAYER_TARGET_CHANGED", S.UpdateThreat )
+	self:RegisterEvent( "UNIT_THREAT_LIST_UPDATE", S.UpdateThreat )
+	self:RegisterEvent( "UNIT_THREAT_SITUATION_UPDATE", S.UpdateThreat )
 end
 
 local AsphyxiaUIRaidPosition = CreateFrame( "Frame" )
 AsphyxiaUIRaidPosition:RegisterEvent( "PLAYER_LOGIN" )
 AsphyxiaUIRaidPosition:SetScript( "OnEvent", function( self, event )
 	local raid = G.UnitFrames.RaidUnits
-	local pets = G.UnitFrames.RaidPets
 	raid:ClearAllPoints()
-	pets:ClearAllPoints()
+
+	if( C["unitframes"]["showraidpets"] == true ) then
+		local pets = G.UnitFrames.RaidPets
+		pets:ClearAllPoints()
+	end
 
 	raid:SetPoint( "BOTTOMLEFT", TukuiChatBackgroundLeft, "TOPLEFT", 2, 14 )
 end )

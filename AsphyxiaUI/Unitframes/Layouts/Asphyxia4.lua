@@ -30,7 +30,7 @@ do
 		G.UnitFrames.Player.Health:SetFrameLevel( 5 )
 		G.UnitFrames.Player.Health:CreateBackdrop( "Default" )
 		G.UnitFrames.Player.Health.backdrop:CreateShadow( "Default" )
-		G.UnitFrames.Player.Health.bg:SetTexture( 0.6, 0.6, 0.6 )
+		G.UnitFrames.Player.Health.bg:SetVertexColor( 0.6, 0.6, 0.6 )
 
 		if( C["unitframes"]["unicolor"] == true ) then
 			G.UnitFrames.Player.Health.colorTapping = false
@@ -561,7 +561,7 @@ do
 		G.UnitFrames.Target.Health:SetFrameLevel( 5 )
 		G.UnitFrames.Target.Health:CreateBackdrop( "Default" )
 		G.UnitFrames.Target.Health.backdrop:CreateShadow( "Default" )
-		G.UnitFrames.Target.Health.bg:SetTexture( 0.6, 0.6, 0.6 )
+		G.UnitFrames.Target.Health.bg:SetVertexColor( 0.6, 0.6, 0.6 )
 
 		if( C["unitframes"]["unicolor"] == true ) then
 			G.UnitFrames.Target.Health.colorTapping = false
@@ -778,7 +778,7 @@ do
 		G.UnitFrames.TargetTarget.Health:SetFrameLevel( 5 )
 		G.UnitFrames.TargetTarget.Health:CreateBackdrop( "Default" )
 		G.UnitFrames.TargetTarget.Health.backdrop:CreateShadow( "Default" )
-		G.UnitFrames.TargetTarget.Health.bg:SetTexture( 0.6, 0.6, 0.6 )
+		G.UnitFrames.TargetTarget.Health.bg:SetVertexColor( 0.6, 0.6, 0.6 )
 
 		if( C["unitframes"]["unicolor"] == true ) then
 			G.UnitFrames.TargetTarget.Health.colorTapping = false
@@ -898,7 +898,7 @@ do
 		G.UnitFrames.Pet.Health:SetFrameLevel( 5 )
 		G.UnitFrames.Pet.Health:CreateBackdrop( "Default" )
 		G.UnitFrames.Pet.Health.backdrop:CreateShadow( "Default" )
-		G.UnitFrames.Pet.Health.bg:SetTexture( 0.6, 0.6, 0.6 )
+		G.UnitFrames.Pet.Health.bg:SetVertexColor( 0.6, 0.6, 0.6 )
 
 		if( C["unitframes"]["unicolor"] == true ) then
 			G.UnitFrames.Pet.Health.colorTapping = false
@@ -964,7 +964,7 @@ do
 		G.UnitFrames.Focus.Health:SetFrameLevel( 5 )
 		G.UnitFrames.Focus.Health:CreateBackdrop( "Default" )
 		G.UnitFrames.Focus.Health.backdrop:CreateShadow( "Default" )
-		G.UnitFrames.Focus.Health.bg:SetTexture( 0.6, 0.6, 0.6 )
+		G.UnitFrames.Focus.Health.bg:SetVertexColor( 0.6, 0.6, 0.6 )
 
 		if( C["unitframes"]["unicolor"] == true ) then
 			G.UnitFrames.Focus.Health.colorTapping = false
@@ -1105,7 +1105,7 @@ do
 		G.UnitFrames.FocusTarget.Health:SetFrameLevel( 5 )
 		G.UnitFrames.FocusTarget.Health:CreateBackdrop( "Default" )
 		G.UnitFrames.FocusTarget.Health.backdrop:CreateShadow( "Default" )
-		G.UnitFrames.FocusTarget.Health.bg:SetTexture( 0.6, 0.6, 0.6 )
+		G.UnitFrames.FocusTarget.Health.bg:SetVertexColor( 0.6, 0.6, 0.6 )
 
 		if( C["unitframes"]["unicolor"] == true ) then
 			G.UnitFrames.FocusTarget.Health.colorTapping = false
@@ -1248,7 +1248,7 @@ do
 			G.UnitFrames["Boss" .. i].Health:SetFrameLevel( 5 )
 			G.UnitFrames["Boss" .. i].Health:CreateBackdrop( "Default" )
 			G.UnitFrames["Boss" .. i].Health.backdrop:CreateShadow( "Default" )
-			G.UnitFrames["Boss" .. i].Health.bg:SetTexture( 0.6, 0.6, 0.6 )
+			G.UnitFrames["Boss" .. i].Health.bg:SetVertexColor( 0.6, 0.6, 0.6 )
 
 			if( C["unitframes"]["unicolor"] == true ) then
 				G.UnitFrames["Boss" .. i].Health.colorTapping = false
@@ -1395,158 +1395,159 @@ end
 -- Arena
 ------------------------------
 do
-	for i = 1, 5 do
-		------------------------------
-		-- not needed
-		------------------------------
-		do
-			G.UnitFrames["Arena" .. i]:SetBackdrop( nil )
-			G.UnitFrames["Arena" .. i]:SetBackdropColor( 0, 0, 0 )
-			G.UnitFrames["Arena" .. i].shadow:Kill()
-		end
-
-		------------------------------
-		-- health
-		------------------------------
-		do
-			G.UnitFrames["Arena" .. i].Health:Size( 200, 26 )
-			G.UnitFrames["Arena" .. i].Health:SetFrameLevel( 5 )
-			G.UnitFrames["Arena" .. i].Health:CreateBackdrop( "Default" )
-			G.UnitFrames["Arena" .. i].Health.backdrop:CreateShadow( "Default" )
-			G.UnitFrames["Arena" .. i].Health.bg:SetTexture( 0.6, 0.6, 0.6 )
-
-			if( C["unitframes"]["unicolor"] == true ) then
-				G.UnitFrames["Arena" .. i].Health.colorTapping = false
-				G.UnitFrames["Arena" .. i].Health.colorDisconnected = false
-				G.UnitFrames["Arena" .. i].Health.colorClass = false
-				G.UnitFrames["Arena" .. i].Health:SetStatusBarColor( 0.125, 0.125, 0.125, 1 )
-				G.UnitFrames["Arena" .. i].Health.bg:SetVertexColor( 0, 0, 0, 1 )
-			else
-				G.UnitFrames["Arena" .. i].Health.colorDisconnected = true
-				G.UnitFrames["Arena" .. i].Health.colorTapping = true
-				G.UnitFrames["Arena" .. i].Health.colorClass = true
-				G.UnitFrames["Arena" .. i].Health.colorReaction = true
+	if( C["unitframes"]["arena"] == true ) then
+		for i = 1, 5 do
+			------------------------------
+			-- not needed
+			------------------------------
+			do
+				G.UnitFrames["Arena" .. i]:SetBackdrop( nil )
+				G.UnitFrames["Arena" .. i]:SetBackdropColor( 0, 0, 0 )
+				G.UnitFrames["Arena" .. i].shadow:Kill()
 			end
+			------------------------------
+			-- health
+			------------------------------
+			do
+				G.UnitFrames["Arena" .. i].Health:Size( 200, 26 )
+				G.UnitFrames["Arena" .. i].Health:SetFrameLevel( 5 )
+				G.UnitFrames["Arena" .. i].Health:CreateBackdrop( "Default" )
+				G.UnitFrames["Arena" .. i].Health.backdrop:CreateShadow( "Default" )
+				G.UnitFrames["Arena" .. i].Health.bg:SetVertexColor( 0.6, 0.6, 0.6 )
 
-			G.UnitFrames["Arena" .. i].Name:SetFont( S.CreateFontString() )
-			G.UnitFrames["Arena" .. i].Name:SetShadowOffset( 1.25, -1.25 )
-			G.UnitFrames["Arena" .. i].Name:Point( "CENTER", G.UnitFrames["Arena" .. i].Health, "CENTER", 0, 1 )
-
-			G.UnitFrames["Arena" .. i].Health.value = S.SetFontString( G.UnitFrames["Arena" .. i].Health, S.CreateFontString() )
-			G.UnitFrames["Arena" .. i].Health.value:Point( "RIGHT", G.UnitFrames["Arena" .. i].Health, "RIGHT", -4, 1 )
-		end
-
-		------------------------------
-		-- power
-		------------------------------
-		do
-			G.UnitFrames["Arena" .. i].Power:Size( 200, 2 )
-			G.UnitFrames["Arena" .. i].Power:ClearAllPoints()
-			G.UnitFrames["Arena" .. i].Power:Point( "TOPRIGHT", G.UnitFrames["Arena" .. i].Health, "BOTTOMRIGHT", 0, -7 )
-			G.UnitFrames["Arena" .. i].Power:SetFrameLevel( G.UnitFrames["Arena" .. i].Health:GetFrameLevel() + 2 )
-			G.UnitFrames["Arena" .. i].Power:CreateBackdrop( "Default" )
-			G.UnitFrames["Arena" .. i].Power.backdrop:CreateShadow( "Default" )
-
-			G.UnitFrames["Arena" .. i].Power.value = S.SetFontString( G.UnitFrames["Arena" .. i].Health, S.CreateFontString() )
-			G.UnitFrames["Arena" .. i].Power.value:Point( "LEFT", G.UnitFrames["Arena" .. i].Health, "LEFT", 4, 1 )
-		end
-
-		------------------------------
-		-- castbar
-		------------------------------
-		do
-			if( C["unitframes"]["unitcastbar"] == true ) then
-				G.UnitFrames["Arena" .. i].Castbar:ClearAllPoints()
-				G.UnitFrames["Arena" .. i].Castbar:SetHeight( 20 )
-				G.UnitFrames["Arena" .. i].Castbar:Point( "TOPRIGHT", G.UnitFrames["Arena" .. i], "BOTTOMRIGHT", 0, -16 )
-				G.UnitFrames["Arena" .. i].Castbar:CreateBackdrop( "Default" )
-				G.UnitFrames["Arena" .. i].Castbar.backdrop:CreateShadow( "Default" )
-
-				G.UnitFrames["Arena" .. i].Castbar.bg:Kill()
-
-				G.UnitFrames["Arena" .. i].Castbar.bg = G.UnitFrames["Arena" .. i].Castbar:CreateTexture( nil, "BORDER" )
-				G.UnitFrames["Arena" .. i].Castbar.bg:SetAllPoints( G.UnitFrames["Arena" .. i].Castbar )
-				G.UnitFrames["Arena" .. i].Castbar.bg:SetTexture( C["media"]["normTex"] )
-				G.UnitFrames["Arena" .. i].Castbar.bg:SetVertexColor( 0.05, 0.05, 0.05 )
-
-				G.UnitFrames["Arena" .. i].Castbar.Time = S.SetFontString( G.UnitFrames["Arena" .. i].Castbar, S.CreateFontString() )
-				G.UnitFrames["Arena" .. i].Castbar.Time:Point( "RIGHT", G.UnitFrames["Arena" .. i].Castbar, "RIGHT", -4, 1 )
-				G.UnitFrames["Arena" .. i].Castbar.Time:SetTextColor( 0, 4, 0 )
-
-				G.UnitFrames["Arena" .. i].Castbar.Text = S.SetFontString( G.UnitFrames["Arena" .. i].Castbar, S.CreateFontString() )
-				G.UnitFrames["Arena" .. i].Castbar.Text:Point( "LEFT", G.UnitFrames["Arena" .. i].Castbar, "LEFT", 4, 1 )
-				G.UnitFrames["Arena" .. i].Castbar.Text:SetTextColor( 0.3, 0.2, 1 )
-
-				G.UnitFrames["Arena" .. i].Castbar.PostCastStart = S.PostCastStart
-				G.UnitFrames["Arena" .. i].Castbar.PostChannelStart = S.PostCastStart
-
-				if( C["unitframes"]["cbicons"] == true ) then
-					G.UnitFrames["Arena" .. i].Castbar:Width( 173 )
-
-					G.UnitFrames["Arena" .. i].Castbar.button:ClearAllPoints()
-					G.UnitFrames["Arena" .. i].Castbar.button:SetPoint( "RIGHT", G.UnitFrames["Arena" .. i].Castbar, "LEFT", -5, 0 )
-					G.UnitFrames["Arena" .. i].Castbar.button:Size( 24 )
-					G.UnitFrames["Arena" .. i].Castbar.button:CreateShadow( "Default" )
+				if( C["unitframes"]["unicolor"] == true ) then
+					G.UnitFrames["Arena" .. i].Health.colorTapping = false
+					G.UnitFrames["Arena" .. i].Health.colorDisconnected = false
+					G.UnitFrames["Arena" .. i].Health.colorClass = false
+					G.UnitFrames["Arena" .. i].Health:SetStatusBarColor( 0.125, 0.125, 0.125, 1 )
+					G.UnitFrames["Arena" .. i].Health.bg:SetVertexColor( 0, 0, 0, 1 )
 				else
-					G.UnitFrames["Arena" .. i].Castbar:Width( 200 )
+					G.UnitFrames["Arena" .. i].Health.colorDisconnected = true
+					G.UnitFrames["Arena" .. i].Health.colorTapping = true
+					G.UnitFrames["Arena" .. i].Health.colorClass = true
+					G.UnitFrames["Arena" .. i].Health.colorReaction = true
+				end
 
-					G.UnitFrames["Arena" .. i].Castbar.button:Kill()
+				G.UnitFrames["Arena" .. i].Name:SetFont( S.CreateFontString() )
+				G.UnitFrames["Arena" .. i].Name:SetShadowOffset( 1.25, -1.25 )
+				G.UnitFrames["Arena" .. i].Name:Point( "CENTER", G.UnitFrames["Arena" .. i].Health, "CENTER", 0, 1 )
+
+				G.UnitFrames["Arena" .. i].Health.value = S.SetFontString( G.UnitFrames["Arena" .. i].Health, S.CreateFontString() )
+				G.UnitFrames["Arena" .. i].Health.value:Point( "RIGHT", G.UnitFrames["Arena" .. i].Health, "RIGHT", -4, 1 )
+			end
+
+			------------------------------
+			-- power
+			------------------------------
+			do
+				G.UnitFrames["Arena" .. i].Power:Size( 200, 2 )
+				G.UnitFrames["Arena" .. i].Power:ClearAllPoints()
+				G.UnitFrames["Arena" .. i].Power:Point( "TOPRIGHT", G.UnitFrames["Arena" .. i].Health, "BOTTOMRIGHT", 0, -7 )
+				G.UnitFrames["Arena" .. i].Power:SetFrameLevel( G.UnitFrames["Arena" .. i].Health:GetFrameLevel() + 2 )
+				G.UnitFrames["Arena" .. i].Power:CreateBackdrop( "Default" )
+				G.UnitFrames["Arena" .. i].Power.backdrop:CreateShadow( "Default" )
+
+				G.UnitFrames["Arena" .. i].Power.value = S.SetFontString( G.UnitFrames["Arena" .. i].Health, S.CreateFontString() )
+				G.UnitFrames["Arena" .. i].Power.value:Point( "LEFT", G.UnitFrames["Arena" .. i].Health, "LEFT", 4, 1 )
+			end
+
+			------------------------------
+			-- castbar
+			------------------------------
+			do
+				if( C["unitframes"]["unitcastbar"] == true ) then
+					G.UnitFrames["Arena" .. i].Castbar:ClearAllPoints()
+					G.UnitFrames["Arena" .. i].Castbar:SetHeight( 20 )
+					G.UnitFrames["Arena" .. i].Castbar:Point( "TOPRIGHT", G.UnitFrames["Arena" .. i], "BOTTOMRIGHT", 0, -16 )
+					G.UnitFrames["Arena" .. i].Castbar:CreateBackdrop( "Default" )
+					G.UnitFrames["Arena" .. i].Castbar.backdrop:CreateShadow( "Default" )
+
+					G.UnitFrames["Arena" .. i].Castbar.bg:Kill()
+
+					G.UnitFrames["Arena" .. i].Castbar.bg = G.UnitFrames["Arena" .. i].Castbar:CreateTexture( nil, "BORDER" )
+					G.UnitFrames["Arena" .. i].Castbar.bg:SetAllPoints( G.UnitFrames["Arena" .. i].Castbar )
+					G.UnitFrames["Arena" .. i].Castbar.bg:SetTexture( C["media"]["normTex"] )
+					G.UnitFrames["Arena" .. i].Castbar.bg:SetVertexColor( 0.05, 0.05, 0.05 )
+
+					G.UnitFrames["Arena" .. i].Castbar.Time = S.SetFontString( G.UnitFrames["Arena" .. i].Castbar, S.CreateFontString() )
+					G.UnitFrames["Arena" .. i].Castbar.Time:Point( "RIGHT", G.UnitFrames["Arena" .. i].Castbar, "RIGHT", -4, 1 )
+					G.UnitFrames["Arena" .. i].Castbar.Time:SetTextColor( 0, 4, 0 )
+
+					G.UnitFrames["Arena" .. i].Castbar.Text = S.SetFontString( G.UnitFrames["Arena" .. i].Castbar, S.CreateFontString() )
+					G.UnitFrames["Arena" .. i].Castbar.Text:Point( "LEFT", G.UnitFrames["Arena" .. i].Castbar, "LEFT", 4, 1 )
+					G.UnitFrames["Arena" .. i].Castbar.Text:SetTextColor( 0.3, 0.2, 1 )
+
+					G.UnitFrames["Arena" .. i].Castbar.PostCastStart = S.PostCastStart
+					G.UnitFrames["Arena" .. i].Castbar.PostChannelStart = S.PostCastStart
+
+					if( C["unitframes"]["cbicons"] == true ) then
+						G.UnitFrames["Arena" .. i].Castbar:Width( 173 )
+
+						G.UnitFrames["Arena" .. i].Castbar.button:ClearAllPoints()
+						G.UnitFrames["Arena" .. i].Castbar.button:SetPoint( "RIGHT", G.UnitFrames["Arena" .. i].Castbar, "LEFT", -5, 0 )
+						G.UnitFrames["Arena" .. i].Castbar.button:Size( 24 )
+						G.UnitFrames["Arena" .. i].Castbar.button:CreateShadow( "Default" )
+					else
+						G.UnitFrames["Arena" .. i].Castbar:Width( 200 )
+
+						G.UnitFrames["Arena" .. i].Castbar.button:Kill()
+					end
 				end
 			end
-		end
 
-		------------------------------
-		-- buffs, debuffs
-		------------------------------
-		do
-			G.UnitFrames["Arena" .. i].Debuffs:SetHeight( 30 )
-			G.UnitFrames["Arena" .. i].Debuffs:SetWidth( 200 )
-			G.UnitFrames["Arena" .. i].Debuffs.size = 30
-			G.UnitFrames["Arena" .. i].Debuffs.num = 5
-			G.UnitFrames["Arena" .. i].Debuffs.spacing = 3
+			------------------------------
+			-- buffs, debuffs
+			------------------------------
+			do
+				G.UnitFrames["Arena" .. i].Debuffs:SetHeight( 30 )
+				G.UnitFrames["Arena" .. i].Debuffs:SetWidth( 200 )
+				G.UnitFrames["Arena" .. i].Debuffs.size = 30
+				G.UnitFrames["Arena" .. i].Debuffs.num = 5
+				G.UnitFrames["Arena" .. i].Debuffs.spacing = 3
 
-			G.UnitFrames["Arena" .. i].Debuffs:ClearAllPoints()
-			G.UnitFrames["Arena" .. i].Debuffs:Point( "LEFT", G.UnitFrames["Arena" .. i], "RIGHT", 5, 0 )
-			G.UnitFrames["Arena" .. i].Debuffs.ClearAllPoints = S.dummy
-			G.UnitFrames["Arena" .. i].Debuffs.SetPoint = S.dummy
+				G.UnitFrames["Arena" .. i].Debuffs:ClearAllPoints()
+				G.UnitFrames["Arena" .. i].Debuffs:Point( "LEFT", G.UnitFrames["Arena" .. i], "RIGHT", 5, 0 )
+				G.UnitFrames["Arena" .. i].Debuffs.ClearAllPoints = S.dummy
+				G.UnitFrames["Arena" .. i].Debuffs.SetPoint = S.dummy
 
-			G.UnitFrames["Arena" .. i].Debuffs.initialAnchor = "LEFT"
-			G.UnitFrames["Arena" .. i].Debuffs["growth-x"] = "RIGHT"
+				G.UnitFrames["Arena" .. i].Debuffs.initialAnchor = "LEFT"
+				G.UnitFrames["Arena" .. i].Debuffs["growth-x"] = "RIGHT"
 
-			if( G.UnitFrames["Arena" .. i].Debuffs ) then
-				for _, frames in pairs( { G.UnitFrames["Arena" .. i].Debuffs } ) do
-					if( not frames ) then return end
+				if( G.UnitFrames["Arena" .. i].Debuffs ) then
+					for _, frames in pairs( { G.UnitFrames["Arena" .. i].Debuffs } ) do
+						if( not frames ) then return end
 
-					frames:Size( 200, 30 )
-					frames.size = 30
-					frames.num = 5
+						frames:Size( 200, 30 )
+						frames.size = 30
+						frames.num = 5
 
-					hooksecurefunc( frames, "PostCreateIcon", S.SkinAura )
+						hooksecurefunc( frames, "PostCreateIcon", S.SkinAura )
+					end
 				end
 			end
-		end
 
-		------------------------------
-		-- pvp scpec icon
-		------------------------------
-		do
-			G.UnitFrames["Arena" .. i].PVPSpecIcon:Size( 26 )
-			G.UnitFrames["Arena" .. i].PVPSpecIcon:CreateShadow( "Default" )
-		end
+			------------------------------
+			-- pvp scpec icon
+			------------------------------
+			do
+				G.UnitFrames["Arena" .. i].PVPSpecIcon:Size( 26 )
+				G.UnitFrames["Arena" .. i].PVPSpecIcon:CreateShadow( "Default" )
+			end
 
-		------------------------------
-		-- trinket
-		------------------------------
-		do
-			G.UnitFrames["Arena" .. i].Trinket:Size( 26 )
-			G.UnitFrames["Arena" .. i].Trinket:CreateShadow( "Default" )
-		end
+			------------------------------
+			-- trinket
+			------------------------------
+			do
+				G.UnitFrames["Arena" .. i].Trinket:Size( 26 )
+				G.UnitFrames["Arena" .. i].Trinket:CreateShadow( "Default" )
+			end
 
-		------------------------------
-		-- size
-		------------------------------
-		do
-			G.UnitFrames["Arena" .. i]:Size( 200, 26 )
+			------------------------------
+			-- size
+			------------------------------
+			do
+				G.UnitFrames["Arena" .. i]:Size( 200, 26 )
+			end
 		end
 	end
 end
