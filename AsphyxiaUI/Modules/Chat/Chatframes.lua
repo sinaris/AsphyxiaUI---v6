@@ -67,6 +67,8 @@ S.SetDefaultChatPosition = function( frame )
 				frame:Point( "BOTTOMRIGHT", G.Panels.DataTextRight, "TOPRIGHT", 0, 2 )
 				if( C["chat"]["justifyRight"] == true ) then
 					frame:SetJustifyH( "RIGHT" )
+				else
+					frame:SetJustifyH( "LEFT" )
 				end
 			end
 		end
