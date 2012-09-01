@@ -244,7 +244,7 @@ hooksecurefunc( S, "PostUpdateHealth", function( health, unit, min, max )
 			elseif( ( unit and unit:find( "arena%d" ) ) or unit == "focus" or unit == "focustarget" ) then
 				health.value:SetText( "|cff559655" .. S.ShortValue( min ) .. "|r" )
 			else
-				health.value:SetText( "|cff559655-" .. ShortValueNegative( max - min ) .. "|r" )
+				health.value:SetText( "|cff559655-" .. S.ShortValueNegative( max - min ) .. "|r" )
 			end
 		else
 			if( unit == "player" and health:GetAttribute( "normalUnit" ) ~= "pet" ) then
