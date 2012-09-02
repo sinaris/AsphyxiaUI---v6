@@ -12,9 +12,9 @@ AsphyxiaUIInterruptAnnounce:SetScript( "OnEvent", function( self, _, ... )
 	local _, event, _, sourceGUID, _, _, _, _, destName, _, _, _, _, _, spellID = ...
 	if( not ( event == "SPELL_INTERRUPT" and sourceGUID == UnitGUID( "player" ) ) ) then return end
 
-	if( GetNumGroupMembers() > 0 ) then
+	if( GetNumGroupMembers() > 5 ) then
 		SendChatMessage( INTERRUPTED .. " " .. destName .. ": " .. GetSpellLink( spellID ), "RAID" )
-	elseif( GetNumSubgroupMembers() > 0 and not UnitInRaid( "player" ) ) then
+	elseif( GetNumGroupMembers() > 0 and not UnitInRaid( "player" ) ) then
 		SendChatMessage( INTERRUPTED .. " " .. destName .. ": " .. GetSpellLink( spellID ), "PARTY" )
 	else
 		SendChatMessage( INTERRUPTED .. " " .. destName .. ": " .. GetSpellLink( spellID ), "SAY" )

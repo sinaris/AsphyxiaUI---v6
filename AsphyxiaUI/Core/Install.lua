@@ -28,6 +28,8 @@ local function AsphyxiaUICVarSetup()
 	SetCVar( "nameplateShowEnemyPets", 0 )
 	SetCVar( "nameplateShowEnemyGuardians", 0 )
 	SetCVar( "nameplateShowEnemyTotems", 0 )
+
+	ShowAccountAchievements( 1 )
 end
 
 G.Install.Frame:SetTemplate( "Transparent" )
