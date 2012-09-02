@@ -1,7 +1,7 @@
 ## Interface: 50001
 ## Title: AsphyxiaUI - Changelog
 ## Notes:
-## Version: 6.0.19
+## Version: 6.0.27
 ## Author: Sinaris
 ## RequiredDeps: AsphyxiaUI, Tukui
 ## Website: http://www.natias.de
