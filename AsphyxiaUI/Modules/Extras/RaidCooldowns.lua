@@ -120,9 +120,9 @@ end
 
 local OnMouseDown = function( self, button )
 	if( button == "LeftButton" ) then
-		if( GetNumGroupMembers() > 0 ) then
+		if( IsInRaid() ) then
 			SendChatMessage( sformat( "Cooldown - %s [%s] %s", self.left:GetText(), self.spell, self.right:GetText() ), "RAID" )
-		elseif( GetNumGroupMembers() > 0 and not UnitInRaid( "player" ) ) then
+		elseif( IsInGroup() ) then
 			SendChatMessage( sformat( "Cooldown - %s [%s] %s", self.left:GetText(), self.spell, self.right:GetText() ), "PARTY" )
 		else
 			SendChatMessage( sformat( "Cooldown - %s [%s] %s", self.left:GetText(), self.spell, self.right:GetText() ), "SAY" )

@@ -10,7 +10,8 @@ local buttons = {
 	"QueueStatusMinimapButton",
 	"MiniMapTrackingButton",
 	"MiniMapMailFrame",
-	"HelpOpenTicketButton"
+	"HelpOpenTicketButton",
+	"ZygorGuidesViewerMapIcon",
 }
 
 local function SkinButton( frame )
