@@ -126,6 +126,19 @@ do
 	end
 
 	------------------------------
+	-- pvp combat icon
+	------------------------------
+	do
+		local PVP = G.UnitFrames.Player.Health:CreateTexture( nil, "OVERLAY" )
+		PVP:SetHeight( S.Scale( 32 ) )
+		PVP:SetWidth( S.Scale( 32 ) )
+		PVP:SetPoint( "CENTER", G.UnitFrames.Player.Health, "CENTER", 0, -7 )
+		G.UnitFrames.Player.PvP = PVP
+
+		G.UnitFrames.Player:EnableElement( "PvP" )
+	end
+
+	------------------------------
 	-- experience
 	------------------------------
 	do
