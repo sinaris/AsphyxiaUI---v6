@@ -1,5 +1,8 @@
 ---------------------------------------------------------------------------------------------
--- Project: AsphyxiaUI Version 6.0
+-- AddOn Name: AsphyxiaUI 6.0.0
+-- License: MIT
+-- Author: Sinaris @ Das Syndikat, Vaecia @ Blackmoore
+-- Description: AsphyxiaUI, Editied Tukui Layout
 ---------------------------------------------------------------------------------------------
 
 local S, C, L, G = unpack( Tukui )
@@ -9,7 +12,7 @@ if( C["actionbar"].enable ~= true ) then return end
 local bar = G.ActionBars.Stance
 
 TukuiStance:ClearAllPoints()
-if( C["actionbar"].vertical_shapeshift == true ) then
+if( C["actionbar"]["vertical_shapeshift"] == true ) then
 	TukuiStance:Point( "TOPLEFT", TukuiChatBackgroundLeft, "TOPRIGHT", 2, 0 )
 else
 	TukuiStance:Point( "BOTTOMLEFT", TukuiChatBackgroundLeft, "BOTTOMRIGHT", 2, -1 )

@@ -1,5 +1,8 @@
 ---------------------------------------------------------------------------------------------
--- Project: AsphyxiaUI Version 6.0
+-- AddOn Name: AsphyxiaUI 6.0.0
+-- License: MIT
+-- Author: Sinaris @ Das Syndikat, Vaecia @ Blackmoore
+-- Description: AsphyxiaUI, Editied Tukui Layout
 ---------------------------------------------------------------------------------------------
 
 local S, C, L, G = unpack( Tukui )
@@ -14,6 +17,22 @@ S.CreatePopup["ASPHYXIAUI_ENABLE_CHAT_BACKGROUND"] = {
 				TukuiConfigPublic["chat"] = {}
 			end
 			TukuiConfigPublic["chat"]["background"] = true
+		end
+		ReloadUI()
+	end,
+}
+
+S.CreatePopup["ASPHYXIAUI_DISABLED_TUKUI_NAMEPLATES"] = {
+	question = L.Popups_DISABLED_TUKUI_NAMEPLATES,
+	answer1 = ACCEPT,
+	answer2 = CANCEL,
+	function1 = function()
+		if( IsAddOnLoaded( "Tukui_ConfigUI" ) ) then
+			if( not ( TukuiConfigPublic["nameplate"] ) ) then
+				TukuiConfigPublic["nameplate"] = {}
+			end
+			TukuiConfigPublic["nameplate"]["enable"] = false
+			TukuiConfigPublic["nameplate"]["asphyxia"] = true
 		end
 		ReloadUI()
 	end,

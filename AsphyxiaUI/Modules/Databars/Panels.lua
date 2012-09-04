@@ -1,5 +1,8 @@
 ---------------------------------------------------------------------------------------------
--- Project: AsphyxiaUI Version 6.0
+-- AddOn Name: AsphyxiaUI 6.0.0
+-- License: MIT
+-- Author: Sinaris @ Das Syndikat, Vaecia @ Blackmoore
+-- Description: AsphyxiaUI, Editied Tukui Layout
 ---------------------------------------------------------------------------------------------
 
 local S, C, L, G = unpack( Tukui )
@@ -79,7 +82,6 @@ S.databars["toggle"]:SetTemplate( "Transparent" )
 S.databars["toggle"]:SetAlpha( 0 )
 S.databars["toggle"].Text = S.databars["toggle"]:CreateFontString( nil, "OVERLAY" )
 S.databars["toggle"].Text:SetFont( S.CreateFontString() )
---S.databars["toggle"].Text:SetJustifyH( "CENTER" )
 S.databars["toggle"].Text:SetPoint( "CENTER", 0, 1 )
 S.databars["toggle"].Text:SetText( "|cffFF0000-|r" )
 

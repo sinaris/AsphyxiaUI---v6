@@ -1,5 +1,8 @@
 ---------------------------------------------------------------------------------------------
--- Project: AsphyxiaUI Version 6.0
+-- AddOn Name: AsphyxiaUI 6.0.0
+-- License: MIT
+-- Author: Sinaris @ Das Syndikat, Vaecia @ Blackmoore
+-- Description: AsphyxiaUI, Editied Tukui Layout
 ---------------------------------------------------------------------------------------------
 
 local S, C, L, G = unpack( Tukui )
@@ -18,6 +21,7 @@ L.Global_WELCOME_MESSAGE2 = "For detailed Information |cff00FFFFvisit www.tukui.
 ------------------------------
 L.Popups_SELECT_RAID_LAYOUT = "2 raid layouts are active, please select a layout."
 L.Popups_ENABLE_CHAT_BACKGROUNDS = "AsphyxiaUI needs to have the chatbackground enabled."
+L.Popups_DISABLE_TUKUI_NAMEPLATES = "Tukui nameplates are active. They will be disabled and the AsphyxiaUI nameplates will be enabled."
 
 ------------------------------
 -- Tooltip
@@ -89,7 +93,7 @@ L.Faq_CONTENT_TEXT_TITLE_5 = "|cff00AAFFMinimap, Chat|r"
 L.Faq_CONTENT_TEXT_TITLE_6 = "|cff00AAFFExtra Addons, Skins|r"
 L.Faq_CONTENT_TEXT_TITLE_7 = "|cff00AAFFReported Issues|r"
 L.Faq_CONTENT_TEXT_TITLE_8 = "|cff00AAFFCredits|r"
-L.Faq_CONTENT_TEXT_TITLE_9 = "|cff00AAFFDonations|r"
+L.Faq_CONTENT_TEXT_TITLE_9 = "|cff00AAFFWall of Glory|r"
 
 L.Faq_CONTENT_TEXT_FIELD_0_1 = "AsphyxiaUI - F.A.Q."
 L.Faq_CONTENT_TEXT_FIELD_0_2 = "Welcome to the F.A.Q. from AsphyxiaUI!\n\nThis F.A.Q. will help you to find the important settings and commands for AsphyxiaUI."
@@ -254,4 +258,13 @@ if( TukuiConfigUILocalization ) then
 	TukuiConfigUILocalization.unitframesgradient = "Gradient health color: |cFFFF0000*Please edit the Config-File for this option or the UI will be broken!*|r"
 	TukuiConfigUILocalization.unitframesfader = "Enable unitframe fader"
 	TukuiConfigUILocalization.unitframesgradienthealth = "Enable gradient health on unitframes"
+
+	TukuiConfigUILocalization.nameplateenable = "Enable Nameplates: |cFFFF0000*Disable Tukui nameplates to have AsphyxiaUI nameplates enabled!*|r"
+	TukuiConfigUILocalization.nameplateasphyxia = "Enable AsphyxiaUI nameplates"
+	TukuiConfigUILocalization.nameplatedebuffs = "Enable debuffs on the nameplates"
+	TukuiConfigUILocalization.nameplateshowcastbarname = "Show castbar name"
+	TukuiConfigUILocalization.nameplatewidth = "Nameplates width"
+	TukuiConfigUILocalization.nameplateheight = "Nameplates height"
+	TukuiConfigUILocalization.nameplateaurassize = "Debuffs size"
+	TukuiConfigUILocalization.nameplatenameabbrev = "Display abbreviated names"
 end

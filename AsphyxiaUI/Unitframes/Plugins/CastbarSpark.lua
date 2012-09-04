@@ -1,5 +1,8 @@
 ---------------------------------------------------------------------------------------------
--- AsphyxiaUI
+-- AddOn Name: AsphyxiaUI 6.0.0
+-- License: MIT
+-- Author: Sinaris @ Das Syndikat, Vaecia @ Blackmoore
+-- Description: AsphyxiaUI, Editied Tukui Layout
 ---------------------------------------------------------------------------------------------
 
 local S, C, L, G = unpack( Tukui )
@@ -22,11 +25,3 @@ end
 
 AddCastBarSpark( G.UnitFrames.Player.Castbar )
 AddCastBarSpark( G.UnitFrames.Target.Castbar )
-
---[[for unit, object in pairs( oUFTukui.units ) do
-	if( unit == "player" or unit == "target" ) then
-		if( object.Castbar ) then
-			AddCastBarSpark( object.Castbar )
-		end
-	end
-end]]

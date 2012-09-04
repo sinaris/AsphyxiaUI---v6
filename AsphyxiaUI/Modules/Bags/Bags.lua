@@ -1,5 +1,8 @@
 ---------------------------------------------------------------------------------------------
--- Project: AsphyxiaUI Version 6.0
+-- AddOn Name: AsphyxiaUI 6.0.0
+-- License: MIT
+-- Author: Sinaris @ Das Syndikat, Vaecia @ Blackmoore
+-- Description: AsphyxiaUI, Editied Tukui Layout
 ---------------------------------------------------------------------------------------------
 
 local S, C, L, G = unpack( Tukui )
@@ -14,7 +17,7 @@ local ST_SPECIAL = 3
 local bag_bars = 0
 
 local function Stuffing_Sort( args )
-	if not args then
+	if( not args ) then
 		args = ""
 	end
 
@@ -90,7 +93,7 @@ local function BagsLayout( self, lb )
 	local bs
 
 	local bgvalue = 0
-	if( C["chat"].background ~= true ) then
+	if( C["chat"]["background"] ~= true ) then
 		bgvalue = 10
 	end
 
@@ -187,7 +190,7 @@ local function BagsLayout( self, lb )
 		rows = rows + 1
 	end
 
-	f:Width( C["chat"].width - bgvalue )
+	f:Width( C["chat"]["width"] - bgvalue )
 	f:Height( rows * 30 + ( rows - 1 ) * 2 + off + 12 * 2 )
 
 	local sf = CreateFrame( "Frame", "SlotFrame", f )

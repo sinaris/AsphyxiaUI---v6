@@ -1,3 +1,10 @@
+---------------------------------------------------------------------------------------------
+-- AddOn Name: AsphyxiaUI 6.0.0
+-- License: MIT
+-- Author: Sinaris @ Das Syndikat, Vaecia @ Blackmoore
+-- Description: AsphyxiaUI, Editied Tukui Layout
+---------------------------------------------------------------------------------------------
+
 local C = {}
 
 C["addonskins"] = {
@@ -184,6 +191,19 @@ C["combattext"] = {
 	["dispel"] = true,
 	["interrupt"] = true,
 	["direction"] = "bottom",
+}
+
+C["nameplate"] = {
+	["enable"] = false,
+	["debuffs"] = false,
+	["asphyxia"] = true,
+	["height"] = 12,
+	["width"] = 115,
+	["combat"] = false,
+	["showhealth"] = false,
+	["showcastbarname"] = false,
+	["nameabbrev"] = false,
+	["aurassize"] = 25,
 }
 
 C["media"] = {

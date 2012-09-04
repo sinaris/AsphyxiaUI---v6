@@ -1,5 +1,8 @@
 ---------------------------------------------------------------------------------------------
--- Project: AsphyxiaUI Version 6.0
+-- AddOn Name: AsphyxiaUI 6.0.0
+-- License: MIT
+-- Author: Sinaris @ Das Syndikat, Vaecia @ Blackmoore
+-- Description: AsphyxiaUI, Editied Tukui Layout
 ---------------------------------------------------------------------------------------------
 
 local S, C, L, G = unpack( Tukui )
@@ -20,14 +23,14 @@ local function AsphyxiaUICVarSetup()
 	SetCVar( "ConversationMode", "inline" )
 	SetCVar( "WhisperMode", "inline" )
 	SetCVar( "BnWhisperMode", "inline" )
-	SetCVar( "nameplateShowFriends", 0 )
-	SetCVar( "nameplateShowFriendlyPets", 0 )
-	SetCVar( "nameplateShowFriendlyGuardians", 0 )
-	SetCVar( "nameplateShowFriendlyTotems", 0 )
-	SetCVar( "nameplateShowEnemies", 1 )
-	SetCVar( "nameplateShowEnemyPets", 0 )
-	SetCVar( "nameplateShowEnemyGuardians", 0 )
-	SetCVar( "nameplateShowEnemyTotems", 0 )
+	-- SetCVar( "nameplateShowFriends", 0 )
+	-- SetCVar( "nameplateShowFriendlyPets", 0 )
+	-- SetCVar( "nameplateShowFriendlyGuardians", 0 )
+	-- SetCVar( "nameplateShowFriendlyTotems", 0 )
+	-- SetCVar( "nameplateShowEnemies", 1 )
+	-- SetCVar( "nameplateShowEnemyPets", 0 )
+	-- SetCVar( "nameplateShowEnemyGuardians", 0 )
+	-- SetCVar( "nameplateShowEnemyTotems", 0 )
 
 	ShowAccountAchievements( 1 )
 end
@@ -105,6 +108,10 @@ AsphyxiaUIOnLogon:SetScript( "OnEvent", function( self, event )
 
 	if( C["chat"]["background"] ~= true ) then
 		S.ShowPopup( "ASPHYXIAUI_ENABLE_CHAT_BACKGROUND" )
+	end
+
+	if( C["nameplate"]["enable"] == true ) then
+		S.ShowPopup( "ASPHYXIAUI_DISABLED_TUKUI_NAMEPLATES" )
 	end
 
 	print( L.Global_WELCOME_MESSAGE1 )

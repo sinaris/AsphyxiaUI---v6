@@ -10,6 +10,7 @@
 	<Include file="Extras\load_extras.xml" />
 	<Include file="Maps\load_maps.xml" />
 	<Include file="Misc\load_misc.xml" />
+	<Include file="Nameplates\load_nameplates.xml" />
 	<Include file="Tooltip\load_tooltip.xml" />
 	<Include file="UI\load_ui.xml" />
 
