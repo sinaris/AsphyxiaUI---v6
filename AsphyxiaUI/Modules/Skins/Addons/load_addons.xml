@@ -3,4 +3,5 @@
 	<Script file="BigWigs.lua" />
 	<Script file="DBM.lua" />
 	<Script file="Omen.lua" />
+	<Script file="TinyDPS.lua" />
 </Ui>

@@ -19,7 +19,7 @@ frame:SetScript( "OnEvent", function( self, event )
 		tdps.barHeight = 16
 		tdps.hideOOC = true
 		tdps.showMinimapButton = false
-		font.name = C["media"]["pixelfont"]
+		font.name = C["media"]["asphyxia"]
 		font.size = 12
 		font.outline = "MONOCHROMEOUTLINE"
 	end
