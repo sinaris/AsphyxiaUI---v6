@@ -8,12 +8,12 @@
 local C = {}
 
 C["addonskins"] = {
-	["background"] = false,
-	["combattoggle"] = false,
-	["embedright"] = "skada",
-	["embedrighttoggle"] = false,
-	["tinydps"] = true,
-	["skada"] = true,
+	["embedright"] = "omen",
+	["background"] = true,
+	["combattoggle"] = true,
+	["bigwigs"] = true,
+	["dbm"] = true,
+	["omen"] = true,
 }
 
 C["global"] = {

@@ -9,10 +9,7 @@ local S, C, L, G = unpack( Tukui )
 
 if( C["tooltip"]["enable"] ~= true or C["tooltip"]["talents"] ~= true ) then return end
 
-local gtt = GameTooltip
-local GetTalentTabInfo = GetTalentTabInfo
-
-local TALENTS_PREFIX = TALENTS..":|cffffffff "
+local TALENTS_PREFIX = TALENTS .. ":|cffffffff "
 local CACHE_SIZE = 25
 local INSPECT_DELAY = 0.2
 local INSPECT_FREQ = 2
@@ -39,9 +36,9 @@ local function GatherTalents( mouseover )
 	end
 
 	if( mouseover == 0 ) then
-		gtt:AddLine( TALENTS_PREFIX .. current.tree )
-	elseif( gtt:GetUnit() ) then
-		for i = 2, gtt:NumLines() do
+		GameTooltip:AddLine( TALENTS_PREFIX .. current.tree )
+	elseif( GameTooltip:GetUnit() ) then
+		for i = 2, GameTooltip:NumLines() do
 			if( ( _G["GameTooltipTextLeft" .. i]:GetText() or "" ):match( "^" .. TALENTS_PREFIX ) ) then
 				_G["GameTooltipTextLeft" .. i]:SetFormattedText( "%s%s", TALENTS_PREFIX, current.tree )
 				break
@@ -89,7 +86,7 @@ ttt:SetScript( "OnUpdate", function( self, elapsed )
 	end
 end )
 
-gtt:HookScript( "OnTooltipSetUnit", function( self, ... )
+GameTooltip:HookScript( "OnTooltipSetUnit", function( self, ... )
 	ttt:Hide()
 
 	local _, unit = self:GetUnit()

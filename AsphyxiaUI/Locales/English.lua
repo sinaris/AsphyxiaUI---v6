@@ -17,11 +17,19 @@ L.Global_WELCOME_MESSAGE1 = "Whats up, |cff00AAFF" .. S.myname .. "!|r Thank you
 L.Global_WELCOME_MESSAGE2 = "For detailed Information |cff00FFFFvisit www.tukui.org or https://github.com/Sinaris/AsphyxiaUI"
 
 ------------------------------
+-- Skin Messages
+------------------------------
+L.Message_BIGWIGS_RELOAD_INTERFACE = "Please reload your interface to apply Bigwigs skin."
+L.Message_DBM_RELOAD_INTERFACE = "Please reload your interface to apply DBM skin."
+
+------------------------------
 -- Popups
 ------------------------------
 L.Popups_SELECT_RAID_LAYOUT = "2 raid layouts are active, please select a layout."
 L.Popups_ENABLE_CHAT_BACKGROUNDS = "AsphyxiaUI needs to have the chatbackground enabled."
 L.Popups_DISABLE_TUKUI_NAMEPLATES = "Tukui nameplates are active. They will be disabled and the AsphyxiaUI nameplates will be enabled."
+L.Popups_ENABLE_BIGWIGS_SKIN = "We need to set some BigWigs options to apply Tukui BigWigs skin.\nMost of your settings will remain untouched."
+L.Popups_ENABLE_DBM_SKIN = "We need to set some DBM options to apply Tukui DBM skin.\nMost of your settings will remain untouched."
 
 ------------------------------
 -- Tooltip
