@@ -1,7 +1,7 @@
 ## Interface: 50001
 ## Title: AsphyxiaUI - Raid Healing Layout
 ## Notes:
-## Version: 6.0.27
+## Version: 6.0.201
 ## Author: Sinaris
 ## RequiredDeps: Tukui, AsphyxiaUI, AsphyxiaUI_Config
 ## X-oUF: oUFTukui
