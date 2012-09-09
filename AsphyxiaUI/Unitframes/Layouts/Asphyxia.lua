@@ -79,6 +79,7 @@ do
 			G.UnitFrames.Player.Portrait:SetAlpha( 0.2 )
 			G.UnitFrames.Player.Portrait.SetAlpha = S.dummy
 			G.UnitFrames.Player.Portrait:SetFrameLevel( G.UnitFrames.Player.Health:GetFrameLevel() )
+			G.UnitFrames.Player.Portrait.SetFrameLevel = S.dummy
 
 			G.UnitFrames.Player.Health:ClearAllPoints()
 			G.UnitFrames.Player.Health:SetPoint( "TOPLEFT", 0, 0 )
@@ -227,6 +228,8 @@ do
 				G.UnitFrames.Player.DruidManaBackground:ClearAllPoints()
 				G.UnitFrames.Player.DruidManaBackground:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
 				G.UnitFrames.Player.DruidManaBackground:Size( 233, 2 )
+				G.UnitFrames.Player.DruidManaBackground:CreateBackdrop( "Default" )
+				G.UnitFrames.Player.DruidManaBackground.backdrop:CreateShadow( "Default" )
 
 				G.UnitFrames.Player.DruidMana:SetSize( G.UnitFrames.Player.DruidManaBackground:GetWidth(), G.UnitFrames.Player.DruidManaBackground:GetHeight() )
 			end
@@ -636,6 +639,7 @@ do
 			G.UnitFrames.Target.Portrait:SetAlpha( 0.2 )
 			G.UnitFrames.Target.Portrait.SetAlpha = S.dummy
 			G.UnitFrames.Target.Portrait:SetFrameLevel( G.UnitFrames.Target.Health:GetFrameLevel() )
+			G.UnitFrames.Target.Portrait.SetFrameLevel = S.dummy
 
 			G.UnitFrames.Target.Health:ClearAllPoints()
 			G.UnitFrames.Target.Health:SetPoint( "TOPLEFT", 0, 0 )

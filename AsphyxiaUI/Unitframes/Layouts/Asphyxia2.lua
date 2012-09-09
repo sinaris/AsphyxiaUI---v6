@@ -232,6 +232,8 @@ do
 				G.UnitFrames.Player.DruidManaBackground:ClearAllPoints()
 				G.UnitFrames.Player.DruidManaBackground:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
 				G.UnitFrames.Player.DruidManaBackground:Size( 233, 2 )
+				G.UnitFrames.Player.DruidManaBackground:CreateBackdrop( "Default" )
+				G.UnitFrames.Player.DruidManaBackground.backdrop:CreateShadow( "Default" )
 
 				G.UnitFrames.Player.DruidMana:SetSize( G.UnitFrames.Player.DruidManaBackground:GetWidth(), G.UnitFrames.Player.DruidManaBackground:GetHeight() )
 			end
