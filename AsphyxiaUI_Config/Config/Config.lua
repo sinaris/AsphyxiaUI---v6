@@ -150,6 +150,7 @@ C["intmodules"] = {
 	["spells"] = true,
 	["interrupts"] = true,
 	["autorole"] = true,
+	["debuffeditor"] = true,
 }
 
 C["unitframes"] = {
