@@ -48,7 +48,7 @@ do
 			G.UnitFrames.Player.Health.colorReaction = true
 		end
 
-		G.UnitFrames.Player.Health.value = S.SetFontString( G.UnitFrames.Player.Health, S.CreateFontString() )
+		G.UnitFrames.Player.Health.value = S.SetFontString( G.UnitFrames.Player.Health, unpack( S.FontTemplate.UFFontString.BuildFont ) )
 		G.UnitFrames.Player.Health.value:Point( "RIGHT", G.UnitFrames.Player.Health, "RIGHT", -4, 1 )
 
 		G.UnitFrames.Player.Health.PostUpdate = S.PostUpdateHealth
@@ -65,7 +65,7 @@ do
 		G.UnitFrames.Player.Power:CreateBackdrop( "Default" )
 		G.UnitFrames.Player.Power.backdrop:CreateShadow( "Default" )
 
-		G.UnitFrames.Player.Power.value = S.SetFontString( G.UnitFrames.Player.Health, S.CreateFontString() )
+		G.UnitFrames.Player.Power.value = S.SetFontString( G.UnitFrames.Player.Health, unpack( S.FontTemplate.UFFontString.BuildFont ) )
 		G.UnitFrames.Player.Power.value:Point( "LEFT", G.UnitFrames.Player.Health, "LEFT", 4, 1 )
 	end
 
@@ -127,7 +127,7 @@ do
 
 		G.UnitFrames.Player.FlashInfo.ManaLevel:ClearAllPoints()
 		G.UnitFrames.Player.FlashInfo.ManaLevel:SetPoint( "CENTER", 0, 1 )
-		G.UnitFrames.Player.FlashInfo.ManaLevel:SetFont( S.CreateFontString() )
+		G.UnitFrames.Player.FlashInfo.ManaLevel:SetFont( unpack( S.FontTemplate.UFFontString.BuildFont ) )
 		
 	end
 
@@ -162,7 +162,7 @@ do
 			G.UnitFrames.Player.Experience:HookScript( "OnLeave", function( self ) self:SetAlpha( 1 ) end )
 
 			G.UnitFrames.Player.Experience.Text = G.UnitFrames.Player.Experience:CreateFontString( nil, "OVERLAY" )
-			G.UnitFrames.Player.Experience.Text:SetFont( S.CreateFontString() )
+			G.UnitFrames.Player.Experience.Text:SetFont( unpack( S.FontTemplate.UFFontString.BuildFont ) )
 			G.UnitFrames.Player.Experience.Text:SetPoint( "CENTER", 0, 1 )
 			G.UnitFrames.Player.Experience.Text:SetShadowOffset( S.mult, -S.mult )
 			G.UnitFrames.Player.Experience.Text = G.UnitFrames.Player.Experience.Text
@@ -190,7 +190,7 @@ do
 			G.UnitFrames.Player.Reputation:HookScript( "OnLeave", function( self ) self:SetAlpha( 1 ) end )
 
 			G.UnitFrames.Player.Reputation.Text = G.UnitFrames.Player.Reputation:CreateFontString( nil, "OVERLAY" )
-			G.UnitFrames.Player.Reputation.Text:SetFont( S.CreateFontString() )
+			G.UnitFrames.Player.Reputation.Text:SetFont( unpack( S.FontTemplate.UFFontString.BuildFont ) )
 			G.UnitFrames.Player.Reputation.Text:SetPoint( "CENTER", 0, 1 )
 			G.UnitFrames.Player.Reputation.Text:SetShadowOffset( S.mult, -S.mult )
 			G.UnitFrames.Player.Reputation.Text = G.UnitFrames.Player.Reputation.Text
@@ -203,7 +203,7 @@ do
 	------------------------------
 	do
 		if( C["unitframes"]["combatfeedback"] == true ) then
-			G.UnitFrames.Player.CombatFeedbackText:SetFont( S.CreateFontString() )
+			G.UnitFrames.Player.CombatFeedbackText:SetFont( unpack( S.FontTemplate.UFFontString.BuildFont ) )
 		end
 	end
 
@@ -212,7 +212,7 @@ do
 	------------------------------
 	do
 		if( S.myclass == "DRUID" ) then
-			G.UnitFrames.Player.DruidManaText:SetFont( S.CreateFontString() )
+			G.UnitFrames.Player.DruidManaText:SetFont( unpack( S.FontTemplate.UFFontString.BuildFont ) )
 		end
 	end
 
@@ -246,7 +246,7 @@ do
 
 				G.UnitFrames.Player.EclipseBar.Text:ClearAllPoints()
 				G.UnitFrames.Player.EclipseBar.Text:SetPoint( "TOP", G.UnitFrames.Player.EclipseBar, 0, 25 )
-				G.UnitFrames.Player.EclipseBar.Text:SetFont( S.CreateFontString() )
+				G.UnitFrames.Player.EclipseBar.Text:SetFont( unpack( S.FontTemplate.UFFontString.BuildFont ) )
 				G.UnitFrames.Player.EclipseBar.Text:SetShadowOffset( S.mult, -S.mult )
 			end
 
@@ -493,7 +493,7 @@ do
 			AsphyxiaUIUnitframesPlayerCastbarMover:SetMovable( true )
 			AsphyxiaUIUnitframesPlayerCastbarMover:SetFrameStrata( "HIGH" )
 			AsphyxiaUIUnitframesPlayerCastbarMover:Hide()
-			AsphyxiaUIUnitframesPlayerCastbarMover:FontString( "Text", S.CreateFontString() )
+			AsphyxiaUIUnitframesPlayerCastbarMover:FontString( "Text", unpack( S.FontTemplate.UFFontString.BuildFont ) )
 			AsphyxiaUIUnitframesPlayerCastbarMover.Text:SetPoint( "CENTER", AsphyxiaUIUnitframesPlayerCastbarMover, "CENTER", 0, 0 )
 			AsphyxiaUIUnitframesPlayerCastbarMover.Text:SetText( "Move Player Castbar" )
 			tinsert( S.AllowFrameMoving, AsphyxiaUIUnitframesPlayerCastbarMover )
@@ -518,11 +518,11 @@ do
 			G.UnitFrames.Player.Castbar.PostCastStart = S.PostCastStart
 			G.UnitFrames.Player.Castbar.PostChannelStart = S.PostCastStart
 
-			G.UnitFrames.Player.Castbar.Time = S.SetFontString( G.UnitFrames.Player.Castbar, S.CreateFontString() )
+			G.UnitFrames.Player.Castbar.Time = S.SetFontString( G.UnitFrames.Player.Castbar, unpack( S.FontTemplate.UFFontString.BuildFont ) )
 			G.UnitFrames.Player.Castbar.Time:Point( "RIGHT", G.UnitFrames.Player.Castbar, "RIGHT", -4, 1 )
 			G.UnitFrames.Player.Castbar.Time:SetTextColor( 0, 4, 0 )
 
-			G.UnitFrames.Player.Castbar.Text = S.SetFontString( G.UnitFrames.Player.Castbar, S.CreateFontString() )
+			G.UnitFrames.Player.Castbar.Text = S.SetFontString( G.UnitFrames.Player.Castbar, unpack( S.FontTemplate.UFFontString.BuildFont ) )
 			G.UnitFrames.Player.Castbar.Text:Point( "LEFT", G.UnitFrames.Player.Castbar, "LEFT", 4, 1 )
 			G.UnitFrames.Player.Castbar.Text:SetTextColor( 0.3, 0.2, 1 )
 
@@ -597,10 +597,10 @@ do
 			G.UnitFrames.Target.Health.colorReaction = true
 		end
 
-		G.UnitFrames.Target.Name:SetFont( S.CreateFontString() )
+		G.UnitFrames.Target.Name:SetFont( unpack( S.FontTemplate.UFFontString.BuildFont ) )
 		G.UnitFrames.Target.Name:SetShadowOffset( 1.25, -1.25 )
 
-		G.UnitFrames.Target.Health.value = S.SetFontString( G.UnitFrames.Target.Health, S.CreateFontString() )
+		G.UnitFrames.Target.Health.value = S.SetFontString( G.UnitFrames.Target.Health, unpack( S.FontTemplate.UFFontString.BuildFont ) )
 		G.UnitFrames.Target.Health.value:Point( "RIGHT", G.UnitFrames.Target.Health, "RIGHT", -4, 1 )
 
 		G.UnitFrames.Target.Health.PostUpdate = S.PostUpdateHealth
@@ -617,7 +617,7 @@ do
 		G.UnitFrames.Target.Power:CreateBackdrop( "Default" )
 		G.UnitFrames.Target.Power.backdrop:CreateShadow( "Default" )
 
-		G.UnitFrames.Target.Power.value = S.SetFontString( G.UnitFrames.Target.Health, S.CreateFontString() )
+		G.UnitFrames.Target.Power.value = S.SetFontString( G.UnitFrames.Target.Health, unpack( S.FontTemplate.UFFontString.BuildFont ) )
 		G.UnitFrames.Target.Power.value:Point( "LEFT", G.UnitFrames.Player.Health, "LEFT", 4, 1 )
 
 		if( C["unitframes"]["unicolor"] == true ) then
@@ -672,7 +672,7 @@ do
 	------------------------------
 	do
 		if( C["unitframes"]["combatfeedback"] == true ) then
-			G.UnitFrames.Target.CombatFeedbackText:SetFont( S.CreateFontString() )
+			G.UnitFrames.Target.CombatFeedbackText:SetFont( unpack( S.FontTemplate.UFFontString.BuildFont ) )
 		end
 	end
 
@@ -701,11 +701,11 @@ do
 			G.UnitFrames.Target.Castbar.PostCastStart = S.PostCastStart
 			G.UnitFrames.Target.Castbar.PostChannelStart = S.PostCastStart
 
-			G.UnitFrames.Target.Castbar.Time = S.SetFontString( G.UnitFrames.Target.Castbar, S.CreateFontString() )
+			G.UnitFrames.Target.Castbar.Time = S.SetFontString( G.UnitFrames.Target.Castbar, unpack( S.FontTemplate.UFFontString.BuildFont ) )
 			G.UnitFrames.Target.Castbar.Time:Point( "RIGHT", G.UnitFrames.Target.Castbar, "RIGHT", -4, 1 )
 			G.UnitFrames.Target.Castbar.Time:SetTextColor( 0, 4, 0 )
 
-			G.UnitFrames.Target.Castbar.Text = S.SetFontString( G.UnitFrames.Target.Castbar, S.CreateFontString() )
+			G.UnitFrames.Target.Castbar.Text = S.SetFontString( G.UnitFrames.Target.Castbar, unpack( S.FontTemplate.UFFontString.BuildFont ) )
 			G.UnitFrames.Target.Castbar.Text:Point( "LEFT", G.UnitFrames.Target.Castbar, "LEFT", 4, 1 )
 			G.UnitFrames.Target.Castbar.Text:SetTextColor( 0.3, 0.2, 1 )
 		end
@@ -817,7 +817,7 @@ do
 			G.UnitFrames.TargetTarget.Health.colorReaction = true
 		end
 
-		G.UnitFrames.TargetTarget.Name:SetFont( S.CreateFontString() )
+		G.UnitFrames.TargetTarget.Name:SetFont( unpack( S.FontTemplate.UFFontString.BuildFont ) )
 		G.UnitFrames.TargetTarget.Name:SetShadowOffset( 1.25, -1.25 )
 	end
 
@@ -937,7 +937,7 @@ do
 			G.UnitFrames.Pet.Health.colorReaction = true
 		end
 
-		G.UnitFrames.Pet.Name:SetFont( S.CreateFontString() )
+		G.UnitFrames.Pet.Name:SetFont( unpack( S.FontTemplate.UFFontString.BuildFont ) )
 		G.UnitFrames.Pet.Name:SetShadowOffset( 1.25, -1.25 )
 	end
 
@@ -1003,11 +1003,11 @@ do
 			G.UnitFrames.Focus.Health.colorReaction = true
 		end
 
-		G.UnitFrames.Focus.Name:SetFont( S.CreateFontString() )
+		G.UnitFrames.Focus.Name:SetFont( unpack( S.FontTemplate.UFFontString.BuildFont ) )
 		G.UnitFrames.Focus.Name:SetShadowOffset( 1.25, -1.25 )
 		G.UnitFrames.Focus.Name:Point( "CENTER", G.UnitFrames.Focus.Health, "CENTER", 0, 1 )
 
-		G.UnitFrames.Focus.Health.value = S.SetFontString( G.UnitFrames.Focus.Health, S.CreateFontString() )
+		G.UnitFrames.Focus.Health.value = S.SetFontString( G.UnitFrames.Focus.Health, unpack( S.FontTemplate.UFFontString.BuildFont ) )
 		G.UnitFrames.Focus.Health.value:Point( "RIGHT", G.UnitFrames.Focus.Health, "RIGHT", -4, 1 )
 	end
 
@@ -1022,7 +1022,7 @@ do
 		G.UnitFrames.Focus.Power:CreateBackdrop( "Default" )
 		G.UnitFrames.Focus.Power.backdrop:CreateShadow( "Default" )
 
-		G.UnitFrames.Focus.Power.value = S.SetFontString( G.UnitFrames.Focus.Health, S.CreateFontString() )
+		G.UnitFrames.Focus.Power.value = S.SetFontString( G.UnitFrames.Focus.Health, unpack( S.FontTemplate.UFFontString.BuildFont ) )
 		G.UnitFrames.Focus.Power.value:Point( "LEFT", G.UnitFrames.Focus.Health, "LEFT", 4, 1 )
 	end
 
@@ -1044,11 +1044,11 @@ do
 			G.UnitFrames.Focus.Castbar.bg:SetTexture( C["media"]["normTex"] )
 			G.UnitFrames.Focus.Castbar.bg:SetVertexColor( 0.05, 0.05, 0.05 )
 
-			G.UnitFrames.Focus.Castbar.Time = S.SetFontString( G.UnitFrames.Focus.Castbar, S.CreateFontString() )
+			G.UnitFrames.Focus.Castbar.Time = S.SetFontString( G.UnitFrames.Focus.Castbar, unpack( S.FontTemplate.UFFontString.BuildFont ) )
 			G.UnitFrames.Focus.Castbar.Time:Point( "RIGHT", G.UnitFrames.Focus.Castbar, "RIGHT", -4, 1 )
 			G.UnitFrames.Focus.Castbar.Time:SetTextColor( 0, 4, 0 )
 
-			G.UnitFrames.Focus.Castbar.Text = S.SetFontString( G.UnitFrames.Focus.Castbar, S.CreateFontString() )
+			G.UnitFrames.Focus.Castbar.Text = S.SetFontString( G.UnitFrames.Focus.Castbar, unpack( S.FontTemplate.UFFontString.BuildFont ) )
 			G.UnitFrames.Focus.Castbar.Text:Point( "LEFT", G.UnitFrames.Focus.Castbar, "LEFT", 4, 1 )
 			G.UnitFrames.Focus.Castbar.Text:SetTextColor( 0.3, 0.2, 1 )
 
@@ -1145,11 +1145,11 @@ do
 			G.UnitFrames.FocusTarget.Health.colorReaction = true
 		end
 
-		G.UnitFrames.FocusTarget.Name:SetFont( S.CreateFontString() )
+		G.UnitFrames.FocusTarget.Name:SetFont( unpack( S.FontTemplate.UFFontString.BuildFont ) )
 		G.UnitFrames.FocusTarget.Name:SetShadowOffset( 1.25, -1.25 )
 		G.UnitFrames.FocusTarget.Name:Point( "CENTER", G.UnitFrames.FocusTarget.Health, "CENTER", 0, 1 )
 
-		G.UnitFrames.FocusTarget.Health.value = S.SetFontString( G.UnitFrames.FocusTarget.Health, S.CreateFontString() )
+		G.UnitFrames.FocusTarget.Health.value = S.SetFontString( G.UnitFrames.FocusTarget.Health, unpack( S.FontTemplate.UFFontString.BuildFont ) )
 		G.UnitFrames.FocusTarget.Health.value:Point( "RIGHT", G.UnitFrames.FocusTarget.Health, "RIGHT", -4, 1 )
 	end
 
@@ -1164,7 +1164,7 @@ do
 		G.UnitFrames.FocusTarget.Power:CreateBackdrop( "Default" )
 		G.UnitFrames.FocusTarget.Power.backdrop:CreateShadow( "Default" )
 
-		G.UnitFrames.FocusTarget.Power.value = S.SetFontString( G.UnitFrames.FocusTarget.Health, S.CreateFontString() )
+		G.UnitFrames.FocusTarget.Power.value = S.SetFontString( G.UnitFrames.FocusTarget.Health, unpack( S.FontTemplate.UFFontString.BuildFont ) )
 		G.UnitFrames.FocusTarget.Power.value:Point( "LEFT", G.UnitFrames.FocusTarget.Health, "LEFT", 4, 1 )
 	end
 
@@ -1186,11 +1186,11 @@ do
 			G.UnitFrames.FocusTarget.Castbar.bg:SetTexture( C["media"]["normTex"] )
 			G.UnitFrames.FocusTarget.Castbar.bg:SetVertexColor( 0.05, 0.05, 0.05 )
 
-			G.UnitFrames.FocusTarget.Castbar.Time = S.SetFontString( G.UnitFrames.FocusTarget.Castbar, S.CreateFontString() )
+			G.UnitFrames.FocusTarget.Castbar.Time = S.SetFontString( G.UnitFrames.FocusTarget.Castbar, unpack( S.FontTemplate.UFFontString.BuildFont ) )
 			G.UnitFrames.FocusTarget.Castbar.Time:Point( "RIGHT", G.UnitFrames.FocusTarget.Castbar, "RIGHT", -4, 1 )
 			G.UnitFrames.FocusTarget.Castbar.Time:SetTextColor( 0, 4, 0 )
 
-			G.UnitFrames.FocusTarget.Castbar.Text = S.SetFontString( G.UnitFrames.FocusTarget.Castbar, S.CreateFontString() )
+			G.UnitFrames.FocusTarget.Castbar.Text = S.SetFontString( G.UnitFrames.FocusTarget.Castbar, unpack( S.FontTemplate.UFFontString.BuildFont ) )
 			G.UnitFrames.FocusTarget.Castbar.Text:Point( "LEFT", G.UnitFrames.FocusTarget.Castbar, "LEFT", 4, 1 )
 			G.UnitFrames.FocusTarget.Castbar.Text:SetTextColor( 0.3, 0.2, 1 )
 
@@ -1288,11 +1288,11 @@ do
 				G.UnitFrames["Boss" .. i].Health.colorReaction = true
 			end
 
-			G.UnitFrames["Boss" .. i].Name:SetFont( S.CreateFontString() )
+			G.UnitFrames["Boss" .. i].Name:SetFont( unpack( S.FontTemplate.UFFontString.BuildFont ) )
 			G.UnitFrames["Boss" .. i].Name:SetShadowOffset( 1.25, -1.25 )
 			G.UnitFrames["Boss" .. i].Name:Point( "CENTER", G.UnitFrames["Boss" .. i].Health, "CENTER", 0, 1 )
 
-			G.UnitFrames["Boss" .. i].Health.value = S.SetFontString( G.UnitFrames["Boss" .. i].Health, S.CreateFontString() )
+			G.UnitFrames["Boss" .. i].Health.value = S.SetFontString( G.UnitFrames["Boss" .. i].Health, unpack( S.FontTemplate.UFFontString.BuildFont ) )
 			G.UnitFrames["Boss" .. i].Health.value:Point( "RIGHT", G.UnitFrames["Boss" .. i].Health, "RIGHT", -4, 1 )
 		end
 
@@ -1307,7 +1307,7 @@ do
 			G.UnitFrames["Boss" .. i].Power:CreateBackdrop( "Default" )
 			G.UnitFrames["Boss" .. i].Power.backdrop:CreateShadow( "Default" )
 
-			G.UnitFrames["Boss" .. i].Power.value = S.SetFontString( G.UnitFrames["Boss" .. i].Health, S.CreateFontString() )
+			G.UnitFrames["Boss" .. i].Power.value = S.SetFontString( G.UnitFrames["Boss" .. i].Health, unpack( S.FontTemplate.UFFontString.BuildFont ) )
 			G.UnitFrames["Boss" .. i].Power.value:Point( "LEFT", G.UnitFrames["Boss" .. i].Health, "LEFT", 4, 1 )
 		end
 
@@ -1329,11 +1329,11 @@ do
 				G.UnitFrames["Boss" .. i].Castbar.bg:SetTexture( C["media"]["normTex"] )
 				G.UnitFrames["Boss" .. i].Castbar.bg:SetVertexColor( 0.05, 0.05, 0.05 )
 
-				G.UnitFrames["Boss" .. i].Castbar.Time = S.SetFontString( G.UnitFrames["Boss" .. i].Castbar, S.CreateFontString() )
+				G.UnitFrames["Boss" .. i].Castbar.Time = S.SetFontString( G.UnitFrames["Boss" .. i].Castbar, unpack( S.FontTemplate.UFFontString.BuildFont ) )
 				G.UnitFrames["Boss" .. i].Castbar.Time:Point( "RIGHT", G.UnitFrames["Boss" .. i].Castbar, "RIGHT", -4, 1 )
 				G.UnitFrames["Boss" .. i].Castbar.Time:SetTextColor( 0, 4, 0 )
 
-				G.UnitFrames["Boss" .. i].Castbar.Text = S.SetFontString( G.UnitFrames["Boss" .. i].Castbar, S.CreateFontString() )
+				G.UnitFrames["Boss" .. i].Castbar.Text = S.SetFontString( G.UnitFrames["Boss" .. i].Castbar, unpack( S.FontTemplate.UFFontString.BuildFont ) )
 				G.UnitFrames["Boss" .. i].Castbar.Text:Point( "LEFT", G.UnitFrames["Boss" .. i].Castbar, "LEFT", 4, 1 )
 				G.UnitFrames["Boss" .. i].Castbar.Text:SetTextColor( 0.3, 0.2, 1 )
 
@@ -1446,11 +1446,11 @@ do
 					G.UnitFrames["Arena" .. i].Health.colorReaction = true
 				end
 
-				G.UnitFrames["Arena" .. i].Name:SetFont( S.CreateFontString() )
+				G.UnitFrames["Arena" .. i].Name:SetFont( unpack( S.FontTemplate.UFFontString.BuildFont ) )
 				G.UnitFrames["Arena" .. i].Name:SetShadowOffset( 1.25, -1.25 )
 				G.UnitFrames["Arena" .. i].Name:Point( "CENTER", G.UnitFrames["Arena" .. i].Health, "CENTER", 0, 1 )
 
-				G.UnitFrames["Arena" .. i].Health.value = S.SetFontString( G.UnitFrames["Arena" .. i].Health, S.CreateFontString() )
+				G.UnitFrames["Arena" .. i].Health.value = S.SetFontString( G.UnitFrames["Arena" .. i].Health, unpack( S.FontTemplate.UFFontString.BuildFont ) )
 				G.UnitFrames["Arena" .. i].Health.value:Point( "RIGHT", G.UnitFrames["Arena" .. i].Health, "RIGHT", -4, 1 )
 			end
 
@@ -1465,7 +1465,7 @@ do
 				G.UnitFrames["Arena" .. i].Power:CreateBackdrop( "Default" )
 				G.UnitFrames["Arena" .. i].Power.backdrop:CreateShadow( "Default" )
 
-				G.UnitFrames["Arena" .. i].Power.value = S.SetFontString( G.UnitFrames["Arena" .. i].Health, S.CreateFontString() )
+				G.UnitFrames["Arena" .. i].Power.value = S.SetFontString( G.UnitFrames["Arena" .. i].Health, unpack( S.FontTemplate.UFFontString.BuildFont ) )
 				G.UnitFrames["Arena" .. i].Power.value:Point( "LEFT", G.UnitFrames["Arena" .. i].Health, "LEFT", 4, 1 )
 			end
 
@@ -1487,11 +1487,11 @@ do
 					G.UnitFrames["Arena" .. i].Castbar.bg:SetTexture( C["media"]["normTex"] )
 					G.UnitFrames["Arena" .. i].Castbar.bg:SetVertexColor( 0.05, 0.05, 0.05 )
 
-					G.UnitFrames["Arena" .. i].Castbar.Time = S.SetFontString( G.UnitFrames["Arena" .. i].Castbar, S.CreateFontString() )
+					G.UnitFrames["Arena" .. i].Castbar.Time = S.SetFontString( G.UnitFrames["Arena" .. i].Castbar, unpack( S.FontTemplate.UFFontString.BuildFont ) )
 					G.UnitFrames["Arena" .. i].Castbar.Time:Point( "RIGHT", G.UnitFrames["Arena" .. i].Castbar, "RIGHT", -4, 1 )
 					G.UnitFrames["Arena" .. i].Castbar.Time:SetTextColor( 0, 4, 0 )
 
-					G.UnitFrames["Arena" .. i].Castbar.Text = S.SetFontString( G.UnitFrames["Arena" .. i].Castbar, S.CreateFontString() )
+					G.UnitFrames["Arena" .. i].Castbar.Text = S.SetFontString( G.UnitFrames["Arena" .. i].Castbar, unpack( S.FontTemplate.UFFontString.BuildFont ) )
 					G.UnitFrames["Arena" .. i].Castbar.Text:Point( "LEFT", G.UnitFrames["Arena" .. i].Castbar, "LEFT", 4, 1 )
 					G.UnitFrames["Arena" .. i].Castbar.Text:SetTextColor( 0.3, 0.2, 1 )
 

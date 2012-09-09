@@ -19,6 +19,7 @@ C["addonskins"] = {
 
 C["global"] = {
 	["unitframelayout"] = "asphyxia",
+	["fonttemplate"] = "default",
 }
 
 C["unitframes"] = {

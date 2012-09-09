@@ -7,5 +7,5 @@
 
 local S, C, L, G = unpack( Tukui )
 
-S.GetAsphyxiaUIVersion = tonumber( GetAddOnMetadata( "AsphyxiaUI", "Version" ) )
+S.GetAsphyxiaUIVersion = GetAddOnMetadata( "AsphyxiaUI", "Version" )
 S.InfoLeftRightWidth = 370

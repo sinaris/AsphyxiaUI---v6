@@ -94,7 +94,7 @@ local RightBars = function()
 	if( AsphyxiaUISaved.rightbars >= 1 ) then
 		TukuiPetBar:ClearAllPoints()
 		if( C["actionbar"]["vertical_rightbars"] == true ) then
-			if not C["chat"].background then
+			if( C["chat"]["background"] ~= true ) then
 				TukuiPetBar:Point( "RIGHT", TukuiRightBar, "LEFT", -3, 0 )
 			else
 				TukuiPetBar:Point( "BOTTOMRIGHT", TukuiRightBar, "BOTTOMLEFT", -3, 0 )
@@ -350,7 +350,7 @@ for i = 1, 6 do
 		Toggle[i]:SetFrameLevel( AsphyxiaUIControlPanelActionbarBackground:GetFrameLevel() + 1 )
 		Toggle[i]:CreateOverlay( Toggle[i] )
 
-		if( C["actionbar"].vertical_rightbars == true ) then
+		if( C["actionbar"]["vertical_rightbars"] == true ) then
 			ToggleText( i, ">", false, true )
 		else
 			ToggleText( i, "-", false, true )
@@ -384,7 +384,7 @@ for i = 1, 6 do
 		Toggle[i]:SetFrameLevel( AsphyxiaUIControlPanelActionbarBackground:GetFrameLevel() + 1 )
 		Toggle[i]:CreateOverlay( Toggle[i] )
 
-		if( C["actionbar"].vertical_rightbars == true ) then
+		if( C["actionbar"]["vertical_rightbars"] == true ) then
 			ToggleText( i, "<", true, false )
 		else
 			ToggleText( i, "+", true, false )

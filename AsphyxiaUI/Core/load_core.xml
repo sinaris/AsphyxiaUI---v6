@@ -1,4 +1,6 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/">
+	<Script file="System.lua" />
+
 	<Script file="PopUps.lua" />
 	<Script file="Commands.lua" />
 	<Script file="API.lua" />
