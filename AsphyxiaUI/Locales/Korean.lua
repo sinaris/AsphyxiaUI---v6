@@ -91,7 +91,7 @@ L.Faq_BUTTONS_TEXT = {
 	[6] = "Extra Addons, Skins",
 	[7] = "Reported Issues",
 	[8] = "Credits",
-	[9] = "Donations",
+	[9] = "Wall of Glory",
 }
 
 L.Faq_CONTENT_TEXT_TITLE_0 = "|cff00AAFFAsphyxiaUI - F.A.Q.|r"
