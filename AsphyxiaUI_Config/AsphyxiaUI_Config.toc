@@ -1,7 +1,7 @@
 ## Interface: 50001
 ## Title: AsphyxiaUI - Config
 ## Notes:
-## Version: 6.0.213
+## Version: 6.0.222
 ## Author: Sinaris
 ## RequiredDeps: AsphyxiaUI
 ## Website: http://www.natias.de

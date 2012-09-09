@@ -1,7 +1,7 @@
 ## Interface: 50001
 ## Title: AsphyxiaUI - Core
 ## Notes:
-## Version: 6.0.213
+## Version: 6.0.222
 ## Author: Sinaris
 ## SavedVariablesPerCharacter: AsphyxiaUISaved, ClickCast
 ## RequiredDeps: AsphyxiaUI_Config, Tukui
