@@ -80,7 +80,7 @@ if( C["addonskins"]["embedright"] ~= "omen" ) then return end
 
 Omen.db.profile.Locked = true
 Omen:UpdateGrips()
-Omen.UpdateGrips = function(...)
+Omen.UpdateGrips = function( ... )
 	local db = Omen.db.profile
 		Omen.VGrip1:ClearAllPoints()
 		Omen.VGrip1:SetPoint( "TOPLEFT", Omen.BarList, "TOPLEFT", db.VGrip1, 0 )
@@ -101,7 +101,7 @@ Omen.UpdateGrips = function(...)
 			end
 		end
 	end
-end )
+end
 
 local EmbeddingWindow = CreateFrame( "Frame" )
 EmbeddingWindow:RegisterEvent( "PLAYER_ENTERING_WORLD" )
