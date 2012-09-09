@@ -31,8 +31,8 @@ do
 	do
 		G.UnitFrames.Player.Health:Size( 233, 26 )
 		G.UnitFrames.Player.Health:SetFrameLevel( 5 )
-		G.UnitFrames.Player:CreateBackdrop( "Default" )
-		G.UnitFrames.Player.backdrop:CreateShadow( "Default" )
+		G.UnitFrames.Player.Health:CreateBackdrop( "Default" )
+		G.UnitFrames.Player.Health.backdrop:CreateShadow( "Default" )
 		G.UnitFrames.Player.Health.bg:SetVertexColor( 0.6, 0.6, 0.6 )
 
 		if( C["unitframes"]["unicolor"] == true ) then
@@ -232,6 +232,8 @@ do
 				G.UnitFrames.Player.DruidManaBackground:ClearAllPoints()
 				G.UnitFrames.Player.DruidManaBackground:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
 				G.UnitFrames.Player.DruidManaBackground:Size( 233, 2 )
+				G.UnitFrames.Player.DruidManaBackground:CreateBackdrop( "Default" )
+				G.UnitFrames.Player.DruidManaBackground.backdrop:CreateShadow( "Default" )
 
 				G.UnitFrames.Player.DruidMana:SetSize( G.UnitFrames.Player.DruidManaBackground:GetWidth(), G.UnitFrames.Player.DruidManaBackground:GetHeight() )
 			end
