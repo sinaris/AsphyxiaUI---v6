@@ -114,7 +114,7 @@ S.PostUpdateRaidUnit = function( self )
 	------------------------------
 	-- debuffs
 	------------------------------
-	if( C["unitframes"]["raidunitdebuffwatch"] == true ) then
+	--[[if( C["unitframes"]["raidunitdebuffwatch"] == true ) then
 		self.RaidDebuffs:Height( 21 * C["unitframes"]["gridscale"] )
 		self.RaidDebuffs:Width( 21 * C["unitframes"]["gridscale"] )
 		self.RaidDebuffs:Point( "CENTER", self.Health, 2, 1 )
@@ -126,7 +126,37 @@ S.PostUpdateRaidUnit = function( self )
 		self.RaidDebuffs.time:ClearAllPoints()
 		self.RaidDebuffs.time:SetPoint( "CENTER", self.Raiddebuff, 2, 0 )
 		self.RaidDebuffs.time:SetFont( S.CreateFontString() )
-	end
+	end]]
+
+		if C["unitframes"].raidunitdebuffwatch == true then
+			self.RaidDebuffs:Kill()
+			
+			-- Raid Debuffs (big middle icon)
+			local RaidDebuffs = CreateFrame('Frame', nil, self)
+			RaidDebuffs:Height(24)
+			RaidDebuffs:Width(24)
+			RaidDebuffs:Point('CENTER', self.Health, 1,0)
+			RaidDebuffs:SetFrameStrata(self.Health:GetFrameStrata())
+			RaidDebuffs:SetFrameLevel(self.Health:GetFrameLevel() + 2)
+			
+			RaidDebuffs:SetTemplate("Default")
+			
+			RaidDebuffs.icon = RaidDebuffs:CreateTexture(nil, 'OVERLAY')
+			RaidDebuffs.icon:SetTexCoord(.1,.9,.1,.9)
+			RaidDebuffs.icon:Point("TOPLEFT", 2, -2)
+			RaidDebuffs.icon:Point("BOTTOMRIGHT", -2, 2)
+			
+			RaidDebuffs.count = RaidDebuffs:CreateFontString(nil, 'OVERLAY')
+			RaidDebuffs.count:SetFont(C["media"].uffont, 12, "THINOUTLINE")
+			RaidDebuffs.count:SetPoint('BOTTOMRIGHT', RaidDebuffs, 'BOTTOMRIGHT', 0, 2)
+			RaidDebuffs.count:SetTextColor(1, .9, 0)
+			
+			RaidDebuffs:FontString('time', C["media"].uffont, 12, "THINOUTLINE")
+			RaidDebuffs.time:SetPoint('CENTER')
+			RaidDebuffs.time:SetTextColor(1, .9, 0)
+			
+			self.RaidDebuffs = RaidDebuffs
+		end
 
 	------------------------------
 	-- icons

@@ -5,7 +5,6 @@
 	<Script file="AutoRole.lua" />
 	<Script file="Click2Cast.lua" />
 	<Script file="CombatText.lua" />
-	<Script file="DebuffEditor.lua" />
 	<Script file="HatTrick.lua" />
 	<Script file="ItemLevelOnGearAndSlots.lua" />
 	<Script file="LocationPanel.lua" />
