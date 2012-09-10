@@ -12,6 +12,9 @@ if( C["general"]["blizzardreskin"] ~= true ) then return end
 local function SkinFrames( self, event, addon )
 	if( addon == "AsphyxiaUI" ) then
 		MailFrame:SetTemplate( "Transparent" )
+
+		OpenMailFrame:SetTemplate( "Transparent" )
+		OpenMailFrame:CreateShadow( "Default" )
 	end
 end
 
