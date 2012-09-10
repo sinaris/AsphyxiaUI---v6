@@ -168,12 +168,12 @@ L.Faq_CONTENT_TEXT_FIELD_8_4 = "Special thanks to: Asi, my forum bitch! xD Also 
 L.Faq_CONTENT_TEXT_FIELD_8_5 = ""
 L.Faq_CONTENT_TEXT_FIELD_8_6 = "If i missed someone, let me know it and i will add them onto the list."
 
-L.Faq_CONTENT_TEXT_FIELD_9_1 = "It's not easy to create a new UI, giving support for all other users and pushing updates as much as i can."
-L.Faq_CONTENT_TEXT_FIELD_9_2 = "Feel free to give some donations for this UI."
-L.Faq_CONTENT_TEXT_FIELD_9_3 = "You can do this here:\n|cff00FFFFhttp://www.tukui.org/addons/index.php?act=view&id=74|r"
+L.Faq_CONTENT_TEXT_FIELD_9_1 = ""
+L.Faq_CONTENT_TEXT_FIELD_9_2 = ""
+L.Faq_CONTENT_TEXT_FIELD_9_3 = ""
 L.Faq_CONTENT_TEXT_FIELD_9_4 = ""
-L.Faq_CONTENT_TEXT_FIELD_9_5 = "I have to say thank you to the following donators:"
-L.Faq_CONTENT_TEXT_FIELD_9_6 = "|cff00AAFF |r"
+L.Faq_CONTENT_TEXT_FIELD_9_5 = ""
+L.Faq_CONTENT_TEXT_FIELD_9_6 = ""
 
 if( TukuiConfigUILocalization ) then
 	TukuiConfigUILocalization.global = "AsphyxiaUI"
