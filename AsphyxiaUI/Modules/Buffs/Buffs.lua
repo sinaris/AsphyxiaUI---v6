@@ -34,13 +34,13 @@ local OnAttributeChanged = function( self )
 		end
 
 		if( child.Duration ) then
-			child.Duration:SetFont( S.CreateFontString() )
+			child.Duration:SetFont( unpack( S.FontTemplate.BuffsDuration.BuildFont ) )
 			child.Duration:ClearAllPoints()
 			child.Duration:SetPoint( "BOTTOM", 0, -1 )
 		end
 
 		if( child.Count ) then
-			child.Count:SetFont( S.CreateFontString() )
+			child.Count:SetFont( unpack( S.FontTemplate.BuffsCount.BuildFont ) )
 			child.Count:ClearAllPoints()
 			child.Count:SetPoint( "TOP", 0, -4 )
 		end

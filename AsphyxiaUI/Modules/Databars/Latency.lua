@@ -7,6 +7,8 @@
 
 local S, C, L, G = unpack( Tukui )
 
+if( C["databars"]["enable"] ~= true ) then return end
+
 if( C["databars"]["latency"] == 0 ) then return end
 
 local barNum = C["databars"]["latency"]

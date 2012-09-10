@@ -7,8 +7,10 @@
 
 local S, C, L, G = unpack( Tukui )
 
+if( C["databars"]["enable"] ~= true ) then return end
+
 for i = 1, #S.databars do
 	if not S.databars[i]:IsShown() then
-		S.databars[i]:SetHeight( C["databars"]["settings"]["padding"] )
+		S.databars[i]:SetHeight( C["databars"]["padding"] )
 	end
 end

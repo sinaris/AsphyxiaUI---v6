@@ -31,7 +31,7 @@ local function BagsSlotUpdate( self, b )
 	local clink = GetContainerItemLink( b.bag, b.slot )
 
 	local scount = _G[b.frame:GetName() .. "Count"]
-	scount:SetFont( S.CreateFontString() )
+	scount:SetFont( unpack( S.FontTemplate.BagsItemCount.BuildFont ) )
 	scount:Point( "BOTTOMRIGHT", 0, 2 )
 
 	if( clink ) then
@@ -78,7 +78,7 @@ local function BagsUpdateBankPosition( self, value )
 		if( C["chat"]["background"] ~= true ) then
 			bag:SetPoint( "BOTTOMLEFT", G.Panels.DataTextLeft, "TOPLEFT", 0, 3 )
 		else
-			bag:SetPoint( "BOTTOMLEFT", G.Panels.LeftChatBackground, "TOPLEFT", 0, 3 )
+			bag:SetPoint( unpack( S.SetFramePosition["bags"]["bank"] ) )
 		end
 	end
 end
@@ -107,9 +107,9 @@ local function BagsLayout( self, lb )
 		f = self.frame
 
 		f.gold:SetText( GetMoneyString( GetMoney(), 12 ) )
-		f.editbox:SetFont( S.CreateFontString() )
-		f.detail:SetFont( S.CreateFontString() )
-		f.gold:SetFont( S.CreateFontString() )
+		f.editbox:SetFont( unpack( S.FontTemplate.BagsEditBox.BuildFont ) )
+		f.detail:SetFont( unpack( S.FontTemplate.BagsDetail.BuildFont ) )
+		f.gold:SetFont( unpack( S.FontTemplate.BagsGold.BuildFont ) )
 
 		f.detail:ClearAllPoints()
 		f.detail:Point( "TOPLEFT", f, 12, -10 )

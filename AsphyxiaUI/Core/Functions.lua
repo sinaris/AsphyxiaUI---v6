@@ -75,7 +75,7 @@ S.DataBarTooltipAnchor = function( barNum )
 	local xoff = -S.databars[barNum]:GetWidth()
 	local yoff = S.Scale(-5)
 	
-	if( C["databars"]["settings"]["vertical"] == true ) then
+	if( C["databars"]["vertical"] == true ) then
 		xoff = S.Scale( 5 )
 		yoff = S.databars[barNum]:GetHeight()
 	end

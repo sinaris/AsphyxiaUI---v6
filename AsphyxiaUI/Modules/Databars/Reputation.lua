@@ -7,6 +7,8 @@
 
 local S, C, L, G = unpack( Tukui )
 
+if( C["databars"]["enable"] ~= true ) then return end
+
 if( C["databars"]["reputation"] ~= true ) then return end
 
 local RepData = {}
@@ -28,53 +30,53 @@ for i = 1, GetNumFactions() do
 	local min, max = earnedValue - bottomValue, topValue - bottomValue
 
 	if( name == db[1] or name == db[2] or name == db[3] or name == db[4] or name == db[5] ) then
-		local frame = CreateFrame( "Frame", "RepData" .. i, UIParent )
-		frame:Size( 153, 18 )
-		frame:SetPoint( "CENTER", UIParent, "CENTER", 0, 0 )
-		frame:SetTemplate( "Transparent" )
-		frame:EnableMouse( true )
-		frame:Animate( 160, 0, 0.4 )
-		frame:Hide()
+		local AsphyxiaUIReputationData = CreateFrame( "Frame", "AsphyxiaUIReputationData" .. i, UIParent )
+		AsphyxiaUIReputationData:Size( 153, 18 )
+		AsphyxiaUIReputationData:SetPoint( "CENTER", UIParent, "CENTER", 0, 0 )
+		AsphyxiaUIReputationData:SetTemplate( "Transparent" )
+		AsphyxiaUIReputationData:EnableMouse( true )
+		AsphyxiaUIReputationData:Animate( 160, 0, 0.4 )
+		AsphyxiaUIReputationData:Hide()
 
-		frame.Status = CreateFrame( "StatusBar", "RepDataStatus" .. i, frame )
-		frame.Status:SetFrameLevel( 12 )
-		frame.Status:SetStatusBarTexture( C["media"]["normTex"] )
-		frame.Status:SetMinMaxValues( 0, max )
-		frame.Status:SetValue( min )
-		frame.Status:SetStatusBarColor( unpack( standing[topValue] ) )
-		frame.Status:Point( "TOPLEFT", frame, "TOPLEFT", 2, -2 )
-		frame.Status:Point( "BOTTOMRIGHT", frame, "BOTTOMRIGHT", -2, 2 )
+		AsphyxiaUIReputationData.Status = CreateFrame( "StatusBar", "RepDataStatus" .. i, AsphyxiaUIReputationData )
+		AsphyxiaUIReputationData.Status:SetFrameLevel( 12 )
+		AsphyxiaUIReputationData.Status:SetStatusBarTexture( C["media"]["normTex"] )
+		AsphyxiaUIReputationData.Status:SetMinMaxValues( 0, max )
+		AsphyxiaUIReputationData.Status:SetValue( min )
+		AsphyxiaUIReputationData.Status:SetStatusBarColor( unpack( standing[topValue] ) )
+		AsphyxiaUIReputationData.Status:Point( "TOPLEFT", AsphyxiaUIReputationData, "TOPLEFT", 2, -2 )
+		AsphyxiaUIReputationData.Status:Point( "BOTTOMRIGHT", AsphyxiaUIReputationData, "BOTTOMRIGHT", -2, 2 )
 
-		frame.Text = frame.Status:CreateFontString( nil, "OVERLAY" )
-		frame.Text:SetFont( S.CreateFontString() )
-		frame.Text:Point( "LEFT", frame, "LEFT", 6, 1 )
-		frame.Text:SetShadowColor( 0, 0, 0 )
-		frame.Text:SetShadowOffset( 1.25, -1.25 )
-		frame.Text:SetText( format( "%s / %s", min, max ) )
-		frame.Text:Hide()
+		AsphyxiaUIReputationData.Text = AsphyxiaUIReputationData.Status:CreateFontString( nil, "OVERLAY" )
+		AsphyxiaUIReputationData.Text:SetFont( unpack( S.FontTemplate.DatabarsReputationText.BuildFont ) )
+		AsphyxiaUIReputationData.Text:Point( "LEFT", AsphyxiaUIReputationData, "LEFT", 6, 0 )
+		AsphyxiaUIReputationData.Text:SetShadowColor( 0, 0, 0 )
+		AsphyxiaUIReputationData.Text:SetShadowOffset( 1.25, -1.25 )
+		AsphyxiaUIReputationData.Text:SetText( format( "%s / %s", min, max ) )
+		AsphyxiaUIReputationData.Text:Hide()
 
-		frame.Name = frame.Status:CreateFontString( nil, "OVERLAY" )
-		frame.Name:SetFont( S.CreateFontString() )
-		frame.Name:Point( "LEFT", frame, "LEFT", 6, 1 )
-		frame.Name:SetShadowColor( 0, 0, 0 )
-		frame.Name:SetShadowOffset( 1.25, -1.25 )
-		frame.Name:SetText( name )
+		AsphyxiaUIReputationData.Name = AsphyxiaUIReputationData.Status:CreateFontString( nil, "OVERLAY" )
+		AsphyxiaUIReputationData.Name:SetFont( unpack( S.FontTemplate.DatabarsReputationName.BuildFont ) )
+		AsphyxiaUIReputationData.Name:Point( "LEFT", AsphyxiaUIReputationData, "LEFT", 6, 0 )
+		AsphyxiaUIReputationData.Name:SetShadowColor( 0, 0, 0 )
+		AsphyxiaUIReputationData.Name:SetShadowOffset( 1.25, -1.25 )
+		AsphyxiaUIReputationData.Name:SetText( name )
 
-		frame:SetScript( "OnEnter", function( self )
+		AsphyxiaUIReputationData:SetScript( "OnEnter", function( self )
 			self.Name:Hide()
 			self.Text:Show()
 		end )
 
-		frame:SetScript( "OnLeave", function( self )
+		AsphyxiaUIReputationData:SetScript( "OnLeave", function( self )
 			self.Name:Show()
 			self.Text:Hide()
 		end )
 
-		frame.id = i
-		frame.Status = frame.Status
-		frame.Text = frame.Text
+		AsphyxiaUIReputationData.id = i
+		AsphyxiaUIReputationData.Status = AsphyxiaUIReputationData.Status
+		AsphyxiaUIReputationData.Text = AsphyxiaUIReputationData.Text
 
-		tinsert( RepData, frame )
+		tinsert( RepData, AsphyxiaUIReputationData )
 	end
 end
 
@@ -97,21 +99,25 @@ local update = function()
 	end
 end
 
-local toggle = CreateFrame( "Frame", "RepToggle", G.Panels.RightChatBackground )
-toggle:Size( 30, 15 )
-toggle:Point( "TOPRIGHT", G.Panels.RightChatBackground, "TOPRIGHT", -5, -52 )
-toggle:SetTemplate( "Default" )
-toggle:EnableMouse( true )
-toggle:SetFrameStrata( "MEDIUM" )
-toggle:SetFrameLevel( 10 )
-toggle:CreateShadow( "Default" )
-toggle:CreateOverlay( toggle )
-toggle:SetAlpha( 0 )
-toggle:HookScript( "OnEnter", S.SetModifiedBackdrop )
-toggle:HookScript( "OnLeave", S.SetOriginalBackdrop )
-toggle:SetScript( "OnEnter", function( self )
-	if( InCombatLockdown() ) then return end
-	toggle:FadeIn()
+local AsphyxiaUIReputationToggleButton = CreateFrame( "Frame", "AsphyxiaUIReputationToggleButton", G.Panels.RightChatBackground )
+AsphyxiaUIReputationToggleButton:Size( 30, 15 )
+AsphyxiaUIReputationToggleButton:Point( "TOPRIGHT", G.Panels.RightChatBackground, "TOPRIGHT", -5, -52 )
+AsphyxiaUIReputationToggleButton:SetTemplate( "Default" )
+AsphyxiaUIReputationToggleButton:EnableMouse( true )
+AsphyxiaUIReputationToggleButton:SetFrameStrata( "MEDIUM" )
+AsphyxiaUIReputationToggleButton:SetFrameLevel( 10 )
+AsphyxiaUIReputationToggleButton:CreateShadow( "Default" )
+AsphyxiaUIReputationToggleButton:CreateOverlay( AsphyxiaUIReputationToggleButton )
+AsphyxiaUIReputationToggleButton:SetAlpha( 0 )
+AsphyxiaUIReputationToggleButton:HookScript( "OnEnter", S.SetModifiedBackdrop )
+AsphyxiaUIReputationToggleButton:HookScript( "OnLeave", S.SetOriginalBackdrop )
+AsphyxiaUIReputationToggleButton:SetScript( "OnEnter", function( self )
+	if( InCombatLockdown() ) then
+		print( ERR_NOT_IN_COMBAT )
+		return
+	end
+
+	AsphyxiaUIReputationToggleButton:FadeIn()
 
 	GameTooltip:ClearLines()
 	GameTooltip:SetOwner( self )
@@ -119,17 +125,17 @@ toggle:SetScript( "OnEnter", function( self )
 	GameTooltip:Show()
 end )
 
-toggle:SetScript( "OnLeave", function( self )
-	toggle:FadeOut()
+AsphyxiaUIReputationToggleButton:SetScript( "OnLeave", function( self )
+	AsphyxiaUIReputationToggleButton:FadeOut()
 
 	GameTooltip:Hide()
 end )
 
-toggle.Text = toggle:CreateFontString( nil, "OVERLAY" )
-toggle.Text:SetFont( S.CreateFontString() )
-toggle.Text:Point( "CENTER", toggle, "CENTER", 1, 1 )
-toggle.Text:SetText( S.RGBToHex( unpack( C["media"]["datatextcolor2"] ) ) .. "R" )
-toggle:SetScript( "OnMouseUp", function( self )
+AsphyxiaUIReputationToggleButton.Text = AsphyxiaUIReputationToggleButton:CreateFontString( nil, "OVERLAY" )
+AsphyxiaUIReputationToggleButton.Text:SetFont( unpack( S.FontTemplate.DatabarsReputationTglBtn.BuildFont ) )
+AsphyxiaUIReputationToggleButton.Text:Point( "CENTER", AsphyxiaUIReputationToggleButton, "CENTER", 0, 0 )
+AsphyxiaUIReputationToggleButton.Text:SetText( S.RGBToHex( unpack( C["media"]["datatextcolor2"] ) ) .. "R" )
+AsphyxiaUIReputationToggleButton:SetScript( "OnMouseUp", function( self )
 	for _, frame in pairs( RepData ) do
 		if( frame and frame:IsVisible() ) then
 			frame:SlideOut()

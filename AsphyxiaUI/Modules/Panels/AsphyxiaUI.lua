@@ -12,7 +12,7 @@ local S, C, L, G = unpack( Tukui )
 ------------------------------
 G.ActionBars.Bar1:ClearAllPoints()
 G.ActionBars.Bar1:Size( ( S.buttonsize * 12 ) + ( S.buttonspacing * 13 ) + 2, ( S.buttonsize * 2 ) + ( S.buttonspacing * 3 ) + 2 )
-G.ActionBars.Bar1:Point( "BOTTOM", UIParent, "BOTTOM", 0, 48 )
+G.ActionBars.Bar1:Point( unpack( S.SetFramePosition["panels"]["actionbars"]["bar1"] ) )
 G.ActionBars.Bar1:SetTemplate( "Transparent" )
 G.ActionBars.Bar1:CreateShadow( "Default" )
 G.ActionBars.Bar1:SetFrameStrata("BACKGROUND")
@@ -32,25 +32,21 @@ G.ActionBars.Bar4:SetAllPoints( G.ActionBars.Bar1 )
 
 local AsphyxiaUISplitBarLeft = CreateFrame( "Frame", "AsphyxiaUISplitBarLeft", UIParent )
 AsphyxiaUISplitBarLeft:Size( ( S.buttonsize * 3 ) + ( S.buttonspacing * 4 ) + 2, G.ActionBars.Bar1:GetHeight() )
-AsphyxiaUISplitBarLeft:Point( "BOTTOMRIGHT", G.ActionBars.Bar1, "BOTTOMLEFT", -3, 0 )
+AsphyxiaUISplitBarLeft:Point( unpack( S.SetFramePosition["panels"]["actionbars"]["splitleft"] ) )
 AsphyxiaUISplitBarLeft:SetTemplate( "Transparent" )
 AsphyxiaUISplitBarLeft:CreateShadow( "Default" )
 
 local AsphyxiaUISplitBarRight = CreateFrame( "Frame", "AsphyxiaUISplitBarRight", UIParent )
 AsphyxiaUISplitBarRight:Size( ( S.buttonsize * 3 ) + ( S.buttonspacing * 4 ) + 2, G.ActionBars.Bar1:GetHeight() )
-AsphyxiaUISplitBarRight:Point( "BOTTOMLEFT", G.ActionBars.Bar1, "BOTTOMRIGHT", 3, 0 )
+AsphyxiaUISplitBarRight:Point( unpack( S.SetFramePosition["panels"]["actionbars"]["splitright"] ) )
 AsphyxiaUISplitBarRight:SetTemplate( "Transparent" )
 AsphyxiaUISplitBarRight:CreateShadow( "Default" )
 
 local AsphyxiaUIRightBar = CreateFrame( "Frame", "AsphyxiaUIRightBar", UIParent )
 AsphyxiaUIRightBar:Size( ( S.buttonsize * 12 + S.buttonspacing * 13 ) + 2,  ( S.buttonsize * 12 + S.buttonspacing * 13 ) + 2 )
 AsphyxiaUIRightBar:SetTemplate( "Transparent" )
-AsphyxiaUIRightBar:Point( "BOTTOMRIGHT", G.Panels.RightChatBackground, "TOPRIGHT", 0, 3 )
+AsphyxiaUIRightBar:Point( unpack( S.SetFramePosition["panels"]["actionbars"]["rightbar"] ) )
 AsphyxiaUIRightBar:CreateShadow( "Default" )
-if( C["chat"]["background"] ~= true ) then
-	AsphyxiaUIRightBar:ClearAllPoints()
-	AsphyxiaUIRightBar:Point( "RIGHT", UIParent, "RIGHT", -8, 0 )
-end
 AsphyxiaUIRightBar:SetFrameStrata("BACKGROUND")
 AsphyxiaUIRightBar:SetFrameLevel( 1 )
 
@@ -60,7 +56,7 @@ if( C["actionbar"]["vertical_rightbars"] == true ) then
 else
 	G.ActionBars.Pet:Size( ( S.petbuttonsize * NUM_PET_ACTION_SLOTS + S.buttonspacing * 11 ) + 2, ( S.petbuttonsize + S.buttonspacing * 2 ) + 2 )
 end
-G.ActionBars.Pet:Point( "BOTTOM", AsphyxiaUIRightBar, "TOP", 0, 3 )
+G.ActionBars.Pet:Point( unpack( S.SetFramePosition["panels"]["actionbars"]["petbar"] ) )
 G.ActionBars.Pet:SetTemplate( "Transparent" )
 G.ActionBars.Pet:CreateShadow( "Default" )
 
@@ -69,7 +65,7 @@ G.ActionBars.Pet:CreateShadow( "Default" )
 ------------------------------
 G.Panels.LeftChatBackground:ClearAllPoints()
 G.Panels.LeftChatBackground:Size( C["chat"]["width"], C["chat"]["height"] )
-G.Panels.LeftChatBackground:Point( "BOTTOMLEFT", UIParent, "BOTTOMLEFT", 2, 2 )
+G.Panels.LeftChatBackground:Point( unpack( S.SetFramePosition["panels"]["chat"]["leftbg"] ) )
 G.Panels.LeftChatBackground:SetTemplate( "Transparent" )
 G.Panels.LeftChatBackground:CreateShadow( "Default" )
 G.Panels.LeftChatBackground:SetFrameLevel( 1 )
@@ -77,7 +73,7 @@ G.Panels.LeftChatBackground:SetFrameStrata( "BACKGROUND" )
 
 G.Panels.RightChatBackground:ClearAllPoints()
 G.Panels.RightChatBackground:Size( C["chat"]["width"], C["chat"]["height"] )
-G.Panels.RightChatBackground:Point( "BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", -2, 2 )
+G.Panels.RightChatBackground:Point( unpack( S.SetFramePosition["panels"]["chat"]["rightbg"] ) )
 G.Panels.RightChatBackground:SetTemplate( "Transparent" )
 G.Panels.RightChatBackground:CreateShadow( "Default" )
 G.Panels.RightChatBackground:SetFrameLevel( 1 )
@@ -104,13 +100,13 @@ G.Panels.RightChatTabsBackground:SetFrameStrata( "BACKGROUND" )
 ------------------------------
 G.Panels.DataTextLeft:ClearAllPoints()
 G.Panels.DataTextLeft:Size( G.Panels.LeftChatBackground:GetWidth() - 10, 23 )
-G.Panels.DataTextLeft:Point( "BOTTOM", G.Panels.LeftChatBackground, "BOTTOM", 0, 5 )
+G.Panels.DataTextLeft:Point( unpack( S.SetFramePosition["panels"]["datatext"]["infoleft"] ) )
 G.Panels.DataTextLeft:SetTemplate( "Transparent" )
 G.Panels.DataTextLeft:CreateOverlay( G.Panels.DataTextLeft )
 
 G.Panels.DataTextRight:ClearAllPoints()
 G.Panels.DataTextRight:Size( G.Panels.RightChatBackground:GetWidth() - 10, 23 )
-G.Panels.DataTextRight:Point( "BOTTOM", G.Panels.RightChatBackground, "BOTTOM", 0, 5 )
+G.Panels.DataTextRight:Point( unpack( S.SetFramePosition["panels"]["datatext"]["inforight"] ) )
 G.Panels.DataTextRight:SetTemplate( "Transparent" )
 G.Panels.DataTextRight:CreateOverlay( G.Panels.DataTextRight )
 

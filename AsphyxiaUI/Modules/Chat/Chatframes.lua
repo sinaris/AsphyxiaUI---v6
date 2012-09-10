@@ -20,7 +20,7 @@ local function SetTabStyle( frame )
 	tab:HookScript("OnLeave", function() _G[chat .. "TabText"]:Show() end )
 
 	_G[chat .. "TabText"]:SetTextColor( unpack( C["media"]["datatextcolor2"] ) )
-	_G[chat .. "TabText"]:SetFont( S.CreateFontString() )
+	_G[chat .. "TabText"]:SetFont( unpack( S.FontTemplate.ChatTabText.BuildFont ) )
 	_G[chat .. "TabText"].SetTextColor = S.dummy
 
 	_G[chat .. "EditBox"]:ClearAllPoints()

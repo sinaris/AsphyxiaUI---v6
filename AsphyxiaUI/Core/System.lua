@@ -14,14 +14,28 @@ local DefaultFontTemplate = {
 	FontFamily = C["media"]["font"],
 	FontSize = 12,
 	FontStyle = "NONE",
+
+	StringFAnchor = "",
+	StringParent = "",
+	StringLAnchor = "",
+	StringYOffset = "",
+	StringXOffset = "",
 }
 
-local function CreateFontTemplate( FontFamily, FontSize, FontStyle )
+local function CreateFontTemplate( FontFamily, FontSize, FontStyle, StringFAnchor, StringParent, StringLAnchor, StringYOffset, StringXOffset )
 	local BuildResultString = {
 		BuildFont = {
 			FontFamily or DefaultFontTemplate.FontFamily,
 			FontSize or DefaultFontTemplate.FontSize,
-			FontStyle or DefaultFontTemplate.FontStyle
+			FontStyle or DefaultFontTemplate.FontStyle,
+		},
+
+		BuildStringValues = {
+			StringFAnchor or DefaultFontTemplate.StringFAnchor,
+			StringParent or DefaultFontTemplate.StringParent,
+			StringLAnchor or DefaultFontTemplate.StringLAnchor,
+			StringYOffset or DefaultFontTemplate.StringYOffset,
+			StringXOffset or DefaultFontTemplate.StringXOffset,
 		},
 	}
 	return BuildResultString
@@ -38,6 +52,24 @@ if( C["global"]["fonttemplate"] == "default" ) then
 		ABCFontString = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ), -- Button Count
 		ABMFontString = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ), -- Macro Text
 		ABCDFontString = CreateFontTemplate( C["media"]["font"], 20, "OUTLINE" ), -- Cooldown Text
+
+		BagsItemCount = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
+		BagsEditBox = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
+		BagsDetail = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
+		BagsGold = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
+
+		BuffsDuration = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
+		BuffsCount = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
+
+		ChatTabText = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
+
+		DatabarsPanels = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
+		DatabarsPanelsTglBtn = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
+		DatabarsCurrency = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
+		DatabarsCurrencyTglBtn = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
+		DatabarsReputationText = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
+		DatabarsReputationName = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
+		DatabarsReputationTglBtn = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
 
 		-- Unitframes
 		UFFontString = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
@@ -71,10 +103,33 @@ end
 -- Positions
 ------------------------------
 S.SetFramePosition = {
-	["Installation"] = {
-		["LeftIcon"] = { "BOTTOMLEFT", G.Install.Frame, "TOPLEFT", 0, 3 },
-		["RightIcon"] = { "BOTTOMRIGHT", G.Install.Frame, "TOPRIGHT", 0, 3 },
-		["Title"] = { "BOTTOM", G.Install.Frame, "TOP", 0, 3 },
-		["Copyright"] = { "TOP", G.Install.Frame, "BOTTOM", 0, -3 },
+	["panels"] = {
+		["actionbars"] = {
+			["bar1"] = { "BOTTOM", UIParent, "BOTTOM", 0, 48 },
+			["splitleft"] = { "BOTTOMRIGHT", G.ActionBars.Bar1, "BOTTOMLEFT", -3, 0 },
+			["splitright"] = { "BOTTOMLEFT", G.ActionBars.Bar1, "BOTTOMRIGHT", 3, 0 },
+			["rightbar"] = { "BOTTOMRIGHT", G.Panels.RightChatBackground, "TOPRIGHT", 0, 3 },
+			["petbar"] = { "BOTTOM", AsphyxiaUIRightBar, "TOP", 0, 3 },
+		},
+		["chat"] = {
+			["leftbg"] = { "BOTTOMLEFT", UIParent, "BOTTOMLEFT", 2, 2 },
+			["rightbg"] = { "BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", -2, 2 },
+		},
+		["datatext"] = {
+			["infoleft"] = { "BOTTOM", G.Panels.LeftChatBackground, "BOTTOM", 0, 5 },
+			["inforight"] = { "BOTTOM", G.Panels.RightChatBackground, "BOTTOM", 0, 5 },
+		},
+	},
+	["bags"] = {
+		["bank"] = { "BOTTOMLEFT", G.Panels.LeftChatBackground, "TOPLEFT", 0, 3 },
+	},
+
+
+
+	["maps"] = {
+		["minimap"] = {},
+	},
+	["unitframes"] = {
+	
 	}
 }

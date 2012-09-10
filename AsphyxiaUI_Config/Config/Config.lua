@@ -63,13 +63,12 @@ C["chat"] = {
 }
 
 C["databars"] = {
-	["settings"] = {
-		["vertical"] = false,
-		["height"] = 18,
-		["width"] = 100,
-		["spacing"] = 3,
-		["padding"] = 3,
-	},
+	["enable"] = true,
+	["vertical"] = false,
+	["height"] = 18,
+	["width"] = 100,
+	["spacing"] = 3,
+	["padding"] = 3,
 	["framerate"] = 1,
 	["latency"] = 2,
 	["memory"] = 3,
