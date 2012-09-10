@@ -53,3 +53,24 @@ S.CreatePopup["ASPHYXIAUI_SELECT_RAID_LAYOUT"] = {
 		ReloadUI()
 	end,
 }
+
+S.CreatePopup["ASPHYXIAUI_DIFFERENT_ADDONSKINS_DETECTED"] = {
+	question = "AsphyxiaUI has detected some other addon skins. AsphyxiaUI addon skins will be disabled!",
+	answer1 = ACCEPT,
+	answer2 = CANCEL,
+	function1 = function()
+		if( IsAddOnLoaded( "Tukui_ConfigUI" ) ) then
+			if( not ( TukuiConfigPublic["addonskins"] ) ) then
+				TukuiConfigPublic["addonskins"] = {}
+			end
+			TukuiConfigPublic["addonskins"]["embedright"] = ""
+			TukuiConfigPublic["addonskins"]["background"] = false,
+			TukuiConfigPublic["addonskins"]["combattoggle"] = false,
+			TukuiConfigPublic["addonskins"]["bigwigs"] = false,
+			TukuiConfigPublic["addonskins"]["dbm"] = false,
+			TukuiConfigPublic["addonskins"]["omen"] = false,
+			TukuiConfigPublic["addonskins"]["tinydps"] = false,
+		end
+		ReloadUI()
+	end,
+}

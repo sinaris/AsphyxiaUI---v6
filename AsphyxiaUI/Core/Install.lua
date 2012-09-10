@@ -92,6 +92,10 @@ AsphyxiaUIOnLogon:SetScript( "OnEvent", function( self, event )
 		}
 	end
 
+	if( IsAddOnLoaded( "Tukui_ElvUI_Skins" ) ) then
+		S.ShowPopup( "ASPHYXIAUI_DIFFERENT_ADDONSKINS_DETECTED" )
+	end
+
 	if( IsAddOnLoaded( "AsphyxiaUI_Raid" ) and IsAddOnLoaded( "AsphyxiaUI_Raid_Healing" ) ) then
 		S.ShowPopup( "ASPHYXIAUI_SELECT_RAID_LAYOUT" )
 	end
