@@ -15,9 +15,10 @@ local function SetTabStyle( frame )
 	local tab = _G[chat .. "Tab"]
 
 	_G[chat .. "TabText"]:Show()
+	_G[chat .. "TabText"].Hide = function() end
 
-	tab:HookScript("OnEnter", function() _G[chat .. "TabText"]:Show() end )
-	tab:HookScript("OnLeave", function() _G[chat .. "TabText"]:Show() end )
+	--tab:HookScript("OnEnter", function() _G[chat .. "TabText"]:Show() end )
+	--tab:HookScript("OnLeave", function() _G[chat .. "TabText"]:Show() end )
 
 	_G[chat .. "TabText"]:SetTextColor( unpack( C["media"]["datatextcolor2"] ) )
 	_G[chat .. "TabText"]:SetFont( unpack( S.FontTemplate.ChatTabText.BuildFont ) )
