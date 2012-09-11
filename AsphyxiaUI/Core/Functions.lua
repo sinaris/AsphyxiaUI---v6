@@ -9,18 +9,6 @@ local S, C, L, G = unpack( Tukui )
 
 S.ClassColor = RAID_CLASS_COLORS[S.myclass]
 
-S.CreateFontString = function( normalfont )
-	if( normalfont ) then
-		return C["media"]["font"], 12, "THINOUTLINE"
-	else
-		if( S.client == "ruRU" ) then
-			return C["media"]["pixel_ru"], 10, "MONOCHROMEOUTLINE"
-		else
-			return C["media"]["asphyxia"], 10, "MONOCHROMEOUTLINE"
-		end
-	end
-end
-
 S.UTF = function( string, i, dots )
 	if( not string ) then return end
 

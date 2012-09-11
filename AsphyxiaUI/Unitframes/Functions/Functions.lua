@@ -101,11 +101,11 @@ end
 S.SkinAura = function( self, button )
 	button.count:ClearAllPoints()
 	button.count:Point( "TOPLEFT", button, 1, 5 )
-	button.count:SetFont( S.CreateFontString() )
+	button.count:SetFont( unpack( S.FontTemplate.UnitframesDefault.BuildFont ) )
 
 	button.remaining:ClearAllPoints()
 	button.remaining:Point( "CENTER", button,2, -2 )
-	button.remaining:SetFont( S.CreateFontString() )
+	button.remaining:SetFont( unpack( S.FontTemplate.UnitframesDefault.BuildFont ) )
 end
 
 ------------------------------
@@ -327,8 +327,8 @@ hooksecurefunc( S, "UpdateMushroomVisibility", function( self )
 	if( ( eb and eb:IsShown() ) or ( dm and dm:IsShown() ) ) then
 		m:ClearAllPoints()
 		m:Point( "BOTTOMLEFT", p, "TOPLEFT", 0, 16 )
-	elseif m:IsShown() then
+	elseif( m:IsShown() ) then
 		m:ClearAllPoints()
-		m:Point("BOTTOMLEFT", p, "TOPLEFT", 0, 7)
+		m:Point( "BOTTOMLEFT", p, "TOPLEFT", 0, 7 )
 	end
 end )

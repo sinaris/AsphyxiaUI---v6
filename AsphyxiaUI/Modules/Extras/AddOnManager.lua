@@ -27,7 +27,7 @@ AsphyxiaUIAddOnManagerHeader:Size( AsphyxiaUIAddOnManagerBackground:GetWidth(), 
 AsphyxiaUIAddOnManagerHeader:Point( "BOTTOM", AsphyxiaUIAddOnManagerBackground, "TOP", 0, 3 )
 AsphyxiaUIAddOnManagerHeader:SetTemplate( "Transparent" )
 
-AsphyxiaUIAddOnManagerHeader.Text = S.SetFontString( AsphyxiaUIAddOnManagerHeader, S.CreateFontString() )
+AsphyxiaUIAddOnManagerHeader.Text = S.SetFontString( AsphyxiaUIAddOnManagerHeader, unpack( S.FontTemplate.ButtonsDefault.BuildFont ) )
 AsphyxiaUIAddOnManagerHeader.Text:SetPoint( "LEFT", 5, 1 )
 AsphyxiaUIAddOnManagerHeader.Text:SetText( ADDONS .. ": " .. S.myname )
 
@@ -48,8 +48,8 @@ AsphyxiaUIAddOnManagerSaveButton:Point( "BOTTOMLEFT", AsphyxiaUIAddOnManagerBack
 AsphyxiaUIAddOnManagerSaveButton:SetTemplate( "Default" )
 AsphyxiaUIAddOnManagerSaveButton:SetFrameStrata( "TOOLTIP" )
 
-AsphyxiaUIAddOnManagerSaveButton.Text = S.SetFontString( AsphyxiaUIAddOnManagerSaveButton, S.CreateFontString() )
-AsphyxiaUIAddOnManagerSaveButton.Text:Point( "CENTER", AsphyxiaUIAddOnManagerSaveButton, "CENTER", 0, 1 )
+AsphyxiaUIAddOnManagerSaveButton.Text = S.SetFontString( AsphyxiaUIAddOnManagerSaveButton, unpack( S.FontTemplate.ButtonsDefault.BuildFont ) )
+AsphyxiaUIAddOnManagerSaveButton.Text:Point( "CENTER", AsphyxiaUIAddOnManagerSaveButton, "CENTER", 0, 0 )
 AsphyxiaUIAddOnManagerSaveButton.Text:SetText( SAVE_CHANGES )
 
 AsphyxiaUIAddOnManagerSaveButton:SetScript( "OnClick", function() ReloadUI() end )
@@ -62,8 +62,8 @@ AsphyxiaUIAddOnManagerCloseButton:Point( "BOTTOMRIGHT", AsphyxiaUIAddOnManagerBa
 AsphyxiaUIAddOnManagerCloseButton:SetTemplate( "Default" )
 AsphyxiaUIAddOnManagerCloseButton:SetFrameStrata( "TOOLTIP" )
 
-AsphyxiaUIAddOnManagerCloseButton.Text = S.SetFontString( AsphyxiaUIAddOnManagerCloseButton, S.CreateFontString() )
-AsphyxiaUIAddOnManagerCloseButton.Text:Point( "CENTER", AsphyxiaUIAddOnManagerCloseButton, "CENTER", 0, 1 )
+AsphyxiaUIAddOnManagerCloseButton.Text = S.SetFontString( AsphyxiaUIAddOnManagerCloseButton, unpack( S.FontTemplate.ButtonsDefault.BuildFont ) )
+AsphyxiaUIAddOnManagerCloseButton.Text:Point( "CENTER", AsphyxiaUIAddOnManagerCloseButton, "CENTER", 0, 0 )
 AsphyxiaUIAddOnManagerCloseButton.Text:SetText( CANCEL )
 
 AsphyxiaUIAddOnManagerCloseButton:SetScript( "OnClick", function() AsphyxiaUIAddOnManagerBackground:Hide() end )
@@ -96,7 +96,7 @@ local function UpdateAddons()
 		else
 			button:Point( "TOP", oldb, "BOTTOM", 0, -7 )
 		end
-		local text = S.SetFontString( button, S.CreateFontString() )
+		local text = S.SetFontString( button, unpack( S.FontTemplate.ButtonsDefault.BuildFont ) )
 		text:Point( "LEFT", button, "RIGHT", 8, 0 )
 		text:SetText( title )
 

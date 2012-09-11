@@ -317,8 +317,8 @@ for i = 1, 6 do
 	Toggle[i]:SetAlpha( 1 )
 
 	Toggle[i].Text = Toggle[i]:CreateFontString( nil, "OVERLAY" )
-	Toggle[i].Text:SetFont( S.CreateFontString() )
-	Toggle[i].Text:Point( "CENTER", 2, 1 )
+	Toggle[i].Text:SetFont( unpack( S.FontTemplate.ButtonsDefault.BuildFont ) )
+	Toggle[i].Text:Point( "CENTER", 0, 0 )
 
 	if( i == 1 ) then
 		Toggle[i]:Size( AsphyxiaUIControlPanelActionbarBackground:GetWidth() - 8, 15 )
@@ -483,8 +483,8 @@ AsphyxiaUIExitVehicleButton:CreateOverlay( AsphyxiaUIExitVehicleButton )
 AsphyxiaUIExitVehicleButton:RegisterForClicks( "AnyUp" )
 AsphyxiaUIExitVehicleButton:SetScript( "OnClick", function() VehicleExit() end )
 
-AsphyxiaUIExitVehicleButton.Text = S.SetFontString( AsphyxiaUIExitVehicleButton, S.CreateFontString() )
-AsphyxiaUIExitVehicleButton.Text:Point( "CENTER", 1, 1 )
+AsphyxiaUIExitVehicleButton.Text = S.SetFontString( AsphyxiaUIExitVehicleButton, unpack( S.FontTemplate.ButtonsDefault.BuildFont ) )
+AsphyxiaUIExitVehicleButton.Text:Point( "CENTER", 0, 0 )
 AsphyxiaUIExitVehicleButton.Text:SetText( S.RGBToHex( unpack( C["media"]["datatextcolor2"] ) ) .. EXIT )
 RegisterStateDriver( AsphyxiaUIExitVehicleButton, "visibility", "[target=vehicle,exists] show;hide" )
 

@@ -9,4 +9,4 @@ local S, C, L, G = unpack( Tukui )
 
 if( IsAddOnLoaded( "SmellyPowerBar" ) ) then return end
 
-G.Misc.AltPowerBar.Text:SetFont( S.CreateFontString() )
+G.Misc.AltPowerBar.Text:SetFont( unpack( S.FontTemplate.PanelsDefault.BuildFont ) )

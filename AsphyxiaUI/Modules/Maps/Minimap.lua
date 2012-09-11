@@ -9,8 +9,8 @@ local S, C, L, G = unpack( Tukui )
 
 G.Maps.Minimap:ClearAllPoints()
 
-G.Maps.Minimap.Zone.Text:SetFont( S.CreateFontString() )
-G.Maps.Minimap.Coord.Text:SetFont( S.CreateFontString() )
+G.Maps.Minimap.Zone.Text:SetFont( unpack( S.FontTemplate.MinimapCords.BuildFont ) )
+G.Maps.Minimap.Coord.Text:SetFont( unpack( S.FontTemplate.MinimapCords.BuildFont ) )
 
 G.Maps.Minimap:Size( 153 )
 G.Maps.Minimap:Size( 153 )
@@ -27,8 +27,8 @@ AsphyxiaUIMinimapToggleButton:CreateShadow( "Default" )
 AsphyxiaUIMinimapToggleButton:CreateOverlay( AsphyxiaUIMinimapToggleButton )
 AsphyxiaUIMinimapToggleButton:FadeOut()
 
-AsphyxiaUIMinimapToggleButton.Text = S.SetFontString( AsphyxiaUIMinimapToggleButton, S.CreateFontString() )
-AsphyxiaUIMinimapToggleButton.Text:Point( "CENTER", AsphyxiaUIMinimapToggleButton, "CENTER", 2, 0.5 )
+AsphyxiaUIMinimapToggleButton.Text = S.SetFontString( AsphyxiaUIMinimapToggleButton, unpack( S.FontTemplate.ButtonsDefault.BuildFont ) )
+AsphyxiaUIMinimapToggleButton.Text:Point( "CENTER", AsphyxiaUIMinimapToggleButton, "CENTER", 0, 0 )
 AsphyxiaUIMinimapToggleButton.Text:SetText( "|cffFF0000-|r" )
 
 AsphyxiaUIMinimapToggleButton:SetScript( "OnMouseDown", function()

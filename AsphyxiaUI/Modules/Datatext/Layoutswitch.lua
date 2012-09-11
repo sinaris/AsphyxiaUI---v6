@@ -41,7 +41,7 @@ AsphyxiaUILayoutSwitchButton:SetScript( "OnLeave", function( self )
 	GameTooltip:Hide()
 end )
 
-AsphyxiaUILayoutSwitchButton.Text = S.SetFontString( AsphyxiaUILayoutSwitchButton, S.CreateFontString() )
+AsphyxiaUILayoutSwitchButton.Text = S.SetFontString( AsphyxiaUILayoutSwitchButton, unpack( S.FontTemplate.ChatTabText.BuildFont ) )
 AsphyxiaUILayoutSwitchButton.Text:Point( "RIGHT", AsphyxiaUILayoutSwitchButton, "RIGHT", -5, 1 )
 AsphyxiaUILayoutSwitchButton.Text:SetText( S.RGBToHex( unpack( C["media"]["datatextcolor2"] ) ) .. "switch layout" )
 

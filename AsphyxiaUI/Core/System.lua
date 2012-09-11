@@ -14,28 +14,14 @@ local DefaultFontTemplate = {
 	FontFamily = C["media"]["font"],
 	FontSize = 12,
 	FontStyle = "NONE",
-
-	StringFAnchor = "",
-	StringParent = "",
-	StringLAnchor = "",
-	StringYOffset = "",
-	StringXOffset = "",
 }
 
-local function CreateFontTemplate( FontFamily, FontSize, FontStyle, StringFAnchor, StringParent, StringLAnchor, StringYOffset, StringXOffset )
+local function CreateFontTemplate( FontFamily, FontSize, FontStyle )
 	local BuildResultString = {
 		BuildFont = {
 			FontFamily or DefaultFontTemplate.FontFamily,
 			FontSize or DefaultFontTemplate.FontSize,
 			FontStyle or DefaultFontTemplate.FontStyle,
-		},
-
-		BuildStringValues = {
-			StringFAnchor or DefaultFontTemplate.StringFAnchor,
-			StringParent or DefaultFontTemplate.StringParent,
-			StringLAnchor or DefaultFontTemplate.StringLAnchor,
-			StringYOffset or DefaultFontTemplate.StringYOffset,
-			StringXOffset or DefaultFontTemplate.StringXOffset,
 		},
 	}
 	return BuildResultString
@@ -43,15 +29,17 @@ end
 
 if( C["global"]["fonttemplate"] == "default" ) then
 	S.FontTemplate = {
-		-- Installation
-		ITFontString = CreateFontTemplate( C["media"]["font"], 14, "OUTLINE" ), -- title
-		ICFontString = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ), -- copyright
+		ButtonsDefault = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
+		ButtonsResetUIBtn = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
+		ButtonsReloadUIBtn = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
 
-		-- Actionbars
-		ABHFontString = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ), -- Button HotKey Text
-		ABCFontString = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ), -- Button Count
-		ABMFontString = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ), -- Macro Text
-		ABCDFontString = CreateFontTemplate( C["media"]["font"], 20, "OUTLINE" ), -- Cooldown Text
+		InstallationTitlte = CreateFontTemplate( C["media"]["font"], 14, "OUTLINE" ),
+		InstallationCopyright = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
+
+		ActionbarsHotKey = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
+		ActionbarsCount = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
+		ActionbarsMacro = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
+		ActionbarsCooldown = CreateFontTemplate( C["media"]["font"], 20, "OUTLINE" ),
 
 		BagsItemCount = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
 		BagsEditBox = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
@@ -71,8 +59,30 @@ if( C["global"]["fonttemplate"] == "default" ) then
 		DatabarsReputationName = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
 		DatabarsReputationTglBtn = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
 
-		-- Unitframes
+		DatatextPanels = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
+		DatatextPanelsTglBtn = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
+
+		MinimapCords = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
+		MinimapZone = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
+
+		NameplatesCount = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
+		NameplatesName = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
+		NameplatesHealth = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
+		NameplatesLevel = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
+
+		PanelsDefault = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
+
 		UFFontString = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
+		UnitframesHealth = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
+		UnitframesPower = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
+		UnitframesName = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
+		UnitframesCastbar = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
+		UnitframesDefault = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
+
+		MoverDefault = CreateFontTemplate( C["media"]["uffont"], 12, nil ),
+
+		FAQTitle = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
+		FAQButtons = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
 	}
 elseif( C["global"]["fonttemplate"] == "pixel" or C["global"]["fonttemplate"] == nil ) then
 	local PixelFont
@@ -84,52 +94,58 @@ elseif( C["global"]["fonttemplate"] == "pixel" or C["global"]["fonttemplate"] ==
 	end
 
 	S.FontTemplate = {
-		-- Installation
-		ITFontString = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ), -- title
-		ICFontString = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ), -- copyright
+		ButtonsDefault = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+		ButtonsResetUIBtn = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+		ButtonsReloadUIBtn = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
 
-		-- Actionbars
-		ABHFontString = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ), -- Button HotKey Text
-		ABCFontString = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ), -- Button Count
-		ABMFontString = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ), -- Macro Text
-		ABCDFontString = CreateFontTemplate( PixelFont, 20, "MONOCHROMEOUTLINE" ), -- Cooldown Text
+		InstallationTitlte = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+		InstallationCopyright = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
 
-		-- Unitframes
-		UFFontString = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+		ActionbarsHotKey = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+		ActionbarsCount = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+		ActionbarsMacro = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+		ActionbarsCooldown = CreateFontTemplate( PixelFont, 20, "MONOCHROMEOUTLINE" ),
+
+		BagsItemCount = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+		BagsEditBox = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+		BagsDetail = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+		BagsGold = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+
+		BuffsDuration = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+		BuffsCount = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+
+		ChatTabText = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+
+		DatabarsPanels = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+		DatabarsPanelsTglBtn = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+		DatabarsCurrency = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+		DatabarsCurrencyTglBtn = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+		DatabarsReputationText = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+		DatabarsReputationName = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+		DatabarsReputationTglBtn = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+
+		DatatextPanels = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+		DatatextPanelsTglBtn = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+
+		MinimapCords = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+		MinimapZone = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+
+		NameplatesCount = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+		NameplatesName = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+		NameplatesHealth = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+		NameplatesLevel = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+
+		PanelsDefault = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+
+		UnitframesHealth = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+		UnitframesPower = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+		UnitframesName = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+		UnitframesCastbar = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+		UnitframesDefault = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+
+		MoverDefault = CreateFontTemplate( C["media"]["uffont"], 12, nil ),
+
+		FAQTitle = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
+		FAQButtons = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
 	}
 end
-
-------------------------------
--- Positions
-------------------------------
-S.SetFramePosition = {
-	["panels"] = {
-		["actionbars"] = {
-			["bar1"] = { "BOTTOM", UIParent, "BOTTOM", 0, 48 },
-			["splitleft"] = { "BOTTOMRIGHT", G.ActionBars.Bar1, "BOTTOMLEFT", -3, 0 },
-			["splitright"] = { "BOTTOMLEFT", G.ActionBars.Bar1, "BOTTOMRIGHT", 3, 0 },
-			["rightbar"] = { "BOTTOMRIGHT", G.Panels.RightChatBackground, "TOPRIGHT", 0, 3 },
-			["petbar"] = { "BOTTOM", AsphyxiaUIRightBar, "TOP", 0, 3 },
-		},
-		["chat"] = {
-			["leftbg"] = { "BOTTOMLEFT", UIParent, "BOTTOMLEFT", 2, 2 },
-			["rightbg"] = { "BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", -2, 2 },
-		},
-		["datatext"] = {
-			["infoleft"] = { "BOTTOM", G.Panels.LeftChatBackground, "BOTTOM", 0, 5 },
-			["inforight"] = { "BOTTOM", G.Panels.RightChatBackground, "BOTTOM", 0, 5 },
-		},
-	},
-	["bags"] = {
-		["bank"] = { "BOTTOMLEFT", G.Panels.LeftChatBackground, "TOPLEFT", 0, 3 },
-	},
-
-
-
-	["maps"] = {
-		["minimap"] = {},
-	},
-	["unitframes"] = {
-	
-	}
-}

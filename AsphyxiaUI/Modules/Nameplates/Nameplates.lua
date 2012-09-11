@@ -1,4 +1,4 @@
-﻿local T, C, L, G  = unpack( Tukui )
+﻿local S, C, L, G  = unpack( Tukui )
 
 if( C["nameplate"].enable == true ) then return end
 
@@ -6,7 +6,7 @@ if( C["nameplate"]["asphyxia"] ~= true ) then return end
 
 local numChildren = -1
 local frames = {}
-local noscalemult = T.mult * C.general.uiscale
+local noscalemult = S.mult * C.general.uiscale
 
 local NamePlates = CreateFrame( "Frame", nil, UIParent )
 NamePlates:SetScript( "OnEvent", function( self, event, ... )
@@ -18,7 +18,7 @@ end
 
 local Abbrev = function( name )
 	local newname = ( string.len( name ) > 18 ) and string.gsub( name, "%s?(.[\128-\191]*)%S+%s", "%1. " ) or name
-	return T.UTF( newname, 18, false )
+	return S.UTF( newname, 18, false )
 end
 
 local function QueueObject( parent, object )
@@ -50,18 +50,18 @@ local function HideObjects( parent )
 	for object in pairs( parent.queue ) do
 		if( object:GetObjectType() == "Texture" ) then
 			object:SetTexture(nil)
-			object.SetTexture = T.dummy
+			object.SetTexture = S.dummy
 		elseif( object:GetObjectType() == "FontString" ) then
-			object.ClearAllPoints = T.dummy
-			object.SetFont = T.dummy
-			object.SetPoint = T.dummy
+			object.ClearAllPoints = S.dummy
+			object.SetFont = S.dummy
+			object.SetPoint = S.dummy
 			object:Hide()
-			object.Show = T.dummy
-			object.SetText = T.dummy
-			object.SetShadowOffset = T.dummy
+			object.Show = S.dummy
+			object.SetText = S.dummy
+			object.SetShadowOffset = S.dummy
 		else
 			object:Hide()
-			object.Show = T.dummy
+			object.Show = S.dummy
 		end
 	end
 end
@@ -146,7 +146,7 @@ local function CreateAuraIcon( parent )
 	button.cd:SetReverse( true )
 
 	button.count = button:CreateFontString( nil, "OVERLAY" )
-	button.count:SetFont( C["media"]["pixelfont"], 10, "MONOCHROMEOUTLINE" )
+	button.count:SetFont( unpack( S.FontTemplate.NameplatesCount.BuildFont ) )
 	button.count:SetShadowOffset( 1.25, -1.25 )
 	button.count:SetPoint( "BOTTOMRIGHT", button, "BOTTOMRIGHT", 0, 0 )
 
@@ -171,7 +171,7 @@ local function UpdateAuraIcon( button, unit, index, filter )
 			self:SetScript( "OnUpdate", nil )
 			return
 		end
-		button.cd.timer.text:SetFont( C["media"]["pixelfont"], 10, "MONOCHROMEOUTLINE" )
+		button.cd.timer.text:SetFont( unpack( S.FontTemplate.NameplatesCount.BuildFont ) )
 		button.cd.timer.text:SetShadowOffset( 1.25, -1.25 )
 	end )
 	button:Show()
@@ -381,29 +381,29 @@ local function SkinObjects(frame)
 
 
 	hp.level = hp:CreateFontString( nil, "OVERLAY" )
-	hp.level:SetFont( C["media"]["pixelfont"], 10, "MONOCHROMEOUTLINE" )
+	hp.level:SetFont( unpack( S.FontTemplate.NameplatesLevel.BuildFont ) )
 	hp.level:SetShadowColor( 0, 0, 0, 1 )
 	hp.level:SetTextColor( 1, 1, 1 )
-	hp.level:SetShadowOffset( T.mult, -T.mult )
+	hp.level:SetShadowOffset( S.mult, -S.mult )
 	hp.oldlevel = oldlevel
 	hp.boss = bossicon
 	hp.elite = elite
 
 	if( C["nameplate"]["showhealth"] == true ) then
 		hp.value = hp:CreateFontString( nil, "OVERLAY" )
-		hp.value:SetFont( C["media"]["pixelfont"], 10, "MONOCHROMEOUTLINE" )
+		hp.value:SetFont( unpack( S.FontTemplate.NameplatesHealth.BuildFont ) )
 		hp.value:SetShadowColor( 0, 0, 0, 1 )
 		hp.value:SetPoint( "CENTER", 0, 1 )
 		hp.value:SetTextColor( 1, 1, 1 )
-		hp.value:SetShadowOffset( T.mult, -T.mult )
+		hp.value:SetShadowOffset( S.mult, -S.mult )
 	end
 
 	hp.name = hp:CreateFontString( nil, "OVERLAY" )
 	hp.name:SetPoint( "BOTTOMLEFT", hp, "TOPLEFT", -10, 3 )
 	hp.name:SetPoint( "BOTTOMRIGHT", hp, "TOPRIGHT", 10, 3 )
-	hp.name:SetFont( C["media"]["pixelfont"], 10, "MONOCHROMEOUTLINE" )
+	hp.name:SetFont( unpack( S.FontTemplate.NameplatesName.BuildFont ) )
 	hp.name:SetShadowColor( 0, 0, 0, 0.4 )
-	hp.name:SetShadowOffset( T.mult, -T.mult )
+	hp.name:SetShadowOffset( S.mult, -S.mult )
 	hp.oldname = oldname
 
 	hp.hpbg = hp:CreateTexture( nil, "BORDER" )
@@ -422,14 +422,14 @@ local function SkinObjects(frame)
 
 	cb.time = cb:CreateFontString( nil, "ARTWORK" )
 	cb.time:SetPoint( "RIGHT", cb, "RIGHT", 3, 0 )
-	cb.time:SetFont( C["media"]["pixelfont"], 10, "MONOCHROMEOUTLINE" )
+	cb.time:SetFont( unpack( S.FontTemplate.NameplatesCount.BuildFont ) )
 	cb.time:SetShadowOffset( 1.25, -1.25 )
 	cb.time:SetTextColor( 1, 1, 1 )
 
 	if( C["nameplate"]["showcastbarname"] == true ) then
 		cb.name = cb:CreateFontString( nil, "ARTWORK" )
 		cb.name:SetPoint( "LEFT", cb, "LEFT", 3, 0 )
-		cb.name:SetFont( C["media"]["pixelfont"], 10, "MONOCHROMEOUTLINE" )
+		cb.name:SetFont( unpack( S.FontTemplate.NameplatesName.BuildFont ) )
 		cb.name:SetShadowOffset( 1.25, -1.25 )
 		cb.name:SetTextColor( 1, 1, 1 )
 	end
@@ -497,7 +497,7 @@ local function UpdateThreat( frame, elapsed )
 	else
 		if( not frame.region:IsShown() ) then
 			if( InCombatLockdown() and frame.isFriendly ~= true ) then
-				if( T.Role == "Tank" ) then
+				if( S.Role == "Tank" ) then
 					frame.hp:SetStatusBarColor( badR, badG, badB )
 					frame.hp.hpbg:SetTexture( badR, badG, badB, 0.25 )
 				else
@@ -511,7 +511,7 @@ local function UpdateThreat( frame, elapsed )
 		else
 			local r, g, b = frame.region:GetVertexColor()
 			if( g + b == 0 ) then
-				if( T.Role == "Tank" ) then
+				if( S.Role == "Tank" ) then
 					frame.hp:SetStatusBarColor( goodR, goodG, goodB )
 					frame.hp.hpbg:SetTexture( goodR, goodG, goodB, 0.25 )
 				else
@@ -561,7 +561,7 @@ local function ShowHealth( frame, ... )
 	frame.hp:SetValue( valueHealth )
 
 	if( C["nameplate"]["showhealth"] == true ) then
-		frame.hp.value:SetText( T.ShortValue( valueHealth ) .. " - " .. ( string.format( "%d%%", math.floor( ( valueHealth / maxHealth ) * 100 ) ) ) )
+		frame.hp.value:SetText( S.ShortValue( valueHealth ) .. " - " .. ( string.format( "%d%%", math.floor( ( valueHealth / maxHealth ) * 100 ) ) ) )
 	end
 
 	if( frame.hasClass == true or frame.isFriendly == true ) then

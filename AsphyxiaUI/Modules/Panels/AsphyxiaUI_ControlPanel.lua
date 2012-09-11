@@ -24,8 +24,8 @@ AsphyxiaUIControlPanelActionbarBackgroundHeader:Point( "BOTTOM", AsphyxiaUIContr
 AsphyxiaUIControlPanelActionbarBackgroundHeader:SetTemplate( "Default" )
 AsphyxiaUIControlPanelActionbarBackgroundHeader:CreateShadow( "Default" )
 
-AsphyxiaUIControlPanelActionbarBackgroundHeader.Text = S.SetFontString( AsphyxiaUIControlPanelActionbarBackgroundHeader, S.CreateFontString() )
-AsphyxiaUIControlPanelActionbarBackgroundHeader.Text:Point( "CENTER", AsphyxiaUIControlPanelActionbarBackgroundHeader, "CENTER", 0, 1 )
+AsphyxiaUIControlPanelActionbarBackgroundHeader.Text = S.SetFontString( AsphyxiaUIControlPanelActionbarBackgroundHeader, unpack( S.FontTemplate.ButtonsDefault.BuildFont ) )
+AsphyxiaUIControlPanelActionbarBackgroundHeader.Text:Point( "CENTER", AsphyxiaUIControlPanelActionbarBackgroundHeader, "CENTER", 0, 0 )
 AsphyxiaUIControlPanelActionbarBackgroundHeader.Text:SetText( S.RGBToHex( unpack( C["media"]["datatextcolor2"] ) ) .. "Actionbar" )
 
 ------------------------------
@@ -45,7 +45,7 @@ AsphyxiaUIControlPanelExtraBackgroundHeader:Point( "BOTTOM", AsphyxiaUIControlPa
 AsphyxiaUIControlPanelExtraBackgroundHeader:SetTemplate( "Default" )
 AsphyxiaUIControlPanelExtraBackgroundHeader:CreateShadow( "Default" )
 
-AsphyxiaUIControlPanelExtraBackgroundHeader.Text = S.SetFontString( AsphyxiaUIControlPanelExtraBackgroundHeader, S.CreateFontString() )
+AsphyxiaUIControlPanelExtraBackgroundHeader.Text = S.SetFontString( AsphyxiaUIControlPanelExtraBackgroundHeader, unpack( S.FontTemplate.ButtonsDefault.BuildFont ) )
 AsphyxiaUIControlPanelExtraBackgroundHeader.Text:Point( "CENTER", AsphyxiaUIControlPanelExtraBackgroundHeader, "CENTER", 0, 1 )
 AsphyxiaUIControlPanelExtraBackgroundHeader.Text:SetText( S.RGBToHex( unpack( C["media"]["datatextcolor2"] ) ) .. "Control Panel" )
 
@@ -60,8 +60,8 @@ AsphyxiaUIControlPanelActionbarBackgroundCloseButton:SetFrameLevel( AsphyxiaUICo
 AsphyxiaUIControlPanelActionbarBackgroundCloseButton:HookScript( "OnEnter", S.SetModifiedBackdrop )
 AsphyxiaUIControlPanelActionbarBackgroundCloseButton:HookScript( "OnLeave", S.SetOriginalBackdrop )
 
-AsphyxiaUIControlPanelActionbarBackgroundCloseButton.Text = S.SetFontString( AsphyxiaUIControlPanelActionbarBackgroundCloseButton, S.CreateFontString() )
-AsphyxiaUIControlPanelActionbarBackgroundCloseButton.Text:Point( "CENTER", AsphyxiaUIControlPanelActionbarBackgroundCloseButton, "CENTER", 0, 1 )
+AsphyxiaUIControlPanelActionbarBackgroundCloseButton.Text = S.SetFontString( AsphyxiaUIControlPanelActionbarBackgroundCloseButton, unpack( S.FontTemplate.ButtonsDefault.BuildFont ) )
+AsphyxiaUIControlPanelActionbarBackgroundCloseButton.Text:Point( "CENTER", AsphyxiaUIControlPanelActionbarBackgroundCloseButton, "CENTER", 0, 0 )
 AsphyxiaUIControlPanelActionbarBackgroundCloseButton.Text:SetText( S.RGBToHex( unpack( C["media"]["datatextcolor2"] ) ) .. CLOSE )
 AsphyxiaUIControlPanelActionbarBackgroundCloseButton:CreateOverlay( AsphyxiaUIControlPanelActionbarBackgroundCloseButton )
 AsphyxiaUIControlPanelActionbarBackgroundCloseButton:SetScript( "OnMouseDown", function()
@@ -101,8 +101,8 @@ for i = 1, getn( AsphyxiaUIControlPanelButtons ) do
 	AsphyxiaUIControlPanelButtonsButtons[i]:SetTemplate( "Default" )
 	AsphyxiaUIControlPanelButtonsButtons[i]:SetFrameLevel( AsphyxiaUIControlPanelExtraBackground:GetFrameLevel() + 2 )
 
-	AsphyxiaUIControlPanelButtonsButtons[i].Text = S.SetFontString( AsphyxiaUIControlPanelButtonsButtons[i], S.CreateFontString() )
-	AsphyxiaUIControlPanelButtonsButtons[i].Text:Point( "CENTER", AsphyxiaUIControlPanelButtonsButtons[i], "CENTER", 0, 1 )
+	AsphyxiaUIControlPanelButtonsButtons[i].Text = S.SetFontString( AsphyxiaUIControlPanelButtonsButtons[i], unpack( S.FontTemplate.ButtonsDefault.BuildFont ) )
+	AsphyxiaUIControlPanelButtonsButtons[i].Text:Point( "CENTER", AsphyxiaUIControlPanelButtonsButtons[i], "CENTER", 0, 0 )
 	AsphyxiaUIControlPanelButtonsButtons[i].Text:SetText( unpack( AsphyxiaUIControlPanelButtonsTexts[i] ) )
 
 	if( i == 1 ) then
@@ -127,8 +127,8 @@ AsphyxiaUIControlPanelExtraBackgroundCloseButton:SetFrameLevel( AsphyxiaUIContro
 AsphyxiaUIControlPanelExtraBackgroundCloseButton:HookScript( "OnEnter", S.SetModifiedBackdrop )
 AsphyxiaUIControlPanelExtraBackgroundCloseButton:HookScript( "OnLeave", S.SetOriginalBackdrop )
 
-AsphyxiaUIControlPanelExtraBackgroundCloseButton.Text = S.SetFontString( AsphyxiaUIControlPanelExtraBackgroundCloseButton, S.CreateFontString() )
-AsphyxiaUIControlPanelExtraBackgroundCloseButton.Text:Point( "CENTER", AsphyxiaUIControlPanelExtraBackgroundCloseButton, "CENTER", 0, 1 )
+AsphyxiaUIControlPanelExtraBackgroundCloseButton.Text = S.SetFontString( AsphyxiaUIControlPanelExtraBackgroundCloseButton, unpack( S.FontTemplate.ButtonsDefault.BuildFont ) )
+AsphyxiaUIControlPanelExtraBackgroundCloseButton.Text:Point( "CENTER", AsphyxiaUIControlPanelExtraBackgroundCloseButton, "CENTER", 0, 0 )
 AsphyxiaUIControlPanelExtraBackgroundCloseButton.Text:SetText( S.RGBToHex( unpack( C["media"]["datatextcolor2"] ) ) .. CLOSE )
 AsphyxiaUIControlPanelExtraBackgroundCloseButton:CreateOverlay( AsphyxiaUIControlPanelExtraBackgroundCloseButton )
 AsphyxiaUIControlPanelExtraBackgroundCloseButton:SetScript( "OnMouseDown", function()
@@ -147,8 +147,8 @@ AsphyxiaUIControlPanelButton:SetFrameStrata( "LOW" )
 AsphyxiaUIControlPanelButton:CreateShadow( "Default" )
 AsphyxiaUIControlPanelButton:CreateOverlay( AsphyxiaUIControlPanelButton )
 
-AsphyxiaUIControlPanelButton.Text = S.SetFontString( AsphyxiaUIControlPanelButton, S.CreateFontString() )
-AsphyxiaUIControlPanelButton.Text:Point( "CENTER", AsphyxiaUIControlPanelButton, "CENTER", 0, 1 )
+AsphyxiaUIControlPanelButton.Text = S.SetFontString( AsphyxiaUIControlPanelButton, unpack( S.FontTemplate.ButtonsDefault.BuildFont ) )
+AsphyxiaUIControlPanelButton.Text:Point( "CENTER", AsphyxiaUIControlPanelButton, "CENTER", 0, 0 )
 AsphyxiaUIControlPanelButton.Text:SetText( S.RGBToHex( unpack( C["media"].datatextcolor2 ) ) .. "Control Panel" )
 
 AsphyxiaUIControlPanelButton:HookScript( "OnEnter", S.SetModifiedBackdrop )

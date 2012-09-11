@@ -156,7 +156,7 @@ end
 
 function makeText( frame )
 	local ilvlText = frame:CreateFontString( nil, "ARTWORK" )
-	isValid = ilvlText:SetFont( S.CreateFontString() )
+	isValid = ilvlText:SetFont( unpack( S.FontTemplate.PanelsDefault.BuildFont ) )
 
 	if( frame == CharacterHeadSlot or frame == CharacterNeckSlot or frame == CharacterShoulderSlot or frame == CharacterBackSlot or frame == CharacterChestSlot or frame == CharacterWristSlot or frame == CharacterShirtSlot or frame == CharacterTabardSlot ) then
 		ilvlText:SetPoint( "CENTER", frame, "CENTER", 42, 0 )
@@ -186,7 +186,7 @@ function makeDurability( frame, slot )
 		iDura:SetSize( 10, 10 )
 
 		local iDuraText = iDura:CreateFontString( nil, "ARTWORK" )
-		isValid = iDuraText:SetFont( S.CreateFontString() )
+		isValid = iDuraText:SetFont( unpack( S.FontTemplate.PanelsDefault.BuildFont ) )
 		iDuraText:SetPoint( "CENTER", iDura, "CENTER", 0, 0 )
 		iDura.text = iDuraText
 

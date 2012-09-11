@@ -216,6 +216,7 @@ C["media"] = {
 	["logo"] = [[Interface\AddOns\AsphyxiaUI\Media\Textures\Logo.tga]],
 	["normTex"] =  [[Interface\AddOns\AsphyxiaUI\Media\Textures\Normal.tga]],
 	["minimalist"] =  [[Interface\AddOns\AsphyxiaUI\Media\Textures\Minimalist.tga]],
+	["glamour"] =  [[Interface\AddOns\AsphyxiaUI\Media\Textures\Glamour.tga]],
 	["iconlayoutdps"] = [[Interface\AddOns\AsphyxiaUI\Media\Textures\IconLayoutDPS.tga]],
 	["iconlayoutheal"] = [[Interface\AddOns\AsphyxiaUI\Media\Textures\IconLayoutHeal.tga]],
 	["addonstoggle"] = [[Interface\AddOns\AsphyxiaUI\Media\Textures\AddOnsToggle.tga]],

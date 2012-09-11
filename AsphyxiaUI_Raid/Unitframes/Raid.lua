@@ -64,7 +64,7 @@ S.PostUpdateRaidUnit = function( self )
 	self.Health.bg:SetVertexColor( 0, 0, 0 )
 
 	self.Health.value:Point( "CENTER", self.Health, 1, -5 )
-	self.Health.value:SetFont( S.CreateFontString() )
+	self.Health.value:SetFont( unpack( S.FontTemplate.UnitframesHealth.BuildFont ) )
 
 	self.Health.PostUpdate = S.PostUpdateHealthRaid
 	self.Health.frequentUpdates = true
@@ -109,7 +109,7 @@ S.PostUpdateRaidUnit = function( self )
 	self.Name:SetPoint( "LEFT", 4, 0 )
 	self.Name:SetPoint( "RIGHT" )
 	self.Name:SetShadowOffset( 1.25, -1.25 )
-	self.Name:SetFont( S.CreateFontString() )
+	self.Name:SetFont( unpack( S.FontTemplate.UnitframesName.BuildFont ) )
 
 	------------------------------
 	-- debuffs
@@ -121,11 +121,11 @@ S.PostUpdateRaidUnit = function( self )
 
 		self.RaidDebuffs.count:ClearAllPoints()
 		self.RaidDebuffs.count:SetPoint( "CENTER", self.Raiddebuff, -6, 6 )
-		self.RaidDebuffs.count:SetFont( S.CreateFontString() )
+		self.RaidDebuffs.count:SetFont( unpack( S.FontTemplate.UnitframesDefault.BuildFont ) )
 
 		self.RaidDebuffs.time:ClearAllPoints()
 		self.RaidDebuffs.time:SetPoint( "CENTER", self.Raiddebuff, 2, 0 )
-		self.RaidDebuffs.time:SetFont( S.CreateFontString() )
+		self.RaidDebuffs.time:SetFont( unpack( S.FontTemplate.UnitframesDefault.BuildFont ) )
 	end
 
 	------------------------------

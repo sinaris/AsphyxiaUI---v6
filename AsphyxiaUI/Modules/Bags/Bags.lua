@@ -78,7 +78,7 @@ local function BagsUpdateBankPosition( self, value )
 		if( C["chat"]["background"] ~= true ) then
 			bag:SetPoint( "BOTTOMLEFT", G.Panels.DataTextLeft, "TOPLEFT", 0, 3 )
 		else
-			bag:SetPoint( unpack( S.SetFramePosition["bags"]["bank"] ) )
+			bag:SetPoint( "BOTTOMLEFT", G.Panels.LeftChatBackground, "TOPLEFT", 0, 3 )
 		end
 	end
 end

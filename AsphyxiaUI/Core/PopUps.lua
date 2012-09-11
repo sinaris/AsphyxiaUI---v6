@@ -64,12 +64,12 @@ S.CreatePopup["ASPHYXIAUI_DIFFERENT_ADDONSKINS_DETECTED"] = {
 				TukuiConfigPublic["addonskins"] = {}
 			end
 			TukuiConfigPublic["addonskins"]["embedright"] = ""
-			TukuiConfigPublic["addonskins"]["background"] = false,
-			TukuiConfigPublic["addonskins"]["combattoggle"] = false,
-			TukuiConfigPublic["addonskins"]["bigwigs"] = false,
-			TukuiConfigPublic["addonskins"]["dbm"] = false,
-			TukuiConfigPublic["addonskins"]["omen"] = false,
-			TukuiConfigPublic["addonskins"]["tinydps"] = false,
+			TukuiConfigPublic["addonskins"]["background"] = false
+			TukuiConfigPublic["addonskins"]["combattoggle"] = false
+			TukuiConfigPublic["addonskins"]["bigwigs"] = false
+			TukuiConfigPublic["addonskins"]["dbm"] = false
+			TukuiConfigPublic["addonskins"]["omen"] = false
+			TukuiConfigPublic["addonskins"]["tinydps"] = false
 		end
 		ReloadUI()
 	end,

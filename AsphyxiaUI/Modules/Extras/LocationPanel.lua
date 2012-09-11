@@ -35,13 +35,13 @@ AsphyxiaUILocationPanelYCoords:CreateOverlay( AsphyxiaUILocationPanelYCoords )
 AsphyxiaUILocationPanelYCoords:SetFrameLevel( 2 )
 
 local AsphyxiaUILocationPanelZoneTextFontString = AsphyxiaUILocationPanelZoneText:CreateFontString( nil, "OVERLAY" )
-AsphyxiaUILocationPanelZoneTextFontString:SetFont( S.CreateFontString() )
+AsphyxiaUILocationPanelZoneTextFontString:SetFont( unpack( S.FontTemplate.MinimapZone.BuildFont ) )
 
 local AsphyxiaUILocationPanelXCoordsFontString = AsphyxiaUILocationPanelXCoords:CreateFontString( nil, "OVERLAY" )
-AsphyxiaUILocationPanelXCoordsFontString:SetFont( S.CreateFontString() )
+AsphyxiaUILocationPanelXCoordsFontString:SetFont( unpack( S.FontTemplate.MinimapCords.BuildFont ) )
 
 local AsphyxiaUILocationPanelYCoordsFontString = AsphyxiaUILocationPanelYCoords:CreateFontString( nil, "OVERLAY" )
-AsphyxiaUILocationPanelYCoordsFontString:SetFont( S.CreateFontString() )
+AsphyxiaUILocationPanelYCoordsFontString:SetFont( unpack( S.FontTemplate.MinimapCords.BuildFont ) )
 
 local function SetLocColor( frame, pvpT )
 	if( pvpT == "arena" or pvpT == "combat" ) then

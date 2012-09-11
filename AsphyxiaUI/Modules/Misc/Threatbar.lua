@@ -14,5 +14,5 @@ G.Misc.ThreatBar:Point( "TOPLEFT", AsphyxiaUIInfoCenter, 2, -2 )
 G.Misc.ThreatBar:Point( "BOTTOMRIGHT", AsphyxiaUIInfoCenter, -2, 2 )
 G.Misc.ThreatBar:SetBackdropColor( 0, 0, 0, 1 )
 
-G.Misc.ThreatBar.text:SetFont( S.CreateFontString() )
-G.Misc.ThreatBar.Title:SetFont( S.CreateFontString() )
+G.Misc.ThreatBar.text:SetFont( unpack( S.FontTemplate.PanelsDefault.BuildFont ) )
+G.Misc.ThreatBar.Title:SetFont( unpack( S.FontTemplate.PanelsDefault.BuildFont ) )

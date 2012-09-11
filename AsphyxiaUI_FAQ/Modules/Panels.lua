@@ -48,7 +48,7 @@ AsphyxiaUIFAQMainFrameTitle:SetTemplate( "Transparent" )
 AsphyxiaUIFAQMainFrameTitle:CreateShadow( "Default" )
 
 local AsphyxiaUIFAQMainFrameTitleText = AsphyxiaUIFAQMainFrameTitle:CreateFontString( nil, "OVERLAY" )
-AsphyxiaUIFAQMainFrameTitleText:SetFont( S.CreateFontString( true ) )
+AsphyxiaUIFAQMainFrameTitleText:SetFont( unpack( S.FontTemplate.FAQTitle.BuildFont ) )
 AsphyxiaUIFAQMainFrameTitleText:SetPoint( "CENTER", AsphyxiaUIFAQMainFrameTitle, 0, 0 )
 AsphyxiaUIFAQMainFrameTitleText:SetText( L.Faq_TITLE )
 
@@ -115,7 +115,7 @@ for i = 1, 9 do
 	AsphyxiaUIFAQMainFrameNavigationButton[i]:Size( AsphyxiaUIFAQMainFrameNavigation:GetWidth() - 8, 24 )
 	AsphyxiaUIFAQMainFrameNavigationButton[i]:SetTemplate( "Default" )
 
-	AsphyxiaUIFAQMainFrameNavigationButton[i].Text = S.SetFontString( AsphyxiaUIFAQMainFrameNavigationButton[i], S.CreateFontString( true ) )
+	AsphyxiaUIFAQMainFrameNavigationButton[i].Text = S.SetFontString( AsphyxiaUIFAQMainFrameNavigationButton[i], unpack( S.FontTemplate.FAQButtons.BuildFont ) )
 	AsphyxiaUIFAQMainFrameNavigationButton[i]:SetFrameLevel( AsphyxiaUIFAQMainFrameNavigation:GetFrameLevel() + 1 )
 	AsphyxiaUIFAQMainFrameNavigationButton[i].Text:Point( "CENTER", AsphyxiaUIFAQMainFrameNavigationButton[i], "CENTER", 0, 0 )
 	AsphyxiaUIFAQMainFrameNavigationButton[i].Text:SetText( S.RGBToHex( unpack( C["media"].datatextcolor2 ) ) .. L.Faq_BUTTONS_TEXT[i] )

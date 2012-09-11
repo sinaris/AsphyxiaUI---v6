@@ -3,4 +3,7 @@
 	<Script file="Asphyxia2.lua" />
 	<Script file="Asphyxia3.lua" />
 	<Script file="Asphyxia4.lua" />
+	<Script file="Asphyxia5.lua" />
+	<Script file="Nisha.lua" />
+	<Script file="Smelly.lua" />
 </Ui>

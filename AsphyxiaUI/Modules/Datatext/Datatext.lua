@@ -119,7 +119,7 @@ for _, data in pairs( HookDatatext ) do
 
 	if( frame and frame.Option ) then
 		DataTextPosition( frame, text, frame.Option )
-		text:SetFont( S.CreateFontString() )
+		text:SetFont( unpack( S.FontTemplate.DatatextPanels.BuildFont ) )
 	end
 end
 

@@ -59,7 +59,7 @@ AsphyxiaUIInstallFrameTitle:CreateShadow( "Default" )
 AsphyxiaUIInstallFrameTitle:SetTemplate( "Transparent" )
 
 local AsphyxiaUIInstallFrameTitleText = AsphyxiaUIInstallFrameTitle:CreateFontString( nil, "OVERLAY" )
-AsphyxiaUIInstallFrameTitleText:SetFont( unpack( S.FontTemplate.ITFontString.BuildFont ) )
+AsphyxiaUIInstallFrameTitleText:SetFont( unpack( S.FontTemplate.InstallationTitlte.BuildFont ) )
 AsphyxiaUIInstallFrameTitleText:SetPoint( "CENTER", AsphyxiaUIInstallFrameTitle, 0, 0 )
 AsphyxiaUIInstallFrameTitleText:SetText( L.Global_ADDON_TITLE .. " " .. S.GetAsphyxiaUIVersion )
 
@@ -71,7 +71,7 @@ AsphyxiaUIInstallFrameBottom:CreateShadow( "Default" )
 AsphyxiaUIInstallFrameBottom:SetTemplate( "Transparent" )
 
 local AsphyxiaUIInstallFrameBottomText = AsphyxiaUIInstallFrameBottom:CreateFontString( nil, "OVERLAY" )
-AsphyxiaUIInstallFrameBottomText:SetFont( unpack( S.FontTemplate.ICFontString.BuildFont ) )
+AsphyxiaUIInstallFrameBottomText:SetFont( unpack( S.FontTemplate.InstallationCopyright.BuildFont ) )
 AsphyxiaUIInstallFrameBottomText:SetPoint( "CENTER", AsphyxiaUIInstallFrameBottom, 0, 0 )
 AsphyxiaUIInstallFrameBottomText:SetText( L.Global_ADDON_COPYRIGHT )
 

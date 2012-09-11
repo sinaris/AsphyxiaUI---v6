@@ -9,7 +9,7 @@ local S, C, L, G = unpack( Tukui )
 
 if( C["unitframes"]["enable"] ~= true ) then return end
 
-if( C["global"]["unitframelayout"] ~= "asphyxia4" ) then return end
+if( C["global"]["unitframelayout"] ~= "asphyxia5" ) then return end
 
 ------------------------------
 -- Player
@@ -29,7 +29,7 @@ do
 	-- health
 	------------------------------
 	do
-		G.UnitFrames.Player.Health:Size( 233, 20 )
+		G.UnitFrames.Player.Health:Size( 233, 26 )
 		G.UnitFrames.Player.Health:SetFrameLevel( 5 )
 		G.UnitFrames.Player.Health:CreateBackdrop( "Default" )
 		G.UnitFrames.Player.Health.backdrop:CreateShadow( "Default" )
@@ -58,9 +58,11 @@ do
 	-- power
 	------------------------------
 	do
-		G.UnitFrames.Player.Power:Size( 243, 18 )
+		G.UnitFrames.Player.Power:Size( 233, 26 )
 		G.UnitFrames.Player.Power:ClearAllPoints()
-		G.UnitFrames.Player.Power:Point( "TOP", G.UnitFrames.Player.Health, "BOTTOM", 0, 9 )
+		G.UnitFrames.Player.Power:SetFrameLevel( 1 )
+		G.UnitFrames.Player.Power:SetFrameStrata( "BACKGROUND" )
+		G.UnitFrames.Player.Power:Point( "BOTTOMRIGHT", G.UnitFrames.Player.Health, "BOTTOMRIGHT", 6, -6 )
 		G.UnitFrames.Player.Power:CreateBackdrop( "Default" )
 		G.UnitFrames.Player.Power.backdrop:CreateShadow( "Default" )
 
@@ -92,8 +94,8 @@ do
 	do
 		if( C["unitframes"]["classicons"] == true ) then
 			local classicon = CreateFrame( "Frame", G.UnitFrames.Player:GetName() .. "_ClassIconBorder", G.UnitFrames.Player )
-			classicon:Size( 33 )
-			classicon:Point( "TOPRIGHT", G.UnitFrames.Player.Health, "TOPLEFT", -10, 2 )
+			classicon:Size( 30 )
+			classicon:Point( "TOPRIGHT", G.UnitFrames.Player.Health, "TOPLEFT", -5, 2 )
 			classicon:SetTemplate( "Default" )
 			classicon:CreateShadow( "Default" )
 
@@ -367,10 +369,20 @@ do
 				end
 
 				G.UnitFrames.Player.Statue:ClearAllPoints()
-				G.UnitFrames.Player.Statue:Size( 243, 2 )
+				G.UnitFrames.Player.Statue:Size( 233, 2 )
 				G.UnitFrames.Player.Statue:Point( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 0, -7 )
 				G.UnitFrames.Player.Statue:CreateBackdrop( "Default" )
 				G.UnitFrames.Player.Statue.backdrop:CreateShadow( "Default" )
+
+				G.UnitFrames.Player.Statue:SetScript( "OnShow", function() 
+					AsphyxiaUIUnitframesPlayerCastbarMover:ClearAllPoints()
+					AsphyxiaUIUnitframesPlayerCastbarMover:SetPoint( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 2, -16 )
+				end )
+
+				G.UnitFrames.Player.Statue:SetScript( "OnHide", function()
+					AsphyxiaUIUnitframesPlayerCastbarMover:ClearAllPoints()
+					AsphyxiaUIUnitframesPlayerCastbarMover:SetPoint( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 2, -7 )
+				end )
 			end
 		end
 
@@ -416,10 +428,20 @@ do
 				end
 
 				G.UnitFrames.Player.Statue:ClearAllPoints()
-				G.UnitFrames.Player.Statue:Size( 243, 2 )
+				G.UnitFrames.Player.Statue:Size( 233, 2 )
 				G.UnitFrames.Player.Statue:Point( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 0, -7 )
 				G.UnitFrames.Player.Statue:CreateBackdrop( "Default" )
 				G.UnitFrames.Player.Statue.backdrop:CreateShadow( "Default" )
+
+				G.UnitFrames.Player.Statue:SetScript( "OnShow", function() 
+					AsphyxiaUIUnitframesPlayerCastbarMover:ClearAllPoints()
+					AsphyxiaUIUnitframesPlayerCastbarMover:SetPoint( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 2, -16 )
+				end )
+
+				G.UnitFrames.Player.Statue:SetScript( "OnHide", function()
+					AsphyxiaUIUnitframesPlayerCastbarMover:ClearAllPoints()
+					AsphyxiaUIUnitframesPlayerCastbarMover:SetPoint( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 2, -7 )
+				end )
 			end
 		end
 
@@ -466,10 +488,20 @@ do
 				end
 
 				G.UnitFrames.Player.Statue:ClearAllPoints()
-				G.UnitFrames.Player.Statue:Size( 243, 2 )
+				G.UnitFrames.Player.Statue:Size( 233, 2 )
 				G.UnitFrames.Player.Statue:Point( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 0, -7 )
 				G.UnitFrames.Player.Statue:CreateBackdrop( "Default" )
 				G.UnitFrames.Player.Statue.backdrop:CreateShadow( "Default" )
+
+				G.UnitFrames.Player.Statue:SetScript( "OnShow", function() 
+					AsphyxiaUIUnitframesPlayerCastbarMover:ClearAllPoints()
+					AsphyxiaUIUnitframesPlayerCastbarMover:SetPoint( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 2, -16 )
+				end )
+
+				G.UnitFrames.Player.Statue:SetScript( "OnHide", function()
+					AsphyxiaUIUnitframesPlayerCastbarMover:ClearAllPoints()
+					AsphyxiaUIUnitframesPlayerCastbarMover:SetPoint( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 2, -7 )
+				end )
 			end
 		end
 
@@ -501,10 +533,20 @@ do
 		if( S.myclass == "WARRIOR" ) then
 			if( C["unitframes"]["classbar"] == true ) then
 				G.UnitFrames.Player.Statue:ClearAllPoints()
-				G.UnitFrames.Player.Statue:Size( 243, 2 )
+				G.UnitFrames.Player.Statue:Size( 233, 2 )
 				G.UnitFrames.Player.Statue:Point( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 0, -7 )
 				G.UnitFrames.Player.Statue:CreateBackdrop( "Default" )
 				G.UnitFrames.Player.Statue.backdrop:CreateShadow( "Default" )
+
+				G.UnitFrames.Player.Statue:SetScript( "OnShow", function() 
+					AsphyxiaUIUnitframesPlayerCastbarMover:ClearAllPoints()
+					AsphyxiaUIUnitframesPlayerCastbarMover:SetPoint( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 2, -16 )
+				end )
+
+				G.UnitFrames.Player.Statue:SetScript( "OnHide", function()
+					AsphyxiaUIUnitframesPlayerCastbarMover:ClearAllPoints()
+					AsphyxiaUIUnitframesPlayerCastbarMover:SetPoint( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 2, -7 )
+				end )
 			end
 		end
 	end
@@ -515,8 +557,8 @@ do
 	do
 		if( C["unitframes"]["unitcastbar"] == true ) then
 			local AsphyxiaUIUnitframesPlayerCastbarMover = CreateFrame( "Frame", "AsphyxiaUIUnitframesPlayerCastbarMover", UIParent )
-			AsphyxiaUIUnitframesPlayerCastbarMover:Size( 378, 22 )
-			AsphyxiaUIUnitframesPlayerCastbarMover:SetPoint( "BOTTOM", G.ActionBars.Bar1, "TOP", 0, 3 )
+			AsphyxiaUIUnitframesPlayerCastbarMover:Size( 237, 22 )
+			AsphyxiaUIUnitframesPlayerCastbarMover:SetPoint( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 2, -7 )
 			AsphyxiaUIUnitframesPlayerCastbarMover:SetTemplate( "Default" )
 			AsphyxiaUIUnitframesPlayerCastbarMover:SetBackdropBorderColor( 1, 0, 0 )
 			AsphyxiaUIUnitframesPlayerCastbarMover:SetClampedToScreen( true )
@@ -536,13 +578,13 @@ do
 			G.UnitFrames.Player.Castbar.bg:SetVertexColor( 0.05, 0.05, 0.05 )
 
 			if( C["unitframes"]["cbicons"] == true ) then
-				G.UnitFrames.Player.Castbar:Width( 347 )
+				G.UnitFrames.Player.Castbar:Width( 206 )
 
 				G.UnitFrames.Player.Castbar.button:ClearAllPoints()
 				G.UnitFrames.Player.Castbar.button:SetPoint( "RIGHT", G.UnitFrames.Player.Castbar, "LEFT", -5, 0 )
 				G.UnitFrames.Player.Castbar.button:Size( 24 )
 			else
-				G.UnitFrames.Player.Castbar:Width( 374 )
+				G.UnitFrames.Player.Castbar:Width( 233 )
 			end
 
 			G.UnitFrames.Player.Castbar.PostCastStart = S.PostCastStart
@@ -608,7 +650,7 @@ do
 	-- health
 	------------------------------
 	do
-		G.UnitFrames.Target.Health:Size( 233, 20 )
+		G.UnitFrames.Target.Health:Size( 233, 26 )
 		G.UnitFrames.Target.Health:SetFrameLevel( 5 )
 		G.UnitFrames.Target.Health:CreateBackdrop( "Default" )
 		G.UnitFrames.Target.Health.backdrop:CreateShadow( "Default" )
@@ -640,9 +682,11 @@ do
 	-- power
 	------------------------------
 	do
-		G.UnitFrames.Target.Power:Size( 243, 18 )
+		G.UnitFrames.Target.Power:Size( 233, 26 )
 		G.UnitFrames.Target.Power:ClearAllPoints()
-		G.UnitFrames.Target.Power:Point( "TOP", G.UnitFrames.Target.Health, "BOTTOM", 0, 9 )
+		G.UnitFrames.Target.Power:SetFrameLevel( 1 )
+		G.UnitFrames.Target.Power:SetFrameStrata( "BACKGROUND" )
+		G.UnitFrames.Target.Power:Point( "BOTTOMLEFT", G.UnitFrames.Target.Health, "BOTTOMLEFT", -6, -6 )
 		G.UnitFrames.Target.Power:CreateBackdrop( "Default" )
 		G.UnitFrames.Target.Power.backdrop:CreateShadow( "Default" )
 
@@ -682,8 +726,8 @@ do
 	do
 		if( C["unitframes"]["classicons"] == true ) then
 			local classicon = CreateFrame( "Frame", G.UnitFrames.Target:GetName() .. "_ClassIconBorder", G.UnitFrames.Target )
-			classicon:Size( 33 )
-			classicon:Point( "TOPLEFT", G.UnitFrames.Target.Health, "TOPRIGHT", 10, 2 )
+			classicon:Size( 30 )
+			classicon:Point( "TOPLEFT", G.UnitFrames.Target.Health, "TOPRIGHT", 5, 2 )
 			classicon:SetTemplate( "Default" )
 			classicon:CreateShadow( "Default" )
 
@@ -712,7 +756,7 @@ do
 		if( C["unitframes"]["unitcastbar"] == true ) then
 			G.UnitFrames.Target.Castbar:ClearAllPoints()
 			G.UnitFrames.Target.Castbar:SetHeight( 20 )
-			G.UnitFrames.Target.Castbar:Point( "TOPRIGHT", G.UnitFrames.Target, "BOTTOMRIGHT", 0, -10 )
+			G.UnitFrames.Target.Castbar:Point( "TOPLEFT", G.UnitFrames.Target.Power, "BOTTOMLEFT", 0, -7 )
 			G.UnitFrames.Target.Castbar:CreateBackdrop( "Default" )
 			G.UnitFrames.Target.Castbar.backdrop:CreateShadow( "Default" )
 			G.UnitFrames.Target.Castbar.bg:SetVertexColor( 0.05, 0.05, 0.05 )
@@ -721,7 +765,7 @@ do
 				G.UnitFrames.Target.Castbar:Width( 206 )
 
 				G.UnitFrames.Target.Castbar.button:ClearAllPoints()
-				G.UnitFrames.Target.Castbar.button:SetPoint( "RIGHT", G.UnitFrames.Target.Castbar, "LEFT", -5, 0 )
+				G.UnitFrames.Target.Castbar.button:SetPoint( "LEFT", G.UnitFrames.Target.Castbar, "RIGHT", 5, 0 )
 				G.UnitFrames.Target.Castbar.button:Size( 24 )
 			else
 				G.UnitFrames.Target.Castbar:Width( 233 )
@@ -827,7 +871,7 @@ do
 	-- health
 	------------------------------
 	do
-		G.UnitFrames.TargetTarget.Health:Size( 130, 15 )
+		G.UnitFrames.TargetTarget.Health:Size( 130, 20 )
 		G.UnitFrames.TargetTarget.Health:SetFrameLevel( 5 )
 		G.UnitFrames.TargetTarget.Health:CreateBackdrop( "Default" )
 		G.UnitFrames.TargetTarget.Health.backdrop:CreateShadow( "Default" )
@@ -846,6 +890,7 @@ do
 			G.UnitFrames.TargetTarget.Health.colorReaction = true
 		end
 
+		G.UnitFrames.TargetTarget.Name:Point( "CENTER", G.UnitFrames.TargetTarget.Health, "CENTER", 0, 0 )
 		G.UnitFrames.TargetTarget.Name:SetFont( unpack( S.FontTemplate.UnitframesName.BuildFont ) )
 		G.UnitFrames.TargetTarget.Name:SetShadowOffset( 1.25, -1.25 )
 	end
@@ -855,8 +900,8 @@ do
 	------------------------------
 	do
 		local TargetTargetPower = CreateFrame( "StatusBar", nil, G.UnitFrames.TargetTarget )
-		TargetTargetPower:Size( 130, 2 )
-		TargetTargetPower:Point( "TOP", G.UnitFrames.TargetTarget.Health, "BOTTOM", 0, -7 )
+		TargetTargetPower:Size( 120, 20 )
+		TargetTargetPower:Point( "TOP", G.UnitFrames.TargetTarget.Health, "BOTTOM", 0, 14 )
 		TargetTargetPower:SetStatusBarTexture( C["media"]["normTex"] )
 		TargetTargetPower:CreateBackdrop( "Default" )
 		TargetTargetPower.backdrop:CreateShadow( "Default" )
@@ -925,7 +970,7 @@ do
 	-- size
 	------------------------------
 	do
-		G.UnitFrames.TargetTarget:Size( 130, 15 )
+		G.UnitFrames.TargetTarget:Size( 130, 20 )
 	end
 end
 
@@ -947,7 +992,7 @@ do
 	-- health
 	------------------------------
 	do
-		G.UnitFrames.Pet.Health:Size( 130, 15 )
+		G.UnitFrames.Pet.Health:Size( 130, 20 )
 		G.UnitFrames.Pet.Health:SetFrameLevel( 5 )
 		G.UnitFrames.Pet.Health:CreateBackdrop( "Default" )
 		G.UnitFrames.Pet.Health.backdrop:CreateShadow( "Default" )
@@ -966,6 +1011,7 @@ do
 			G.UnitFrames.Pet.Health.colorReaction = true
 		end
 
+		G.UnitFrames.Pet.Name:Point( "CENTER", G.UnitFrames.Pet.Health, "CENTER", 0, 0 )
 		G.UnitFrames.Pet.Name:SetFont( unpack( S.FontTemplate.UnitframesName.BuildFont ) )
 		G.UnitFrames.Pet.Name:SetShadowOffset( 1.25, -1.25 )
 	end
@@ -974,26 +1020,53 @@ do
 	-- power
 	------------------------------
 	do
-		G.UnitFrames.Pet.Power:Size( 130, 2 )
+		G.UnitFrames.Pet.Power:Size( 120, 20 )
 		G.UnitFrames.Pet.Power:ClearAllPoints()
-		G.UnitFrames.Pet.Power:SetPoint( "TOP", G.UnitFrames.Pet.Health, "BOTTOM", 0, -7 )
+		G.UnitFrames.Pet.Power:SetPoint( "TOP", G.UnitFrames.Pet.Health, "BOTTOM", 0, 14 )
 		G.UnitFrames.Pet.Power:CreateBackdrop( "Default" )
 		G.UnitFrames.Pet.Power.backdrop:CreateShadow( "Default" )
+	end
+
+	------------------------------
+	-- castbar
+	------------------------------
+	do
+		if( C["unitframes"]["unitcastbar"] == true ) then
+			G.UnitFrames.Pet.Castbar:ClearAllPoints()
+			G.UnitFrames.Pet.Castbar:SetHeight( 20 )
+			G.UnitFrames.Pet.Castbar:Point( "TOPLEFT", G.UnitFrames.Pet, "BOTTOMLEFT", 0, -16 )
+			G.UnitFrames.Pet.Castbar:CreateBackdrop( "Default" )
+			G.UnitFrames.Pet.Castbar.backdrop:CreateShadow( "Default" )
+
+			G.UnitFrames.Pet.Castbar.bg:Kill()
+
+			G.UnitFrames.Pet.Castbar.bg = G.UnitFrames.Pet.Castbar:CreateTexture( nil, "BORDER" )
+			G.UnitFrames.Pet.Castbar.bg:SetAllPoints( G.UnitFrames.Pet.Castbar )
+			G.UnitFrames.Pet.Castbar.bg:SetTexture( C["media"]["normTex"] )
+			G.UnitFrames.Pet.Castbar.bg:SetVertexColor( 0.05, 0.05, 0.05 )
+
+			G.UnitFrames.Pet.Castbar.Time = S.SetFontString( G.UnitFrames.Pet.Castbar, unpack( S.FontTemplate.UnitframesCastbar.BuildFont ) )
+			G.UnitFrames.Pet.Castbar.Time:Point( "RIGHT", G.UnitFrames.Pet.Castbar, "RIGHT", -4, 1 )
+			G.UnitFrames.Pet.Castbar.Time:SetTextColor( 0, 4, 0 )
+
+			G.UnitFrames.Pet.Castbar.Text:ClearAllPoints()
+			G.UnitFrames.Pet.Castbar.Text = S.SetFontString( G.UnitFrames.Pet.Castbar, unpack( S.FontTemplate.UnitframesCastbar.BuildFont ) )
+			G.UnitFrames.Pet.Castbar.Text:Point( "LEFT", G.UnitFrames.Pet.Castbar, "LEFT", 4, 1 )
+			G.UnitFrames.Pet.Castbar.Text:SetTextColor( 0.3, 0.2, 1 )
+
+			G.UnitFrames.Pet.Castbar.PostCastStart = S.PostCastStart
+			G.UnitFrames.Pet.Castbar.PostChannelStart = S.PostCastStart
+
+			G.UnitFrames.Pet.Castbar:Width( 130 )
+		end
 	end
 
 	------------------------------
 	-- size
 	------------------------------
 	do
-		G.UnitFrames.Pet:Size( 130, 15 )
+		G.UnitFrames.Pet:Size( 130, 20 )
 	end
-end
-
-------------------------------
--- Pet Target
-------------------------------
-do
-
 end
 
 ------------------------------
@@ -1070,6 +1143,7 @@ do
 
 			G.UnitFrames.Focus.Castbar.bg = G.UnitFrames.Focus.Castbar:CreateTexture( nil, "BORDER" )
 			G.UnitFrames.Focus.Castbar.bg:SetAllPoints( G.UnitFrames.Focus.Castbar )
+			G.UnitFrames.Focus.Castbar.bg:SetTexture( C["media"]["normTex"] )
 			G.UnitFrames.Focus.Castbar.bg:SetVertexColor( 0.05, 0.05, 0.05 )
 
 			G.UnitFrames.Focus.Castbar.Time = S.SetFontString( G.UnitFrames.Focus.Castbar, unpack( S.FontTemplate.UnitframesDefault.BuildFont ) )
@@ -1426,13 +1500,6 @@ do
 					hooksecurefunc( frames, "PostCreateIcon", S.SkinAura )
 				end
 			end
-		end
-
-		------------------------------
-		-- altpowerbar
-		------------------------------
-		do
-			G.UnitFrames["Boss" .. i].AltPowerBar:SetStatusBarTexture( C["media"]["normal"] )
 		end
 
 		------------------------------

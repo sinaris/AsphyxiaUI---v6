@@ -18,7 +18,7 @@ local function ActionBarStyleButtons( self )
 
 	Count:ClearAllPoints()
 	Count:Point( "BOTTOMRIGHT", 0, 2 )
-	Count:SetFont( unpack( S.FontTemplate.ABCFontString.BuildFont ) )
+	Count:SetFont( unpack( S.FontTemplate.ActionbarsCount.BuildFont ) )
 
 	if( Btname and normal and C["actionbar"]["macro"] == true ) then
 		local query = GetActionText( action )
@@ -26,13 +26,13 @@ local function ActionBarStyleButtons( self )
 			local text = string.sub( query, 1, 5 )
 			Btname:SetText( text )
 			Btname:SetAlphaGradient( 0, Button:GetWidth() )
-			Btname:SetFont( unpack( S.FontTemplate.ABMFontString.BuildFont ) )
+			Btname:SetFont( unpack( S.FontTemplate.ActionbarsMacro.BuildFont ) )
 		end
 	end
 
 	HotKey:ClearAllPoints()
 	HotKey:Point( "TOPRIGHT", 0, -2 )
-	HotKey:SetFont( unpack( S.FontTemplate.ABHFontString.BuildFont ) )
+	HotKey:SetFont( unpack( S.FontTemplate.ActionbarsHotKey.BuildFont ) )
 	HotKey.ClearAllPoints = S.dummy
 	HotKey.SetPoint = S.dummy
 
@@ -70,5 +70,5 @@ end
 hooksecurefunc( "ActionButton_ShowOverlayGlow", S.ShowHighlightActionButton )
 hooksecurefunc( "ActionButton_HideOverlayGlow", S.HideHighlightActionButton )
 
-S.SetDefaultActionButtonCooldownFont = select( 1, unpack( S.FontTemplate.ABCDFontString.BuildFont ) )
-S.SetDefaultActionButtonCooldownFontSize = select( 2, unpack( S.FontTemplate.ABCDFontString.BuildFont ) )
+S.SetDefaultActionButtonCooldownFont = select( 1, unpack( S.FontTemplate.ActionbarsCooldown.BuildFont ) )
+S.SetDefaultActionButtonCooldownFontSize = select( 2, unpack( S.FontTemplate.ActionbarsCooldown.BuildFont ) )
