@@ -7,28 +7,30 @@
 
 local S, C, L, G = unpack( Tukui )
 
+if( C["global"]["globalstyle"] ~= "asphyxia" ) then return end
+
 if( C["actionbar"]["enable"] ~= true ) then return end
 
-local bar = TukuiBar2
-MultiBarBottomLeft:SetParent( bar )
+local bar = TukuiBar4
+MultiBarBottomRight:SetParent( bar )
 
 for i = 1, 12 do
-	local b = _G["MultiBarBottomLeftButton" .. i]
-	local b2 = _G["MultiBarBottomLeftButton" .. i - 1]
-	b:SetSize( S.buttonsize, S.buttonsize )
+	local b = _G["MultiBarBottomRightButton" .. i]
+	local b2 = _G["MultiBarBottomRightButton" .. i - 1]
+	b:Size( S.buttonsize, S.buttonsize )
 	b:ClearAllPoints()
 	b:SetFrameStrata( "BACKGROUND" )
 	b:SetFrameLevel( 15 )
 
-	if( C["actionbar"]["mainswap"] == true ) then
-		if( i == 1 ) then
-			b:Point( "TOP", ActionButton1, "BOTTOM", 0, -S.buttonspacing )
+	if( i == 1 ) then
+		if( C["actionbar"]["vertical_rightbars"] == true ) then
+			b:Point( "TOPRIGHT", _G["MultiBarRightButton1"], "TOPLEFT", -S.buttonspacing, 0 )
 		else
-			b:Point( "LEFT", b2, "RIGHT", S.buttonspacing, 0 )
+			b:Point( "BOTTOMLEFT", _G["MultiBarRightButton1"], "TOPLEFT", 0, S.buttonspacing )
 		end
 	else
-		if( i == 1 ) then
-			b:Point( "BOTTOM", ActionButton1, "TOP", 0, S.buttonspacing )
+		if( C["actionbar"]["vertical_rightbars"] == true ) then
+			b:Point( "TOP", b2, "BOTTOM", 0, -S.buttonspacing )
 		else
 			b:Point( "LEFT", b2, "RIGHT", S.buttonspacing, 0 )
 		end

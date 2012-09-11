@@ -18,8 +18,9 @@ C["addonskins"] = {
 }
 
 C["global"] = {
+	["globalstyle"] = "asphyxia", -- can be switch to: asphyxia, duffed, vethek, sinaris
 	["unitframelayout"] = "asphyxia",
-	["fonttemplate"] = "default",
+	["fonttemplate"] = "pixel",
 }
 
 C["unitframes"] = {
@@ -217,6 +218,7 @@ C["media"] = {
 	["normTex"] =  [[Interface\AddOns\AsphyxiaUI\Media\Textures\Normal.tga]],
 	["minimalist"] =  [[Interface\AddOns\AsphyxiaUI\Media\Textures\Minimalist.tga]],
 	["glamour"] =  [[Interface\AddOns\AsphyxiaUI\Media\Textures\Glamour.tga]],
+	["otravi"] =  [[Interface\AddOns\AsphyxiaUI\Media\Textures\Otravi.tga]],
 	["iconlayoutdps"] = [[Interface\AddOns\AsphyxiaUI\Media\Textures\IconLayoutDPS.tga]],
 	["iconlayoutheal"] = [[Interface\AddOns\AsphyxiaUI\Media\Textures\IconLayoutHeal.tga]],
 	["addonstoggle"] = [[Interface\AddOns\AsphyxiaUI\Media\Textures\AddOnsToggle.tga]],

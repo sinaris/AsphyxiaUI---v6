@@ -7,6 +7,8 @@
 
 local S, C, L, G = unpack( Tukui )
 
+if( C["global"]["globalstyle"] ~= "asphyxia" ) then return end
+
 ------------------------------
 -- Actionbars - Panels
 ------------------------------

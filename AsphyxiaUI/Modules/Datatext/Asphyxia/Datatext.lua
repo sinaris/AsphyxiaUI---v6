@@ -7,6 +7,8 @@
 
 local S, C, L, G = unpack( Tukui )
 
+if( C["global"]["globalstyle"] ~= "asphyxia" ) then return end
+
 local DataTextPosition = function( frame, object, point )
 	local InfoLeft = G.Panels.DataTextLeft
 	local InfoRight = G.Panels.DataTextRight

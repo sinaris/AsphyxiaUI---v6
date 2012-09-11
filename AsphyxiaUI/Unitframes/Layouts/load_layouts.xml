@@ -1,9 +1,11 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/">
-	<Script file="Asphyxia.lua" />
-	<Script file="Asphyxia2.lua" />
-	<Script file="Asphyxia3.lua" />
-	<Script file="Asphyxia4.lua" />
-	<Script file="Asphyxia5.lua" />
-	<Script file="Nisha.lua" />
-	<Script file="Smelly.lua" />
+	<Script file="Asphyxia\Asphyxia.lua" />
+	<Script file="Asphyxia\Asphyxia2.lua" />
+	<Script file="Asphyxia\Asphyxia3.lua" />
+	<Script file="Asphyxia\Asphyxia4.lua" />
+	<Script file="Asphyxia\Asphyxia5.lua" />
+	<Script file="Asphyxia\Nisha.lua" />
+	<Script file="Asphyxia\Smelly.lua" />
+
+	<Script file="Vethek\Vethek.lua" />
 </Ui>

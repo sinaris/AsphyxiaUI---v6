@@ -1,5 +1,5 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/">
-	<Script file="Datatext.lua" />
-	<Script file="Layoutswitch.lua" />
-	<Script file="Professions.lua" />
+	<Script file="Asphyxia\Datatext.lua" />
+	<Script file="Asphyxia\Layoutswitch.lua" />
+	<Script file="Asphyxia\Professions.lua" />
 </Ui>

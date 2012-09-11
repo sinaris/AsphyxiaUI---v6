@@ -1,4 +1,6 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/">
-	<Script file="AsphyxiaUI.lua" />
-	<Script file="AsphyxiaUI_ControlPanel.lua" />
+	<Script file="Asphyxia\AsphyxiaUI.lua" />
+	<Script file="Asphyxia\AsphyxiaUI_ControlPanel.lua" />
+
+	<Script file="Vethek\Vethek.lua" />
 </Ui>

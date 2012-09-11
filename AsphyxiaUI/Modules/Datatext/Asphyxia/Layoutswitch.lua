@@ -7,6 +7,8 @@
 
 local S, C, L, G = unpack( Tukui )
 
+if( C["global"]["globalstyle"] ~= "asphyxia" ) then return end
+
 local AsphyxiaUILayoutSwitchButton = CreateFrame( "Button", "AsphyxiaUILayoutSwitchButton", UIParent )
 AsphyxiaUILayoutSwitchButton:Size( 75, G.Panels.RightChatTabsBackground:GetHeight() )
 AsphyxiaUILayoutSwitchButton:Point( "RIGHT", G.Panels.RightChatTabsBackground, "RIGHT", -21, 0 )

@@ -1,11 +1,17 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/">
-	<Script file="Bar1.lua" />
-	<Script file="Bar2.lua" />
-	<Script file="Bar3.lua" />
-	<Script file="Bar4.lua" />
-	<Script file="Bar5.lua" />
-	<Script file="BarPet.lua" />
-	<Script file="BarShift.lua" />
-	<Script file="Buttons.lua" />
-	<Script file="Style.lua" />
+	<Script file="Asphyxia\Bar1.lua" />
+	<Script file="Asphyxia\Bar2.lua" />
+	<Script file="Asphyxia\Bar3.lua" />
+	<Script file="Asphyxia\Bar4.lua" />
+	<Script file="Asphyxia\Bar5.lua" />
+	<Script file="Asphyxia\BarPet.lua" />
+	<Script file="Asphyxia\BarShift.lua" />
+	<Script file="Asphyxia\Buttons.lua" />
+	<Script file="Asphyxia\Style.lua" />
+
+	<Script file="Vethek\Bar1.lua" />
+	<Script file="Vethek\Bar2.lua" />
+	<Script file="Vethek\Bar3.lua" />
+	<Script file="Vethek\Bar4.lua" />
+	<Script file="Vethek\Bar5.lua" />
 </Ui>

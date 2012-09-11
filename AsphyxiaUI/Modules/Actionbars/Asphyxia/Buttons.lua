@@ -7,6 +7,8 @@
 
 local S, C, L, G = unpack( Tukui )
 
+if( C["global"]["globalstyle"] ~= "asphyxia" ) then return end
+
 local TukuiBar1 = TukuiBar1
 local TukuiBar2 = TukuiBar2
 local TukuiBar3 = TukuiBar3
