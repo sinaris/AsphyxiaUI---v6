@@ -1,9 +1,13 @@
+---------------------------------------------------------------------------------------------
+-- AddOn Name: AsphyxiaUI 6.0.0
+-- License: MIT
+-- Author: Sinaris @ Das Syndikat, Vaecia @ Blackmoore
+-- Description: AsphyxiaUI, Editied Tukui Layout
+---------------------------------------------------------------------------------------------
+
 local S, C, L, G = unpack( Tukui )
 
-print"test"
-
-if not IsAddOnLoaded( "CoolLine" ) then return end
-
+if( not IsAddOnLoaded( "CoolLine" ) ) then return end
 
 local cl = CoolLine
 local db = CoolLineDB
@@ -26,11 +30,11 @@ local setup = function()
 end
 
 local update = function()
-	db.w = ( TukuiBar1:GetWidth() - 4 )
+	db.w = ( G.ActionBars.Bar1:GetWidth() - 4 )
 	db.h = ( 20 )
 
 	cl:updatelook()
-	cl:SetPoint( "BOTTOMLEFT", TukuiBar1, "TOPLEFT", 2, 3 )
+	cl:SetPoint( "BOTTOMLEFT", G.ActionBars.Bar1, "TOPLEFT", 2, 3 )
 end
 
 update()
