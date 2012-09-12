@@ -30,7 +30,7 @@ do
 	------------------------------
 	do
 		local VethekUnitframesClassbarBackground = CreateFrame( "Frame", "VethekUnitframesClassbarBackground", UIParent )
-		VethekUnitframesClassbarBackground:Size( G.ActionBars.Bar1:GetWidth(), 1 )
+		VethekUnitframesClassbarBackground:Size( G.ActionBars.Bar1:GetWidth(), 72 )
 		VethekUnitframesClassbarBackground:SetPoint( "BOTTOM", G.ActionBars.Bar1, "TOP", 0, 26 )
 		VethekUnitframesClassbarBackground:SetTemplate( "Transparent" )
 	end
@@ -87,7 +87,7 @@ do
 		if( C["unitframes"]["charportrait"] == true ) then
 			G.UnitFrames.Player.Portrait:ClearAllPoints()
 			G.UnitFrames.Player.Portrait:SetAllPoints( G.UnitFrames.Player.Health )
-			G.UnitFrames.Player.Portrait:SetAlpha( 0.2 )
+			G.UnitFrames.Player.Portrait:SetAlpha( 0.05 )
 			G.UnitFrames.Player.Portrait.SetAlpha = S.dummy
 			G.UnitFrames.Player.Portrait:SetFrameLevel( G.UnitFrames.Player.Health:GetFrameLevel() )
 			G.UnitFrames.Player.Portrait.SetFrameLevel = S.dummy
@@ -225,22 +225,25 @@ do
 			if( C["unitframes"]["druidmanabar"] == true ) then
 				G.UnitFrames.Player.DruidManaBackground:ClearAllPoints()
 				G.UnitFrames.Player.DruidManaBackground:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
-				G.UnitFrames.Player.DruidManaBackground:Size( 233, 2 )
+				G.UnitFrames.Player.DruidManaBackground:Size( 233, 7 )
 				G.UnitFrames.Player.DruidManaBackground:CreateBackdrop( "Default" )
-				G.UnitFrames.Player.DruidManaBackground.backdrop:CreateShadow( "Default" )
 
 				G.UnitFrames.Player.DruidMana:SetSize( G.UnitFrames.Player.DruidManaBackground:GetWidth(), G.UnitFrames.Player.DruidManaBackground:GetHeight() )
+				G.UnitFrames.Player.DruidMana:SetStatusBarTexture( C["media"]["otravi"] )
 			end
 
 			if( C["unitframes"]["classbar"] == true ) then
 				G.UnitFrames.Player.EclipseBar:ClearAllPoints()
 				G.UnitFrames.Player.EclipseBar:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
-				G.UnitFrames.Player.EclipseBar:Size( 233, 2 )
+				G.UnitFrames.Player.EclipseBar:Size( 233, 7 )
 				G.UnitFrames.Player.EclipseBar:CreateBackdrop( "Default" )
-				G.UnitFrames.Player.EclipseBar.backdrop:CreateShadow( "Default" )
 
 				G.UnitFrames.Player.EclipseBar.LunarBar:SetSize( G.UnitFrames.Player.EclipseBar:GetWidth(), G.UnitFrames.Player.EclipseBar:GetHeight() )
 				G.UnitFrames.Player.EclipseBar.SolarBar:SetSize( G.UnitFrames.Player.EclipseBar:GetWidth(), G.UnitFrames.Player.EclipseBar:GetHeight() )
+
+				G.UnitFrames.Player.EclipseBar.LunarBar:SetStatusBarTexture( C["media"]["otravi"] )
+				G.UnitFrames.Player.EclipseBar.SolarBar:SetStatusBarTexture( C["media"]["otravi"] )
+				
 
 				G.UnitFrames.Player.EclipseBar.Text:ClearAllPoints()
 				G.UnitFrames.Player.EclipseBar.Text:SetPoint( "TOP", G.UnitFrames.Player.EclipseBar, 0, 25 )
@@ -249,21 +252,55 @@ do
 			end
 
 			if( C["unitframes"]["druidmushroombar"] == true ) then
-				G.UnitFrames.Player.WildMushroom:ClearAllPoints()
-				G.UnitFrames.Player.WildMushroom:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 16 )
-				G.UnitFrames.Player.WildMushroom:Size( 233, 2 )
-				G.UnitFrames.Player.WildMushroom:CreateBackdrop( "Default" )
-				G.UnitFrames.Player.WildMushroom.backdrop:CreateShadow( "Default" )
+				G.UnitFrames.Player.WildMushroom:SetBackdrop( nil )
 
 				for i = 1, 3 do
-					G.UnitFrames.Player.WildMushroom[i]:Size( S.Scale( 232 / 3 ), 2 )
+					G.UnitFrames.Player.WildMushroom[i]:Size( G.ActionBars.Bar1:GetWidth() - 16, 7 )
+					G.UnitFrames.Player.WildMushroom[i]:CreateBackdrop( "Default" )
+					G.UnitFrames.Player.WildMushroom[i]:SetStatusBarTexture( C["media"]["otravi"] )
+					G.UnitFrames.Player.WildMushroom[i]:SetStatusBarColor( 1, 0, 0 )
+					G.UnitFrames.Player.WildMushroom[i].bg:SetAlpha( 0 )
 
+					G.UnitFrames.Player.WildMushroom[i]:ClearAllPoints()
 					if( i == 1 ) then
-						G.UnitFrames.Player.WildMushroom[i]:SetPoint( "LEFT", G.UnitFrames.Player.WildMushroom, "LEFT", 0, 0 )
+						G.UnitFrames.Player.WildMushroom[i]:Point( "TOPLEFT", VethekUnitframesClassbarBackground, "TOPLEFT", 8, -8 )
+					elseif( i == 2 ) then
+						G.UnitFrames.Player.WildMushroom[i]:Point( "TOPLEFT", G.UnitFrames.Player.WildMushroom[1], "BOTTOMLEFT", 0, -8 )
+					elseif( i == 3 ) then
+						G.UnitFrames.Player.WildMushroom[i]:Point( "TOPLEFT", G.UnitFrames.Player.WildMushroom[2], "BOTTOMLEFT", 0, -8 )
+					end
+
+					G.UnitFrames.Player.WildMushroom[i]:FontString( "timer", unpack( S.FontTemplate.UnitframesPower.BuildFont ) )
+					G.UnitFrames.Player.WildMushroom[i].timer:SetPoint( "CENTER", 0, 1 )
+					G.UnitFrames.Player.WildMushroom[i].timer:SetShadowOffset( 0, 0 )
+				end
+
+				local total = 1
+				local delay = 0.03
+
+				local function UpdateWildMushroom( i )
+					local up, name, start, duration, icon = GetTotemInfo( i )
+
+					G.UnitFrames.Player.WildMushroom[i]:SetMinMaxValues( 0, duration )
+					if( not up ) then
+						G.UnitFrames.Player.WildMushroom[i]:SetValue( duration )
+						G.UnitFrames.Player.WildMushroom[i].timer:SetText( "0" )
 					else
-						G.UnitFrames.Player.WildMushroom[i]:Point( "LEFT", G.UnitFrames.Player.WildMushroom[i - 1], "RIGHT", 1, 0 )
+						G.UnitFrames.Player.WildMushroom[i]:SetValue( GetTime() - start )
+						G.UnitFrames.Player.WildMushroom[i].timer:SetText( S.FormatTime( duration - ( GetTime() - start ) ) )
 					end
 				end
+
+				local OnUpdate = CreateFrame( "Frame" )
+				OnUpdate:SetScript( "OnUpdate", function( self, elapsed )
+					total = total + elapsed
+					if( total > .01 ) then
+						for i = 1, 3 do
+							UpdateWildMushroom( i )
+						end
+					end
+					total = 0
+				end )
 			end
 		end
 
@@ -324,23 +361,29 @@ do
 		------------------------------
 		if( S.myclass == "ROGUE" ) then
 			if( C["unitframes"]["classbar"] == true ) then
-				G.UnitFrames.Player.ComboPointsBar:ClearAllPoints()
-				G.UnitFrames.Player.ComboPointsBar:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
-				G.UnitFrames.Player.ComboPointsBar:Size( 233, 2 )
-				G.UnitFrames.Player.ComboPointsBar:CreateBackdrop( "Default" )
-				G.UnitFrames.Player.ComboPointsBar.backdrop:CreateShadow( "Default" )
+				G.UnitFrames.Player.ComboPointsBar:SetBackdrop( nil )
 
 				for i = 1, 5 do
+					G.UnitFrames.Player.ComboPointsBar[i]:CreateBackdrop( "Default" )
+					G.UnitFrames.Player.ComboPointsBar[i]:SetStatusBarTexture( C["media"]["otravi"] )
+					G.UnitFrames.Player.ComboPointsBar[i]:SetStatusBarColor( 1, 0, 0 )
+
 					if( i == 5 ) then
-						G.UnitFrames.Player.ComboPointsBar[i]:Size( S.Scale( 232 / 5 ) - 1, 2 )
+						G.UnitFrames.Player.ComboPointsBar[i]:Size( G.ActionBars.Bar1:GetWidth() - 16, 7 )
 					else
-						G.UnitFrames.Player.ComboPointsBar[i]:Size( S.Scale( 232 / 5 ), 2 )
+						G.UnitFrames.Player.ComboPointsBar[i]:Size( S.Scale( 109 ), 7 )
 					end
 
 					if( i == 1 ) then
-						G.UnitFrames.Player.ComboPointsBar[i]:SetPoint( "LEFT", G.UnitFrames.Player.ComboPointsBar, "LEFT", 0, 0 )
-					else
-						G.UnitFrames.Player.ComboPointsBar[i]:Point( "LEFT", G.UnitFrames.Player.ComboPointsBar[i - 1], "RIGHT", 1, 0 )
+						G.UnitFrames.Player.ComboPointsBar[i]:Point( "TOPLEFT", VethekUnitframesClassbarBackground, "TOPLEFT", 8, -8 )
+					elseif( i == 2 ) then
+						G.UnitFrames.Player.ComboPointsBar[i]:Point( "TOPLEFT", G.UnitFrames.Player.ComboPointsBar[1], "TOPRIGHT", 8, 0 )
+					elseif( i == 3 ) then
+						G.UnitFrames.Player.ComboPointsBar[i]:Point( "TOPLEFT", G.UnitFrames.Player.ComboPointsBar[1], "BOTTOMLEFT", 0, -8 )
+					elseif( i == 4 ) then
+						G.UnitFrames.Player.ComboPointsBar[i]:Point( "TOPLEFT", G.UnitFrames.Player.ComboPointsBar[3], "TOPRIGHT", 8, 0 )
+					elseif( i == 5 ) then
+						G.UnitFrames.Player.ComboPointsBar[i]:Point( "TOPLEFT", G.UnitFrames.Player.ComboPointsBar[3], "BOTTOMLEFT", 0, -8 )
 					end
 				end
 			end
@@ -351,8 +394,6 @@ do
 		------------------------------
 		if( S.myclass == "DEATHKNIGHT" ) then
 			if( C["unitframes"]["classbar"] == true ) then
-				VethekUnitframesClassbarBackground:SetHeight( 72 )
-
 				G.UnitFrames.Player.Runes:SetBackdrop( nil )
 
 				local total = 1
@@ -418,10 +459,12 @@ do
 				end )
 
 				G.UnitFrames.Player.Statue:ClearAllPoints()
-				G.UnitFrames.Player.Statue:Size( 233, 2 )
-				G.UnitFrames.Player.Statue:Point( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 0, -7 )
+				G.UnitFrames.Player.Statue:Size( 233, 7 )
+				G.UnitFrames.Player.Statue:Point( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
 				G.UnitFrames.Player.Statue:CreateBackdrop( "Default" )
-				G.UnitFrames.Player.Statue.backdrop:CreateShadow( "Default" )
+				G.UnitFrames.Player.Statue.bg:SetVertexColor( 0, 0, 0, 1 )
+				G.UnitFrames.Player.Statue:SetStatusBarColor( 1, 0, 0 )
+				G.UnitFrames.Player.Statue:SetStatusBarTexture( C["media"]["otravi"] )
 			end
 		end
 
@@ -467,10 +510,12 @@ do
 				end
 
 				G.UnitFrames.Player.Statue:ClearAllPoints()
-				G.UnitFrames.Player.Statue:Size( 233, 2 )
-				G.UnitFrames.Player.Statue:Point( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 0, -7 )
+				G.UnitFrames.Player.Statue:Size( 233, 7 )
+				G.UnitFrames.Player.Statue:Point( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
 				G.UnitFrames.Player.Statue:CreateBackdrop( "Default" )
-				G.UnitFrames.Player.Statue.backdrop:CreateShadow( "Default" )
+				G.UnitFrames.Player.Statue.bg:SetVertexColor( 0, 0, 0, 1 )
+				G.UnitFrames.Player.Statue:SetStatusBarColor( 1, 0, 0 )
+				G.UnitFrames.Player.Statue:SetStatusBarTexture( C["media"]["otravi"] )
 			end
 		end
 
@@ -517,10 +562,12 @@ do
 				end
 
 				G.UnitFrames.Player.Statue:ClearAllPoints()
-				G.UnitFrames.Player.Statue:Size( 233, 2 )
-				G.UnitFrames.Player.Statue:Point( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 0, -7 )
+				G.UnitFrames.Player.Statue:Size( 233, 7 )
+				G.UnitFrames.Player.Statue:Point( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
 				G.UnitFrames.Player.Statue:CreateBackdrop( "Default" )
-				G.UnitFrames.Player.Statue.backdrop:CreateShadow( "Default" )
+				G.UnitFrames.Player.Statue.bg:SetVertexColor( 0, 0, 0, 1 )
+				G.UnitFrames.Player.Statue:SetStatusBarColor( 1, 0, 0 )
+				G.UnitFrames.Player.Statue:SetStatusBarTexture( C["media"]["otravi"] )
 			end
 		end
 
@@ -552,10 +599,12 @@ do
 		if( S.myclass == "WARRIOR" ) then
 			if( C["unitframes"]["classbar"] == true ) then
 				G.UnitFrames.Player.Statue:ClearAllPoints()
-				G.UnitFrames.Player.Statue:Size( 233, 2 )
-				G.UnitFrames.Player.Statue:Point( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 0, -7 )
+				G.UnitFrames.Player.Statue:Size( 233, 7 )
+				G.UnitFrames.Player.Statue:Point( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
 				G.UnitFrames.Player.Statue:CreateBackdrop( "Default" )
-				G.UnitFrames.Player.Statue.backdrop:CreateShadow( "Default" )
+				G.UnitFrames.Player.Statue.bg:SetVertexColor( 0, 0, 0, 1 )
+				G.UnitFrames.Player.Statue:SetStatusBarColor( 1, 0, 0 )
+				G.UnitFrames.Player.Statue:SetStatusBarTexture( C["media"]["otravi"] )
 			end
 		end
 	end

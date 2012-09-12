@@ -142,6 +142,20 @@ S.ShortValueNegative = function( v )
 	end
 end
 
+S.FormatTime = function( s )
+	local day, hour, minute = 86400, 3600, 60
+	if( s >= day ) then
+		return format( "%d d", ceil( s / day ) )
+	elseif( s >= hour ) then
+		return format( "%d h", ceil( s / hour ) )
+	elseif( s >= minute ) then
+		return format( "%d m", ceil( s / minute ) )
+	elseif( s >= minute / 12 ) then
+		return floor( s )
+	end
+	return format( "%.1f", s )
+end
+
 hooksecurefunc( S, "PostUpdateHealth", function( health, unit, min, max )
 	if( C["global"]["globalstyle"] == "asphyxia" ) then
 		if not UnitIsConnected( unit ) or UnitIsDead( unit ) or UnitIsGhost( unit ) then
