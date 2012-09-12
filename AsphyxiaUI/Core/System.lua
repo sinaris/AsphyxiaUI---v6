@@ -72,7 +72,6 @@ if( C["global"]["fonttemplate"] == "default" ) then
 
 		PanelsDefault = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
 
-		UFFontString = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
 		UnitframesHealth = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
 		UnitframesPower = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
 		UnitframesName = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
@@ -83,6 +82,8 @@ if( C["global"]["fonttemplate"] == "default" ) then
 
 		FAQTitle = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
 		FAQButtons = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
+
+		SkinsDefault = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
 	}
 elseif( C["global"]["fonttemplate"] == "pixel" or C["global"]["fonttemplate"] == nil ) then
 	local PixelFont, PixelSize
@@ -159,5 +160,7 @@ elseif( C["global"]["fonttemplate"] == "pixel" or C["global"]["fonttemplate"] ==
 
 		FAQTitle = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
 		FAQButtons = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
+
+		SkinsDefault = CreateFontTemplate( PixelFont, PixelSize, "MONOCHROMEOUTLINE" ),
 	}
 end

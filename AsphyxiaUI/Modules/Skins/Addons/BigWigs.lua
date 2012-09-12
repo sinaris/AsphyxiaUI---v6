@@ -119,13 +119,13 @@ local applystyle = function( bar )
 		bar:Set( "bigwigs:tukui_bigwigs:ibg", ibg )
 	end
 
-	bar.candyBarLabel:SetFont( S.CreateFontString() )
+	bar.candyBarLabel:SetFont( unpack( S.FontTemplate.SkinsDefault.BuildFont ) )
 	bar.candyBarLabel:SetShadowColor( 0, 0, 0, 0 )
 	bar.candyBarLabel:SetJustifyH( "LEFT" )
 	bar.candyBarLabel:ClearAllPoints()
 	bar.candyBarLabel:Point( "BOTTOMLEFT", bar, "TOPLEFT", -2, 4 )
 
-	bar.candyBarDuration:SetFont( S.CreateFontString() )
+	bar.candyBarDuration:SetFont( unpack( S.FontTemplate.SkinsDefault.BuildFont ) )
 	bar.candyBarDuration:SetShadowColor( 0, 0, 0, 0 )
 	bar.candyBarDuration:SetJustifyH( "RIGHT" )
 	bar.candyBarDuration:ClearAllPoints()

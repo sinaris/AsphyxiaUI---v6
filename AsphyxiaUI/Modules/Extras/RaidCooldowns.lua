@@ -76,7 +76,7 @@ end
 
 local CreateFS = function( frame, fsize, fstyle )
 	local fstring = frame:CreateFontString( nil, "OVERLAY" )
-	fstring:SetFont( S.CreateFontString() )
+	fstring:SetFont( unpack( S.FontTemplate.SkinsDefault.BuildFont ) )
 	fstring:SetShadowOffset( 1.25, -1.25 )
 	return fstring
 end

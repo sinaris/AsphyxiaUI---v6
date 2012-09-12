@@ -4,7 +4,7 @@ if( not IsAddOnLoaded( "TinyDPS" ) or C["addonskins"]["tinydps"] ~= true ) then 
 
 local frame = CreateFrame( "Frame" )
 frame:RegisterEvent( "PLAYER_LOGIN" )
-frame:SetScript( "OnEvent", function( self, event )	
+frame:SetScript( "OnEvent", function( self, event )
 	local frame = tdpsFrame
 	local anchor = tdpsAnchor
 	local status = tdpsStatusBar

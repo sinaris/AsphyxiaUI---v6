@@ -115,7 +115,7 @@ local function SkinBars( self )
 					name:Point( "BOTTOMLEFT", frame, "TOPLEFT", 0, 4 )
 					name:SetWidth( 165 )
 					name:SetHeight( 8 )
-					name:SetFont( S.CreateFontString() )
+					name:SetFont( unpack( S.FontTemplate.SkinsDefault.BuildFont ) )
 					name:SetJustifyH( "LEFT" )
 					name:SetShadowColor( 0, 0, 0, 0 )
 					name.SetFont = S.dummy
@@ -125,7 +125,7 @@ local function SkinBars( self )
 				if( not timer.styled ) then
 					timer:ClearAllPoints()
 					timer:Point( "BOTTOMRIGHT", frame, "TOPRIGHT", -1, 2 )
-					timer:SetFont( S.CreateFontString() )
+					timer:SetFont( unpack( S.FontTemplate.SkinsDefault.BuildFont ) )
 					timer:SetJustifyH( "RIGHT" )
 					timer:SetShadowColor( 0, 0, 0, 0 )
 					timer.SetFont = S.dummy
@@ -166,7 +166,7 @@ local SkinBossTitle = function()
 	if( not anchor.styled ) then
 		local header = { anchor:GetRegions() }
 			if( header[1]:IsObjectType( "FontString" ) ) then
-				header[1]:SetFont( S.CreateFontString() )
+				header[1]:SetFont( unpack( S.FontTemplate.SkinsDefault.BuildFont ) )
 				header[1]:SetTextColor( 1, 1, 1, 1 )
 				header[1]:SetShadowColor( 0, 0, 0, 0 )
 				anchor.styled = true
@@ -222,7 +222,7 @@ local SkinBoss=function()
 		if( not name.styled ) then
 			name:ClearAllPoints()
 			name:Point( "BOTTOMLEFT", bar, "TOPLEFT", 1, 2 )
-			name:SetFont( S.CreateFontString() )
+			name:SetFont( unpack( S.FontTemplate.SkinsDefault.BuildFont ) )
 			name:SetJustifyH( "LEFT" )
 			name:SetShadowColor( 0, 0, 0, 0 )
 			name.styled = true
@@ -231,7 +231,7 @@ local SkinBoss=function()
 		if( not timer.styled ) then
 			timer:ClearAllPoints()
 			timer:Point( "BOTTOMRIGHT", bar, "TOPRIGHT", 0, 2 )
-			timer:SetFont( S.CreateFontString() )
+			timer:SetFont( unpack( S.FontTemplate.SkinsDefault.BuildFont ) )
 			timer:SetJustifyH( "RIGHT" )
 			timer:SetShadowColor( 0, 0, 0, 0 )
 			timer.styled = true
