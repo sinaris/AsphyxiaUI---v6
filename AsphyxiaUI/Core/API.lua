@@ -34,8 +34,16 @@ local function CreateOverlay( frame )
 	overlay:ClearAllPoints()
 	overlay:Point( "TOPLEFT", 2, -2 )
 	overlay:Point( "BOTTOMRIGHT", -2, 2 )
-	overlay:SetTexture( C["media"]["normTex"] )
-	overlay:SetVertexColor( 0.05, 0.05, 0.05 )
+	if( C["global"]["globalstyle"] == "asphyxia" ) then
+		overlay:SetTexture( C["media"]["normTex"] )
+		overlay:SetVertexColor( 0.05, 0.05, 0.05 )
+	elseif( C["global"]["globalstyle"] == "vethek" ) then
+		overlay:SetTexture( C["media"]["otravi"] )
+		overlay:SetVertexColor( 0.05, 0.05, 0.05 )
+	else
+		overlay:SetTexture( C["media"]["normTex"] )
+		overlay:SetVertexColor( 0.05, 0.05, 0.05 )
+	end
 	frame.overlay = overlay
 end
 

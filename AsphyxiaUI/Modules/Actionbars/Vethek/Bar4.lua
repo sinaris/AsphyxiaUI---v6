@@ -12,19 +12,23 @@ if( C["global"]["globalstyle"] ~= "vethek" ) then return end
 if( C["actionbar"]["enable"] ~= true ) then return end
 
 local bar = TukuiBar5
+local ButtonSpacing = 2
+
 MultiBarRight:SetParent( bar )
 
 for i = 1, 12 do
-	local b = _G["MultiBarRightButton"..i]
-	local b2 = _G["MultiBarRightButton"..i-1]
-	b:SetSize(S.buttonsize, S.buttonsize)
+	local b = _G["MultiBarRightButton" .. i]
+	local b2 = _G["MultiBarRightButton" .. i - 1]
+	b:SetSize( S.buttonsize, S.buttonsize )
 	b:ClearAllPoints()
-	b:SetFrameStrata("BACKGROUND")
-	b:SetFrameLevel(15)
-	
-	if i == 1 then
-		b:SetPoint("TOPLEFT", bar, S.buttonspacing, -S.buttonspacing)
+	b:SetFrameStrata( "BACKGROUND" )
+	b:SetFrameLevel( 15 )
+
+	if( i == 1 ) then
+		b:SetPoint( "TOPLEFT", bar, ButtonSpacing, -ButtonSpacing )
 	else
-		b:SetPoint("TOP", b2, "BOTTOM", 0, -S.buttonspacing)
+		b:SetPoint( "TOP", b2, "BOTTOM", 0, -ButtonSpacing )
 	end
 end
+
+RegisterStateDriver( bar, "visibility", "[vehicleui][petbattle][overridebar] hide; show" )

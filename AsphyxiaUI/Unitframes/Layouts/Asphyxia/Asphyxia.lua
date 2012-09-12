@@ -7,6 +7,8 @@
 
 local S, C, L, G = unpack( Tukui )
 
+if( C["global"]["globalstyle"] ~= "asphyxia" ) then return end
+
 if( C["unitframes"]["enable"] ~= true ) then return end
 
 if( C["global"]["unitframelayout"] ~= "asphyxia" ) then return end
@@ -316,6 +318,7 @@ do
 					else
 						G.UnitFrames.Player.HolyPower[i]:Point( "LEFT", G.UnitFrames.Player.HolyPower[i - 1], "RIGHT", 1, 0 )
 					end
+					G.UnitFrames.Player.HolyPower[i].width = G.UnitFrames.Player.HolyPower[i]:GetWidth()
 				end
 			end
 		end

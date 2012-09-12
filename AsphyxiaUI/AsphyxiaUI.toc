@@ -5,7 +5,7 @@
 ## Author: Sinaris
 ## SavedVariablesPerCharacter: AsphyxiaUISaved, ClickCast
 ## RequiredDeps: AsphyxiaUI_Config, Tukui
-## OptionalDeps: Blizzard_CombatText, !ClassColors, Clique, DBM-Core, BigWigs, Omen, Recount, Skada, TinyDPS
+## OptionalDeps: Blizzard_CombatText, !ClassColors, Clique, DBM-Core, BigWigs, Omen, Recount, Skada, TinyDPS, CoolLine
 ## X-oUF: oUFTukui
 ## Website: http://www.natias.de
 

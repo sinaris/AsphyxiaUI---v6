@@ -85,63 +85,75 @@ if( C["global"]["fonttemplate"] == "default" ) then
 		FAQButtons = CreateFontTemplate( C["media"]["font"], 12, "OUTLINE" ),
 	}
 elseif( C["global"]["fonttemplate"] == "pixel" or C["global"]["fonttemplate"] == nil ) then
-	local PixelFont
+	local PixelFont, PixelSize
 
-	if( S.client == "ruRU" ) then
-		PixelFont = C["media"]["pixel_ru"]
-	else
-		PixelFont = C["media"]["asphyxia"]
+	if( C["global"]["globalstyle"] == "asphyxia" ) then
+		if( S.client == "ruRU" ) then
+			PixelFont = C["media"]["pixel_ru"]
+			PixelSize = 12
+		else
+			PixelFont = C["media"]["asphyxia"]
+			PixelSize = 10
+		end
+	elseif( C["global"]["globalstyle"] == "vethek" ) then
+		if( S.client == "ruRU" ) then
+			PixelFont = C["media"]["pixel_ru"]
+			PixelSize = 12
+		else
+			PixelFont = C["media"]["pixel_normal"]
+			PixelSize = 12
+		end
 	end
 
 	S.FontTemplate = {
-		ButtonsDefault = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
-		ButtonsResetUIBtn = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
-		ButtonsReloadUIBtn = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+		ButtonsDefault = CreateFontTemplate( PixelFont, PixelSize, "MONOCHROMEOUTLINE" ),
+		ButtonsResetUIBtn = CreateFontTemplate( PixelFont, PixelSize, "MONOCHROMEOUTLINE" ),
+		ButtonsReloadUIBtn = CreateFontTemplate( PixelFont, PixelSize, "MONOCHROMEOUTLINE" ),
 
-		InstallationTitlte = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
-		InstallationCopyright = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+		InstallationTitlte = CreateFontTemplate( PixelFont, PixelSize, "MONOCHROMEOUTLINE" ),
+		InstallationCopyright = CreateFontTemplate( PixelFont, PixelSize, "MONOCHROMEOUTLINE" ),
 
-		ActionbarsHotKey = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
-		ActionbarsCount = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
-		ActionbarsMacro = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+		ActionbarsHotKey = CreateFontTemplate( PixelFont, PixelSize, "MONOCHROMEOUTLINE" ),
+		ActionbarsCount = CreateFontTemplate( PixelFont, PixelSize, "MONOCHROMEOUTLINE" ),
+		ActionbarsMacro = CreateFontTemplate( PixelFont, PixelSize, "MONOCHROMEOUTLINE" ),
 		ActionbarsCooldown = CreateFontTemplate( PixelFont, 20, "MONOCHROMEOUTLINE" ),
 
-		BagsItemCount = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
-		BagsEditBox = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
-		BagsDetail = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
-		BagsGold = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+		BagsItemCount = CreateFontTemplate( PixelFont, PixelSize, "MONOCHROMEOUTLINE" ),
+		BagsEditBox = CreateFontTemplate( PixelFont, PixelSize, "MONOCHROMEOUTLINE" ),
+		BagsDetail = CreateFontTemplate( PixelFont, PixelSize, "MONOCHROMEOUTLINE" ),
+		BagsGold = CreateFontTemplate( PixelFont, PixelSize, "MONOCHROMEOUTLINE" ),
 
-		BuffsDuration = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
-		BuffsCount = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+		BuffsDuration = CreateFontTemplate( PixelFont, PixelSize, "MONOCHROMEOUTLINE" ),
+		BuffsCount = CreateFontTemplate( PixelFont, PixelSize, "MONOCHROMEOUTLINE" ),
 
-		ChatTabText = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+		ChatTabText = CreateFontTemplate( PixelFont, PixelSize, "MONOCHROMEOUTLINE" ),
 
-		DatabarsPanels = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
-		DatabarsPanelsTglBtn = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
-		DatabarsCurrency = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
-		DatabarsCurrencyTglBtn = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
-		DatabarsReputationText = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
-		DatabarsReputationName = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
-		DatabarsReputationTglBtn = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+		DatabarsPanels = CreateFontTemplate( PixelFont, PixelSize, "MONOCHROMEOUTLINE" ),
+		DatabarsPanelsTglBtn = CreateFontTemplate( PixelFont, PixelSize, "MONOCHROMEOUTLINE" ),
+		DatabarsCurrency = CreateFontTemplate( PixelFont, PixelSize, "MONOCHROMEOUTLINE" ),
+		DatabarsCurrencyTglBtn = CreateFontTemplate( PixelFont, PixelSize, "MONOCHROMEOUTLINE" ),
+		DatabarsReputationText = CreateFontTemplate( PixelFont, PixelSize, "MONOCHROMEOUTLINE" ),
+		DatabarsReputationName = CreateFontTemplate( PixelFont, PixelSize, "MONOCHROMEOUTLINE" ),
+		DatabarsReputationTglBtn = CreateFontTemplate( PixelFont, PixelSize, "MONOCHROMEOUTLINE" ),
 
-		DatatextPanels = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
-		DatatextPanelsTglBtn = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+		DatatextPanels = CreateFontTemplate( PixelFont, PixelSize, "MONOCHROMEOUTLINE" ),
+		DatatextPanelsTglBtn = CreateFontTemplate( PixelFont, PixelSize, "MONOCHROMEOUTLINE" ),
 
-		MinimapCords = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
-		MinimapZone = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+		MinimapCords = CreateFontTemplate( PixelFont, PixelSize, "MONOCHROMEOUTLINE" ),
+		MinimapZone = CreateFontTemplate( PixelFont, PixelSize, "MONOCHROMEOUTLINE" ),
 
-		NameplatesCount = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
-		NameplatesName = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
-		NameplatesHealth = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
-		NameplatesLevel = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+		NameplatesCount = CreateFontTemplate( PixelFont, PixelSize, "MONOCHROMEOUTLINE" ),
+		NameplatesName = CreateFontTemplate( PixelFont, PixelSize, "MONOCHROMEOUTLINE" ),
+		NameplatesHealth = CreateFontTemplate( PixelFont, PixelSize, "MONOCHROMEOUTLINE" ),
+		NameplatesLevel = CreateFontTemplate( PixelFont, PixelSize, "MONOCHROMEOUTLINE" ),
 
-		PanelsDefault = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+		PanelsDefault = CreateFontTemplate( PixelFont, PixelSize, "MONOCHROMEOUTLINE" ),
 
-		UnitframesHealth = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
-		UnitframesPower = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
-		UnitframesName = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
-		UnitframesCastbar = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
-		UnitframesDefault = CreateFontTemplate( PixelFont, 10, "MONOCHROMEOUTLINE" ),
+		UnitframesHealth = CreateFontTemplate( PixelFont, PixelSize, "MONOCHROMEOUTLINE" ),
+		UnitframesPower = CreateFontTemplate( PixelFont, PixelSize, "MONOCHROMEOUTLINE" ),
+		UnitframesName = CreateFontTemplate( PixelFont, PixelSize, "MONOCHROMEOUTLINE" ),
+		UnitframesCastbar = CreateFontTemplate( PixelFont, PixelSize, "MONOCHROMEOUTLINE" ),
+		UnitframesDefault = CreateFontTemplate( PixelFont, PixelSize, "MONOCHROMEOUTLINE" ),
 
 		MoverDefault = CreateFontTemplate( C["media"]["uffont"], 12, nil ),
 

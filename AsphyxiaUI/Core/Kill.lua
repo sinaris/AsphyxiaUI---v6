@@ -70,6 +70,9 @@ elseif( C["global"]["globalstyle"] == "vethek" ) then
 	end
 
 	if( C["chat"]["background"] == true ) then
+		G.Panels.RightChatBackground:Kill()
+		G.Panels.RightChatTabsBackground:Kill()
+
 		G.Panels.LeftDataTextToActionBarLine:Kill()
 		G.Panels.RightDataTextToActionBarLine:Kill()
 	end

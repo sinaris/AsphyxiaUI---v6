@@ -4,4 +4,5 @@
 	<Script file="DBM.lua" />
 	<Script file="Omen.lua" />
 	<Script file="TinyDPS.lua" />
+	<Script file="Coolline.lua" />
 </Ui>
