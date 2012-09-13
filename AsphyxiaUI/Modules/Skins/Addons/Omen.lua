@@ -25,9 +25,9 @@ Omen.UpdateBarLabelSettings_ = Omen.UpdateBarLabelSettings
 Omen.UpdateBarLabelSettings = function( self )
 	self:UpdateBarLabelSettings_()
 	for i, v in ipairs( self.Bars ) do
-		v.Text1:SetFont( S.CreateFontString() )
-		v.Text2:SetFont( S.CreateFontString() )
-		v.Text3:SetFont( S.CreateFontString() )
+		v.Text1:SetFont( unpack( S.FontTemplate.SkinsDefault.BuildFont ) )
+		v.Text2:SetFont( unpack( S.FontTemplate.SkinsDefault.BuildFont ) )
+		v.Text3:SetFont( unpack( S.FontTemplate.SkinsDefault.BuildFont ) )
 	end
 end
 
@@ -39,7 +39,7 @@ Omen.UpdateTitleBar = function( self )
 	Omen.db.profile.TitleBar.UseSameBG = true
 	self:UpdateTitleBar_()
 	self.Title:SetHeight( 23 )
-	self.TitleText:SetFont( S.CreateFontString() )
+	self.TitleText:SetFont( unpack( S.FontTemplate.SkinsDefault.BuildFont ) )
 	self.TitleText:ClearAllPoints()
 	self.TitleText:SetPoint( "CENTER" )
 	self.BarList:SetPoint( "TOPLEFT", self.Title, "BOTTOMLEFT", 0, -1 )
