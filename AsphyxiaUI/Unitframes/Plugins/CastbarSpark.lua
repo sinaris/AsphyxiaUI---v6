@@ -7,6 +7,8 @@
 
 local S, C, L, G = unpack( Tukui )
 
+if( C["unitframes"]["unitcastbar"] ~= true ) then return end
+
 local oUF = oUFTukui
 
 if( not oUF ) then return end
