@@ -7,6 +7,20 @@
 
 local S, C, L, G = unpack( Tukui )
 
+local AsphyxiaUIDebuffMover = CreateFrame( "Frame", "AsphyxiaUIDebuffMover", UIParent )
+AsphyxiaUIDebuffMover:Size( 422, 30 )
+AsphyxiaUIDebuffMover:SetPoint( "TOPRIGHT", UIParent, -204, -137 )
+AsphyxiaUIDebuffMover:SetTemplate( "Default" )
+AsphyxiaUIDebuffMover:SetBackdropBorderColor( 1, 0, 0 )
+AsphyxiaUIDebuffMover:SetClampedToScreen( true )
+AsphyxiaUIDebuffMover:SetMovable( true )
+AsphyxiaUIDebuffMover:SetFrameStrata( "LOW" )
+AsphyxiaUIDebuffMover:Hide()
+AsphyxiaUIDebuffMover:FontString( "Text", unpack( S.FontTemplate.MoverDefault.BuildFont ) )
+AsphyxiaUIDebuffMover.Text:SetPoint( "CENTER", AsphyxiaUIDebuffMover, "CENTER", 0, 0 )
+AsphyxiaUIDebuffMover.Text:SetText( L.move_debuffs )
+tinsert( S.AllowFrameMoving, AsphyxiaUIDebuffMover )
+
 TukuiAurasPlayerBuffs:ClearAllPoints()
 TukuiAurasPlayerDebuffs:ClearAllPoints()
 
@@ -15,7 +29,7 @@ TukuiAurasPlayerBuffs:SetAttribute( "wrapAfter", 17 )
 TukuiAurasPlayerBuffs:SetAttribute( "xOffset", -33 )
 TukuiAurasPlayerBuffs:SetAttribute( "wrapYOffset", -67.5 )
 
-TukuiAurasPlayerDebuffs:SetPoint( "TOPRIGHT", UIParent, -204, -137 )
+TukuiAurasPlayerDebuffs:SetPoint( "RIGHT", AsphyxiaUIDebuffMover )
 TukuiAurasPlayerDebuffs:SetAttribute( "wrapAfter", 17 )
 TukuiAurasPlayerDebuffs:SetAttribute( "xOffset", -33 )
 

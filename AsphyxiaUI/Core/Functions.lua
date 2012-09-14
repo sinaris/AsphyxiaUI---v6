@@ -172,6 +172,7 @@ local function MoveUI()
 		AsphyxiaUIUnitframesPlayerCastbarMover,
 		RaidCD,
 		MicroAnchormover,
+		AsphyxiaUIDebuffMover,
 	}
 
 	if( AsphyxiaUIUnitframesPlayerCastbarMover ) then
