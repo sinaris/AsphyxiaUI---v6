@@ -224,8 +224,8 @@ if( TukuiConfigUILocalization ) then
 	TukuiConfigUILocalization.combattextinterrupt = "Tells you about your interrupts"
 	TukuiConfigUILocalization.combattextdirection = "Scrolling Direction('top'(goes down) or 'bottom'(goes up))"
 
-	TukuiConfigUILocalization.chatwidth = "Height of the chat"
-	TukuiConfigUILocalization.chatheight= "Width of the chat"
+	TukuiConfigUILocalization.chatwidth = "Width of the chat"
+	TukuiConfigUILocalization.chatheight= "Height of the chat"
 	TukuiConfigUILocalization.chatjustifyRight= "Justify Right right chat frame"
 
 	TukuiConfigUILocalization.castbar = "Castbar"
