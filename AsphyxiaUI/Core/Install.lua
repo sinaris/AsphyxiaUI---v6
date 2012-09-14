@@ -100,6 +100,10 @@ AsphyxiaUIOnLogon:SetScript( "OnEvent", function( self, event )
 		S.ShowPopup( "ASPHYXIAUI_SELECT_RAID_LAYOUT" )
 	end
 
+	if( S.lowversion == true ) then
+		S.ShowPopup( "ASPHYXIAUI_ENABLE_HIGHONLOWRESO" )
+	end
+
 	if( C["chat"]["background"] ~= true ) then
 		S.ShowPopup( "ASPHYXIAUI_ENABLE_CHAT_BACKGROUND" )
 	end

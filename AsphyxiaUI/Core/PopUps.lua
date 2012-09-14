@@ -55,7 +55,7 @@ S.CreatePopup["ASPHYXIAUI_SELECT_RAID_LAYOUT"] = {
 }
 
 S.CreatePopup["ASPHYXIAUI_DIFFERENT_ADDONSKINS_DETECTED"] = {
-	question = "AsphyxiaUI has detected some other addon skins. AsphyxiaUI addon skins will be disabled!",
+	question = L.Popups_ADDONSKINS,
 	answer1 = ACCEPT,
 	answer2 = CANCEL,
 	function1 = function()
@@ -70,6 +70,21 @@ S.CreatePopup["ASPHYXIAUI_DIFFERENT_ADDONSKINS_DETECTED"] = {
 			TukuiConfigPublic["addonskins"]["dbm"] = false
 			TukuiConfigPublic["addonskins"]["omen"] = false
 			TukuiConfigPublic["addonskins"]["tinydps"] = false
+		end
+		ReloadUI()
+	end,
+}
+
+S.CreatePopup["ASPHYXIAUI_ENABLE_HIGHONLOWRESO"] = {
+	question = L.Popups_LOWRESOLUTION_OVERRIDE,
+	answer1 = ACCEPT,
+	answer2 = CANCEL,
+	function1 = function()
+		if( IsAddOnLoaded( "Tukui_ConfigUI" ) ) then
+			if( not ( TukuiConfigPublic["general"] ) ) then
+				TukuiConfigPublic["general"] = {}
+			end
+			TukuiConfigPublic["general"]["overridelowtohigh "] = true
 		end
 		ReloadUI()
 	end,
