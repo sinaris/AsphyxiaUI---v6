@@ -149,12 +149,25 @@ AsphyxiaUIControlPanelButton:SetFrameStrata( "LOW" )
 AsphyxiaUIControlPanelButton:CreateShadow( "Default" )
 AsphyxiaUIControlPanelButton:CreateOverlay( AsphyxiaUIControlPanelButton )
 
+if( C["global"]["hovercp"] == true ) then
+	AsphyxiaUIControlPanelButton:SetAlpha( 0 )
+	AsphyxiaUIControlPanelButton:EnableMouse( true )
+	AsphyxiaUIControlPanelButton:SetScript( "OnEnter", function()
+		if( InCombatLockdown() ) then return end
+		AsphyxiaUIControlPanelButton:FadeIn()
+	end )
+
+	AsphyxiaUIControlPanelButton:SetScript( "OnLeave", function()
+		AsphyxiaUIControlPanelButton:FadeOut()
+	end )
+else
+	AsphyxiaUIControlPanelButton:HookScript( "OnEnter", S.SetModifiedBackdrop )
+	AsphyxiaUIControlPanelButton:HookScript( "OnLeave", S.SetOriginalBackdrop )
+end
+
 AsphyxiaUIControlPanelButton.Text = S.SetFontString( AsphyxiaUIControlPanelButton, unpack( S.FontTemplate.ButtonsDefault.BuildFont ) )
 AsphyxiaUIControlPanelButton.Text:Point( "CENTER", AsphyxiaUIControlPanelButton, "CENTER", 0, 0 )
-AsphyxiaUIControlPanelButton.Text:SetText( S.RGBToHex( unpack( C["media"].datatextcolor2 ) ) .. "Control Panel" )
-
-AsphyxiaUIControlPanelButton:HookScript( "OnEnter", S.SetModifiedBackdrop )
-AsphyxiaUIControlPanelButton:HookScript( "OnLeave", S.SetOriginalBackdrop )
+AsphyxiaUIControlPanelButton.Text:SetText( S.RGBToHex( unpack( C["media"]["datatextcolor2"] ) ) .. "Control Panel" )
 
 AsphyxiaUIControlPanelButton:SetScript( "OnMouseDown", function( self )
 	if( InCombatLockdown() ) then print( ERR_NOT_IN_COMBAT ) return end

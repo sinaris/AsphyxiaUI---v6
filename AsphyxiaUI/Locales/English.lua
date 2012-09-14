@@ -177,7 +177,8 @@ L.Faq_CONTENT_TEXT_FIELD_9_6 = ""
 
 if( TukuiConfigUILocalization ) then
 	TukuiConfigUILocalization.global = "AsphyxiaUI"
-	TukuiConfigUILocalization.globalunitframelayout = "Unitframe layout (asphyxia, asphyxia2, asphyxia3 or asphyxia4)"
+	TukuiConfigUILocalization.globalunitframelayout = "Unitframe layout (asphyxia, asphyxia2, asphyxia3, asphyxia4 or asphyxia5)"
+	TukuiConfigUILocalization.globalhovercp = "Enable hover buttons on control panel"
 
 	TukuiConfigUILocalization.databars = "Databars"
 	TukuiConfigUILocalization.databarsenable = "Enable databars"

@@ -21,6 +21,7 @@ C["global"] = {
 	["globalstyle"] = "asphyxia", -- can be switch to: asphyxia, duffed, vethek, sinaris
 	["unitframelayout"] = "asphyxia",
 	["fonttemplate"] = "pixel",
+	["hovercp"] = false,
 }
 
 C["unitframes"] = {

@@ -140,9 +140,9 @@ AsphyxiaUIInfoCenterRight:SetFrameStrata( "BACKGROUND" )
 AsphyxiaUIInfoCenterRight:CreateOverlay( AsphyxiaUIInfoCenterRight )
 
 local AsphyxiaUIInfoCenterToggleButton = CreateFrame( "Frame", "AsphyxiaUIInfoCenterToggleButton", TukuiChatBackgroundRight )
-AsphyxiaUIInfoCenterToggleButton:Size(30,15)
-AsphyxiaUIInfoCenterToggleButton:SetPoint("TOPRIGHT", TukuiChatBackgroundRight, "TOPRIGHT", -5, -68)
-AsphyxiaUIInfoCenterToggleButton:SetTemplate("Default")
+AsphyxiaUIInfoCenterToggleButton:Size( 30, 15 )
+AsphyxiaUIInfoCenterToggleButton:SetPoint( "TOPRIGHT", TukuiChatBackgroundRight, "TOPRIGHT", -5, -68 )
+AsphyxiaUIInfoCenterToggleButton:SetTemplate( "Default" )
 AsphyxiaUIInfoCenterToggleButton:SetAlpha( 0 )
 AsphyxiaUIInfoCenterToggleButton:SetFrameStrata( "MEDIUM" )
 AsphyxiaUIInfoCenterToggleButton:SetFrameLevel( 10 )
@@ -194,8 +194,22 @@ AsphyxiaUIResetUIButton:CreateShadow( "Default" )
 AsphyxiaUIResetUIButton:CreateOverlay( AsphyxiaUIResetUIButton )
 AsphyxiaUIResetUIButton:SetAttribute( "type", "macro" )
 AsphyxiaUIResetUIButton:SetAttribute( "macrotext", "/resetui" )
-AsphyxiaUIResetUIButton:HookScript( "OnEnter", S.SetModifiedBackdrop )
-AsphyxiaUIResetUIButton:HookScript( "OnLeave", S.SetOriginalBackdrop )
+
+if( C["global"]["hovercp"] == true ) then
+	AsphyxiaUIResetUIButton:SetAlpha( 0 )
+	AsphyxiaUIResetUIButton:EnableMouse( true )
+	AsphyxiaUIResetUIButton:SetScript( "OnEnter", function()
+		if( InCombatLockdown() ) then return end
+		AsphyxiaUIResetUIButton:FadeIn()
+	end )
+
+	AsphyxiaUIResetUIButton:SetScript( "OnLeave", function()
+		AsphyxiaUIResetUIButton:FadeOut()
+	end )
+else
+	AsphyxiaUIResetUIButton:HookScript( "OnEnter", S.SetModifiedBackdrop )
+	AsphyxiaUIResetUIButton:HookScript( "OnLeave", S.SetOriginalBackdrop )
+end
 
 AsphyxiaUIResetUIButton.Text = S.SetFontString( AsphyxiaUIResetUIButton, unpack( S.FontTemplate.ButtonsResetUIBtn.BuildFont ) )
 AsphyxiaUIResetUIButton.Text:Point( "CENTER", AsphyxiaUIResetUIButton, "CENTER", 0, 0 )
@@ -213,8 +227,22 @@ AsphyxiaUIReloadUIButton:CreateShadow( "Default" )
 AsphyxiaUIReloadUIButton:CreateOverlay( AsphyxiaUIReloadUIButton )
 AsphyxiaUIReloadUIButton:SetAttribute( "type", "macro" )
 AsphyxiaUIReloadUIButton:SetAttribute( "macrotext", "/rl" )
-AsphyxiaUIReloadUIButton:HookScript( "OnEnter", S.SetModifiedBackdrop )
-AsphyxiaUIReloadUIButton:HookScript( "OnLeave", S.SetOriginalBackdrop )
+
+if( C["global"]["hovercp"] == true ) then
+	AsphyxiaUIReloadUIButton:SetAlpha( 0 )
+	AsphyxiaUIReloadUIButton:EnableMouse( true )
+	AsphyxiaUIReloadUIButton:SetScript( "OnEnter", function()
+		if( InCombatLockdown() ) then return end
+		AsphyxiaUIReloadUIButton:FadeIn()
+	end )
+
+	AsphyxiaUIReloadUIButton:SetScript( "OnLeave", function()
+		AsphyxiaUIReloadUIButton:FadeOut()
+	end )
+else
+	AsphyxiaUIReloadUIButton:HookScript( "OnEnter", S.SetModifiedBackdrop )
+	AsphyxiaUIReloadUIButton:HookScript( "OnLeave", S.SetOriginalBackdrop )
+end
 
 AsphyxiaUIReloadUIButton.Text = S.SetFontString( AsphyxiaUIReloadUIButton, unpack( S.FontTemplate.ButtonsReloadUIBtn.BuildFont ) )
 AsphyxiaUIReloadUIButton.Text:Point( "CENTER", AsphyxiaUIReloadUIButton, "CENTER", 0, 0 )
