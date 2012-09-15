@@ -248,7 +248,7 @@ do
 				G.UnitFrames.Player.EclipseBar.Text:ClearAllPoints()
 				G.UnitFrames.Player.EclipseBar.Text:SetPoint( "TOP", G.UnitFrames.Player.EclipseBar, 0, 25 )
 				G.UnitFrames.Player.EclipseBar.Text:SetFont( unpack( S.FontTemplate.UnitframesDefault.BuildFont ) )
-				G.UnitFrames.Player.EclipseBar.Text:SetShadowOffset( S.mult, -S.mult )
+				G.UnitFrames.Player.EclipseBar.Text:SetShadowOffset( 0, 0 )
 			end
 
 			if( C["unitframes"]["druidmushroombar"] == true ) then
