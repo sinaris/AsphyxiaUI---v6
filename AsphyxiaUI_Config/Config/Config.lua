@@ -8,7 +8,7 @@
 local C = {}
 
 C["addonskins"] = {
-	["enable"] = true
+	["enable"] = true,
 	["embedright"] = "omen",
 	["background"] = true,
 	["combattoggle"] = true,
