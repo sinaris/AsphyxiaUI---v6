@@ -309,12 +309,21 @@ do
 				G.UnitFrames.Player.HolyPower:CreateBackdrop( "Default" )
 				G.UnitFrames.Player.HolyPower.backdrop:CreateShadow( "Default" )
 
-				for i = 1, 5 do
+				local maxHolyPower = UnitPowerMax( "player", SPELL_POWER_HOLY_POWER )
+
+				for i = 1, maxHolyPower do
 					G.UnitFrames.Player.HolyPower[i]:SetStatusBarColor( 228 / 255, 225 / 255, 16 / 255 )
-					if( i == 5 ) then
-						G.UnitFrames.Player.HolyPower[i]:Size( S.Scale( 232 / 5 ) - 1, 2 )
-					else
-						G.UnitFrames.Player.HolyPower[i]:Size( S.Scale( 232 / 5 ), 2 )
+
+					if( maxHolyPower == 3 ) then
+						for i = 1, 3 do
+							G.UnitFrames.Player.HolyPower[i]:Size( S.Scale( 232 / 3 ), 2 )
+						end
+					elseif( maxHolyPower == 5 ) then
+						if( i == 5 ) then
+							G.UnitFrames.Player.HolyPower[i]:Size( S.Scale( 232 / 5 ) - 1, 2 )
+						else
+							G.UnitFrames.Player.HolyPower[i]:Size( S.Scale( 232 / 5 ), 2 )
+						end
 					end
 
 					if( i == 1 ) then
@@ -403,31 +412,25 @@ do
 						else
 							G.UnitFrames.Player.HarmonyBar[i]:Size( 233 / 4, 2 )
 						end
-
-						if( i == 1 ) then
-							G.UnitFrames.Player.HarmonyBar[i]:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
-						else
-							G.UnitFrames.Player.HarmonyBar[i]:Point( "LEFT", G.UnitFrames.Player.HarmonyBar[i - 1], "RIGHT", 1, 0 )
-						end
 					elseif( maxChi == 5 ) then
 						if( i == 5 ) then
 							G.UnitFrames.Player.HarmonyBar[i]:Size( S.Scale( 232 / 5 ) - 1, 2 )
 						else
 							G.UnitFrames.Player.HarmonyBar[i]:Size( S.Scale( 232 / 5 ), 2 )
 						end
+					end
 
-						if( i == 1 ) then
-							G.UnitFrames.Player.HarmonyBar[i]:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
-						else
-							G.UnitFrames.Player.HarmonyBar[i]:Point( "LEFT", G.UnitFrames.Player.HarmonyBar[i - 1], "RIGHT", 1, 0 )
-						end
+					if( i == 1 ) then
+						G.UnitFrames.Player.HarmonyBar[i]:SetPoint( "BOTTOMLEFT", G.UnitFrames.Player, "TOPLEFT", 0, 7 )
+					else
+						G.UnitFrames.Player.HarmonyBar[i]:Point( "LEFT", G.UnitFrames.Player.HarmonyBar[i - 1], "RIGHT", 1, 0 )
 					end
 				end
 
 				if( C["unitframes"]["showstatuebar"] == true ) then
 					G.UnitFrames.Player.Statue:ClearAllPoints()
 					G.UnitFrames.Player.Statue:Size( 233, 2 )
-					G.UnitFrames.Player.Statue:Point( "TOP", G.UnitFrames.Player.Power, "BOTTOM", 0, -35 )
+					G.UnitFrames.Player.Statue:Point( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 0, -7 )
 					G.UnitFrames.Player.Statue:CreateBackdrop( "Default" )
 					G.UnitFrames.Player.Statue.backdrop:CreateShadow( "Default" )
 				end
