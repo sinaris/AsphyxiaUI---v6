@@ -370,7 +370,8 @@ do
 					end
 				end
 
-				if( C["unitframes"]["showstatuebar"] == true ) thenG.UnitFrames.Player.Statue:ClearAllPoints()
+				if( C["unitframes"]["showstatuebar"] == true ) then
+					G.UnitFrames.Player.Statue:ClearAllPoints()
 					G.UnitFrames.Player.Statue:Size( 233, 2 )
 					G.UnitFrames.Player.Statue:Point( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 0, -7 )
 					G.UnitFrames.Player.Statue:CreateBackdrop( "Default" )
