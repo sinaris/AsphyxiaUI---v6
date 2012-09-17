@@ -305,7 +305,12 @@ do
 				G.UnitFrames.Player.HolyPower:CreateBackdrop( "Default" )
 				G.UnitFrames.Player.HolyPower.backdrop:CreateShadow( "Default" )
 
-				local maxHolyPower = UnitPowerMax( "player", SPELL_POWER_HOLY_POWER )
+				local maxHolyPower
+				if( S.level == MAX_PLAYER_LEVEL ) then
+					maxHolypower = 5
+				else
+					maxHolyPower = 3
+				end
 
 				for i = 1, maxHolyPower do
 					G.UnitFrames.Player.HolyPower[i]:SetStatusBarColor( 228 / 255, 225 / 255, 16 / 255 )
