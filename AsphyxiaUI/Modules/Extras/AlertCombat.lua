@@ -2,6 +2,7 @@
 -- AddOn Name: AsphyxiaUI 6.0.0
 -- License: MIT
 -- Author: Sinaris @ Das Syndikat, Vaecia @ Blackmoore
+-- Credits: All credits goes to the original Author: Alleykat
 -- Description: AsphyxiaUI, Editied Tukui Layout
 ---------------------------------------------------------------------------------------------
 
