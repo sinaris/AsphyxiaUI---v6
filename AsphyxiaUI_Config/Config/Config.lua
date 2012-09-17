@@ -155,6 +155,12 @@ C["intmodules"] = {
 	["autorole"] = true,
 }
 
+C["chatbar"] = {
+	["enable"] = true,
+	["hover"] = false,
+	["tooltip"] = true,
+}
+
 C["unitframes"] = {
 	["classicons"] = true,
 	["unicolor"] = true,
