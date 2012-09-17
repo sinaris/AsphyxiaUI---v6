@@ -373,11 +373,13 @@ do
 					end
 				end
 
-				G.UnitFrames.Player.Statue:ClearAllPoints()
-				G.UnitFrames.Player.Statue:Size( 180, 2 )
-				G.UnitFrames.Player.Statue:Point( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 0, -7 )
-				G.UnitFrames.Player.Statue:CreateBackdrop( "Default" )
-				G.UnitFrames.Player.Statue.backdrop:CreateShadow( "Default" )
+				if( C["unitframes"]["showstatuebar"] == true ) then
+					G.UnitFrames.Player.Statue:ClearAllPoints()
+					G.UnitFrames.Player.Statue:Size( 180, 2 )
+					G.UnitFrames.Player.Statue:Point( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 0, -7 )
+					G.UnitFrames.Player.Statue:CreateBackdrop( "Default" )
+					G.UnitFrames.Player.Statue.backdrop:CreateShadow( "Default" )
+				end
 			end
 		end
 
@@ -422,11 +424,13 @@ do
 					end
 				end
 
-				G.UnitFrames.Player.Statue:ClearAllPoints()
-				G.UnitFrames.Player.Statue:Size( 180, 2 )
-				G.UnitFrames.Player.Statue:Point( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 0, -7 )
-				G.UnitFrames.Player.Statue:CreateBackdrop( "Default" )
-				G.UnitFrames.Player.Statue.backdrop:CreateShadow( "Default" )
+				if( C["unitframes"]["showstatuebar"] == true ) then
+					G.UnitFrames.Player.Statue:ClearAllPoints()
+					G.UnitFrames.Player.Statue:Size( 180, 2 )
+					G.UnitFrames.Player.Statue:Point( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 0, -7 )
+					G.UnitFrames.Player.Statue:CreateBackdrop( "Default" )
+					G.UnitFrames.Player.Statue.backdrop:CreateShadow( "Default" )
+				end
 			end
 		end
 
@@ -472,11 +476,13 @@ do
 					end
 				end
 
-				G.UnitFrames.Player.Statue:ClearAllPoints()
-				G.UnitFrames.Player.Statue:Size( 180, 2 )
-				G.UnitFrames.Player.Statue:Point( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 0, -7 )
-				G.UnitFrames.Player.Statue:CreateBackdrop( "Default" )
-				G.UnitFrames.Player.Statue.backdrop:CreateShadow( "Default" )
+				if( C["unitframes"]["showstatuebar"] == true ) then
+					G.UnitFrames.Player.Statue:ClearAllPoints()
+					G.UnitFrames.Player.Statue:Size( 180, 2 )
+					G.UnitFrames.Player.Statue:Point( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 0, -7 )
+					G.UnitFrames.Player.Statue:CreateBackdrop( "Default" )
+					G.UnitFrames.Player.Statue.backdrop:CreateShadow( "Default" )
+				end
 			end
 		end
 
@@ -507,11 +513,13 @@ do
 		------------------------------
 		if( S.myclass == "WARRIOR" ) then
 			if( C["unitframes"]["classbar"] == true ) then
-				G.UnitFrames.Player.Statue:ClearAllPoints()
-				G.UnitFrames.Player.Statue:Size( 180, 2 )
-				G.UnitFrames.Player.Statue:Point( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 0, -7 )
-				G.UnitFrames.Player.Statue:CreateBackdrop( "Default" )
-				G.UnitFrames.Player.Statue.backdrop:CreateShadow( "Default" )
+				if( C["unitframes"]["showstatuebar"] == true ) then
+					G.UnitFrames.Player.Statue:ClearAllPoints()
+					G.UnitFrames.Player.Statue:Size( 180, 2 )
+					G.UnitFrames.Player.Statue:Point( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 0, -7 )
+					G.UnitFrames.Player.Statue:CreateBackdrop( "Default" )
+					G.UnitFrames.Player.Statue.backdrop:CreateShadow( "Default" )
+				end
 			end
 		end
 	end

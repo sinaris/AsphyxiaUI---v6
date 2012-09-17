@@ -370,21 +370,22 @@ do
 					end
 				end
 
-				G.UnitFrames.Player.Statue:ClearAllPoints()
-				G.UnitFrames.Player.Statue:Size( 233, 2 )
-				G.UnitFrames.Player.Statue:Point( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 0, -7 )
-				G.UnitFrames.Player.Statue:CreateBackdrop( "Default" )
-				G.UnitFrames.Player.Statue.backdrop:CreateShadow( "Default" )
+				if( C["unitframes"]["showstatuebar"] == true ) thenG.UnitFrames.Player.Statue:ClearAllPoints()
+					G.UnitFrames.Player.Statue:Size( 233, 2 )
+					G.UnitFrames.Player.Statue:Point( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 0, -7 )
+					G.UnitFrames.Player.Statue:CreateBackdrop( "Default" )
+					G.UnitFrames.Player.Statue.backdrop:CreateShadow( "Default" )
 
-				G.UnitFrames.Player.Statue:SetScript( "OnShow", function() 
-					AsphyxiaUIUnitframesPlayerCastbarMover:ClearAllPoints()
-					AsphyxiaUIUnitframesPlayerCastbarMover:SetPoint( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 2, -16 )
-				end )
+					G.UnitFrames.Player.Statue:SetScript( "OnShow", function() 
+						AsphyxiaUIUnitframesPlayerCastbarMover:ClearAllPoints()
+						AsphyxiaUIUnitframesPlayerCastbarMover:SetPoint( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 2, -16 )
+					end )
 
-				G.UnitFrames.Player.Statue:SetScript( "OnHide", function()
-					AsphyxiaUIUnitframesPlayerCastbarMover:ClearAllPoints()
-					AsphyxiaUIUnitframesPlayerCastbarMover:SetPoint( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 2, -7 )
-				end )
+					G.UnitFrames.Player.Statue:SetScript( "OnHide", function()
+						AsphyxiaUIUnitframesPlayerCastbarMover:ClearAllPoints()
+						AsphyxiaUIUnitframesPlayerCastbarMover:SetPoint( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 2, -7 )
+					end )
+				end
 			end
 		end
 
@@ -429,21 +430,23 @@ do
 					end
 				end
 
-				G.UnitFrames.Player.Statue:ClearAllPoints()
-				G.UnitFrames.Player.Statue:Size( 233, 2 )
-				G.UnitFrames.Player.Statue:Point( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 0, -7 )
-				G.UnitFrames.Player.Statue:CreateBackdrop( "Default" )
-				G.UnitFrames.Player.Statue.backdrop:CreateShadow( "Default" )
+				if( C["unitframes"]["showstatuebar"] == true ) then
+					G.UnitFrames.Player.Statue:ClearAllPoints()
+					G.UnitFrames.Player.Statue:Size( 233, 2 )
+					G.UnitFrames.Player.Statue:Point( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 0, -7 )
+					G.UnitFrames.Player.Statue:CreateBackdrop( "Default" )
+					G.UnitFrames.Player.Statue.backdrop:CreateShadow( "Default" )
 
-				G.UnitFrames.Player.Statue:SetScript( "OnShow", function() 
-					AsphyxiaUIUnitframesPlayerCastbarMover:ClearAllPoints()
-					AsphyxiaUIUnitframesPlayerCastbarMover:SetPoint( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 2, -16 )
-				end )
+					G.UnitFrames.Player.Statue:SetScript( "OnShow", function() 
+						AsphyxiaUIUnitframesPlayerCastbarMover:ClearAllPoints()
+						AsphyxiaUIUnitframesPlayerCastbarMover:SetPoint( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 2, -16 )
+					end )
 
-				G.UnitFrames.Player.Statue:SetScript( "OnHide", function()
-					AsphyxiaUIUnitframesPlayerCastbarMover:ClearAllPoints()
-					AsphyxiaUIUnitframesPlayerCastbarMover:SetPoint( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 2, -7 )
-				end )
+					G.UnitFrames.Player.Statue:SetScript( "OnHide", function()
+						AsphyxiaUIUnitframesPlayerCastbarMover:ClearAllPoints()
+						AsphyxiaUIUnitframesPlayerCastbarMover:SetPoint( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 2, -7 )
+					end )
+				end
 			end
 		end
 
@@ -489,21 +492,23 @@ do
 					end
 				end
 
-				G.UnitFrames.Player.Statue:ClearAllPoints()
-				G.UnitFrames.Player.Statue:Size( 233, 2 )
-				G.UnitFrames.Player.Statue:Point( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 0, -7 )
-				G.UnitFrames.Player.Statue:CreateBackdrop( "Default" )
-				G.UnitFrames.Player.Statue.backdrop:CreateShadow( "Default" )
+				if( C["unitframes"]["showstatuebar"] == true ) then
+					G.UnitFrames.Player.Statue:ClearAllPoints()
+					G.UnitFrames.Player.Statue:Size( 233, 2 )
+					G.UnitFrames.Player.Statue:Point( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 0, -7 )
+					G.UnitFrames.Player.Statue:CreateBackdrop( "Default" )
+					G.UnitFrames.Player.Statue.backdrop:CreateShadow( "Default" )
 
-				G.UnitFrames.Player.Statue:SetScript( "OnShow", function() 
-					AsphyxiaUIUnitframesPlayerCastbarMover:ClearAllPoints()
-					AsphyxiaUIUnitframesPlayerCastbarMover:SetPoint( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 2, -16 )
-				end )
+					G.UnitFrames.Player.Statue:SetScript( "OnShow", function() 
+						AsphyxiaUIUnitframesPlayerCastbarMover:ClearAllPoints()
+						AsphyxiaUIUnitframesPlayerCastbarMover:SetPoint( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 2, -16 )
+					end )
 
-				G.UnitFrames.Player.Statue:SetScript( "OnHide", function()
-					AsphyxiaUIUnitframesPlayerCastbarMover:ClearAllPoints()
-					AsphyxiaUIUnitframesPlayerCastbarMover:SetPoint( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 2, -7 )
-				end )
+					G.UnitFrames.Player.Statue:SetScript( "OnHide", function()
+						AsphyxiaUIUnitframesPlayerCastbarMover:ClearAllPoints()
+						AsphyxiaUIUnitframesPlayerCastbarMover:SetPoint( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 2, -7 )
+					end )
+				end
 			end
 		end
 
@@ -534,21 +539,23 @@ do
 		------------------------------
 		if( S.myclass == "WARRIOR" ) then
 			if( C["unitframes"]["classbar"] == true ) then
-				G.UnitFrames.Player.Statue:ClearAllPoints()
-				G.UnitFrames.Player.Statue:Size( 233, 2 )
-				G.UnitFrames.Player.Statue:Point( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 0, -7 )
-				G.UnitFrames.Player.Statue:CreateBackdrop( "Default" )
-				G.UnitFrames.Player.Statue.backdrop:CreateShadow( "Default" )
+				if( C["unitframes"]["showstatuebar"] == true ) then
+					G.UnitFrames.Player.Statue:ClearAllPoints()
+					G.UnitFrames.Player.Statue:Size( 233, 2 )
+					G.UnitFrames.Player.Statue:Point( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 0, -7 )
+					G.UnitFrames.Player.Statue:CreateBackdrop( "Default" )
+					G.UnitFrames.Player.Statue.backdrop:CreateShadow( "Default" )
 
-				G.UnitFrames.Player.Statue:SetScript( "OnShow", function() 
-					AsphyxiaUIUnitframesPlayerCastbarMover:ClearAllPoints()
-					AsphyxiaUIUnitframesPlayerCastbarMover:SetPoint( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 2, -16 )
-				end )
+					G.UnitFrames.Player.Statue:SetScript( "OnShow", function() 
+						AsphyxiaUIUnitframesPlayerCastbarMover:ClearAllPoints()
+						AsphyxiaUIUnitframesPlayerCastbarMover:SetPoint( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 2, -16 )
+					end )
 
-				G.UnitFrames.Player.Statue:SetScript( "OnHide", function()
-					AsphyxiaUIUnitframesPlayerCastbarMover:ClearAllPoints()
-					AsphyxiaUIUnitframesPlayerCastbarMover:SetPoint( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 2, -7 )
-				end )
+					G.UnitFrames.Player.Statue:SetScript( "OnHide", function()
+						AsphyxiaUIUnitframesPlayerCastbarMover:ClearAllPoints()
+						AsphyxiaUIUnitframesPlayerCastbarMover:SetPoint( "TOPRIGHT", G.UnitFrames.Player.Power, "BOTTOMRIGHT", 2, -7 )
+					end )
+				end
 			end
 		end
 	end
