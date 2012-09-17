@@ -63,13 +63,13 @@ S.CreatePopup["ASPHYXIAUI_DIFFERENT_ADDONSKINS_DETECTED"] = {
 			if( not ( TukuiConfigPublic["addonskins"] ) ) then
 				TukuiConfigPublic["addonskins"] = {}
 			end
-			TukuiConfigPublic["addonskins"]["embedright"] = ""
-			TukuiConfigPublic["addonskins"]["background"] = false
-			TukuiConfigPublic["addonskins"]["combattoggle"] = false
-			TukuiConfigPublic["addonskins"]["bigwigs"] = false
-			TukuiConfigPublic["addonskins"]["dbm"] = false
-			TukuiConfigPublic["addonskins"]["omen"] = false
-			TukuiConfigPublic["addonskins"]["tinydps"] = false
+			TukuiConfigPublic["addonskins"]["enable"] = false
+		end
+		ReloadUI()
+	end,
+	function2 = function()
+		if( IsAddOnLoaded( "Tukui_ElvUI_Skins" ) ) then
+			DisableAddOn( "Tukui_ElvUI_Skins" )
 		end
 		ReloadUI()
 	end,

@@ -7,6 +7,8 @@
 
 local S, C, L, G = unpack( Tukui )
 
+if( C["addonskins"]["enable"] ~= true ) then return end
+
 if( not IsAddOnLoaded( "DBM-Core" ) or C["addonskins"]["dbm"] ~= true ) then return end
 
 local croprwicons = true

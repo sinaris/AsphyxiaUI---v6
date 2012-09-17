@@ -7,6 +7,8 @@
 
 local S, C, L, G = unpack( Tukui )
 
+if( C["addonskins"]["enable"] ~= true ) then return end
+
 if( not IsAddOnLoaded( "BigWigs" ) or C["addonskins"]["bigwigs"] ~= true ) then return end
 
 local classcolor = true

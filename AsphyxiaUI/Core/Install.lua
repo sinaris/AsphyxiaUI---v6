@@ -92,7 +92,7 @@ AsphyxiaUIOnLogon:SetScript( "OnEvent", function( self, event )
 		}
 	end
 
-	if( IsAddOnLoaded( "Tukui_ElvUI_Skins" ) ) then
+	if( IsAddOnLoaded( "Tukui_ElvUI_Skins" ) and C["addonskins"]["enable"] == true ) then
 		S.ShowPopup( "ASPHYXIAUI_DIFFERENT_ADDONSKINS_DETECTED" )
 	end
 

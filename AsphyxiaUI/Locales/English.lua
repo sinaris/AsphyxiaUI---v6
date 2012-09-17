@@ -30,7 +30,7 @@ L.Popups_ENABLE_CHAT_BACKGROUNDS = "AsphyxiaUI needs to have the chatbackground 
 L.Popups_DISABLE_TUKUI_NAMEPLATES = "Tukui nameplates are active. They will be disabled and the AsphyxiaUI nameplates will be enabled."
 L.Popups_ENABLE_BIGWIGS_SKIN = "We need to set some BigWigs options to apply Tukui BigWigs skin.\nMost of your settings will remain untouched."
 L.Popups_ENABLE_DBM_SKIN = "We need to set some DBM options to apply Tukui DBM skin.\nMost of your settings will remain untouched."
-L.Popups_ADDONSKINS = "AsphyxiaUI has detected some other addon skins. AsphyxiaUI addon skins will be disabled!"
+L.Popups_ADDONSKINS = "AsphyxiaUI has detected some other addon skins. If you press 'accept' the AsphyxiaUI addons kins will be disabled. If you press 'cancel' Tukui_ElvUI_Skins will be disabled."
 L.Popups_LOWRESOLUTION_OVERRIDE = "AsphyxiaUI is running on low resolution. Press accept to enable override lowresolution settings."
 
 ------------------------------

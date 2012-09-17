@@ -7,6 +7,8 @@
 
 local S, C, L, G = unpack( Tukui )
 
+if( C["addonskins"]["enable"] ~= true ) then return end
+
 if( not IsAddOnLoaded( "Omen" ) or C["addonskins"]["omen"] ~= true ) then return end
 
 if( TukuiThreatBar ) then TukuiThreatBar:Kill() end
