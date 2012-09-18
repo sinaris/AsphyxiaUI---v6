@@ -667,7 +667,7 @@ do
 		G.UnitFrames.Target.Power.backdrop:CreateShadow( "Default" )
 
 		G.UnitFrames.Target.Power.value = S.SetFontString( G.UnitFrames.Target.Health, unpack( S.FontTemplate.UnitframesPower.BuildFont ) )
-		G.UnitFrames.Target.Power.value:Point( "LEFT", G.UnitFrames.Player.Health, "LEFT", 4, 1 )
+		G.UnitFrames.Target.Power.value:Point( "LEFT", G.UnitFrames.Target.Health, "LEFT", 4, 1 )
 
 		if( C["unitframes"]["unicolor"] == true ) then
 			G.UnitFrames.Target.Power.colorTapping = true
