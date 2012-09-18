@@ -1731,21 +1731,25 @@ FramePositions:SetScript( "OnEvent", function( self, event, addon )
 	G.UnitFrames.Focus:SetPoint( "TOP", UIParent, "BOTTOM", -450, 600 )
 	G.UnitFrames.FocusTarget:SetPoint( "TOP", G.UnitFrames.Focus, "BOTTOM", 0 , -43 )
 
-	for i = 1, MAX_BOSS_FRAMES do
-		G.UnitFrames["Boss" .. i]:ClearAllPoints()
-		if( i == 1 ) then
-			G.UnitFrames["Boss" .. i]:SetPoint( "TOP", UIParent, "BOTTOM", 450, 600 )
-		else
-			G.UnitFrames["Boss" .. i]:SetPoint( "TOP", G.UnitFrames["Boss" .. i - 1], "BOTTOM", 0, -43 )
+	if( C["unitframes"]["showboss"] == true ) then
+		for i = 1, MAX_BOSS_FRAMES do
+			G.UnitFrames["Boss" .. i]:ClearAllPoints()
+			if( i == 1 ) then
+				G.UnitFrames["Boss" .. i]:SetPoint( "TOP", UIParent, "BOTTOM", 450, 600 )
+			else
+				G.UnitFrames["Boss" .. i]:SetPoint( "TOP", G.UnitFrames["Boss" .. i - 1], "BOTTOM", 0, -43 )
+			end
 		end
 	end
 
-	for i = 1, 5 do
-		G.UnitFrames["Arena" .. i]:ClearAllPoints()
-		if( i == 1 ) then
-			G.UnitFrames["Arena" .. i]:SetPoint( "TOP", UIParent, "BOTTOM", 450, 600 )
-		else
-			G.UnitFrames["Arena" .. i]:SetPoint( "TOP", G.UnitFrames["Arena" .. i - 1], "BOTTOM", 0, -43 )
+	if( C["unitframes"]["arena"] == true ) then
+		for i = 1, 5 do
+			G.UnitFrames["Arena" .. i]:ClearAllPoints()
+			if( i == 1 ) then
+				G.UnitFrames["Arena" .. i]:SetPoint( "TOP", UIParent, "BOTTOM", 450, 600 )
+			else
+				G.UnitFrames["Arena" .. i]:SetPoint( "TOP", G.UnitFrames["Arena" .. i - 1], "BOTTOM", 0, -43 )
+			end
 		end
 	end
 end )
