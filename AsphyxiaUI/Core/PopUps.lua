@@ -23,7 +23,7 @@ S.CreatePopup["ASPHYXIAUI_ENABLE_CHAT_BACKGROUND"] = {
 }
 
 S.CreatePopup["ASPHYXIAUI_DISABLED_TUKUI_NAMEPLATES"] = {
-	question = L.Popups_DISABLED_TUKUI_NAMEPLATES,
+	question = L.Popups_DISABLE_TUKUI_NAMEPLATES,
 	answer1 = ACCEPT,
 	answer2 = CANCEL,
 	function1 = function()
