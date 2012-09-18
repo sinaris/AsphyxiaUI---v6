@@ -62,7 +62,7 @@ S.PostUpdateRaidUnit = function( self )
 	self.Health.bg:SetTexture( 0.6, 0.6, 0.6 )
 	self.Health.bg:SetVertexColor( 0, 0, 0 )
 
-	self.Health.value:Point( "CENTER", self.Health, 1, -5 )
+	self.Health.value:Point( "CENTER", self.Health, 1, -1 )
 	self.Health.value:SetFont( unpack( S.FontTemplate.UnitframesHealth.BuildFont ) )
 
 	self.Health.PostUpdate = S.PostUpdateHealthRaid
@@ -103,7 +103,7 @@ S.PostUpdateRaidUnit = function( self )
 	------------------------------
 	self.Name:SetParent( self.Health )
 	self.Name:ClearAllPoints()
-	self.Name:SetPoint( "TOP", 0, 8 )
+	self.Name:SetPoint( "TOP", 0, 18 )
 	self.Name:SetPoint( "BOTTOM" )
 	self.Name:SetPoint( "LEFT", 4, 0 )
 	self.Name:SetPoint( "RIGHT" )
