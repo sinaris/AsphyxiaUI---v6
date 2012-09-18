@@ -165,10 +165,10 @@ L.Faq_CONTENT_TEXT_FIELD_7_6 = "|cff00FFFFhttp://www.tukui.org/addons/index.php?
 
 L.Faq_CONTENT_TEXT_FIELD_8_1 = "First: Asphyxia, the creator of this UI. Thank you for this awesome job. I hope the 'new' AsphyxiaUI is that what you want."
 L.Faq_CONTENT_TEXT_FIELD_8_2 = "Other credits goes to the following addon creators:\n\n|cff00FFFFAchievementsScreenshot:|r Blamdarot\n|cff00FFFFAlertCombat:|r Alleykat\n|cff00FFFFAutoRole:|r iSpawnAtHome\n|cff00FFFFChatBar:|r Favorit\n|cff00FFFFClick2Cast:|r Fernir\n|cff00FFFFCombatText:|r Affli\n|cff00FFFFHatTrick:|r  tekkub\n|cff00FFFFItemLevelOnGearAndSlots:|r JerichoHM\n|cff00FFFFMail:|r Kemayo\n|cff00FFFFMicroMenu, MinimapButtons, RaidBuffReminder, SpellInterrupts:|r Elv22\n|cff00FFFFNickAlert:|r Hydra\n|cff00FFFFRaidCooldowns:|r Allez\n|cff00FFFFSpellAnnouncements:|r Duffed\n|cff00FFFFUnitframeFader:|r p3lim"
-L.Faq_CONTENT_TEXT_FIELD_8_3 = "Special thanks to: Asi, my forum bitch! xD Also i have to thank Nisha and BuG. Both people are very helpfull and helped me a lot to finish my work. I also have to say thanks to Slapaxx. He founds some other bugs and reported them very well. Great Guy. Thanks for helping me."
-L.Faq_CONTENT_TEXT_FIELD_8_4 = ""
-L.Faq_CONTENT_TEXT_FIELD_8_5 = "If i missed someone, let me know it and i will add them onto the list."
-L.Faq_CONTENT_TEXT_FIELD_8_6 = ""
+L.Faq_CONTENT_TEXT_FIELD_8_3 = "Special thanks to: Asi, my forum bitch! xD Also i have to thank Nisha and BuG. Both people are very helpfull and helped me a lot to finish my work."
+L.Faq_CONTENT_TEXT_FIELD_8_4 = "I also have to say thanks to Slapaxx. She founds some other bugs and reported them very well. Great Girl. Thanks for helping me."
+L.Faq_CONTENT_TEXT_FIELD_8_5 = ""
+L.Faq_CONTENT_TEXT_FIELD_8_6 = "If i missed someone, let me know it and i will add them onto the list."
 
 L.Faq_CONTENT_TEXT_FIELD_9_1 = ""
 L.Faq_CONTENT_TEXT_FIELD_9_2 = ""
