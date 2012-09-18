@@ -307,7 +307,7 @@ do
 
 				local maxHolyPower
 				if( S.level == MAX_PLAYER_LEVEL ) then
-					maxHolypower = 5
+					maxHolyPower = 5
 				else
 					maxHolyPower = 3
 				end
