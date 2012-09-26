@@ -833,7 +833,7 @@ if( C["combattext"]["damage"] ) then
 				else
 					msg = ""
 				end
-				xCT3:AddMessage( ACTION_SPELL_INTERRUPTS .. ": " .. effect .. msg, unpack( color ) )
+				xCT3:AddMessage( ACTION_SPELL_INTERRUPT .. ": " .. effect .. msg, unpack( color ) )
 			elseif( eventType == "PARTY_KILL" and C["combattext"]["killingblow"] ) then
 				local tname = select( 9, ... )
 				xCT3:AddMessage( ACTION_PARTY_KILL .. ": " .. tname, 0.2, 1, 0.2 )
