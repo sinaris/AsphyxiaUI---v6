@@ -48,9 +48,9 @@ GameTooltip:HookScript( "OnTooltipSetUnit", function( self )
 			if( not uspec ) then return end
 			local spec = SPEC_CORE_ABILITY_TEXT[select( 1, GetSpecializationInfo( uspec ) )]
 			local spellID
-			if( S.class == "DRUID" and S.level >= 87 and uclass ~= "DRUID" ) then
+			if( S.myclass == "DRUID" and S.level >= 87 and uclass ~= "DRUID" ) then
 				spellID = stabledruid[uclass][spec]
-			elseif( S.class ~= "DRUID" and ( uclass == "DRUID" and ulevel >= 87 ) ) then
+			elseif( S.myclass ~= "DRUID" and ( uclass == "DRUID" and ulevel >= 87 ) ) then
 				spellID = stable[S.myclass][spec]
 			end
 			local name = GetSpellInfo( spellID )
