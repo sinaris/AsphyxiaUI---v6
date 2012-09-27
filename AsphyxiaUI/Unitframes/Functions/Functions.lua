@@ -418,3 +418,9 @@ hooksecurefunc( S, "CheckChannel", function( self, unit, name, rank )
 		CheckInterrupt( self, unit )
 	end
 end )
+
+hooksecurefunc( S, "PostCreateAura", function( element, button )
+	if( C["global"]["globalstyle"] == "vethek" ) then
+		button.Glow:Kill()
+	end
+end )

@@ -7,6 +7,8 @@
 
 local S, C, L, G = unpack( Tukui )
 
+if( C["global"]["globalstyle"] ~= "asphyxia" ) then return end
+
 G.Maps.Minimap:ClearAllPoints()
 
 G.Maps.Minimap.Zone.Text:SetFont( unpack( S.FontTemplate.MinimapCords.BuildFont ) )

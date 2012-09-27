@@ -2,4 +2,6 @@
 	<Script file="Asphyxia\Datatext.lua" />
 	<Script file="Asphyxia\Layoutswitch.lua" />
 	<Script file="Asphyxia\Professions.lua" />
+
+	<Script file="Vethek\Datatext.lua" />
 </Ui>

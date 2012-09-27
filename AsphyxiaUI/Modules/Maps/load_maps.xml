@@ -1,3 +1,4 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/">
-	<Script file="Minimap.lua" />
+	<Script file="Asphyxia\Minimap.lua" />
+	<Script file="Vethek\Minimap.lua" />
 </Ui>

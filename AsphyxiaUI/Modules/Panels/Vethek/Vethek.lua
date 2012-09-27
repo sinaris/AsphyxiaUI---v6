@@ -60,3 +60,14 @@ G.Panels.DataTextLeft:Size( G.Panels.LeftChatBackground:GetWidth() - 10, 23 )
 G.Panels.DataTextLeft:Point( "BOTTOM", G.Panels.LeftChatBackground, "BOTTOM", 0, 5 )
 G.Panels.DataTextLeft:SetTemplate( "Transparent" )
 G.Panels.DataTextLeft:CreateOverlay( G.Panels.DataTextLeft )
+
+------------------------------
+-- Minimap
+------------------------------
+if( TukuiMinimap ) then
+	G.Panels.DataTextMinimapLeft:Size( ( ( TukuiMinimap:GetWidth() + 8 ) / 2 ), 19 )
+	G.Panels.DataTextMinimapLeft:CreateOverlay( G.Panels.DataTextMinimapLeft )
+
+	G.Panels.DataTextMinimapRight:Size( ( ( TukuiMinimap:GetWidth() + 8 ) / 2 ), 19 )
+	G.Panels.DataTextMinimapRight:CreateOverlay( G.Panels.DataTextMinimapRight )
+end

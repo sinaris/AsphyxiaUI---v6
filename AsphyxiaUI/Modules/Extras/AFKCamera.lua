@@ -14,7 +14,7 @@ local PLevel = S.level
 local PClass = UnitClass( "player" )
 local PRace = S.myrace
 local PFaction = S.myfaction
-local Puild
+local PGuild
 if( IsInGuild() ) then
 	PGuild = select( 1, GetGuildInfo( "player" ) )
 else

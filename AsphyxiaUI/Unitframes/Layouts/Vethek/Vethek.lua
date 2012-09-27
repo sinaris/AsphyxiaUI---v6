@@ -32,7 +32,7 @@ do
 		local VethekUnitframesClassbarBackground = CreateFrame( "Frame", "VethekUnitframesClassbarBackground", UIParent )
 		VethekUnitframesClassbarBackground:Size( G.ActionBars.Bar1:GetWidth(), 72 )
 		VethekUnitframesClassbarBackground:SetPoint( "BOTTOM", G.ActionBars.Bar1, "TOP", 0, 26 )
-		VethekUnitframesClassbarBackground:SetTemplate( "Transparent" )
+		VethekUnitframesClassbarBackground:SetTemplate( "Default" )
 	end
 
 	------------------------------
@@ -45,7 +45,7 @@ do
 		G.UnitFrames.Player.Health:SetStatusBarTexture( C["media"]["otravi"] )
 
 		if( C["unitframes"]["unicolor"] == true ) then
-			G.UnitFrames.Player.Health:SetStatusBarColor( .08, .08, .08, 1 )
+			G.UnitFrames.Player.Health:SetStatusBarColor( 0.08, 0.08, 0.08, 1 )
 			G.UnitFrames.Player.Health.bg:SetVertexColor( 1, 0, 0, 1 )
 			G.UnitFrames.Player.Health.bg:SetTexture( 254, 0, 0, 0.5 )
 		end
@@ -99,13 +99,6 @@ do
 	end
 
 	------------------------------
-	-- classicons
-	------------------------------
-	do
-
-	end
-
-	------------------------------
 	-- combat icon
 	------------------------------
 	do
@@ -149,6 +142,7 @@ do
 		if( S.level ~= MAX_PLAYER_LEVEL ) then
 			G.UnitFrames.Player.Experience:ClearAllPoints()
 			G.UnitFrames.Player.Experience:SetStatusBarColor( 0, 0.4, 1, 0.8 )
+			G.UnitFrames.Player.Experience:SetStatusBarTexture( C["media"]["otravi"] )
 
 			G.UnitFrames.Player.Experience:Size( G.Panels.LeftChatBackground:GetWidth() - 4, 2 )
 			G.UnitFrames.Player.Experience:Point( "BOTTOM", G.Panels.LeftChatBackground, "TOP", 0, 5 )
@@ -177,6 +171,7 @@ do
 	do
 		if( S.level == MAX_PLAYER_LEVEL ) then
 			G.UnitFrames.Player.Reputation:ClearAllPoints()
+			G.UnitFrames.Player.Reputation:SetStatusBarTexture( C["media"]["otravi"] )
 
 			G.UnitFrames.Player.Reputation:Size( G.Panels.LeftChatBackground:GetWidth() - 4, 2 )
 			G.UnitFrames.Player.Reputation:Point( "BOTTOM", G.Panels.LeftChatBackground, "TOP", 0, 5 )
@@ -243,7 +238,6 @@ do
 
 				G.UnitFrames.Player.EclipseBar.LunarBar:SetStatusBarTexture( C["media"]["otravi"] )
 				G.UnitFrames.Player.EclipseBar.SolarBar:SetStatusBarTexture( C["media"]["otravi"] )
-				
 
 				G.UnitFrames.Player.EclipseBar.Text:ClearAllPoints()
 				G.UnitFrames.Player.EclipseBar.Text:SetPoint( "TOP", G.UnitFrames.Player.EclipseBar, 0, 25 )
@@ -615,8 +609,9 @@ do
 	do
 		if( C["unitframes"]["unitcastbar"] == true ) then
 			G.UnitFrames.Player.Castbar:ClearAllPoints()
-			G.UnitFrames.Player.Castbar:Point( "TOPRIGHT", G.UnitFrames.Player, "BOTTOMRIGHT", 0, -7 )
+			G.UnitFrames.Player.Castbar:Point( "TOPRIGHT", G.UnitFrames.Player, "BOTTOMRIGHT", 0, -5 )
 			G.UnitFrames.Player.Castbar:CreateBackdrop( "Default" )
+			G.UnitFrames.Player.Castbar:SetStatusBarTexture( C["media"]["otravi"] )
 			G.UnitFrames.Player.Castbar.bg:SetVertexColor( 254, 0, 0, 1 )
 
 			G.UnitFrames.Player.Castbar.PostCastStart = S.CheckCast
@@ -633,14 +628,14 @@ do
 			G.UnitFrames.Player.Castbar.Text:SetShadowOffset( 0, 0 )
 
 			if( C["unitframes"]["cbicons"] == true ) then
-				G.UnitFrames.Player.Castbar:Size( G.UnitFrames.Player:GetWidth() - 38, 14 )
+				G.UnitFrames.Player.Castbar:Size( G.UnitFrames.Player:GetWidth() - 34, 12 )
 
 				G.UnitFrames.Player.Castbar.button:ClearAllPoints()
-				G.UnitFrames.Player.Castbar.button:SetPoint( "RIGHT", G.UnitFrames.Player.Castbar, "LEFT", -5, 0 )
-				G.UnitFrames.Player.Castbar.button:Size( 18 )
+				G.UnitFrames.Player.Castbar.button:SetPoint( "RIGHT", G.UnitFrames.Player.Castbar, "LEFT", -3, 0 )
+				G.UnitFrames.Player.Castbar.button:Size( 16 )
 				G.UnitFrames.Player.Castbar.button.shadow:Kill()
 			else
-				G.UnitFrames.Player.Castbar:Size( G.UnitFrames.Player:GetWidth() - 17, 14 )
+				G.UnitFrames.Player.Castbar:Size( G.UnitFrames.Player:GetWidth() - 17, 12 )
 			end
 
 			if( C["unitframes"]["cblatency"] == true ) then
@@ -677,29 +672,207 @@ do
 	end
 end
 
+------------------------------
+-- Target
+------------------------------
+do
+	------------------------------
+	-- not needed
+	------------------------------
+	do
+		G.UnitFrames.Target:SetBackdrop( nil )
+		G.UnitFrames.Target:SetBackdropColor( 0, 0, 0 )
+		G.UnitFrames.Target.shadow:Kill()
+		G.UnitFrames.Target.panel:Kill()
+	end
 
+	------------------------------
+	-- health
+	------------------------------
+	do
+		G.UnitFrames.Target.Health:Size( 233, 19 )
+		G.UnitFrames.Target.Health:SetFrameLevel( 5 )
+		G.UnitFrames.Target.Health:CreateBackdrop( "Default" )
+		G.UnitFrames.Target.Health:SetStatusBarTexture( C["media"]["otravi"] )
 
+		if( C["unitframes"]["unicolor"] == true ) then
+			G.UnitFrames.Target.Health:SetStatusBarColor( 0.08, 0.08, 0.08, 1 )
+			G.UnitFrames.Target.Health.bg:SetVertexColor( 1, 0, 0, 1 )
+			G.UnitFrames.Target.Health.bg:SetTexture( 254, 0, 0, 0.5 )
+		end
 
+		G.UnitFrames.Target.Name:SetFont( unpack( S.FontTemplate.UnitframesName.BuildFont ) )
+		G.UnitFrames.Target.Name:SetShadowOffset( 0, 0 )
 
+		G.UnitFrames.Target.Health.value = S.SetFontString( G.UnitFrames.Target.Health, unpack( S.FontTemplate.UnitframesHealth.BuildFont ) )
+		G.UnitFrames.Target.Health.value:Point( "RIGHT", G.UnitFrames.Target.Health, "RIGHT", -4, 1 )
+		G.UnitFrames.Target.Health.value:SetShadowOffset( 0, 0 )
 
+		G.UnitFrames.Target.Health.PostUpdate = S.PostUpdateHealth
 
+		G.UnitFrames.Target:Tag( G.UnitFrames.Target.Name, "[Tukui:nameshort] [Tukui:diffcolor][level] [shortclassification]" )
+		G.UnitFrames.Target.Name:SetTextColor( 254, 0, 0, 1 )
+	end
 
+	------------------------------
+	-- power
+	------------------------------
+	do
+		G.UnitFrames.Target.Power:Size( 233, 2 )
+		G.UnitFrames.Target.Power:ClearAllPoints()
+		G.UnitFrames.Target.Power:Point( "TOPRIGHT", G.UnitFrames.Target.Health, "BOTTOMRIGHT", 0, -5 )
+		G.UnitFrames.Target.Power:SetFrameLevel( G.UnitFrames.Target.Health:GetFrameLevel() + 2 )
+		G.UnitFrames.Target.Power:CreateBackdrop( "Default" )
+		G.UnitFrames.Target.Power:SetStatusBarTexture( C["media"]["otravi"] )
 
+		G.UnitFrames.Target.Power.colorClass = false
+		G.UnitFrames.Target.Power.bg:SetVertexColor( 0, 0, 0, 1 )
 
+		G.UnitFrames.Target.Power.PreUpdate = S.PreUpdatePower
+		G.UnitFrames.Target.Power.PostUpdate = S.PostUpdatePower
 
+		G.UnitFrames.Target.Power.value = S.SetFontString( G.UnitFrames.Target.Health, unpack( S.FontTemplate.UnitframesPower.BuildFont ) )
+		G.UnitFrames.Target.Power.value:Point( "LEFT", G.UnitFrames.Target.Health, "LEFT", 2, 1 )
+		G.UnitFrames.Target.Power.value:SetShadowOffset( 0, 0 )
+	end
 
+	------------------------------
+	-- portraits
+	------------------------------
+	do
+		if( C["unitframes"]["charportrait"] == true ) then
+			G.UnitFrames.Target.Portrait:ClearAllPoints()
+			G.UnitFrames.Target.Portrait:SetAllPoints( G.UnitFrames.Target.Health )
+			G.UnitFrames.Target.Portrait:SetAlpha( 0.2 )
+			G.UnitFrames.Target.Portrait.SetAlpha = S.dummy
+			G.UnitFrames.Target.Portrait:SetFrameLevel( G.UnitFrames.Target.Health:GetFrameLevel() )
+			G.UnitFrames.Target.Portrait.SetFrameLevel = S.dummy
 
+			G.UnitFrames.Target.Health:ClearAllPoints()
+			G.UnitFrames.Target.Health:SetPoint( "TOPLEFT", 0, 0 )
+			G.UnitFrames.Target.Health:SetPoint( "TOPRIGHT" )
+		end
+	end
 
+	------------------------------
+	-- combat feedback
+	------------------------------
+	do
+		if( C["unitframes"]["combatfeedback"] == true ) then
+			G.UnitFrames.Target.CombatFeedbackText:SetFont( unpack( S.FontTemplate.UnitframesDefault.BuildFont ) )
+		end
+	end
 
+	------------------------------
+	-- castbar
+	------------------------------
+	do
+		if( C["unitframes"]["unitcastbar"] == true ) then
+			G.UnitFrames.Target.Castbar:ClearAllPoints()
+			G.UnitFrames.Target.Castbar:Point( "TOPLEFT", G.UnitFrames.Target, "BOTTOMLEFT", 0, -5 )
+			G.UnitFrames.Target.Castbar:CreateBackdrop( "Default" )
+			G.UnitFrames.Target.Castbar:SetStatusBarTexture( C["media"]["otravi"] )
+			G.UnitFrames.Target.Castbar.bg:SetVertexColor( 254, 0, 0, 1 )
 
+			G.UnitFrames.Target.Castbar.PostCastStart = S.CheckCast
+			G.UnitFrames.Target.Castbar.PostChannelStart = S.CheckChannel
 
+			if( C["unitframes"]["cbicons"] == true ) then
+				G.UnitFrames.Target.Castbar:Size( G.UnitFrames.Target:GetWidth() - 34, 12 )
 
+				G.UnitFrames.Target.Castbar.button:ClearAllPoints()
+				G.UnitFrames.Target.Castbar.button:SetPoint( "LEFT", G.UnitFrames.Target.Castbar, "RIGHT", 3, 0 )
+				G.UnitFrames.Target.Castbar.button:Size( 16 )
+				G.UnitFrames.Target.Castbar.button.shadow:Kill()
+			else
+				G.UnitFrames.Target.Castbar:Size( G.UnitFrames.Target:GetWidth() - 17, 12 )
+			end
 
+			G.UnitFrames.Target.Castbar.Time = S.SetFontString( G.UnitFrames.Target.Castbar, unpack( S.FontTemplate.UnitframesDefault.BuildFont ) )
+			G.UnitFrames.Target.Castbar.Time:Point( "RIGHT", G.UnitFrames.Target.Castbar, "RIGHT", -2, 1 )
+			G.UnitFrames.Target.Castbar.Time:SetTextColor( 1, 1, 1 )
+			G.UnitFrames.Target.Castbar.Time:SetShadowOffset( 0, 0 )
 
+			G.UnitFrames.Target.Castbar.Text = S.SetFontString( G.UnitFrames.Target.Castbar, unpack( S.FontTemplate.UnitframesDefault.BuildFont ) )
+			G.UnitFrames.Target.Castbar.Text:Point( "LEFT", G.UnitFrames.Target.Castbar, "LEFT", 2, 1 )
+			G.UnitFrames.Target.Castbar.Text:SetTextColor( 1, 1, 1 )
+			G.UnitFrames.Target.Castbar.Text:SetShadowOffset( 0, 0 )
+		end
+	end
 
+	------------------------------
+	-- buffs, debuffs
+	------------------------------
+	do
+		if( C["unitframes"]["targetauras"] == true ) then
+			G.UnitFrames.Target.Debuffs:SetHeight( 27 )
+			G.UnitFrames.Target.Debuffs:SetWidth( 230 )
+			G.UnitFrames.Target.Debuffs.size = 27
+			G.UnitFrames.Target.Debuffs.num = 8
+			G.UnitFrames.Target.Debuffs.spacing = 3
 
+			G.UnitFrames.Target.Buffs:SetHeight( 27 )
+			G.UnitFrames.Target.Buffs:SetWidth( 230 )
+			G.UnitFrames.Target.Buffs.size = 27
+			G.UnitFrames.Target.Buffs.num = 8
+			G.UnitFrames.Target.Buffs.spacing = 3
 
+			G.UnitFrames.Target.Buffs:ClearAllPoints()
+			G.UnitFrames.Target.Buffs:Point( "BOTTOMLEFT", G.UnitFrames.Target, "TOPLEFT", -2, 5 )
+			G.UnitFrames.Target.Buffs.ClearAllPoints = S.dummy
+			G.UnitFrames.Target.Buffs.SetPoint = S.dummy
 
+			G.UnitFrames.Target.Debuffs:ClearAllPoints()
+			G.UnitFrames.Target.Debuffs:Point( "BOTTOMRIGHT", G.UnitFrames.Target.Buffs, "TOPRIGHT", 7, 3 )
+			G.UnitFrames.Target.Debuffs.ClearAllPoints = S.dummy
+			G.UnitFrames.Target.Debuffs.SetPoint = S.dummy
+
+			if( G.UnitFrames.Target.Buffs or G.UnitFrames.Target.Debuffs ) then
+				for _, frames in pairs( { G.UnitFrames.Target.Buffs, G.UnitFrames.Target.Debuffs } ) do
+					if( not frames ) then return end
+
+					frames:Size( 230, 27 )
+					frames.size = 27
+					frames.num = 8
+
+					hooksecurefunc( frames, "PostCreateIcon", S.SkinAura )
+				end
+			end
+
+			G.UnitFrames.Target.Buffs.PostCreateIcon = S.PostCreateAura
+			G.UnitFrames.Target.Buffs.PostUpdateIcon = S.PostUpdateAura
+			G.UnitFrames.Target.Debuffs.PostCreateIcon = S.PostCreateAura
+			G.UnitFrames.Target.Debuffs.PostUpdateIcon = S.PostUpdateAura
+		end
+	end
+
+	------------------------------
+	-- fader
+	------------------------------
+	do
+		if( C["unitframes"]["fader"] == true ) then
+			G.UnitFrames.Target.FadeCasting = true
+			G.UnitFrames.Target.FadeCombat = true
+			G.UnitFrames.Target.FadeTarget = true
+			G.UnitFrames.Target.FadeHealth = true
+			G.UnitFrames.Target.FadePower = true
+			G.UnitFrames.Target.FadeHover = true
+
+			G.UnitFrames.Target.FadeSmooth = 0.5
+			G.UnitFrames.Target.FadeMinAlpha = 0.3
+			G.UnitFrames.Target.FadeMaxAlpha = 1
+
+			G.UnitFrames.Target:EnableElement( "Fader" )
+		end
+	end
+
+	------------------------------
+	-- size
+	------------------------------
+	do
+		G.UnitFrames.Target:Size( 233, 26 )
+	end
+end
 
 ------------------------------
 -- Position
@@ -715,27 +888,31 @@ FramePositions:SetScript( "OnEvent", function( self, event, addon )
 	G.UnitFrames.FocusTarget:ClearAllPoints()
 
 	G.UnitFrames.Player:SetPoint( "TOPRIGHT", VethekUnitframesClassbarBackground, "TOPLEFT", -5, -2 )
-	G.UnitFrames.Target:SetPoint( "TOP", UIParent, "BOTTOM", 170 , 260 )
+	G.UnitFrames.Target:SetPoint( "TOPLEFT", VethekUnitframesClassbarBackground, "TOPRIGHT", 5, -2 )
 	G.UnitFrames.TargetTarget:SetPoint( "TOPRIGHT", G.UnitFrames.Target, "BOTTOMRIGHT", 0, -49 )
 	G.UnitFrames.Pet:SetPoint( "TOPLEFT", G.UnitFrames.Player, "BOTTOMLEFT", 0, -49 )
 	G.UnitFrames.Focus:SetPoint( "TOP", UIParent, "BOTTOM", -450, 600 )
 	G.UnitFrames.FocusTarget:SetPoint( "TOP", G.UnitFrames.Focus, "BOTTOM", 0 , -43 )
 
-	for i = 1, MAX_BOSS_FRAMES do
-		G.UnitFrames["Boss" .. i]:ClearAllPoints()
-		if( i == 1 ) then
-			G.UnitFrames["Boss" .. i]:SetPoint( "TOP", UIParent, "BOTTOM", 450, 600 )
-		else
-			G.UnitFrames["Boss" .. i]:SetPoint( "TOP", G.UnitFrames["Boss" .. i - 1], "BOTTOM", 0, -43 )
+	if( C["unitframes"]["showboss"] == true ) then
+		for i = 1, MAX_BOSS_FRAMES do
+			G.UnitFrames["Boss" .. i]:ClearAllPoints()
+			if( i == 1 ) then
+				G.UnitFrames["Boss" .. i]:SetPoint( "TOP", UIParent, "BOTTOM", 450, 600 )
+			else
+				G.UnitFrames["Boss" .. i]:SetPoint( "TOP", G.UnitFrames["Boss" .. i - 1], "BOTTOM", 0, -43 )
+			end
 		end
 	end
 
-	for i = 1, 5 do
-		G.UnitFrames["Arena" .. i]:ClearAllPoints()
-		if( i == 1 ) then
-			G.UnitFrames["Arena" .. i]:SetPoint( "TOP", UIParent, "BOTTOM", 450, 600 )
-		else
-			G.UnitFrames["Arena" .. i]:SetPoint( "TOP", G.UnitFrames["Arena" .. i - 1], "BOTTOM", 0, -43 )
+	if( C["unitframes"]["arena"] == true ) then
+		for i = 1, 5 do
+			G.UnitFrames["Arena" .. i]:ClearAllPoints()
+			if( i == 1 ) then
+				G.UnitFrames["Arena" .. i]:SetPoint( "TOP", UIParent, "BOTTOM", 450, 600 )
+			else
+				G.UnitFrames["Arena" .. i]:SetPoint( "TOP", G.UnitFrames["Arena" .. i - 1], "BOTTOM", 0, -43 )
+			end
 		end
 	end
 end )
