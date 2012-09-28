@@ -16,6 +16,7 @@ C["addonskins"] = {
 	["dbm"] = true,
 	["omen"] = true,
 	["tinydps"] = true,
+	["skada"] = true,
 }
 
 C["global"] = {
