@@ -1,4 +1,4 @@
-﻿local S, C, L, G  = unpack( Tukui )
+local S, C, L, G  = unpack( Tukui )
 
 if( C["nameplate"].enable == true ) then return end
 
@@ -253,6 +253,8 @@ end
 
 local function OnHide( frame )
 	frame.hp:SetStatusBarColor( frame.hp.rcolor, frame.hp.gcolor, frame.hp.bcolor )
+	frame.hp.name:SetTextColor(1, 1, 1)
+	frame.hp:SetScale(1)
 	frame.overlay:Hide()
 	frame.cb:Hide()
 	frame.unit = nil
@@ -319,18 +321,22 @@ local function UpdateObjects( frame )
 	frame.hp:SetValue( frame.healthOriginal:GetValue() - 1 )
 	frame.hp:SetValue( frame.healthOriginal:GetValue() )
 
-	Colorize( frame )
-	frame.hp.rcolor, frame.hp.gcolor, frame.hp.bcolor = frame.hp:GetStatusBarColor()
-	frame.hp.hpbg:SetTexture( frame.hp.rcolor, frame.hp.gcolor, frame.hp.bcolor, 0.25 )
+	--Colorize( frame )
+	--frame.hp.rcolor, frame.hp.gcolor, frame.hp.bcolor = frame.hp:GetStatusBarColor()
+	--frame.hp.hpbg:SetTexture( frame.hp.rcolor, frame.hp.gcolor, frame.hp.bcolor, 0.25 )
 	SetVirtualBorder( frame.hp, unpack( C["media"]["bordercolor"] ) )
-	if( C["nameplate"]["enhancethreat"] == true ) then
-		frame.hp.name:SetTextColor( frame.hp.rcolor, frame.hp.gcolor, frame.hp.bcolor )
-	end
+	--if( C["nameplate"]["enhancethreat"] == true ) then
+	--	frame.hp.name:SetTextColor( frame.hp.rcolor, frame.hp.gcolor, frame.hp.bcolor )
+	--end
 
 	if( C["nameplate"]["nameabbrev"] == true and C["nameplate"]["debuffs"] ~= true ) then
 		frame.hp.name:SetText( Abbrev( frame.hp.oldname:GetText() ) )
 	else
 		frame.hp.name:SetText( frame.hp.oldname:GetText() )
+	end
+
+	while frame.hp:GetEffectiveScale() < 1 do
+		frame.hp:SetScale(frame.hp:GetScale() + 0.01)
 	end
 
 	local level, elite, mylevel = tonumber( frame.hp.oldlevel:GetText() ), frame.hp.elite:IsShown(), UnitLevel( "player" )
@@ -366,9 +372,10 @@ local function UpdateObjects( frame )
 	HideObjects(frame)
 end
 
-local function SkinObjects(frame)
+local function SkinObjects(frame, nameFrame)
 	local oldhp, cb = frame:GetChildren()
-	local threat, hpborder, overlay, oldname, oldlevel, bossicon, raidicon, elite = frame:GetRegions()
+	local threat, hpborder, overlay, oldlevel, bossicon, raidicon, elite = frame:GetRegions()
+	local oldname = nameFrame:GetRegions()
 	local _, cbborder, cbshield, cbicon = cb:GetRegions()
 
 	frame.healthOriginal = oldhp
@@ -408,10 +415,14 @@ local function SkinObjects(frame)
 
 	hp.hpbg = hp:CreateTexture( nil, "BORDER" )
 	hp.hpbg:SetAllPoints( hp )
-	hp.hpbg:SetTexture( 1, 1, 1, 0.25 )
+	hp.hpbg:SetTexture(unpack(C.media.backdropcolor))
 
 	hp:HookScript( "OnShow", UpdateObjects )
 	frame.hp = hp
+
+	if not frame.threat then
+		frame.threat = threat
+	end
 
 	cb:SetStatusBarTexture( C["media"]["normTex"] )
 	CreateVirtualFrame( cb )
@@ -476,53 +487,18 @@ local function SkinObjects(frame)
 	frames[frame] = true
 end
 
-local goodR, goodG, goodB = unpack( C["nameplate"]["goodcolor"] )
-local badR, badG, badB = unpack( C["nameplate"]["badcolor"] )
-local transitionR, transitionG, transitionB = unpack( C["nameplate"]["transitioncolor"] )
 local function UpdateThreat( frame, elapsed )
 	frame.hp:Show()
 	if( frame.hasClass == true ) then return end
 
-	if( C["nameplate"]["enhancethreat"] ~= true ) then
-		if( frame.region:IsShown() ) then
-			local _, val = frame.region:GetVertexColor()
-			if( val > 0.7 ) then
-				SetVirtualBorder( frame.hp, transitionR, transitionG, transitionB )
-			else
-				SetVirtualBorder( frame.hp, badR, badG, badB )
-			end
+	if frame.threat:IsShown() then
+		if Role == "TANK" then
+			frame.hp.name:SetTextColor(0, 1, 0)
 		else
-			SetVirtualBorder( frame.hp, unpack( C["media"]["bordercolor"] ) )
+			frame.hp.name:SetTextColor(1, 0, 0)
 		end
 	else
-		if( not frame.region:IsShown() ) then
-			if( InCombatLockdown() and frame.isFriendly ~= true ) then
-				if( S.Role == "Tank" ) then
-					frame.hp:SetStatusBarColor( badR, badG, badB )
-					frame.hp.hpbg:SetTexture( badR, badG, badB, 0.25 )
-				else
-					frame.hp:SetStatusBarColor( goodR, goodG, goodB )
-					frame.hp.hpbg:SetTexture( goodR, goodG, goodB, 0.25 )
-				end
-			else
-				frame.hp:SetStatusBarColor( frame.hp.rcolor, frame.hp.gcolor, frame.hp.bcolor )
-				frame.hp.hpbg:SetTexture( frame.hp.rcolor, frame.hp.gcolor, frame.hp.bcolor, 0.25 )
-			end
-		else
-			local r, g, b = frame.region:GetVertexColor()
-			if( g + b == 0 ) then
-				if( S.Role == "Tank" ) then
-					frame.hp:SetStatusBarColor( goodR, goodG, goodB )
-					frame.hp.hpbg:SetTexture( goodR, goodG, goodB, 0.25 )
-				else
-					frame.hp:SetStatusBarColor( badR, badG, badB )
-					frame.hp.hpbg:SetTexture( badR, badG, badB, 0.25 )
-				end
-			else
-				frame.hp:SetStatusBarColor( transitionR, transitionG, transitionB )
-				frame.hp.hpbg:SetTexture( transitionR, transitionG, transitionB, 0.25 )
-			end
-		end
+		frame.hp.name:SetTextColor(1, 1, 1)
 	end
 end
 
@@ -605,7 +581,7 @@ end
 
 local function ForEachPlate( functionToRun, ... )
 	for frame in pairs( frames ) do
-		if( frame:IsShown() ) then
+		if frame and frame:IsShown() then
 			functionToRun( frame, ... )
 		end
 	end
@@ -617,9 +593,8 @@ local function HookFrames( ... )
 		local frame = select( index, ... )
 		local region = frame:GetRegions()
 
-		if( not frames[frame] and ( frame:GetName() and not frame.isSkinned and frame:GetName():find( "NamePlate%d" ) ) and region and region:GetObjectType() == "Texture" ) then
-			SkinObjects( frame )
-			frame.region = region
+		if(not frames[frame] and (frame:GetName() and not frame.isSkinned and frame:GetName():find("NamePlate%d"))) then
+			SkinObjects(frame:GetChildren())
 			frame.isSkinned = true
 		end
 	end
@@ -632,7 +607,9 @@ NamePlates:SetScript( "OnUpdate", function( self, elapsed )
 	end
 
 	if( self.elapsed and self.elapsed > 0.2 ) then
-		ForEachPlate( UpdateThreat, self.elapsed )
+		if C.nameplate.enhancethreat then
+			ForEachPlate(UpdateThreat, self.elapsed)
+		end
 		ForEachPlate( AdjustNameLevel )
 		self.elapsed = 0
 	else
@@ -643,6 +620,7 @@ NamePlates:SetScript( "OnUpdate", function( self, elapsed )
 	ForEachPlate( CheckBlacklist )
 	ForEachPlate( HideDrunkenText )
 	ForEachPlate( CheckUnit_Guid )
+	ForEachPlate(Colorize)
 end)
 
 function NamePlates:COMBAT_LOG_EVENT_UNFILTERED( _, event, ... )
