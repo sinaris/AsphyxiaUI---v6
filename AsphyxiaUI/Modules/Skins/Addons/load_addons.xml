@@ -5,4 +5,5 @@
 	<Script file="Omen.lua" />
 	<Script file="TinyDPS.lua" />
 	<Script file="Coolline.lua" />
+	<Script file="Skada.lua" />
 </Ui>
